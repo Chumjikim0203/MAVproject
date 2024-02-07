@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Store 
 {
-	private String storeId; // 업체ID
+	private String storeId; // 업체 ID
 	private String storeName; // 업체명
 	private String storeAddr; // 업체 주소
 	private String storeCategory; // 업체 종목

@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Tournament 
 {
-	private String tournamentId; // 토너먼트ID
+	private String tournamentId; // 토너먼트 ID
 	private int tournamentReword; // 토너먼트 상금
 	private int tournamentPrice; // 토너먼트 참가비
 	private Date tournamentDate; // 토너먼트 날짜

@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Club 
 {
-	private String clubId; // 동호회 아이디
+	private String clubId; // 동호회아이디
 	private String clubName; // 동호회명
 	private int clubPoint; // 동호회 포인트
 	private String clubGrade; // 동호회원 등급

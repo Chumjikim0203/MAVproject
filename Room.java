@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Room 
 {
-	private String roomId; // 경기장 ID
+	private String roomId; // 경기장ID
 	private int roomCapacity; // 경기장 수용인원
 	private int roomCount; // 경기장 참가인원
 	private String roomCategory; // 경기장 종목(종류)
@@ -15,7 +15,7 @@ public class Room
 	
 	public String getRoomId() {
 		return roomId;
-	} 
+	}
 	public void setRoomId(String roomId) {
 		this.roomId = roomId;
 	}

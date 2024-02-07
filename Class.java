@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Class // 강사 전화번호를 개인회원 전화번호로 당겨올거 같아서 아직 getter/setter 하지 않음 회의 후 결정할것 
 {
-	private String classId; // 클래스아이디
+	private String classId; // 클래스 아이디
 	private Time classLecturetime; // 강의 시간
 	private Date classLecturedate; // 강의 날짜
 	private int classNumberOfStudents; // 강의 수강 인원

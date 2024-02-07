@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Match 
 {
-	private long matchId; // 매칭ID
+	private long matchId; // 매칭 ID
 	private Date matchDate; // 매칭 날짜
 	private Time matchTime; // 매칭 시간
 	private String matchResult; // 매칭 결과

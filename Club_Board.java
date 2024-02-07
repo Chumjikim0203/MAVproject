@@ -2,7 +2,7 @@ package com.springmvc.domain;
 
 public class Club_Board 
 {
-	private long boardId; // 게시판 ID
+	private long boardId; // 게시판ID
 	private String boardTitle; // 게시글 제목
 	private String boardDetail; // 게시글 내용
 	private int boardViews; // 게시글 조회수
