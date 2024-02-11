@@ -7,5 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member")
 public class MemberController 
 {
-	
+	@RequestMapping("/add")
+	public String addMember()
+	{
+		return "test";
+	}
 }
