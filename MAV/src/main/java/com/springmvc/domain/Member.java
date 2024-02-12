@@ -9,9 +9,9 @@ public class Member
 	private String memberName; // 멤버 이름
 	private Date memberBirth; // 멤버 생년월일
 	private String memberAddr; // 멤버 주소
-	private int memberPhone01; // 멤버 핸드폰 첫번째
-	private int memberPhone02; // 멤버 핸드폰 두번째
-	private int memberPhone03; // 멤버 핸드폰 세번째
+	private String memberPhone01; // 멤버 핸드폰 첫번째
+	private String memberPhone02; // 멤버 핸드폰 두번째
+	private String memberPhone03; // 멤버 핸드폰 세번째
 	private String memberGender; // 멤버 성별
 	private String memberEmail; // 멤버 이메일
 	private boolean memberTeacherApprove; // 강사 신청 승인
@@ -75,22 +75,22 @@ public class Member
 	public void setMemberAddr(String memberAddr) {
 		this.memberAddr = memberAddr;
 	}
-	public int getMemberPhone01() {
+	public String getMemberPhone01() {
 		return memberPhone01;
 	}
-	public void setMemberPhone01(int memberPhone01) {
+	public void setMemberPhone01(String memberPhone01) {
 		this.memberPhone01 = memberPhone01;
 	}
-	public int getMemberPhone02() {
+	public String getMemberPhone02() {
 		return memberPhone02;
 	}
-	public void setMemberPhone02(int memberPhone02) {
+	public void setMemberPhone02(String memberPhone02) {
 		this.memberPhone02 = memberPhone02;
 	}
-	public int getMemberPhone03() {
+	public String getMemberPhone03() {
 		return memberPhone03;
 	}
-	public void setMemberPhone03(int memberPhone03) {
+	public void setMemberPhone03(String memberPhone03) {
 		this.memberPhone03 = memberPhone03;
 	}
 	public String getMemberGender() {
