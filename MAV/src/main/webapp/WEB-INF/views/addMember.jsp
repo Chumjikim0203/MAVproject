@@ -84,7 +84,6 @@
                             <select class="form-select" aria-label="Default select example" id="phone01">
                                 <option selected value="010">010</option>
                                 <option value="011">011</option>
-                                <option value="018">018</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-3">

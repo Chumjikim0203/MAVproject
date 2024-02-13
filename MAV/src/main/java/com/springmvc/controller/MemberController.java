@@ -37,4 +37,9 @@ public class MemberController
 	{
 		return "redirect:/login";
 	}
+	@GetMapping("/mypage")
+	public String myPage()
+	{
+		return "mypage";
+	}
 }
