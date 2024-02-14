@@ -1,13 +1,18 @@
 package com.springmvc.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Member 
 {
 	private String memberId; // 멤버 ID
 	private String memberPassword; // 멤버 비밀번호
-	private String memberName; // 멤버 이름
-	private Date memberBirth; // 멤버 생년월일
+	private String memberName; // 멤버 이름	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate memberBirth; // 멤버 생년월일	
+	private String viewBirth; // 보여주기위한 임시 생년월일
 	private String memberAddr; // 멤버 주소
 	private String memberPhone01; // 멤버 핸드폰 첫번째
 	private String memberPhone02; // 멤버 핸드폰 두번째
@@ -16,9 +21,48 @@ public class Member
 	private String memberEmail; // 멤버 이메일
 	private boolean memberTeacherApprove; // 강사 신청 승인
 	private boolean memberStoreApprove; // 업체 신청 승인
-	private boolean memberClubApprove; // 동호회원 신청 승인
-	private boolean memberClubManagerApprove; // 동호회장 신청 승인
+	private boolean memberClubMemberApprove; // 동호회원 신청 승인
+	private boolean memberClubApprove; // 동호회 신청 승인
+
 	
+	public Member()
+	{
+		
+	}
+	
+	public Member(String memberId, String memberPassword, String memberName, LocalDate memberBirth, String viewBirth,
+			String memberAddr, String memberPhone01, String memberPhone02, String memberPhone03, String memberGender,
+			String memberEmail, boolean memberTeacherApprove, boolean memberStoreApprove, boolean memberClubApprove,
+			boolean memberClubMemberApprove) {
+		super();
+		this.memberId = memberId;
+		this.memberPassword = memberPassword;
+		this.memberName = memberName;
+		this.memberBirth = memberBirth;
+		this.viewBirth = viewBirth;
+		this.memberAddr = memberAddr;
+		this.memberPhone01 = memberPhone01;
+		this.memberPhone02 = memberPhone02;
+		this.memberPhone03 = memberPhone03;
+		this.memberGender = memberGender;
+		this.memberEmail = memberEmail;
+		this.memberTeacherApprove = memberTeacherApprove;
+		this.memberStoreApprove = memberStoreApprove;
+		this.memberClubApprove = memberClubApprove;
+		this.memberClubMemberApprove = memberClubMemberApprove;
+	}
+
+
+	public String getViewBirth() {
+		return viewBirth;
+	}
+
+
+	public void setViewBirth(String viewBirth) {
+		this.viewBirth = viewBirth;
+	}
+
+
 	public boolean isMemberTeacherApprove() {
 		return memberTeacherApprove;
 	}
@@ -37,11 +81,11 @@ public class Member
 	public void setMemberClubApprove(boolean memberClubApprove) {
 		this.memberClubApprove = memberClubApprove;
 	}
-	public boolean isMemberClubManagerApprove() {
-		return memberClubManagerApprove;
+	public boolean ismemberClubMemberApprove() {
+		return memberClubMemberApprove;
 	}
-	public void setMemberClubManagerApprove(boolean memberClubManagerApprove) {
-		this.memberClubManagerApprove = memberClubManagerApprove;
+	public void setmemberClubMemberApprove(boolean memberClubManagerApprove) {
+		this.memberClubMemberApprove = memberClubManagerApprove;
 	}
 	public String getMemberId()  
 	{
@@ -63,10 +107,10 @@ public class Member
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
-	public Date getMemberBirth() {
+	public LocalDate getMemberBirth() {
 		return memberBirth;
 	}
-	public void setMemberBirth(Date memberBirth) {
+	public void setMemberBirth(LocalDate memberBirth) {
 		this.memberBirth = memberBirth;
 	}
 	public String getMemberAddr() {

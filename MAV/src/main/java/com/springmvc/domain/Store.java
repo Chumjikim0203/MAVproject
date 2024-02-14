@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Store 
 {
-	private long storeId; // 업체 ID
+	private String storeId; // 업체 ID
 	private String storeName; // 업체명
 	private String storeAddr; // 업체 주소
 	private String storeCategory; // 업체 종목
@@ -30,10 +30,10 @@ public class Store
 	public void setStoreNotice(String storeNotice) {
 		this.storeNotice = storeNotice;
 	}
-	public long getStoreId() {
+	public String getStoreId() {
 		return storeId;
 	}
-	public void setStoreId(long storeId) {
+	public void setStoreId(String storeId) {
 		this.storeId = storeId;
 	}
 	public String getStoreName() {

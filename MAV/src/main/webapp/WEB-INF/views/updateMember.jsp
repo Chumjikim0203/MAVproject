@@ -17,6 +17,12 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+		function goBack() 
+		{
+		    window.history.back();
+		}
+	</script>
   </head>
   <body>
     <div class="main-container">
@@ -62,8 +68,8 @@
         <div class="container">
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
-                    <h4 class="mb-3">회원가입</h4>
-                    <form:form modelAttribute="member" class="form-horizontal" action="../add/member" method="post">
+                    <h4 class="mb-3">회원 정보 수정</h4>
+                    <form:form modelAttribute="member" class="form-horizontal" action="../update/member" method="post">
 						<fieldset>
 					 	<div class="row">
 	                      	<div class="col-md-6 mb-3">
@@ -137,7 +143,8 @@
                         </div>
 	                    <hr class="mb-4">
 	                    <div class="mb-4"></div>	
-                    	<input class="btn btn-primary btn-lg btn-block" type="submit" value="가입 완료"/>				
+                    	<input class="btn btn-primary btn-lg btn-block" type="submit" value="수정 완료"/>
+                    	<input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>			
 					</fieldset>
 					</form:form>
                 </div>

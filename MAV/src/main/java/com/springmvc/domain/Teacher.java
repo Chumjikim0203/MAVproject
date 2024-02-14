@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Teacher 
 {
-	private long teacherId; // 강사 아이디
+	private String teacherId; // 강사 아이디
 	private MultipartFile teacherImages; // 강사 이미지
 	private String teacherCategory; // 강사 종류
 	private String teacherRecode; // 강사 이력
@@ -17,10 +17,10 @@ public class Teacher
 	public void setTeacherInfomation(String teacherInfomation) {
 		this.teacherInfomation = teacherInfomation;
 	}
-	public long getTeacherId() {
+	public String getTeacherId() {
 		return teacherId;
 	}
-	public void setTeacherId(long teacherId) { 
+	public void setTeacherId(String teacherId) { 
 		this.teacherId = teacherId;
 	}
 	public MultipartFile getTeacherImages() {

@@ -5,7 +5,8 @@ import java.util.Date;
 
 public class Room 
 {
-	private long roomId; // 경기장ID
+	private int roomNum; // 경기장 번호
+	private String roomId; // 경기장ID
 	private int roomCapacity; // 경기장 수용인원
 	private int roomCount; // 경기장 참가인원
 	private String roomCategory; // 경기장 종목(종류)
@@ -13,10 +14,18 @@ public class Room
 	private Date roomDate; // 경기 날짜
 	private Time roomTime; // 경기 시간
 	
-	public long getRoomId() {
+	
+	
+	public int getRoomNum() {
+		return roomNum;
+	}
+	public void setRoomNum(int roomNum) {
+		this.roomNum = roomNum;
+	}
+	public String getRoomId() {
 		return roomId;
 	}
-	public void setRoomId(long roomId) {
+	public void setRoomId(String roomId) {
 		this.roomId = roomId;
 	}
 	public int getRoomCapacity() {
