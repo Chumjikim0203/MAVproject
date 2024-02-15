@@ -47,11 +47,11 @@ public class MemberRepositoryImpl implements MemberRepository
 	public Member getById(String memberId) 
 	{
 		Member memberInfo = null;
-		String SQL = "SELECT count(*) FROM book where b_bookId=?";
+		String SQL = "SELECT count(*) FROM Member where memberId=?";
 		int rowCount = template.queryForObject(SQL, Integer.class, memberId);
 		if(rowCount!=0)
 		{
-			SQL = "SELECT * FROM book where b_bookId=?";
+			SQL = "SELECT * FROM Member where memberId=?";
 			memberInfo = template.queryForObject(SQL, new Object[] {memberId}, new MemberRowMapper());
 		}
 		for(int i=0; i<listOfMembers.size(); i++)
@@ -85,11 +85,12 @@ public class MemberRepositoryImpl implements MemberRepository
 	@Override
 	public void updateMember(Member member) 
 	{
-		String SQL = "update Member set memberPassword=? memberBirth=? ,memberPhone01=?, memberPhone02=? memberPhone03=?,memberGender=?, memberName=?,"
+		String SQL = "update Member set memberPassword=?, memberBirth=? ,memberPhone01=?, memberPhone02=?, memberPhone03=?,"
+				   + "memberGender=?, memberName=?,"
 				   + "memberEmail=?, memberAddr=? where memberId=?";
 		
 		template.update(SQL, member.getMemberPassword() , member.getMemberBirth(), member.getMemberPhone01(), member.getMemberPhone02(), 
-						member.getMemberPhone03(),member.getMemberGender(), member.getMemberEmail(), member.getMemberAddr(), 
+						member.getMemberPhone03(),member.getMemberGender(), member.getMemberName(), member.getMemberEmail(), member.getMemberAddr(),
 						member.getMemberId());
 	}
 

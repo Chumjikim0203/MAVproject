@@ -3,7 +3,6 @@ package com.springmvc.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -98,25 +97,28 @@ public class MemberController
         return "mypage";
     }
     @GetMapping("/update/member")
-    public String updateMember(Member member,Model model)
+    public String updateMember(@RequestParam String memberId, Member member, Model model)
     {
     	
     	System.out.println("업데이트 페이지 도착");
-    	model.addAttribute("member", member);
+    	Member memberById = memberService.getById(memberId);
+    	System.out.println("memberById에 getById 결과 대입함");
+    	model.addAttribute("member", memberById);
     	System.out.println(member.getMemberId());
+    	System.out.println("비밀번호 : " + member.getMemberPassword());
     	return "updateMember";
     }
     @PostMapping("/update/member")
     public String updateDone(@ModelAttribute Member member)
     {
     	memberService.updateMember(member);
-    	return "/member/mypage";
+    	return "mypage";
     }
     @RequestMapping(value="/delete/member")
     public String deleteMember(@RequestParam String memberId, Model model)
     {
     	System.out.println("delete 라인 도착");
-    	System.out.println("삭제할 ID : " +memberId);
+    	System.out.println("삭제할 ID : " +memberId);    	
     	memberService.deleteMember(memberId);
     	return "redirect:/mypage";
     }
