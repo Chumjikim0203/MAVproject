@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.springmvc.domain.Member;
 
+import com.springmvc.exception.MemberIdException;
+
 @Repository
 public class MemberRepositoryImpl implements MemberRepository 
 {
@@ -38,14 +40,44 @@ public class MemberRepositoryImpl implements MemberRepository
 				        , member.getMemberEmail(), member.isMemberTeacherApprove(), member.isMemberStoreApprove(),member.isMemberClubApprove()
 				        , member.ismemberClubMemberApprove());
 	}
+
 	
 	
+	@Override
+	public Member getById(String memberId) 
+	{
+		Member memberInfo = null;
+		String SQL = "SELECT count(*) FROM book where b_bookId=?";
+		int rowCount = template.queryForObject(SQL, Integer.class, memberId);
+		if(rowCount!=0)
+		{
+			SQL = "SELECT * FROM book where b_bookId=?";
+			memberInfo = template.queryForObject(SQL, new Object[] {memberId}, new MemberRowMapper());
+		}
+		for(int i=0; i<listOfMembers.size(); i++)
+		{
+			Member member=listOfMembers.get(i);
+			if(member!=null && member.getMemberId()!= null && member.getMemberId().equals(memberId))
+			{
+				memberInfo=member;
+				break;
+			}
+		}
+		if(memberInfo==null)
+		{
+			throw new MemberIdException(memberId);
+		}
+		return memberInfo;
+	}
+
+
 
 	@Override
-	public Member getMyInfo(Member member) 
+	public List<Member> getAllMemberList() 
 	{
-	
-		return member;
+		String SQL = "select * from Member";		
+		List<Member> getAllmemberlist = template.query(SQL, new MemberRowMapper());
+		return getAllmemberlist;
 	}
 
 
@@ -56,7 +88,30 @@ public class MemberRepositoryImpl implements MemberRepository
 		String SQL = "update Member set memberPassword=? memberBirth=? ,memberPhone01=?, memberPhone02=? memberPhone03=?,memberGender=?, memberName=?,"
 				   + "memberEmail=?, memberAddr=? where memberId=?";
 		
-		template.update(SQL, member.getMemberPassword() , member.getMemberBirth(), member.getMemberPhone01(), member.getMemberPhone02(), member.getMemberPhone03(), 
-				        member.getMemberGender(), member.getMemberEmail(), member.getMemberAddr(), member.getMemberId());		
+		template.update(SQL, member.getMemberPassword() , member.getMemberBirth(), member.getMemberPhone01(), member.getMemberPhone02(), 
+						member.getMemberPhone03(),member.getMemberGender(), member.getMemberEmail(), member.getMemberAddr(), 
+						member.getMemberId());
+	}
+
+
+
+	@Override
+	public void deleteMember(String memberId) 
+	{
+		String SQL = "delete from Member where memberId=?";		
+		this.template.update(SQL, memberId);
+	}
+
+
+
+	@Override
+	public Member getLogin(String memberId, String memberPassword) 
+	{
+		String SQL = "select * from Member where memberId=? and memberPassword=?";
+		
+		Member loginMember = template.queryForObject(SQL, new Object[]{memberId, memberPassword}, new MemberRowMapper());
+		return loginMember;
 	}	
+	
+	
 }

@@ -3,7 +3,11 @@ package com.springmvc.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -20,11 +24,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Member;
 import com.springmvc.repository.MemberRepository;
+import com.springmvc.service.MemberService;
 
 @Controller
 @RequestMapping("/member")
 public class MemberController 
 {
+	@Autowired
+	private MemberService memberService;
 	@Autowired
 	private MemberRepository memberRepository;
 	
@@ -73,18 +80,46 @@ public class MemberController
         return phone01Options;
     }
 	
+	/*
+	 * @GetMapping("/mypage") public String getMypage(Member member,Model model) {
+	 * List<Member> memberInfo = memberService.getAllMemberList();
+	 * model.addAttribute("member", memberInfo); return "mypage"; }
+	 */
+    @GetMapping("/mypage")
+    public String memberMyPage(HttpServletRequest request, Model model) 
+    {
+        // 세션에서 회원 정보를 가져옵니다.
+        HttpSession session = request.getSession();
+        Member member = (Member) session.getAttribute("member");
+        
+        // 세션에서 가져온 회원 정보를 모델에 추가하여 뷰페이지로 전달합니다.
+        model.addAttribute("member", member);
+        
+        return "mypage";
+    }
     @GetMapping("/update/member")
     public String updateMember(Member member,Model model)
-    {    	
-    	model.addAttribute("member", new Member());
+    {
+    	
+    	System.out.println("업데이트 페이지 도착");
+    	model.addAttribute("member", member);
+    	System.out.println(member.getMemberId());
     	return "updateMember";
     }
     @PostMapping("/update/member")
-    public String updateDone()
+    public String updateDone(@ModelAttribute Member member)
     {
-    	return "redirect:/member/mypage";
+    	memberService.updateMember(member);
+    	return "/member/mypage";
     }
-    
+    @RequestMapping(value="/delete/member")
+    public String deleteMember(@RequestParam String memberId, Model model)
+    {
+    	System.out.println("delete 라인 도착");
+    	System.out.println("삭제할 ID : " +memberId);
+    	memberService.deleteMember(memberId);
+    	return "redirect:/mypage";
+    }
     
 	@GetMapping("/add/store")
 	public String addStore()
@@ -102,16 +137,5 @@ public class MemberController
 	public String addClub()
 	{
 		return "addClub";
-	}
-	
-	@GetMapping("/login")
-	public String Login()
-	{
-		return "redirect:/login";
-	}
-	@GetMapping("/mypage")
-	public String myPage()
-	{
-		return "mypage";
 	}
 }

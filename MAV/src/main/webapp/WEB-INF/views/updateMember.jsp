@@ -74,45 +74,45 @@
 					 	<div class="row">
 	                      	<div class="col-md-6 mb-3">
 	                       		<label for="memberId">아이디</label>
-	                         	<form:input path="memberId" class="form-control" />                          
+	                         	<form:input path="memberId" class="form-control" value="${member.memberId}" />                          
 	                       	</div>
                             <div class="invalid-feedback">
                                 아이디를 입력해주세요.
                             </div>
 	                        <div class="col-md-6 mb-3">
 	                            <label for="memberPassword">비밀번호</label>
-	                            <form:password class="form-control" path="memberPassword"/>
+	                            <form:password class="form-control" path="memberPassword" value="${member.memberPassword}"/>
 	                        </div>
                             <div class="invalid-feedback">
                                 비밀번호를 입력해주세요.
                             </div>
 	                        <div class="col-md-6 mb-3">
 	                           	<label for="memberBirth">생년월일</label>
-	                           	<form:input type="date" class="form-control" path="memberBirth" />
+	                           	<form:input type="date" class="form-control" path="memberBirth" value="${member.memberBirth}" />
 	                       	</div>
                             <div class="invalid-feedback">
                                 생년월일을 입력해주세요.
                             </div>
 	                        <div class="col-md-2 mb-3">
 	                            <label for="memberPhone01">휴대폰</label>
-	                            <form:select class="form-select" aria-label="Default select example" path="memberPhone01">
+	                            <form:select class="form-select" aria-label="Default select example" path="memberPhone01" value="${member.memberPhone01}">
 	                                <form:options items="${phone01Options}"/>
 	                            </form:select>
 	                        </div>
 	                        <div class="col-md-2 mb-3">
 	                            <label for="memberPhone02"></label>
-	                            <form:input class="form-control" path="memberPhone02"/>
+	                            <form:input class="form-control" path="memberPhone02" value="${member.memberPhone02}"/>
 	                        </div>
 	                        <div class="col-md-2 mb-3">
 	                            <label for="memberPhone03"></label>
-	                            <form:input class="form-control" path="memberPhone03" />
+	                            <form:input class="form-control" path="memberPhone03" value="${member.memberPhone02}"/>
 	                        </div>
                             <div class="invalid-feedback">
                                 휴대폰번호를 입력해주세요.
                             </div>
 	                        <div class="col-md-6 mb-3">
 	                            <label for="memberGender">성별</label>
-	                            <form:select class="form-select" aria-label="Default select example" path="memberGender">
+	                            <form:select class="form-select" aria-label="Default select example" path="memberGender" value="${member.memberGender}">
 	                             	<form:options items="${genderOptions}"/>
 	                            </form:select>
 	                        </div>
@@ -121,7 +121,7 @@
                             </div>
 	                        <div class="col-md-6 mb-3">
 	                            <label for="memberName">이름</label>
-	                            <form:input class="form-control" path="memberName" />                        
+	                            <form:input class="form-control" path="memberName" value="${member.memberName}"/>                        
 	                        </div>
                             <div class="invalid-feedback">
                                 이름을 입력해주세요.
@@ -129,14 +129,14 @@
                     	</div>
 	                    <div class="mb-3">
 	                        <label for="memberEmail">이메일</label>
-	                        <form:input  class="form-control" path="memberEmail" />
+	                        <form:input  class="form-control" path="memberEmail" value="${member.memberEmail}"/>
 	                    </div>
                         <div class="invalid-feedback">
                             이메일을 입력해주세요.
                         </div>
 	                    <div class="mb-3">
 	                        <label for="memberAddr">주소</label>
-	                        <form:input class="form-control" path="memberAddr" />                  
+	                        <form:input class="form-control" path="memberAddr" value="${member.memberAddr}"/>                  
 	                    </div>
                         <div class="invalid-feedback">
                             주소를 입력해주세요.

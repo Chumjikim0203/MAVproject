@@ -1,15 +1,14 @@
-package com.springmvc.repository;
+package com.springmvc.service;
 
 import java.util.List;
 
 import com.springmvc.domain.Member;
 
-public interface MemberRepository 
+public interface MemberService 
 {
-	void setNewMember(Member member);
 	List<Member> getAllMemberList();
-	void updateMember(Member member);
 	void deleteMember(String memberId);
 	Member getById(String memberId);
 	Member getLogin(String memberId, String memberPassword);
+	void updateMember(Member member);
 }
