@@ -30,6 +30,7 @@ public class StoreRepositoryImpl implements StoreRepository {
    public void createRoom(Room room) {
       System.out.println(room.getRoomTime() + " :리파지토리 입니다");
       
+    
       
     String sql = "INSERT INTO Room (roomNum,roomId, roomName, roomCapacity, roomCount, roomCategory, roomDetail, roomDate, roomTime)"
     		+ " VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
@@ -37,8 +38,8 @@ public class StoreRepositoryImpl implements StoreRepository {
                 sql,
                 room.getRoomNum(),
                 room.getRoomId(),
-                room.getRoomName(),
-                room.getRoomCapacity(),
+                room.getRoomName(),                
+				room.getRoomCapacity(),
                 room.getRoomCount(),
                 room.getRoomCategory(),
                 room.getRoomDetail(),

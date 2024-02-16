@@ -15,15 +15,12 @@ import com.springmvc.domain.Match;
 public class MatchController 
 {
 
-	
-	@GetMapping("/create")
-	public String createMatch(@ModelAttribute("matchForm")Match match, Model model) {
-		
-		matchSe
-		model.addAttribute("matchForm",matchForm);
-		return"/matchingRoom";
-	}
-	
+	/*
+	 * @GetMapping("/create") public String
+	 * createMatch(@ModelAttribute("matchForm")Match match, Model model) {
+	 * 
+	 * matchSe model.addAttribute("matchForm",matchForm); return"/matchingRoom"; }
+	 */
 }
 
 

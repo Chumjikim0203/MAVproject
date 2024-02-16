@@ -99,12 +99,17 @@
                     <h4>${detailroom.roomDate}&nbsp;${detailroom.roomTime}</h4>
                     <br><br><br><br>
                     <div id="matching_bt">
-						<form:form id="matchingForm" modelAttribute="matchForm" action="${pageContext.request.contextPath}/match/create" method="post">
+<%-- 						<form:form id="matchingForm" modelAttribute="matchForm" action="${pageContext.request.contextPath}/match/create" method="post">
 						    <div id="matching_bt">
 						        <form:input path="roomTitle" class="form-control" placeholder="방제목 입력" />
 						        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
 						    </div>
-						</form:form>
+						</form:form> --%>
+							<div id="matching_bt">
+						        <input path="roomTitle" class="form-control" placeholder="방제목 입력" />
+						        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
+						    </div>
+						
                     </div>
                 </div>
                 <div class="detail-box additional-info-box" style="height: 30rem;">

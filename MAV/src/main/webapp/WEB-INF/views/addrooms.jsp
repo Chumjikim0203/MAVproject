@@ -168,7 +168,7 @@
 
         if (!roomCapacityInput.value.trim()) {
             roomCapacityFeedback.style.display = 'block';
-            return false;
+            return false; 
         } else {
             roomCapacityFeedback.style.display = 'none';
         }
