@@ -123,6 +123,11 @@
             align-items: center;
             font-size: 1rem;
         }
+        
+        .ehgus {
+			  display: flex;
+			  justify-content: space-between; 
+		}
     </style>
 </head>
 
@@ -172,9 +177,9 @@
                         <div class="room-info">
                             <span class="room-title">&nbsp;&nbsp;${room.roomNum} - ${room.roomName}</span>
                             <span class="room-date">날짜 :${room.roomDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시간 : ${room.roomTime}</span>
-                            <span class="room-application">
+                            <span class="room-application .ehgus">
                                 <span class="room-application-count">0/1</span>
-        						<a href="<c:url value='/store/roomsDetail'/>?roomNum=${room.roomNum}" class="room-application-link room-application-btn">조회</a>   
+        						<a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}" class="room-application-link room-application-btn">조회</a>   
         						<a href="<c:url value='/store/roomsUpdate'/>?roomNum=${room.roomNum}" class="room-application-link room-application-btn">수정</a>   
         						<a href="<c:url value='/store/deleteMyRoom'/>?roomNum=${room.roomNum}" class="room-application-link room-application-btn">삭제</a>   
                             </span>

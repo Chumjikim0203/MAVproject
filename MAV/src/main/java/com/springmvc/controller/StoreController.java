@@ -12,17 +12,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.springmvc.domain.Match;
 import com.springmvc.domain.Room;
 import com.springmvc.service.StoreService;
 
 @Controller
 @RequestMapping("/store")
 public class StoreController {
-
+	
     @Autowired
     private StoreService storeService;
 
-    
+    //getByroomNumAllRooms원래는 이자리 이 함수로 만들어야함
     //대경이행님이 로긴 만들면 값 가지고 와서 store들어가자 마자 뿌리기(아이디별로 하는것 만들어야함)
     @GetMapping
     public String readStoreMypage(Model model, Room room) {
@@ -105,14 +106,8 @@ public class StoreController {
     	
     	return "redirect:/store";
     }
-    // 상세보기
-    @GetMapping("/roomsDetail")
-    public String detailmyRooms(@RequestParam("roomNum")int roomNum, Model model) {
-    	System.out.println(roomNum);
-    	Room detailroom =storeService.getByroomNumAllRooms(roomNum);
-    	model.addAttribute("detailroom",detailroom);
-    	return "detailRoom";
-    }
+    
+
     
     
     
@@ -133,7 +128,23 @@ public class StoreController {
         storeService.deleteRoom(roomNum);
         return "redirect:/store/myRooms";
     }
-
+    
+    //업체가 만든 룸을 roomview로들어왔을때 보여주는 로직
+    @GetMapping("/roomView")
+    public String roomMainView(Model model, Room room) {
+        // 입력한 방 모두의 정보를 가지고오는 로직
+        List<Room> myRooms = storeService.getAllRooms(room);
+        model.addAttribute("myRooms", myRooms);
+        return "roomView";
+    }
+    
+    @GetMapping("/matchingView")
+    public String matchingView(Model model,Match match) {
+    	
+    	return "matchingView";
+    }
+    
+    
 	/*
 	 * @GetMapping("/myRooms") public String getMyRooms(Model model) { // 업체가 작성한 모든
 	 * 방의 시간과 날짜를 가져오는 로직 // 실제로는 세션 등에서 업체 아이디를 가져와야 합니다. String storeId =

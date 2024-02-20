@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -98,19 +97,17 @@
                 <div class="detail-box"style="height: 20rem;">
                     <h4>${detailroom.roomDate}&nbsp;${detailroom.roomTime}</h4>
                     <br><br><br><br>
-                    <div id="matching_bt">
-<%-- 						<form:form id="matchingForm" modelAttribute="matchForm" action="${pageContext.request.contextPath}/match/create" method="post">
-						    <div id="matching_bt">
-						        <form:input path="roomTitle" class="form-control" placeholder="방제목 입력" />
-						        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
-						    </div>
-						</form:form> --%>
-							<div id="matching_bt">
-						        <input path="roomTitle" class="form-control" placeholder="방제목 입력" />
-						        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
-						    </div>
-						
-                    </div>
+                    
+                    
+					<form:form modelAttribute="matchForm" action="${pageContext.request.contextPath}/match/roomsDetail" method="post">
+					    <div id="matching_bt">
+					        <form:input path="matchTitle" class="form-control"  />
+					        <form:hidden path="roomNum" value="${detailroom.roomNum}" />
+					        <!-- 추가적인 데이터 필드들을 여기에 추가 -->
+					        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
+					    </div>
+					</form:form>
+
                 </div>
                 <div class="detail-box additional-info-box" style="height: 30rem;">
                     <div id="googleMapContainer">
@@ -121,19 +118,18 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-/*  	const matchingBt = document.getElementById("matching_bt");
-	 memberClubMemberApprove == true 
-	 if (storeId !== null) {
-	  matchingBt.style.display = "block";
-	} else {
-	  matchingBt.style.display = "none";
-	}  */
-    
-    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
+<script>
+const grade = ${detailroom.roomTime}
+const matchingBt = document.getElementById("matching_bt");
 
+if (memberClubMemberApprove == true) {
+  matchingBt.style.display = "block";
+} else {
+  matchingBt.style.display = "none";
+}
 
-
-
+</script>
 </html>

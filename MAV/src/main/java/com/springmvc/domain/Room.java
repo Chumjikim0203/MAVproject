@@ -14,17 +14,16 @@ import org.springframework.web.multipart.MultipartFile;
 public class Room 
 {
     private int roomNum; // 경기장 번호
-
-   /*
-    * @NotNull(message = "경기장 ID를 입력해주세요")
-    * 
-    * @Size(max = 15, message = "경기장 ID는 최대 15자까지 입력 가능합니다")
-    */
+    
+    
+	@NotNull(message = "경기장 ID를 입력해주세요")
+    @Size(max = 15, message = "경기장 ID는 최대 15자까지 입력 가능합니다")
     private String roomId; // 경기장 ID
 
     @NotNull(message = "경기장 이름을 입력해주세요")
     @Size(max = 20, message = "경기장 이름은 최대 20자까지 입력 가능합니다")
     private String roomName; // 경기장 이름
+
 
     @NotNull(message = "경기장 수용인원을 입력해주세요")
     private int roomCapacity; // 경기장 수용인원
@@ -45,12 +44,24 @@ public class Room
     @NotNull(message = "경기 시간을 입력해주세요")
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime roomTime; // 경기 시간
+    
+    @NotNull(message = "상점 ID를 입력해주세요")
+    private String storeId; // 상점 ID
    
    public Room() {
       this.roomCapacity = 1;
       this.roomId = "mav1";
+      this.storeId = "mav1";  }
+
+   
+   public String getStoreId() {
+      return storeId;
    }
 
+   public void setStoreId(String storeId) {
+      this.storeId = storeId;
+   }
+   
    public int getRoomNum() {
       return roomNum;
    }
@@ -124,4 +135,4 @@ public class Room
    }
 
    
-}
+} 

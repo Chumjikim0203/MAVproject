@@ -9,16 +9,17 @@ import com.springmvc.domain.Room;
 
 public class RoomRowMapper implements RowMapper<Room> {
    public Room mapRow(ResultSet rs, int rowNum)throws SQLException{
-        Room room = new Room();
-        room.setRoomNum(rs.getInt(1));
-        room.setRoomId(rs.getString(2));
-        room.setRoomName(rs.getString(3));
-        room.setRoomCapacity(rs.getInt(4));
-        room.setRoomCount(rs.getInt(5));
-        room.setRoomCategory(rs.getString(6));
-        room.setRoomDetail(rs.getString(7));
-        room.setRoomDate(rs.getDate(8).toLocalDate());
-        room.setRoomTime(rs.getTime(9).toLocalTime());
+       Room room = new Room();
+       room.setRoomNum(rs.getInt("roomNum"));
+       room.setStoreId(rs.getString("storeId"));
+       room.setRoomName(rs.getString("roomName"));
+       room.setRoomCapacity(rs.getInt("roomCapacity"));
+       room.setRoomCount(rs.getInt("roomCount"));
+       room.setRoomCategory(rs.getString("roomCategory"));
+       room.setRoomDetail(rs.getString("roomDetail"));
+       room.setRoomDate(rs.getDate("roomDate").toLocalDate());
+       room.setRoomTime(rs.getTime("roomTime").toLocalTime());
+      
       return room;
    }
    

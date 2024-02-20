@@ -11,6 +11,7 @@ public interface StoreRepository {
 	void deleteRoom(int roomNum);
 	Room  getByroomNumAllRooms(int roomNum);
 	void updateRoom(Room updateRoom);
+	Room getByRoomNum(int roomNum);
 }
 
 
