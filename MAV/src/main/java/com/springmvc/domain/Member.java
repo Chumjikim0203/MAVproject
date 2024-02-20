@@ -20,10 +20,6 @@ public class Member
 	private String memberPhone03; // 멤버 핸드폰 세번째
 	private String memberGender; // 멤버 성별
 	private String memberEmail; // 멤버 이메일
-	private boolean memberTeacherApprove; // 강사 신청 승인
-	private boolean memberStoreApprove; // 업체 신청 승인
-	private boolean memberClubMemberApprove; // 동호회원 신청 승인
-	private boolean memberClubApprove; // 동호회 신청 승인
 
 	
 	public Member()
@@ -40,31 +36,6 @@ public class Member
 		this.viewBirth = viewBirth;
 	}
 
-
-	public boolean isMemberTeacherApprove() {
-		return memberTeacherApprove;
-	}
-	public void setMemberTeacherApprove(boolean memberTeacherApprove) {
-		this.memberTeacherApprove = memberTeacherApprove;
-	}
-	public boolean isMemberStoreApprove() {
-		return memberStoreApprove;
-	}
-	public void setMemberStoreApprove(boolean memberStoreApprove) {
-		this.memberStoreApprove = memberStoreApprove;
-	}
-	public boolean isMemberClubApprove() {
-		return memberClubApprove;
-	}
-	public void setMemberClubApprove(boolean memberClubApprove) {
-		this.memberClubApprove = memberClubApprove;
-	}
-	public boolean ismemberClubMemberApprove() {
-		return memberClubMemberApprove;
-	}
-	public void setmemberClubMemberApprove(boolean memberClubManagerApprove) {
-		this.memberClubMemberApprove = memberClubManagerApprove;
-	}
 	public String getMemberId()  
 	{
 		return memberId;

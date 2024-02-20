@@ -12,7 +12,7 @@
 		margin : 0 auto;
 	}
 </style>
-<title>마이페이지</title>
+<title>클럽 페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
@@ -58,8 +58,8 @@
 		              </div>
 		            </div>
 		        </nav>
-	        </c:when>
-	        <c:otherwise>
+	        	</c:when>
+	        	<c:otherwise>
 	        	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
 		            <div class="container-fluid">
 		              <a class="navbar-brand" href="#">MAV</a>
@@ -105,17 +105,13 @@
 		            </div>
 		        </nav>
 	        </c:otherwise>
-	        </c:choose>
-		<h3>멤버 아이디 : ${member.memberId}</h3>
-		<h3>멤버 이름 : ${member.memberName}</h3>
-		<h3>멤버 생년월일 : ${member.memberBirth}</h3>
-		<h3>멤버 주소 : ${member.memberAddr}</h3>
-		<h3>멤버 성별 : ${member.memberGender}</h3>
-		<h3>멤버 이메일 : ${member.memberEmail}</h3>
-		<a href="<c:url value='./update/member'/>?memberId=${member.memberId}">수정하기</a>
-		<a href="<c:url value='./delete/member'/>?memberId=${member.memberId}">삭제하기</a>
-		<a href="<c:url value='./add/store'/>?memberId=${member.memberId}">업체신청</a>
-		<a href="<c:url value='./add/teacher'/>?memberId=${member.memberId}">강사신청</a>
+		</c:choose>
+		<h4> 클럽명 : ${clubList.clubName}</h4>
+		<h4> 클럽 종류 : ${clubList.clubCategory}</h4>
+		<h4> 클럽 지역 : ${clubList.clubLocale}</h4>
+		<h4> 클럽 포인트 : ${clubList.clubPoint}</h4>
+		<h4> 클럽 소개글 : ${clubList.clubInfo}</h4>
+		<h4> 클럽 내등급 : ${clubList.clubGrade}</h4>		
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
 </body>

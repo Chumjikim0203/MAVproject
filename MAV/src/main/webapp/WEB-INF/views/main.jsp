@@ -1,13 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>메인 페이지</title>
+    <title>메인페이지</title>
     <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
@@ -26,7 +22,7 @@
           color: rgb(14, 14, 192);
         }
 
-                /* ë ì§ ì íê¸° ì¤íì¼ë§ */
+                /* 날짜 선택기 스타일링 */
         input[type="date"] {
           padding: 8px;
           border: 1px solid #ccc;
@@ -34,13 +30,13 @@
           font-size: 14px;
         }
 
-        /* ì íë ë ì§ ì¤íì¼ë§ */
+        /* 선택된 날짜 스타일링 */
         input[type="date"]::-webkit-datetime-edit {
           color: #333;
           font-weight: bold;
         }
 
-        /* ë¬ë ¥ ìì´ì½ ì¤íì¼ë§ */
+        /* 달력 아이콘 스타일링 */
         input[type="date"]::-webkit-calendar-picker-indicator {
           background-color: #ccc;
           padding: 4px;
@@ -50,90 +46,41 @@
     </style>
   </head>
   <body>
-    <c:choose>
-   	<c:when test="${empty sessionScope.member}">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">MAV</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">동호회</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      매칭
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand fw-bold" href="#">변수와 함수들</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active fw-bold" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">로그인</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">토너먼트</a>
+            </li>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      동호회
                     </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">스포츠</a></li>
+                      <li><a class="dropdown-item" href="#">문화생활</a></li>
+                      <li><a class="dropdown-item" href="#">어쩌구 저쩌구</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="/MAV/login">로그인</a>
-                  </li>
-                   <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/add/member">회원가입</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">search</button>
-                </form>
-              </div>
-            </div>
-        </nav>
-       </c:when>
-       <c:otherwise>
-       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">MAV</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">동호회</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      매칭
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-                  </li>
-                   <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">search</button>
-                </form>
-              </div>
-            </div>
-        </nav>
-       </c:otherwise>
-       </c:choose>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">

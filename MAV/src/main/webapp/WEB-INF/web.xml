@@ -62,4 +62,25 @@
    		<filter-name>httpMethodFilter</filter-name>
    		<servlet-name>appServlet</servlet-name>
    </filter-mapping>
+<!-- 	<security-role>
+		<role-name>Member</role-name>
+	</security-role>
+	<security-constraint>
+		<web-resource-collection>	
+			<web-resource-name>MAV</web-resource-name>
+			<url-pattern>/MAV/member/mypage.jsp</url-pattern>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+			<auth-constraint>
+				<description></description>
+				<role-name>Member</role-name>
+			</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/MAV/login.jsp</form-login-page>
+			<form-error-page>/MAV/loginerror.jsp</form-error-page>
+		</form-login-config>
+	</login-config> -->
 </web-app>

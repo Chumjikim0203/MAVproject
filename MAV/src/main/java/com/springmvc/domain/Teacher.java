@@ -10,6 +10,7 @@ public class Teacher
 	private String teacherRecode; // 강사 이력
 	private String teacherLicense; // 강사 자격증
 	private String teacherInfomation; // 강사 소개 
+	private boolean teacherApprove; // 강사 승인 신청
 	
 	public String getTeacherInfomation() {
 		return teacherInfomation;
@@ -46,6 +47,12 @@ public class Teacher
 	}
 	public void setTeacherLicense(String teacherLicense) {
 		this.teacherLicense = teacherLicense;
+	}
+	public boolean isTeacherApprove() {
+		return teacherApprove;
+	}
+	public void setTeacherApprove(boolean teacherApprove) {
+		this.teacherApprove = teacherApprove;
 	}
 	
 	
