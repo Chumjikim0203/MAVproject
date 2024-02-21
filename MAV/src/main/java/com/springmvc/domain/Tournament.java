@@ -6,6 +6,9 @@ import java.util.Date;
 public class Tournament 
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/PMS
 	private int tournamentNum; // 토너먼트 넘버
 	private String tournamentId; // 토너먼트 ID
 	private int tournamentReward; // 토너먼트 상금

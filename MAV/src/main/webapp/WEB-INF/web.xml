@@ -13,6 +13,7 @@
    <context-param>
       <param-name>contextConfigLocation</param-name>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <param-value>/WEB-INF/spring/root-context.xml
       </param-value>
    </context-param>   
@@ -21,6 +22,11 @@
    </context-param>
    
 >>>>>>> origin/KTY
+=======
+      <param-value>/WEB-INF/spring/root-context.xml</param-value>
+   </context-param>
+   
+>>>>>>> origin/PMS
    <!-- Creates the Spring Container shared by all Servlets and Filters -->
    <!-- 웹 어플리케이션의 생명주기 이벤트 처리 루트 애플리케이션텍스트를 로드하는 역할 -->
    <listener>
@@ -42,6 +48,7 @@
       <servlet-name>appServlet</servlet-name>
       <url-pattern>/</url-pattern>
    </servlet-mapping>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <filter>
    		<filter-name>encodingFilter</filter-name>
@@ -66,6 +73,9 @@
 =======
    
 >>>>>>> origin/KTY
+=======
+   
+>>>>>>> origin/PMS
    <filter>
      <filter-name>encodingFilter</filter-name>
      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

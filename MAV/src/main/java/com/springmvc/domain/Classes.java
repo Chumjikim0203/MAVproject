@@ -1,8 +1,16 @@
 package com.springmvc.domain;
 
 import java.sql.Time;
+<<<<<<< HEAD
 import java.util.Date;
 
+=======
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+>>>>>>> origin/PMS
 import org.springframework.web.multipart.MultipartFile;
 
 public class Classes
@@ -10,19 +18,51 @@ public class Classes
 	private int classNum; // 클래스 번호
 	private String classId; // 클래스 아이디
 	private String className; // 클래스 이름
+<<<<<<< HEAD
 	private Time classLecturetime; // 강의 시간
 	private Date classLecturedate; // 강의 날짜
+=======
+	@DateTimeFormat(pattern="HH:mm")
+	private String classLecturetime; // 강의 시간
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate classLecturedate; // 강의 날짜
+>>>>>>> origin/PMS
 	private int classNumberOfStudents; // 강의 수강 인원
 	private String classCourseContents; // 강의 수강 내용
 	private String classGrade; // 강의 등급
 	private String classIntroduction; // 강의 소개글
+<<<<<<< HEAD
 	private MultipartFile classImages; // 강의 이미지
+=======
+	private String fileName;
+	private MultipartFile classImages; // 강의 이미지(경로)dto한개 생성
+>>>>>>> origin/PMS
 	private String classLocale; // 강의 지역
 	private boolean classApprove; // 강의 신청 승인
 	
 	
 	
 	
+<<<<<<< HEAD
+=======
+
+	public Classes() {
+		super();
+	this.classId="1";
+		// TODO Auto-generated constructor stub
+	}
+	public Classes(String className) {
+		super();
+		this.className = className;
+		
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+>>>>>>> origin/PMS
 	public int getClassNum() {
 		return classNum;
 	}
@@ -47,6 +87,7 @@ public class Classes
 	public void setClassId(String classId) {
 		this.classId = classId;
 	}
+<<<<<<< HEAD
 	public Time getClassLecturetime() {
 		return classLecturetime;
 	}
@@ -57,6 +98,18 @@ public class Classes
 		return classLecturedate;
 	}
 	public void setClassLecturedate(Date classLecturedate) {
+=======
+	public String getClassLecturetime() {
+		return classLecturetime;
+	}
+	public void setClassLecturetime(String classLecturetime) {
+		this.classLecturetime = classLecturetime;
+	}
+	public LocalDate getClassLecturedate() {
+		return classLecturedate;
+	}
+	public void setClassLecturedate(LocalDate classLecturedate) {
+>>>>>>> origin/PMS
 		this.classLecturedate = classLecturedate;
 	}
 	public int getClassNumberOfStudents() {

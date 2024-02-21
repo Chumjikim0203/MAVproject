@@ -14,6 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 public class Room 
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/PMS
 	private int roomNum; // 경기장 번호
 	private String roomId; // 경기장ID
 	private int roomCapacity; // 경기장 수용인원
