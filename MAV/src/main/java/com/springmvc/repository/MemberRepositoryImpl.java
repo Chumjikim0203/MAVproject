@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.springmvc.domain.Member;
-
+import com.springmvc.domain.Store;
 import com.springmvc.exception.MemberIdException;
 
 @Repository
@@ -32,13 +32,12 @@ public class MemberRepositoryImpl implements MemberRepository
 	{
 		String SQL = "insert into Member"
 				+ "(memberId, memberName, memberPassword, memberBirth, memberAddr, memberPhone01, memberPhone02, memberPhone03, "
-				+ "memberGender, memberEmail, memberTeacherApprove, memberStoreApprove, memberClubApprove, memberClubMemberApprove)"
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+				+ "memberGender, memberEmail)"
+				+ "values(?,?,?,?,?,?,?,?,?,?);";
 		
 		template.update(SQL, member.getMemberId(),member.getMemberName(), member.getMemberPassword(), member.getMemberBirth(), member.getMemberAddr()
 				        , member.getMemberPhone01(), member.getMemberPhone02(), member.getMemberPhone03(), member.getMemberGender()
-				        , member.getMemberEmail(), member.isMemberTeacherApprove(), member.isMemberStoreApprove(),member.isMemberClubApprove()
-				        , member.ismemberClubMemberApprove());
+				        , member.getMemberEmail());
 	}
 
 	
@@ -112,6 +111,16 @@ public class MemberRepositoryImpl implements MemberRepository
 		
 		Member loginMember = template.queryForObject(SQL, new Object[]{memberId, memberPassword}, new MemberRowMapper());
 		return loginMember;
+	}
+
+
+
+	@Override
+	public void setStoreMember(Store store) 
+	{
+		String SQL = "insert into Store values(storeName=?, storeAddr=?, storeCategory=?,"
+				 							+ "storePhone01=? storePhone02=?, storePhone03=?,storeCode=?);";		
+		template.update(SQL, store.getStoreName());		
 	}	
 	
 	

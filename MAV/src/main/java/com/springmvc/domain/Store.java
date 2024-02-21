@@ -15,9 +15,14 @@ public class Store
 	private MultipartFile storeImages; // 업체 이미지
 	private String storeInfomation; // 업체 소개글
 	private String storeNotice; // 업체 공지사항
+	private boolean storeApprove; // 업체 승인 신청
 	
 	
 	
+	public Store()
+	{
+		super();
+	}
 	public String getStoreInfomation() {
 		return storeInfomation;
 	}
@@ -83,6 +88,12 @@ public class Store
 	}
 	public void setStoreImages(MultipartFile storeImages) {
 		this.storeImages = storeImages;
+	}
+	public boolean isStoreApprove() {
+		return storeApprove;
+	}
+	public void setStoreApprove(boolean storeApprove) {
+		this.storeApprove = storeApprove;
 	}
 		
 }

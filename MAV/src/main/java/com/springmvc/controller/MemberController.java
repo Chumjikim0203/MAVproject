@@ -3,6 +3,7 @@ package com.springmvc.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.springmvc.domain.Club;
 import com.springmvc.domain.Member;
+import com.springmvc.domain.Store;
 import com.springmvc.repository.MemberRepository;
 import com.springmvc.service.MemberService;
 
@@ -84,15 +87,21 @@ public class MemberController
 	 * List<Member> memberInfo = memberService.getAllMemberList();
 	 * model.addAttribute("member", memberInfo); return "mypage"; }
 	 */
+    @GetMapping("/test")
+    public String testingPage(Member member,Model model)
+    {
+    	List<Member> getAllmemberlist = memberService.getAllMemberList();
+    	model.addAttribute("member", getAllmemberlist );
+    	return "testmember";
+    }
     @GetMapping("/mypage")
     public String memberMyPage(HttpServletRequest request, Model model) 
     {
-        // 세션에서 회원 정보를 가져옵니다.
         HttpSession session = request.getSession();
         Member member = (Member) session.getAttribute("member");
+        session.setAttribute("member", member);
         
-        // 세션에서 가져온 회원 정보를 모델에 추가하여 뷰페이지로 전달합니다.
-        model.addAttribute("member", member);
+        System.out.println("member 컨트롤러에서 담긴 정보 : "+ member.getMemberId());
         
         return "mypage";
     }
@@ -118,24 +127,6 @@ public class MemberController
     	System.out.println("delete 라인 도착");
     	System.out.println("삭제할 ID : " +memberId);    	
     	memberService.deleteMember(memberId);
-    	return "redirect:/mypage";
+    	return "redirect:/member/mypage";
     }
-    
-	@GetMapping("/add/store")
-	public String addStore()
-	{
-		return "addStore";
-	}
-	
-	@GetMapping("/add/teacher")
-	public String addTeacher()
-	{
-		return "addTeacher";
-	}
-	
-	@GetMapping("/add/club")
-	public String addClub()
-	{
-		return "addClub";
-	}
 }

@@ -32,5 +32,13 @@
 	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
        <beans:property name="dataSource" ref="dataSource"/>
    </beans:bean>
-   <context:component-scan base-package="com.springmvc.*" />   
+   <context:component-scan base-package="com.springmvc.*" /> 
+   <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <beans:property name="maxUploadSize" value="100000"/> 
+	    <beans:property name="defaultEncoding" value="utf-8"/> 
+	    <beans:property name="uploadTempDir" ref="uploadDirResource"/> 
+   </beans:bean>
+	<beans:bean id="uploadDirResource" class="org.springframework.core.io.FileSystemResource">
+    <beans:constructor-arg value="D:\spring\MAV\src\main\resources\images"/>
+</beans:bean>  
 </beans:beans>

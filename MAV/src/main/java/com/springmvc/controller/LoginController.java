@@ -1,5 +1,7 @@
 package com.springmvc.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,17 +31,19 @@ public class LoginController
 	@PostMapping("/login")
     public String login(@RequestParam("memberId") String memberId, 
                         @RequestParam("memberPassword") String memberPassword,
-                        HttpSession session) 
+                        HttpServletRequest request) 
 	{
 		System.out.println("로그인 처리중");
-        // 사용자 인증
+        HttpSession session = request.getSession();
+		// 사용자 인증
         Member member = memberService.getLogin(memberId, memberPassword);
         
         if (member != null) {
             // 세션에 사용자 정보 저장
             session.setAttribute("member", member);
+            System.out.println("login 컨트롤러에서 담긴 정보 : "+ member.getMemberId());
             
-            return "redirect:/member/mypage"; // 로그인 성공 시 대시보드 페이지로 이동
+            return "redirect:/"; // 로그인 성공 시 대시보드 페이지로 이동
         } else {
             return "redirect:/login?error=true"; // 로그인 실패 시 로그인 페이지로 이동
         }
@@ -49,5 +53,16 @@ public class LoginController
 	{
 		model.addAttribute("error", "true");
 		return "login";
+	}
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response)
+	{
+		HttpSession session = request.getSession(false);
+		
+		if(session != null)
+		{
+			session.invalidate();
+		}
+		return "redirect:/login";
 	}
 }
