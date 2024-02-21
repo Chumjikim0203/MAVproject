@@ -1,6 +1,6 @@
 package com.springmvc.controller;
 
-import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Match;
+import com.springmvc.domain.MatchRoom;
 import com.springmvc.domain.Room;
-import com.springmvc.repository.MatchRepository;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
 
@@ -38,7 +38,9 @@ public class MatchController {
     	return "detailRoom";
     }
     
-    //매칭룸 보여주기
+    
+    // 이해가 잘 안감
+    //만든 매칭룸 보여주기
      @PostMapping("/roomsDetail")
      public String createMatch(@ModelAttribute("matchForm") Match match, Model model) {
     
@@ -48,6 +50,17 @@ public class MatchController {
       	return "redirect:/store";
       }
      
+     //업체가 만든게 아닌 회장이 만든 매칭룸을 매칭뷰로 보내는 로직
+     @GetMapping("/matchingView")
+     public String matchingView(Model model,MatchRoom matchRoom) {
+     	List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
+     	System.out.println("matchview"+matchView);
+     	model.addAttribute("matchView",matchView);
+     	return "matchingView";
+     }
+     
+     
+     //메인페이지로 보내는 로직 작성 @겟매핑 메인 모델 사용하면 될 듯
      
 
      
@@ -56,36 +69,3 @@ public class MatchController {
 	
 	
 }
-
-
-
-/*
- * @PostMapping("/roomsDetail") public String createMatch(
- * 
- * @RequestParam("matchTitle") String matchTitle,
- * 
- * @RequestParam("roomNum") int roomNum,
- * 
- * @RequestParam("roomName") String roomName,
- * 
- * @RequestParam("roomCount") int roomCount,
- * 
- * @RequestParam("roomCapacity") int roomCapacity,
- * 
- * @RequestParam("roomDetail") String roomDetail,
- * 
- * @RequestParam("roomDate") LocalDate roomDate,
- * 
- * @RequestParam("roomTime") String roomTime, Model model) {
- * 
- * Match match = new Match(matchTitle, roomNum, roomName, roomCount,
- * roomCapacity, roomDetail, roomDate, roomTime);
- * model.addAttribute("matchForm", match);
- * 
- * 
- * 
- * matchForm 모델 어트리뷰트를 추가 model.addAttribute("matchForm", match);
- * 
- * 
- * return "/store"; }
- */

@@ -138,11 +138,7 @@ public class StoreController {
         return "roomView";
     }
     
-    @GetMapping("/matchingView")
-    public String matchingView(Model model,Match match) {
-    	
-    	return "matchingView";
-    }
+
     
     
 	/*

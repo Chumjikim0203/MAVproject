@@ -66,7 +66,7 @@ public class StoreRepositoryImpl implements StoreRepository {
         jdbcTemplate.update(sql, roomNum);
     }
     
-    // 방업데
+    // 방업데이트
     @Override
     public void updateRoom(Room updatedRoom) {
         String sql = "UPDATE Room SET storeId = ?, roomName = ?, roomCapacity = ?, roomCount = ?, roomCategory = ?, " +

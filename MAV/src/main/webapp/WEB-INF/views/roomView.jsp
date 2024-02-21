@@ -70,7 +70,7 @@
   </div>
   
   
-       <!-- 매칭룸 -->
+       <!-- 경기장 -->
       <div class="my-3 p-3 bg-body rounded shadow">
         <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">2024-03-21</h6>
         <c:forEach items="${myRooms}" var="room"> 
