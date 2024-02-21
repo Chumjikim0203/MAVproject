@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+<!doctype html>
+<html lang="en">
+=======
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <html>
+>>>>>>> origin/KTY
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -281,6 +286,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+<<<<<<< HEAD
+      // datepicker 요소 가져오기
+=======
+>>>>>>> origin/KTY
       var datepicker = document.getElementById('datepicker');
 
       // datepicker 값 변경 시 이벤트 처리

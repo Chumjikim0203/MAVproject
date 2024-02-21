@@ -10,8 +10,7 @@ import java.time.LocalTime;
 
 
 public class Match 
-{   
-
+{
     private int matchNum; // 매칭 번호
     private int roomNum; // 방 번호
     private String matchTitle;

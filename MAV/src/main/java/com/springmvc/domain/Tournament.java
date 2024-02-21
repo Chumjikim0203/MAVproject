@@ -41,6 +41,4 @@ public class Tournament
    public void setTournamentTime(Time tournamentTime) {
       this.tournamentTime = tournamentTime;
    }
-   
-   
 }

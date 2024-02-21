@@ -2,7 +2,8 @@ package com.springmvc.domain;
 
 public class Notice 
 {
-	private long noticeId; // 공지사항ID
+	private int noticeNum; // 공지사항 글 번호
+	private String noticeId; // 공지사항ID
 	private String noticeTitle; // 공지사항 제목
 	private String noticeDetail; // 공지사항 글 내용
 	private int noticeView; // 공지사항 조회수
@@ -10,10 +11,16 @@ public class Notice
 	// 이전글, 다음글 
 	
 	
-	public long getNoticeId() {
+	public String getNoticeId() {
 		return noticeId;
 	}
-	public void setNoticeId(long noticeId) {
+	public int getNoticeNum() {
+		return noticeNum;
+	}
+	public void setNoticeNum(int noticeNum) {
+		this.noticeNum = noticeNum;
+	}
+	public void setNoticeId(String noticeId) {
 		this.noticeId = noticeId;
 	}
 	public String getNoticeTitle() {
@@ -33,7 +40,6 @@ public class Notice
 	}
 	public void setNoticeView(int noticeView) {
 		this.noticeView = noticeView;
-	}
-	
+	}	
 	
 }

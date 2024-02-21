@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Store 
 {
-	private long storeId; // 업체 ID
+	private String storeId; // 업체 ID
 	private String storeName; // 업체명
 	private String storeAddr; // 업체 주소
 	private String storeCategory; // 업체 종목
@@ -15,9 +15,14 @@ public class Store
 	private MultipartFile storeImages; // 업체 이미지
 	private String storeInfomation; // 업체 소개글
 	private String storeNotice; // 업체 공지사항
+	private boolean storeApprove; // 업체 승인 신청
 	
 	
 	
+	public Store()
+	{
+		super();
+	}
 	public String getStoreInfomation() {
 		return storeInfomation;
 	}
@@ -30,10 +35,10 @@ public class Store
 	public void setStoreNotice(String storeNotice) {
 		this.storeNotice = storeNotice;
 	}
-	public long getStoreId() {
+	public String getStoreId() {
 		return storeId;
 	}
-	public void setStoreId(long storeId) {
+	public void setStoreId(String storeId) {
 		this.storeId = storeId;
 	}
 	public String getStoreName() {
@@ -83,6 +88,12 @@ public class Store
 	}
 	public void setStoreImages(MultipartFile storeImages) {
 		this.storeImages = storeImages;
+	}
+	public boolean isStoreApprove() {
+		return storeApprove;
+	}
+	public void setStoreApprove(boolean storeApprove) {
+		this.storeApprove = storeApprove;
 	}
 		
 }

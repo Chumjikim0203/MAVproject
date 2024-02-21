@@ -13,8 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Room 
 {
-    private int roomNum; // 경기장 번호
-    
+	private int roomNum; // 경기장 번호    
     
 	@NotNull(message = "경기장 ID를 입력해주세요")
     @Size(max = 15, message = "경기장 ID는 최대 15자까지 입력 가능합니다")
@@ -133,6 +132,6 @@ public class Room
    public void setRoomTime(LocalTime roomTime) {
       this.roomTime = roomTime;
    }
-
    
 } 
+
