@@ -11,18 +11,12 @@ public class Club
 	private String clubCategory; // 동호회 종류
 	private String clubGrade; // 동호회원 등급
 	private String clubInfo; // 동호회 소개글
-<<<<<<< HEAD
 	private String clubLocale; // 동호회 활동지역
 	private boolean clubApprove; // 동호회 회원가입 승인
 	private MultipartFile clubImages; // 동호회 이미지
 	
 	
 	public Club() {}
-=======
-	private MultipartFile clubImages; // 동호회 이미지
-	
-	
->>>>>>> origin/PMS
 	
 	public int getClubNum() {
 		return clubNum;
@@ -66,7 +60,6 @@ public class Club
 	public void setClubInfo(String clubInfo) {
 		this.clubInfo = clubInfo;
 	}
-<<<<<<< HEAD
 	public boolean isClubApprove() {
 		return clubApprove;
 	}
@@ -85,7 +78,4 @@ public class Club
 	public void setClubLocale(String clubLocale) {
 		this.clubLocale = clubLocale;
 	}
-=======
->>>>>>> origin/PMS
-	
 }

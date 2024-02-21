@@ -167,8 +167,6 @@
       </dependency>
       <!-- WebFlow -->
       <dependency>
-<<<<<<< HEAD
-<<<<<<< HEAD
 		  <groupId>org.springframework.webflow</groupId>
 		  <artifactId>spring-webflow</artifactId>
 		  <version>2.5.1.RELEASE</version>
@@ -190,9 +188,6 @@
 		  <version>3.0.8</version>
 	  </dependency>
 	  <dependency>
-=======
-=======
->>>>>>> origin/PMS
         <groupId>org.springframework.webflow</groupId>
         <artifactId>spring-webflow</artifactId>
         <version>2.5.1.RELEASE</version>
@@ -214,10 +209,6 @@
         <version>3.0.8</version>
      </dependency>
      <dependency>
-<<<<<<< HEAD
->>>>>>> origin/KTY
-=======
->>>>>>> origin/PMS
         <groupId>org.springframework</groupId>
         <artifactId>spring-jdbc</artifactId>
         <version>${org.springframework-version}</version>
