@@ -4,16 +4,26 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Club 
 {
-	private long clubId; // 동호회아이디
+	private int clubNum; // 클럽 넘버
+	private String clubId; // 동호회아이디
 	private String clubName; // 동호회명
 	private int clubPoint; // 동호회 포인트
 	private String clubGrade; // 동호회원 등급
+	private String clubInfo; // 동호회 소개글
 	private MultipartFile clubImages; // 동호회 이미지
 	
-	public long getClubId() {
+	
+	
+	public int getClubNum() {
+		return clubNum;
+	}
+	public void setClubNum(int clubNum) {
+		this.clubNum = clubNum;
+	}
+	public String getClubId() {
 		return clubId; 
 	}
-	public void setClubId(long clubId) {
+	public void setClubId(String clubId) {
 		this.clubId = clubId;
 	}
 	public String getClubName() {
@@ -40,6 +50,11 @@ public class Club
 	public void setClubImages(MultipartFile clubImages) {
 		this.clubImages = clubImages;
 	}
-
+	public String getClubInfo() {
+		return clubInfo;
+	}
+	public void setClubInfo(String clubInfo) {
+		this.clubInfo = clubInfo;
+	}
 	
 }

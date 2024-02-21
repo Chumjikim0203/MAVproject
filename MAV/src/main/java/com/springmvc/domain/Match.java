@@ -5,15 +5,24 @@ import java.util.Date;
 
 public class Match 
 {
-	private long matchId; // 매칭 ID
+	private int matchNum; // 매칭 번호
+	private String matchId; // 매칭 ID
 	private Date matchDate; // 매칭 날짜
 	private Time matchTime; // 매칭 시간
 	private String matchResult; // 매칭 결과
 	
-	public long getMatchId() {
+	
+	
+	public int getMatchNum() {
+		return matchNum;
+	}
+	public void setMatchNum(int matchNum) {
+		this.matchNum = matchNum;
+	}
+	public String getMatchId() {
 		return matchId; 
 	}
-	public void setMatchId(long matchId) {
+	public void setMatchId(String matchId) {
 		this.matchId = matchId;
 	}
 	public Date getMatchDate() {

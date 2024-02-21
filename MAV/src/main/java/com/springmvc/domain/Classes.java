@@ -1,47 +1,85 @@
 package com.springmvc.domain;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
-public class Class // 강사 전화번호를 개인회원 전화번호로 당겨올거 같아서 아직 getter/setter 하지 않음 회의 후 결정할것 
+public class Classes
 {
-	private long classId; // 클래스 아이디
-	private Time classLecturetime; // 강의 시간
-	private Date classLecturedate; // 강의 날짜
+	private int classNum; // 클래스 번호
+	private String classId; // 클래스 아이디
+	private String className; // 클래스 이름
+	@DateTimeFormat(pattern="HH:mm")
+	private String classLecturetime; // 강의 시간
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate classLecturedate; // 강의 날짜
 	private int classNumberOfStudents; // 강의 수강 인원
 	private String classCourseContents; // 강의 수강 내용
 	private String classGrade; // 강의 등급
 	private String classIntroduction; // 강의 소개글
-	private MultipartFile classImages; // 강의 이미지
+	private String fileName;
+	private MultipartFile classImages; // 강의 이미지(경로)dto한개 생성
 	private String classLocale; // 강의 지역
 	private boolean classApprove; // 강의 신청 승인
 	
 	
 	
+	
+
+	public Classes() {
+		super();
+	this.classId="1";
+		// TODO Auto-generated constructor stub
+	}
+	public Classes(String className) {
+		super();
+		this.className = className;
+		
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public int getClassNum() {
+		return classNum;
+	}
+	public void setClassNum(int classNum) {
+		this.classNum = classNum;
+	}
+	public String getClassName() {
+		return className;
+	}
+	public void setClassName(String className) {
+		this.className = className;
+	}
 	public boolean isClassApprove() {
 		return classApprove;
 	}
 	public void setClassApprove(boolean classApprove) {
 		this.classApprove = classApprove;
 	}
-	public long getClassId() {
+	public String getClassId() {
 		return classId;
 	}
-	public void setClassId(long classId) {
+	public void setClassId(String classId) {
 		this.classId = classId;
 	}
-	public Time getClassLecturetime() {
+	public String getClassLecturetime() {
 		return classLecturetime;
 	}
-	public void setClassLecturetime(Time classLecturetime) {
+	public void setClassLecturetime(String classLecturetime) {
 		this.classLecturetime = classLecturetime;
 	}
-	public Date getClassLecturedate() {
+	public LocalDate getClassLecturedate() {
 		return classLecturedate;
 	}
-	public void setClassLecturedate(Date classLecturedate) {
+	public void setClassLecturedate(LocalDate classLecturedate) {
 		this.classLecturedate = classLecturedate;
 	}
 	public int getClassNumberOfStudents() {
