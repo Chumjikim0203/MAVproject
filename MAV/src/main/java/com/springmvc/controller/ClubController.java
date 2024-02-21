@@ -52,8 +52,8 @@ public class ClubController
 		{
 			clubSession = new Club();
 		}
-		model.addAttribute("club", clubSession);
 		session.setAttribute("club", clubSession);
+		session.setAttribute("member", memberSession);
 		System.out.println("club컨트롤러의 getmapping에서 담긴 정보 : "+ memberSession.getMemberId());
 		System.out.println("club컨트롤러의 getmapping에서 담긴 클럽명 : "+ clubSession.getClubName());
 		
@@ -73,12 +73,10 @@ public class ClubController
 		}
 		System.out.println("동호회 가입신청 오류 : "+bindingResult.hasErrors());
 		clubService.addNewClub(clubSession, memberSession);
-		model.addAttribute("club", clubSession);
-		session.setAttribute("club", clubSession);
 		System.out.println("클럽 생성할 postmapping에서 담긴 클럽명 : " + clubSession.getClubName());
 		System.out.println("club컨트롤러의 postmapping에서 담긴 정보 : " + memberSession.getMemberId());
 		return "mypage";
-	}	
+	}
 	
 	@GetMapping("/clubpage")
 	public String myclub(@ModelAttribute String clubName, HttpServletRequest request, Model model)
