@@ -107,7 +107,6 @@
 					        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
 					    </div>
 					</form:form>
-
                 </div>
                 <div class="detail-box additional-info-box" style="height: 30rem;">
                     <div id="googleMapContainer">
@@ -121,15 +120,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
-<script>
-const grade = ${detailroom.roomTime}
-const matchingBt = document.getElementById("matching_bt");
-
-if (memberClubMemberApprove == true) {
-  matchingBt.style.display = "block";
-} else {
-  matchingBt.style.display = "none";
-}
-
-</script>
+	<script>
+	const grade = ${detailroom.roomTime}
+	const matchingBt = document.getElementById("matching_bt");
+	
+	if (memberClubMemberApprove == true) {
+	  matchingBt.style.display = "block";
+	} else {
+	  matchingBt.style.display = "none";
+	}
+	
+	</script>
 </html>

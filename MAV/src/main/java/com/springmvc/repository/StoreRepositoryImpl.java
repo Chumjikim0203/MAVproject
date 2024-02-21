@@ -30,8 +30,8 @@ public class StoreRepositoryImpl implements StoreRepository {
    // 방 만들기
     @Override
     public void createRoom(Room room) {
-        String sql = "INSERT INTO Room (storeId, roomName, roomCapacity, roomCount, roomCategory, roomDetail, roomDate, roomTime) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Room (storeId, roomName, roomCapacity, roomCount, roomCategory, roomDetail, roomDate, roomTime,isMatched) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(
                 sql,
                 room.getStoreId(),
@@ -41,7 +41,8 @@ public class StoreRepositoryImpl implements StoreRepository {
                 room.getRoomCategory(),
                 room.getRoomDetail(),
                 room.getRoomDate(),
-                room.getRoomTime()
+                room.getRoomTime(),
+                room.isMatched()
         );
     }
     

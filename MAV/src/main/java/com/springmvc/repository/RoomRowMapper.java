@@ -19,6 +19,7 @@ public class RoomRowMapper implements RowMapper<Room> {
        room.setRoomDetail(rs.getString("roomDetail"));
        room.setRoomDate(rs.getDate("roomDate").toLocalDate());
        room.setRoomTime(rs.getTime("roomTime").toLocalTime());
+       room.setMatched(rs.getBoolean("isMatched"));
       
       return room;
    }
