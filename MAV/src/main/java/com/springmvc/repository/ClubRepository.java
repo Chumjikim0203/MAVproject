@@ -10,4 +10,7 @@ public interface ClubRepository
 	void addNewClub(Club club, Member member);
 	List<Club> getByClubName(String clubName);
 	Club getByClubId(String clubId);
+	Club getClubInfo(Club club);
+	void updateClub(Club club);
+	void deleteClub(String clubName);
 }

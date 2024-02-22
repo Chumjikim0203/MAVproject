@@ -6,6 +6,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -31,32 +32,37 @@ public class ClubRepositoryImpl implements ClubRepository
 	public void addNewClub(Club club, Member member) 
 	{
 		
-		String grade = "동호회장";
-		boolean approve = true;
-		int point = 0;
-		System.out.println("1:"+ member.getMemberId());
-		System.out.println("2:"+ club.getClubName());
-		String SQL = "insert into Club values(null,?,?,?,?,?,?,?,?,?)";
+		club.setClubGrade("동호회장");
+		club.setClubApprove(true);
+		club.setClubPoint(0);
+		club.setClubId(member.getMemberId());
+		String SQL = "insert into Club values(null,?,?,?,?,?,?,?,?)";
 		template.update(SQL,
-				member.getMemberId(),
-				member.getMemberId(),
+				club.getClubId(),
 				club.getClubName(),
 				club.getClubCategory(),
 				club.getClubLocale(),
-				point,
-				grade,
-				approve,
+				club.getClubPoint(),
+				club.getClubGrade(),
+				club.isClubApprove(),
 				club.getClubInfo());
 		
+		System.out.println("1:"+ member.getMemberId());
+		System.out.println("2:"+ club.getClubName());
+		System.out.println("3 :"+club.getClubPoint());
+		System.out.println("4 :"+club.getClubLocale());
+		System.out.println("5 :"+club.getClubGrade());
+		System.out.println("6 :"+club.isClubApprove());
 	}
 
 	@Override
 	public List<Club> getByClubName(String clubName) 
 	{
-		List<Club> getByClubName = new ArrayList<Club>();
-		String SQL = "select * from club where clubName LIKE '%'+clubName+'%'";
-		getByClubName = template.query(SQL, new ClubRowMapper());
-		return getByClubName;
+		 List<Club> getByClubName = new ArrayList<Club>();
+		 String SQL = "SELECT * FROM club WHERE clubName=?";
+		 getByClubName = template.query(SQL, new ClubRowMapper());
+		 
+		 return getByClubName;
 	}
 
 	@Override
@@ -84,6 +90,31 @@ public class ClubRepositoryImpl implements ClubRepository
 			throw new MemberIdException(clubId);
 		}
 		return clubInfo;
+	}
+
+	
+	@Override
+	public void updateClub(Club club) 
+	{
+		System.out.println("수정 처리할 클럽ID : "+club.getClubId());
+		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubId=?";
+		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
+						club.getClubInfo(), club.getClubId());
+	}
+
+	@Override
+	public void deleteClub(String clubName) 
+	{
+		String SQL = "delete from club where clubName=?";
+		this.template.update(SQL, clubName);
+	}
+
+	@Override
+	public Club getClubInfo(Club club) 
+	{
+		String SQL = "select * from club where clubNum=? and clubName=?";
+		template.update(SQL, club.getClubNum(), club.getClubName());
+		return club;
 	}
 	
 	

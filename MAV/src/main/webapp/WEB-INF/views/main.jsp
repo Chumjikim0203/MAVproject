@@ -286,10 +286,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-<<<<<<< HEAD
       // datepicker 요소 가져오기
-=======
->>>>>>> origin/KTY
       var datepicker = document.getElementById('datepicker');
 
       // datepicker 값 변경 시 이벤트 처리

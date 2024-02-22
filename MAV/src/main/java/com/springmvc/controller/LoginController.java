@@ -1,5 +1,7 @@
 package com.springmvc.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.springmvc.domain.Club;
 import com.springmvc.domain.Member;
+import com.springmvc.service.ClubService;
 import com.springmvc.service.MemberService;
 
 @Controller
@@ -20,6 +24,8 @@ public class LoginController
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ClubService clubService;
 	
 	@GetMapping("/login")
 	public String login(Model model)
@@ -37,8 +43,8 @@ public class LoginController
         HttpSession session = request.getSession();
 		// 사용자 인증
         Member member = memberService.getLogin(memberId, memberPassword);
-        
-        if (member != null) {
+        if (member != null) 
+        {
             // 세션에 사용자 정보 저장
             session.setAttribute("member", member);
             System.out.println("login 컨트롤러에서 담긴 정보 : "+ member.getMemberId());

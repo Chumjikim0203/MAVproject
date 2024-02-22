@@ -106,12 +106,15 @@
 		        </nav>
 	        </c:otherwise>
 		</c:choose>
-		<h4> 클럽명 : ${clubList.clubName}</h4>
-		<h4> 클럽 종류 : ${clubList.clubCategory}</h4>
-		<h4> 클럽 지역 : ${clubList.clubLocale}</h4>
-		<h4> 클럽 포인트 : ${clubList.clubPoint}</h4>
-		<h4> 클럽 소개글 : ${clubList.clubInfo}</h4>
-		<h4> 클럽 내등급 : ${clubList.clubGrade}</h4>		
+		<h4> 클럽명 : ${club.clubName}</h4>
+		<h4> 클럽 종류 : ${club.clubCategory}</h4>
+		<h4> 클럽 지역 : ${club.clubLocale}</h4>
+		<h4> 클럽 포인트 : ${club.clubPoint}</h4>
+		<h4> 클럽 소개글 : ${club.clubInfo}</h4>
+		<h4> 클럽 내등급 : ${club.clubGrade}</h4>
+		<h4> 클럽 승인 상황 : ${club.clubApprove}</h4>
+		<a href="/MAV/club/update">클럽 수정하기</a>
+		<a href="/MAV/club/delete">클럽 삭제하기</a>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
 </body>

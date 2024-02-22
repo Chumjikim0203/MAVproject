@@ -10,4 +10,6 @@ public interface ClubService
 	void addNewClub(Club club, Member member);
 	List<Club> getByClubName(String clubName);
 	Club getByClubId(String clubId);
+	void updateClub(Club club);
+	void deleteClub(String clubName);
 }

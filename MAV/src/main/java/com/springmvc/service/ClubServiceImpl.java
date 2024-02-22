@@ -36,4 +36,17 @@ public class ClubServiceImpl implements ClubService
 		return getByClubId;
 	}
 	
+
+	@Override
+	public void updateClub(Club club) 
+	{
+		clubRepository.updateClub(club);
+	}
+
+	@Override
+	public void deleteClub(String clubName) 
+	{
+		clubRepository.deleteClub(clubName);
+	}
+	
 }
