@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html>
   <head>
@@ -61,37 +63,36 @@
         </div>
       </div>
     </nav>
-  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
-      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
-    </div>
-  </div>
-  
-  
+	 <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+	    <div class="col-md-6 px-0">
+	      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
+	      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
+	      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
+	    </div>
+	 </div>
+
+  		
        <!-- 매칭룸 -->
-      <div class="my-3 p-3 bg-body rounded shadow">
-        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">2024-03-21</h6>
-        <c:forEach items="${matchView}" var="MatchRoom"> 
+     <div class="my-3 p-3 bg-body rounded shadow">
+        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">날짜마다</h6>
+        <c:forEach items="${matchView}" var="matchView"> 
 	        <div class="d-flex text-body-secondary pt-3">
 	          <img  style="border-radius: 4px; border: 0.5px solid lightgray;" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_PkKzsY07RqP-frp2roB5BKgqJpedPttcdFfhHwg.JPEG.renoma4339%2F20231023%25A3%25DF220440.jpg" alt="" width="100" height="100">
 	          &nbsp;&nbsp;&nbsp;
 	          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 	            <div class="d-flex justify-content-between">
-	              <strong class="text-gray-dark" ><h5><b>${MatchRoom.matchTitle}</b></h5></strong>
-	         	  <a href="<c:url value='/match/roomsDetail'/>?roomNum=${MatchRoom.roomNum}" class="btn btn-danger">매칭 신청하기</a>   
+	              <strong class="text-gray-dark" ><h5><b>${matchView.matchTitle}</b></h5></strong>
+	         	  <a href="<c:url value='/match/roomsDetail'/>?roomNum=${matchView.roomNum}" class="btn btn-danger">매칭 신청하기</a>   
 	            </div>
-
 	            <b>
-	            <span class="d-block">${MatchRoom.roomDate}</span>
-	            <span class="d-block">${MatchRoom.roomTime}</span>
+	            <span class="d-block">${matchView.roomDate}</span>
+	            <span class="d-block">${matchView.roomTime}</span>
 	            </b>
 	          </div>
 	        </div>
-        </c:forEach> 
+        </c:forEach>  
       
-      
+      </div> 
       <footer class="footer spad">
         <div class="container">
             <div class="row">
@@ -151,7 +152,7 @@
         </div>
     </footer>
 
-    </div>
+
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

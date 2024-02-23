@@ -18,9 +18,13 @@ public class MatchRoomRowMapper implements RowMapper<MatchRoom> {
 	public MatchRoom mapRow(ResultSet rs, int rowNum) throws SQLException{
 		
 		
+
+		
         MatchRoom matchRoom = new MatchRoom();
         matchRoom.setMatchNum(rs.getInt("matchNum"));
         matchRoom.setMatchTitle(rs.getString("matchTitle"));
+		matchRoom.setCreatorId(rs.getString("creatorId"));
+		matchRoom.setApplicantId(rs.getString("applicantId"));
         matchRoom.setRoomNum(rs.getInt("roomNum"));
         matchRoom.setMatchStatus(rs.getString("matchStatus"));
         matchRoom.setMatchResult(rs.getString("matchResult"));
@@ -38,8 +42,5 @@ public class MatchRoomRowMapper implements RowMapper<MatchRoom> {
         return matchRoom;
 
 	}
-	
-	
-
 
 }

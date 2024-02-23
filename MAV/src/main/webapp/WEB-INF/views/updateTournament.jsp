@@ -61,6 +61,9 @@
             border-color: #0056b3;
         }
     </style>
+
+  
+
 </head>
 
 <body>
@@ -68,68 +71,84 @@
     <div class="container">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
-                <h4 class="mb-3">경기장 등록</h4>
-                
-                <form:form modelAttribute="newrooms" class="validation-form" method="post"
-                    action="${pageContext.request.contextPath}/store/addrooms" onsubmit="return validateForm()">
-              <label for="">구장이름</label>
-              <form:input  path="roomName" name="roomName" class="form-control" />
-              <div class="invalid-feedback" id="roomCountFeedback">
-                최대 참가인원을 입력해주세요
-              </div>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-              <label for="">경기날짜</label>
-              <form:input type="date" path="roomDate" name="roomDate" class="form-control" />
-              <div class="invalid-feedback" id="roomDateFeedback">
-                경기날짜를 입력해주세요.
-              </div>
-            </div>
+                <h4 class="mb-3">토너먼트 등록</h4>
 
-            <div class="col-md-6 mb-3">
-              <label for="" class="form-label">경기시간</label>
-              <form:input type="time" path="roomTime" name="roomTime" class="form-control" />
-              <div class="invalid-feedback" id="roomTimeFeedback">
-                경기시간을 입력해주세요.
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="">수용인원</label>
-              <form:input type="number" path="roomCapacity" name="roomCapacity" class="form-control"  />
-              <div class="invalid-feedback" id="roomCapacityFeedback">
-                수용인원을 입력해주세요
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="">경기종목</label>
-              <form:input type="text" path="roomCategory" name="roomCategory" class="form-control" />
-              <div class="invalid-feedback" id="roomCategoryFeedback">
-                셀렉트하게 만들기
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="">최대 참가인원</label>
-              <form:input type="number" path="roomCount" name="roomCount" class="form-control" />
-              <div class="invalid-feedback" id="roomCountFeedback">
-                최대 참가인원을 입력해주세요
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="">세부사항을 입력해주세요.<span class="text-muted">&nbsp;(필수 아님)</span></label>
-			<form:textarea type="text" id="myTextArea"  oninput="handleInput(event)" class="form-control" path="roomDetail" name="roomDetail" rows="10" style="height: 50vh;"/>
-                    </div>
-                    <div class="mb-4"></div>
-                    <input type="submit" value="경기 등록하기" class="btn btn-primary">
-                </form:form>
-            </div>
-        </div>
-    </div>
+				<form:form modelAttribute="updateTournament" class="validation-form" method="post"
+				           action="${pageContext.request.contextPath}/tournament/updateTournament" onsubmit="return validateForm()">
+				    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				    <input type="hidden" name="updateTournament" value="${updateTournament.tournamentNum}">
+				    <div class="row">
+				        <!-- 경기날짜 -->
+				        <div class="col-md-6 mb-3">
+				            <label for="">경기날짜</label>
+				            <form:input type="date" path="tournamentDate" name="tournamentDate" class="form-control" value="${updateTournament.tournamentDate}"/>
+				            <div class="invalid-feedback" id="tournamentDateFeedback">
+				                경기날짜를 입력해주세요.
+				            </div>
+				        </div>
+				        <!-- 경기시간  -->
+				        <div class="col-md-6 mb-3">
+				            <label for="" class="form-label">경기 시간</label>
+				            <form:input type="time" path="tournamentTime" name="tournamentTime" class="form-control" value="${updateTournament.tournamentTime}"/>
+				            <div class="invalid-feedback" id="tournamentRewardFeedback">
+				                경기시간을 입력해주세요.
+				            </div>
+				        </div>
+				    </div>
+				    <!-- 상금  -->
+				    <div class="row">
+				        <div class="col-md-6 mb-3">
+				            <label for="">상금</label>
+				            <form:input type="number" path="tournamentReward" name="tournamentReward" class="form-control"  value="${updateTournament.tournamentReward}"/>
+				            <div class="invalid-feedback" id="tournamentRewardFeedback">
+				                상금을 입력해주세요
+				            </div>
+				        </div>
+				        <!-- 참가비  -->
+				        <div class="col-md-6 mb-3">
+				            <label for="">참가비</label>
+				            <form:input type="number" path="tournamentPrice" name="tournamentPrice" class="form-control" value="${updateTournament.tournamentPrice}"/>
+				            <div class="invalid-feedback" id="tournamentPriceFeedback">
+				                <!-- 셀렉트하게 만들기 -->  
+				            </div>
+				        </div>
+				    </div>
+				    <div class="row form-group">
+				        <!-- 셀렉트 필드  -->
+				        <label class="row" for="max_participants">참가 팀 수:</label>
+				        <select name="max_participants" th:field="${updateTournament.max_participants}">
+				            <option value="" disabled>선택하세요</option>
+				            <option value="4">4</option>
+				            <option value="6">6</option>
+				            <option value="8">8</option>
+				            <option value="10">10</option>
+				            <option value="12">12</option>
+				            <option value="14">14</option>
+				            <option value="16">16</option>
+				            <option value="18">18</option>
+				            <option value="20">20</option>
+				            <option value="22">22</option>
+				            <option value="24">24</option>
+				            <option value="26">26</option>       
+				        </select>
+				    </div>
+	    			<div class="mb-4"></div>
+                    <input type="submit" value="토먼먼트 등록하기" class="btn btn-danger" >
+				</form:form>
+
+			          
+			          <!-- 내일 할것  -->
+	<%-- 			           <div class="mb-3">
+			            <label for="">세부사항을 입력해주세요.<span class="text-muted">&nbsp;(필수 아님)</span></label>
+					 <form:textarea type="text" id="myTextArea"  oninput="handleInput(event)" class="form-control" path="roomDetail" name="roomDetail" rows="10" style="height: 50vh;"/>
+			                    </div>
+			                    <div class="mb-4"></div>
+			                    <input type="submit" value="경기 등록하기" class="btn btn-primary">
+			             </form:form> --%>
+	            </div>
+	        </div>
+	    </div>
+     -->    
  <script>
  
 	function handleInput(event) {

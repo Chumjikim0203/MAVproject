@@ -2,6 +2,9 @@ package com.springmvc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.springmvc.domain.Match;
+import com.springmvc.domain.MatchRoom;
 import com.springmvc.domain.Room;
+import com.springmvc.domain.Tournament;
+import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
+import com.springmvc.service.TournamentService;
 
 @Controller
 @RequestMapping("/store")
@@ -22,18 +28,34 @@ public class StoreController {
 	
     @Autowired
     private StoreService storeService;
+    
+	@Autowired
+	private MatchService matchService;
+	
+	@Autowired
+	private TournamentService tournamentService;
 
-    //getByroomNumAllRooms원래는 이자리 이 함수로 만들어야함
     //대경이행님이 로긴 만들면 값 가지고 와서 store들어가자 마자 뿌리기(아이디별로 하는것 만들어야함)
+	//해당 업체가 만든 모든 매칭룸을 가지고 스토어로감
+	//해당 업체가 만든 모든 경기장룸을 가지고 스토어로감
+	//해당 업체가 만든 모든 토너먼트를 가지고 스토어오감 
     @GetMapping
-    public String readStoreMypage(Model model, Room room) {
+    public String readStoreMypage(HttpServletRequest request,Model model, Room room, MatchRoom matchRoom, Tournament tournament) {
         // 입력한 방 모두의 정보를 가지고오는 로직
+    	HttpSession session = request.getSession();
+    	System.out.println("session.getId() :" + session.getAttribute("member"));
+    	
+    	
+    	List<Tournament> newtournament = tournamentService.getAlltournament(tournament);
+    	model.addAttribute("newtournament",newtournament);
+     	List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
+     	model.addAttribute("matchView",matchView);
         List<Room> myRooms = storeService.getAllRooms(room);
         model.addAttribute("myRooms", myRooms);
         return "store";
     }
     
-    //방만들기
+    //방만들기 폼 보여주기
     @GetMapping("/addrooms")
     public String createStoreRoomForm(@ModelAttribute("newrooms") Room room,Model model) {
        
