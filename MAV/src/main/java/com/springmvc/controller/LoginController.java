@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Club;
 import com.springmvc.domain.Member;
+import com.springmvc.domain.Store;
 import com.springmvc.domain.Teacher;
 import com.springmvc.service.ClubService;
 import com.springmvc.service.MemberService;
+import com.springmvc.service.StoreService;
 import com.springmvc.service.TeacherService;
 
 @Controller
@@ -30,6 +32,8 @@ public class LoginController
 	private ClubService clubService;
 	@Autowired
 	private TeacherService teacherService;
+	@Autowired
+	private StoreService storeService;
 	
 	@GetMapping("/login")
 	public String login(Model model)
@@ -49,6 +53,13 @@ public class LoginController
         Member member = memberService.getLogin(memberId, memberPassword);
         // Teacher 테이블 조회
         Teacher teacher = teacherService.teacherId(memberId);
+        // Store 테이블 조회
+        Store store = storeService.getStoreById(memberId);
+        if(store != null)
+        {
+        	session.setAttribute("store", store);
+        	System.out.println("login 컨트롤러에서 담긴 사장님 정보 : "+store.getStoreId());
+        }
         if (teacher != null) {
             // 교사임을 세션에 저장
             session.setAttribute("teacher", teacher);

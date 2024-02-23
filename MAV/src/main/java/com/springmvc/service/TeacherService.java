@@ -8,15 +8,6 @@ import com.springmvc.domain.Member;
 import com.springmvc.domain.Teacher;
 import com.springmvc.repository.TeacherRepository;
 
-<<<<<<< HEAD
-public interface TeacherService 
-{
-   public void CreateTeacher(Teacher teacher);
-   void UpdateTeacher(Teacher teacher);
-   public List<Teacher> AllTeacher();
-   public Teacher teacherId(String teacherId);
-}
-=======
 public interface TeacherService {
 
 	public void CreateTeacher(Teacher teacher);
@@ -24,4 +15,4 @@ public interface TeacherService {
 	public List<Teacher> AllTeacher();
 	public Teacher teacherId(String teacherId);
 }
->>>>>>> origin/PMS
+

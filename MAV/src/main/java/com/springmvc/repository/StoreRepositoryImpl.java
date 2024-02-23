@@ -18,7 +18,8 @@ public class StoreRepositoryImpl implements StoreRepository {
     @Override
     public Store getStoreById(String storeId) {
         String sql = "SELECT * FROM Store WHERE storeId = ?";
-        return jdbcTemplate.queryForObject(sql,new StoreRowMapper(),storeId);
+        Store store = jdbcTemplate.queryForObject(sql,new StoreRowMapper(),storeId);
+        return store;
     }
 
 
