@@ -6,13 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springmvc.domain.Room;
+import com.springmvc.domain.Store;
 import com.springmvc.repository.StoreRepository;
 
 @Service
 public class StoreServiceImpl implements StoreService{
     @Autowired
     private StoreRepository storeRepository;
-
+    
+    
+   
     @Override
     public void createRoom(Room room) {
         storeRepository.createRoom(room);
@@ -39,6 +42,13 @@ public class StoreServiceImpl implements StoreService{
 	public void updateRoom(Room updateRoom) {
 		storeRepository.updateRoom(updateRoom);
 		
+	}
+	
+	//스토어 아이디 가지고 오기
+	@Override
+	public Store getStoreById(String storeId) {
+		// TODO Auto-generated method stub
+		return storeRepository.getStoreById(storeId);
 	}
 }
 

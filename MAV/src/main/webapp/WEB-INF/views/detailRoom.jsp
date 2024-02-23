@@ -104,7 +104,7 @@
 					        <form:input path="matchTitle" class="form-control"  />
 					        <form:hidden path="roomNum" value="${detailroom.roomNum}" />
 					        <!-- 추가적인 데이터 필드들을 여기에 추가 -->
-					        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
+					        <button type="submit" class="btn btn-danger mt-2">매칭 만들기</button>
 					    </div>
 					</form:form>
                 </div>

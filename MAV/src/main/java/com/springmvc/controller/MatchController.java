@@ -31,9 +31,8 @@ public class MatchController {
     // 상세보기 매칭룸만들기
     @GetMapping("/roomsDetail")
     public String detailmyRooms(@RequestParam("roomNum")int roomNum, Model model) {
-    	model.addAttribute("matchForm", new Match());
     	
-    	System.out.println(roomNum);  
+    	model.addAttribute("matchForm", new Match());
     	Room detailroom =storeService.getByroomNumAllRooms(roomNum);
     	model.addAttribute("detailroom",detailroom);
     	return "detailRoom";
@@ -50,7 +49,7 @@ public class MatchController {
     	 System.out.println("match 주소 : " + newmatch.getMatchNum());
     	 model.addAttribute("matchForm", newmatch);
     	 matchService.matchCreate(match);
-    	 
+    	 //원래는 동호회장 만든 매칭룸으로 가기
       	return "redirect:/match/matchingView";
       }
      
