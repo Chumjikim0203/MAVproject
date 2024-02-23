@@ -26,6 +26,10 @@
 </head>
 
 <body>
+<%
+	String memberId = request.getParameter("memberId");
+	System.out.println("폼에서:"+memberId);
+%>	
     <br><br><br>
   <div class="container">
     <div class="input-form-backgroud row">
@@ -33,7 +37,7 @@
         <h4 class="mb-3">강의등록</h4>
                   
         <form:form modelAttribute="classes" class="validation-form"  method="post" action="./addclass">
-         <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>  --%>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>  
         <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="className">강의명</label>
@@ -43,6 +47,8 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="classLecturedate">강의날짜</label>
+                    <form:hidden class="form-control" path="classId" value="<%=memberId%>"/>
+                             
                     <form:input type="date" class="form-control" path="classLecturedate"  />
 					<div class="invalid-feedback">
                     	강의날짜를 선택해주세요.
@@ -118,8 +124,7 @@
 
           form.classList.add('was-validated');
         }, false);
-      });
-    }, false);
+
   </script>
 </body>
 

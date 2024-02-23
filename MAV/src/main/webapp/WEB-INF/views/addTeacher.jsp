@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -24,59 +25,72 @@
   </style>
 </head>
 
-<body>
-    <br><br><br>
-  <div class="container">
-    <div class="input-form-backgroud row">
-      <div class="input-form col-md-12 mx-auto">
-        <h4 class="mb-3">강사가입</h4>
-        <form class="validation-form" novalidate>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="teacherId">강사아이디</label>
-                    <input type="text" class="form-control" id="teacherId" placeholder="" value="" required>
-                    <div class="invalid-feedback">
-                        이름을 입력해주세요.
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="teacherImages" class="form-label">강사이미지</label>
-                    <input class="form-control" type="file" id="teacherImages">
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="teacherRecode">강사이력</label>
-                <input type="text" class="form-control" id="teacherRecode" placeholder="ex: 000근무 몇년" required>
-                <div class="invalid-feedback">
-                강사이력을 입력해주세요.
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="teacherCategory">강사종류</label>
-                <input type="text" class="form-control" id="teacherCategory" placeholder="ex: 강의업종" required>
-                <div class="invalid-feedback">
-                전공을 입력해주세요.
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <input class="form-control" type="file" id="teacherLicense">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <input class="form-control" type="file" id="teacherLicense">
-                </div>
-                <div  class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <input class="form-control" type="file" id="teacherLicense">
-                </div>
-                <div  class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <input class="form-control" type="file" id="teacherLicense">
-                </div>
-            </div> 
+ <body>
+ <%
+	String memberId = request.getParameter("memberId");
+	System.out.println("addteacherjsp:"+memberId);
+%>	
 
+       <div class="container">
+           <div class="input-form-backgroud row">
+               <div class="input-form col-md-12 mx-auto">
+                   <h4 class="mb-3">강사 가입</h4>
+                   <form:form modelAttribute="addTeacher" class="form-horizontal" action="/MAV/teacher/add" method="post">
+               <fieldset>
+                <div class="row">
+                         <div class="col-md-6 mb-3">
+                             <label for="teacherCategory">강사종류</label>
+                             <form:hidden class="form-control" path="teacherId" value="<%=memberId%>"/>
+                             
+                            <form:input path="teacherCategory" class="form-control" name="teacherCategory"/>                          
+                          </div>
+                        <div class="invalid-feedback">
+                            전공을 입력해주세요
+                        </div>                    
+                        <div class="col-md-6 mb-3">
+                            <label for="teacherRecode">강사이력</label>
+                            <form:input class="form-control" path="teacherRecode" name="teacherRecode"/>
+                        </div>
+                        <div class="invalid-feedback">
+                              강사이력을 입력해주세요.
+                        </div>   
+                        <!--             <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="teacherLicense" class="form-label">강사자격증</label>
+                    <form:input class="form-control" type="file" path="teacherLicense"/>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="teacherLicense" class="form-label">강사자격증</label>
+                   <form:input class="form-control" type="file" path="teacherLicense"/>
+                </div>
+                <div  class="col-md-6 mb-3">
+                    <label for="teacherLicense" class="form-label">강사자격증</label>
+                   <form:input class="form-control" type="file" path="teacherLicense"/>
+                </div>
+                <div  class="col-md-6 mb-3">
+                    <label for="teacherLicense" class="form-label">강사자격증</label>
+                    <form:input class="form-control" type="file" path="teacherLicense"/>
+                </div>
+            </div>  -->
+                                      
+                        <div class="mb-3">
+            				 <label for="teacherInfomation">자기소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+            				 <form:input  class="form-control"  path="teacherInfomation" name="teacherInfomation" />
+         				 </div>
+                                            
+                        
+            </div>
+                   <br>
+                    <hr class="mb-4">
+                    <div class="mb-4"></div>   
+                      <input class="btn btn-primary btn-lg btn-block" type="submit" value="신청 완료"/>            
+            </fieldset>
+            </form:form>
+               </div>
+           </div>
+       </div>
+
+<<<<<<< HEAD
           <div class="mb-3">
             <label for="teacherInfomation">자기소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
             <input type="text" class="form-control" id="teacherInfomation" placeholder="자기소개를 작성부탁드립니다.">
@@ -111,3 +125,9 @@
   </script>
 </body>
 </html>
+=======
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+ </body>
+</html>
+
+>>>>>>> origin/PMS

@@ -1,12 +1,10 @@
 package com.springmvc.domain;
 
-import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
+import com.springmvc.domain.*;
 
 public class Classes
 {
@@ -25,12 +23,13 @@ public class Classes
 	private MultipartFile classImages; // 강의 이미지(경로)dto한개 생성
 	private String classLocale; // 강의 지역
 	private boolean classApprove; // 강의 신청 승인
+	private String teacherId;
 	
 	
 	
 	public Classes() {
 		super();
-		this.classId = "1";
+		
 	}
 	public Classes(String className) {
 		super();
@@ -114,6 +113,12 @@ public class Classes
 	}
 	public void setClassLocale(String classLocale) {
 		this.classLocale = classLocale;
+	}
+	public String getTeacherId() {
+		return teacherId;
+	}
+	public void setTeacherId(String teacherId) {
+		this.teacherId = teacherId;
 	}
 	
 	

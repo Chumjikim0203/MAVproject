@@ -59,7 +59,7 @@ public class ClassController {
 		return "addclass";
 	}
 
-	//강사등록 하기버튼
+	//강의등록 하기버튼
 	  @PostMapping("/addclass") 
 	  public String createaddclass(@ModelAttribute Classes classes,BindingResult bindingResult, Model model)
 	  { 

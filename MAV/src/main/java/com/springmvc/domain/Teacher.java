@@ -13,7 +13,15 @@ public class Teacher
    private boolean teacherApprove; // 강사 승인 신청
 
    
-   public String getTeacherInfomation() {
+   
+   
+   public Teacher() {
+	super();
+	
+	
+   }
+
+public String getTeacherInfomation() {
       return teacherInfomation;
    }
    public void setTeacherInfomation(String teacherInfomation) {

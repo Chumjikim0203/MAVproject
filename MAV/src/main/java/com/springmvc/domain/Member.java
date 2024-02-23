@@ -27,9 +27,8 @@ public class Member
 	
 	public Member()
 	{
-		
+	
 	}
-
 	public String getViewBirth() {
 		return viewBirth;
 	}
