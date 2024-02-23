@@ -56,13 +56,16 @@ public class ClubRepositoryImpl implements ClubRepository
 	}
 
 	@Override
-	public List<Club> getByClubName(String clubName) 
-	{
-		 List<Club> getByClubName = new ArrayList<Club>();
-		 String SQL = "SELECT * FROM club WHERE clubName=?";
-		 getByClubName = template.query(SQL, new ClubRowMapper());
-		 
-		 return getByClubName;
+	public Club getByClubName(String clubName) {
+	    String SQL = "SELECT * FROM club WHERE clubName=?";
+	    Club club = null;
+	    try {
+	        club = template.queryForObject(SQL, new Object[]{clubName}, new ClubRowMapper());
+	    } catch (EmptyResultDataAccessException ex) {
+	        // 클럽을 찾을 수 없는 경우 예외 처리
+	        // 이 부분을 적절하게 처리해야 합니다.
+	    }
+	    return club;
 	}
 
 	@Override
@@ -115,6 +118,41 @@ public class ClubRepositoryImpl implements ClubRepository
 		String SQL = "select * from club where clubNum=? and clubName=?";
 		template.update(SQL, club.getClubNum(), club.getClubName());
 		return club;
+	}
+
+	@Override
+	public void joinClub(Club club, Member member) 
+	{
+		club.setClubGrade("준회원");
+		club.setClubApprove(false);
+		club.setClubPoint(0);
+		club.setClubId(member.getMemberId());
+		String SQL = "insert into Club values(null,?,?,?,?,?,?,?,?)";
+		template.update(SQL,
+				club.getClubId(),
+				club.getClubName(),
+				club.getClubCategory(),
+				club.getClubLocale(),
+				club.getClubPoint(),
+				club.getClubGrade(),
+				club.isClubApprove(),
+				club.getClubInfo());
+	}
+
+	@Override
+	public List<Club> getAllClubList() 
+	{
+		String SQL = "select * from Club";
+		List<Club> getAllClubList = template.query(SQL, new ClubRowMapper());
+		return getAllClubList;
+	}
+
+	@Override
+	public Club getByClubNum(Club club) 
+	{		
+		String SQL = "select * from club where clubNum=?";
+		 Club getByClubNum = (Club) template.queryForObject(SQL, new Object[] {club.getClubNum()}, new ClubRowMapper());
+		 return getByClubNum;
 	}
 	
 	

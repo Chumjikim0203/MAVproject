@@ -89,30 +89,28 @@ public class ClubController
 	}
 	
 	@GetMapping("/clubpage")
-	public String myclub(HttpServletRequest request, Model model)
+	public String myclub(String clubName, HttpServletRequest request, Model model)
 	{
 		System.out.println("클럽페이지 도착");
 		HttpSession session = request.getSession();
 		Member memberSession = (Member) session.getAttribute("member");
-		Club clubSession;
-		
-		Club club = clubService.getByClubId(memberSession.getMemberId());
-		System.out.println("클럽페이지에서 가진 회원아이디 : " + memberSession.getMemberId());
-		
-		model.addAttribute("member", memberSession);
-		model.addAttribute("club", club);
-		
-		clubSession = (Club) model.getAttribute("club");
-		session.setAttribute("club", clubSession);
-		
-		return "clubpage";
+		Club clubSession= (Club) session.getAttribute("club");
+		if(clubSession==null)
+		{
+			clubSession = new Club();
+		}
+		Club club = clubService.getByClubName(clubName); // 클럽 ID를 통해 클럽 정보를 가져옴
+        model.addAttribute("club", club); // 모델에 클럽 정보를 추가
+        
+        return "clubpage"; // 클럽 정보를 보여주는 뷰 페이지로 이동
 	}
 	
 	@GetMapping("/list")
 	public String clubList(Model model)
 	{
 		System.out.println("클럽 리스트 페이지 도착");
-		
+		List<Club> getAllClubList = clubService.getAllClubList();
+		model.addAttribute("club", getAllClubList);
 		return "clublist";
 	}
 	@GetMapping("/update")

@@ -8,8 +8,11 @@ import com.springmvc.domain.Member;
 public interface ClubService 
 {
 	void addNewClub(Club club, Member member);
-	List<Club> getByClubName(String clubName);
+	void joinClub(Club club, Member member);
+	Club getByClubName(String clubName);
+	List<Club> getAllClubList();
 	Club getByClubId(String clubId);
+	Club getByClubNum(Club club);
 	void updateClub(Club club);
 	void deleteClub(String clubName);
 }
