@@ -171,8 +171,13 @@
 
 <body>
  <%
+<<<<<<< HEAD
 	
 
+=======
+	String memberId = request.getParameter("memberId");
+	System.out.println("teacher:"+memberId);
+>>>>>>> origin/KTY
 %>
 		<ul class="navbar-nav center">
             	<li>
@@ -193,7 +198,11 @@
                         <a href="./Class/addclass">강의등록하기</a>
                     </li>
                     <li class="list-group-item">
+<<<<<<< HEAD
                         <a href="./teacher/update/teacher?teacherId=${teacher.teacherId}">강사정보수정</a>
+=======
+                        <a href="./teacher/update?${teacher.teacherId}">강사정보수정</a>
+>>>>>>> origin/KTY
                     </li>
                     <li class="list-group-item">
                         <a href="./teacher/delete?teacherId=?">강사탈퇴</a>
@@ -208,7 +217,11 @@
                 <div class="right">
                     <img src=".." class="" width="30%">
                     <div class="right-name">
+<<<<<<< HEAD
                         <p>${member.memberName}</p> <br>
+=======
+                        <p>${member.memberName}</p>
+>>>>>>> origin/KTY
                         <p>${member.memberEmail}</p>
                     </div>
                 </div>

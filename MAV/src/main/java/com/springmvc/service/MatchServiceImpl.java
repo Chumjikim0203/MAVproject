@@ -16,9 +16,13 @@ public class MatchServiceImpl implements MatchService {
 	private MatchRepository matchRepository;
 	
 	@Override
-	public void matchCreate(Match match) {
+	public int matchCreate(Match match) {
 		matchRepository.matchCreate(match);
+<<<<<<< HEAD
 
+=======
+		return match.getRoomNum(); 
+>>>>>>> origin/KTY
 	}
 
 	@Override
@@ -27,4 +31,22 @@ public class MatchServiceImpl implements MatchService {
 
 	}
 
+	@Override
+	public List<MatchRoom> getMatchRoomsByStoreId(String storeId) {
+		return matchRepository.getMatchRoomsByStoreId(storeId);
+	}
+
+	@Override
+	public MatchRoom getMatchByRoomNum(int roomNum) {
+		// TODO Auto-generated method stub
+		return matchRepository.getMatchByRoomNum(roomNum);
+
+	}
+
+	@Override
+	public void applyMatch(Match match) {
+		matchRepository.applyMatch(match) ;
+		
+	}
+	
 }

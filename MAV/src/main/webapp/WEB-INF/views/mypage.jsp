@@ -229,7 +229,13 @@
 	                      동호회
 	                    </a>
 	                    <ul class="dropdown-menu">
+<<<<<<< HEAD
 	                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>	            
+=======
+	                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
+	                      <li><hr class="dropdown-divider"></li>
+	                      <li><a class="dropdown-item" href="/MAV/club/clubpage?clubNum='${club.clubNum}'">동호회 페이지</a></li>
+>>>>>>> origin/KTY
 	                      <li><hr class="dropdown-divider"></li>
 	                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
 	                    </ul>
@@ -261,7 +267,11 @@
 	            </div>
 	        </nav>
 	       </c:otherwise> 
+<<<<<<< HEAD
 	      </c:choose>
+=======
+	        </c:choose>
+>>>>>>> origin/KTY
 		<h3>멤버 아이디 : ${member.memberId}</h3>
 		<h3>멤버 이름 : ${member.memberName}</h3>
 		<h3>멤버 생년월일 : ${member.memberBirth}</h3>
@@ -271,6 +281,7 @@
 		<a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">수정하기</a>
 		<a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">삭제하기</a>
 		<a href="<c:url value='./add/store'/>?memberId=${member.memberId}">업체신청</a>
+<<<<<<< HEAD
 		<a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>		
 	    <div class = "col-7 ">
               <div class="room-title">내 클럽 리스트</div>
@@ -289,6 +300,11 @@
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+=======
+		<a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+>>>>>>> origin/KTY
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

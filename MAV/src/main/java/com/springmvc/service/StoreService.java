@@ -13,5 +13,10 @@ public interface StoreService {
 	void updateRoom(Room updateRoom);
 	void CreateStore(Store store);
 	Store getStoreById(String storeId);
+<<<<<<< HEAD
+=======
+	List<Room> getRoomsByStoreId(String storeId);
+
+>>>>>>> origin/KTY
 }
 //List<Room> getAllRoomsByStoreId(String storeId);

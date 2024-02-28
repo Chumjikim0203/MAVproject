@@ -15,8 +15,31 @@ public class StoreRepositoryImpl implements StoreRepository {
 
     private final JdbcTemplate jdbcTemplate;
     
+    //스토어 아이디에 맞는 룸 가지고 오기
+    @Override
+    public List<Room> getRoomsByStoreId(String storeId) {
+        String sql = "SELECT * FROM Room WHERE storeId = ?";
+        return jdbcTemplate.query(sql, new RoomRowMapper(), storeId);
+    }
     
+<<<<<<< HEAD
 
+=======
+    
+    //스토어 아이디에 맞는 정보가지고 가기
+    @Override
+    public Store getStoreById(String storeId) {
+        String sql = "SELECT * FROM Store WHERE storeId = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, new StoreRowMapper(), storeId);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    //업데이트시에 사용
+	//룸 넘버에 맞는 룸정보 들고 오기
+>>>>>>> origin/KTY
     @Override
     public Room getByroomNumAllRooms(int roomNum) {
         String sql = "SELECT * FROM Room WHERE roomNum = ?";
@@ -63,7 +86,8 @@ public class StoreRepositoryImpl implements StoreRepository {
         String sql = "SELECT * FROM Room";
         return jdbcTemplate.query(sql, new RoomRowMapper());
     }
-
+    
+    //스토어아이디에 맞는 룸 불러오기
     @Override
     public Room getByRoomNum(int roomNum) {
         String sql = "SELECT * FROM Room WHERE roomNum = ?";

@@ -8,6 +8,7 @@ import com.springmvc.domain.Match;
 
 public class MatchRowMapper implements RowMapper<Match> {
 
+<<<<<<< HEAD
    @Override
    public Match mapRow(ResultSet resultSet, int rowNum) throws SQLException {
        Match match = new Match();
@@ -20,4 +21,27 @@ public class MatchRowMapper implements RowMapper<Match> {
        
        return match;
    }
+=======
+	@Override
+	public Match mapRow(ResultSet rs, int rowNum) throws SQLException {
+	    Room room = new Room();
+	    Match match = new Match();
+	    match.setMatchNum(rs.getInt("matchNum"));
+	    match.setMatchTitle(rs.getString("matchTitle"));
+	    match.setRoomNum(rs.getInt("roomNum"));
+	    match.setCreatorId(rs.getString("creatorId"));
+	    match.setApplicantId(rs.getString("applicantId"));
+	    match.setMatchStatus(rs.getString("matchStatus"));
+	    match.setMatchResult(rs.getString("matchResult"));
+
+	    boolean isMatched = rs.getBoolean("isMatched");
+	    room.setMatched(isMatched);
+
+	    match.setRoom(room);
+
+	    return match;
+	}
+
+
+>>>>>>> origin/KTY
 }

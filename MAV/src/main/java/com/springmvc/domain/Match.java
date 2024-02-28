@@ -13,8 +13,13 @@ public class Match
 {
     private int matchNum; // 매칭 번호
     private int roomNum; // 방 번호
+<<<<<<< HEAD
     private String matchTitle;
 	private String memberId; // 회원 ID
+=======
+    private String creatorId;
+    private String applicantId;
+>>>>>>> origin/KTY
     private String matchStatus; // 매칭 상태
     private String matchResult; // 매칭 결과
 
@@ -44,14 +49,6 @@ public class Match
 
    public void setRoomNum(int roomNum) {
       this.roomNum = roomNum;
-   }
-
-   public String getMemberId() {
-      return memberId;
-   }
-
-   public void setMemberId(String memberId) {
-      this.memberId = memberId;
    }
 
    public String getMatchStatus() {

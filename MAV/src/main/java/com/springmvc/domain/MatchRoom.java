@@ -22,7 +22,25 @@ public class MatchRoom {
     private int roomCapacity; // 경기장 수용인원
     private int roomCount; // 경기장 참가인원
     private String roomCategory; // 경기 종류(종목)
+<<<<<<< HEAD
     private String roomDetail; // 경기장 소개글
+=======
+    
+    
+    public String getCreatorId() {
+		return creatorId;
+	}
+	public void setCreatorId(String creatorId) {
+		this.creatorId = creatorId;
+	}
+	public String getApplicantId() {
+		return applicantId;
+	}
+	public void setApplicantId(String applicantId) {
+		this.applicantId = applicantId;
+	}
+	private String roomDetail; // 경기장 소개글
+>>>>>>> origin/KTY
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate roomDate; // 경기 날짜
     @DateTimeFormat(pattern = "HH:mm")

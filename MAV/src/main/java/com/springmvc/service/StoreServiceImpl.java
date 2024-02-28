@@ -53,6 +53,10 @@ public class StoreServiceImpl implements StoreService{
 		// TODO Auto-generated method stub
 		return storeRepository.getStoreById(storeId);
 	}
+	@Override
+	public List<Room> getRoomsByStoreId(String storeId) {
+		return storeRepository.getRoomsByStoreId(storeId);
+	}
 }
 
 

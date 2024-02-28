@@ -298,7 +298,11 @@
                                 class="room-application-link room-application-btn3">수정</a>
                             <!-- 수정코드 필요여부에 따라 -->
                             <a href="<c:url value='/tournament/deleteTournament'/>?tournamentNum=${tournament.tournamentNum}"
+<<<<<<< HEAD
                                 class="room-application-link room-application-btn3">삭제</a>                     
+=======
+                                class="room-application-link room-application-btn3">삭제</a>							
+>>>>>>> origin/KTY
                         </span>
                     </div>
                 </div>
@@ -312,4 +316,8 @@
 
 
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/KTY
