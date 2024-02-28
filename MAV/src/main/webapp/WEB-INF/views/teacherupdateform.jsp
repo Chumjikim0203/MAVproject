@@ -81,7 +81,7 @@
                    <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="teacherCategory">강사종류</label>
-                               <form:input path="teacherCategory" class="form-control" value="${teacher.teacherCategory}" name="teacherCategory" />                          
+                               <form:input path="teacherCategory" class="form-control" value="${teacher.teacherCategory}" name="teacherCategory" />
                              </div>
                             <div class="invalid-feedback">
                                 종목을입력해주세요

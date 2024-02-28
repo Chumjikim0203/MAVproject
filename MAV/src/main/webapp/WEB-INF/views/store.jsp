@@ -298,7 +298,7 @@
                                 class="room-application-link room-application-btn3">수정</a>
                             <!-- 수정코드 필요여부에 따라 -->
                             <a href="<c:url value='/tournament/deleteTournament'/>?tournamentNum=${tournament.tournamentNum}"
-                                class="room-application-link room-application-btn3">삭제</a>                     
+                                class="room-application-link room-application-btn3">삭제</a>							
                         </span>
                     </div>
                 </div>
@@ -309,7 +309,5 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
 </body>
-
-
-
 </html>
+

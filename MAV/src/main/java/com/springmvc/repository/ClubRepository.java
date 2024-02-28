@@ -10,12 +10,16 @@ public interface ClubRepository
 {
 	void addNewClub(Club club, Member member);
 	void addNewClubMember(Club club,ClubMember clubmember, Member member);
-	void joinClub(Club club, ClubMember clubmember);
+	void joinClub(Club club, ClubMember clubmember, Member member);
 	List<Club> getAllClubList();
 	Club getByClubName(String clubName);
 	Club getByClubNum(Club club);
 	Club getClubInfo(Club club);
 	List<Club> getMyClub(String c_memberId);
-	void updateClub(Club club);
-	void deleteClub(String clubName);
+	void updateClub(Club club, Member member);
+	void deleteClub(String clubName ,String c_memberId);
+	ClubMember getMyClubMember(String c_memberId,String clubName);
+	void leaveClub(String clubName, String c_memberId);
+	List<ClubMember> getClubMemberList(String clubName);
+	void ejectionMember(String ClubName, String c_memberId);
 }

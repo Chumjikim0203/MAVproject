@@ -59,61 +59,85 @@
 		            </div>
 		        </nav>
 	        	</c:when>
-	        	<c:otherwise>
-	        	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-		            <div class="container-fluid">
-		              <a class="navbar-brand" href="#">MAV</a>
-		              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		              </button>
-		              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link" href="/MAV/club/add">동호회</a>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      매칭
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-		                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-		                  </li>
-		                   <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-		                  </li>
-		                </ul>
-		                <ul class="navbar-nav center">
-		                	<li>
-		                		<h5><b>${member.memberName}</b> 님 환영합니다!</h5>
-		                	</li>
-		                </ul>
-		                <form class="d-flex" role="search">
-		                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-		                  <button class="btn btn-outline-success" type="submit">search</button>
-		                </form>
-		              </div>
-		            </div>
-		        </nav>
-	        </c:otherwise>
+	        	   <c:otherwise>
+	       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+	            <div class="container-fluid">
+	              <a class="navbar-brand" href="#">MAV</a>
+	              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	                <span class="navbar-toggler-icon"></span>
+	              </button>
+	              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	                  <li class="nav-item">
+	                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+	                  </li>
+	                  <li class="nav-item dropdown">
+	                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	                      동호회
+	                    </a>
+	                    <ul class="dropdown-menu">
+	                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
+	                      <li><hr class="dropdown-divider"></li>
+	                      <li><a class="dropdown-item" href="/MAV/club/clubpage">동호회 페이지</a></li>
+	                      <li><hr class="dropdown-divider"></li>
+	                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
+	                    </ul>
+	                  </li>
+	                  <li class="nav-item dropdown">
+	                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	                      매칭
+	                    </a>
+	                    <ul class="dropdown-menu">
+	                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+	                      <li><hr class="dropdown-divider"></li>
+	                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
+	                      <li><hr class="dropdown-divider"></li>
+	                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+	                    </ul>
+	                  </li>
+	                  <li class="nav-item">
+	                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
+	                  </li>
+	                   <li class="nav-item">
+	                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
+	                  </li>
+	                </ul>
+	                <form class="d-flex" role="search">
+	                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+	                  <button class="btn btn-outline-success" type="submit">search</button>
+	                </form>
+	              </div>
+	            </div>
+	        </nav>
+	       </c:otherwise> 
 		</c:choose>
 		<h4> 클럽명 : ${club.clubName}</h4>
 		<h4> 클럽 종류 : ${club.clubCategory}</h4>
 		<h4> 클럽 지역 : ${club.clubLocale}</h4>
 		<h4> 클럽 포인트 : ${club.clubPoint}</h4>
 		<h4> 클럽 소개글 : ${club.clubInfo}</h4>
-		<a href="/MAV/club/update">클럽 수정하기</a>
-		<a href="/MAV/club/delete">클럽 삭제하기</a>
-
+		<h4> 내 클럽 등급 : ${clubmember.clubGrade}</h4>
+		<a href="/MAV/club/update" class="btn btn-primary">클럽 수정하기</a>
+		<a href="/MAV/club/delete" class="btn btn-danger">클럽 삭제하기</a>
+		<a href="/MAV/club/join" class="btn btn-primary">클럽 가입하기</a>
+		<a href="/MAV/club/leaveclub" class="btn btn-danger">클럽 탈퇴하기</a>
+		
+		<div class = "col-12 ">
+              <div class="room-title">동호회원 리스트</div>
+               <c:forEach items="${memberList}" var="memberList">
+                   <div class="card-1 mb-3">
+                       <div class="room-info">
+                           <span class="room-title">동호회원 아이디 : ${memberList.c_memberId}</span>
+                           <span class="room-date">동호회원 등급 : ${memberList.clubGrade}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                           <span class="room-application">                          
+                         	<a href="<c:url value='/club/memberDetails'/>?memberId=${memberList.c_memberId}" class="btn btn-primary">동호회원 정보보기</a>
+                         	<a href="<c:url value='/club/memberupdate'/>?memberId=${memberList.c_memberId}" class="btn btn-primary">동호회원 등급수정</a>
+                         	<a href="<c:url value='/club/ejection'/>?memberId=${memberList.c_memberId}" class="btn btn-danger">동호회원 강퇴하기</a>
+                           </span>
+                       </div>
+                   </div>
+               </c:forEach>
+          </div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
 </body>

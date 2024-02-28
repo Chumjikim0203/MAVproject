@@ -9,6 +9,5 @@ public interface TeacherRepository {
 	public void CreateTeacher(Teacher teacher); 
 	void UpdateTeacher(Teacher teacher);
 	public List<Teacher> AllTeacher();
-	public Teacher teacherId(String teacherId);
-	
+	public Teacher teacherId(String teacherId);	
 }

@@ -8,5 +8,7 @@ import com.springmvc.domain.MatchRoom;
 public interface MatchRepository {
 	void matchCreate(Match match);
     List<MatchRoom> findAllMatchRooms(MatchRoom matchroom);
-    
+    List<MatchRoom> getMatchRoomsByStoreId(String storeId);
+    MatchRoom getMatchByRoomNum(int roomNum);
+    void applyMatch(Match match);
 }

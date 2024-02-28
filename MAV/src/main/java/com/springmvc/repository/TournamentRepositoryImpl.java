@@ -20,6 +20,8 @@ public class TournamentRepositoryImpl implements TournamentRepository {
     }
 	
     
+    /*크리에이트*/
+    
     //토너먼트 만들기
 	@Override
 	public void setTournament(Tournament tournament) {
@@ -40,14 +42,25 @@ public class TournamentRepositoryImpl implements TournamentRepository {
 		
 		
 	}
-
+	
+	/*리드*/
+	
 	//룸 전체를 들고오는거
 	@Override
 	public List<Tournament> getAlltournament(Tournament tournament) {
 		String sql = "select*from Tournament";
 		return jdbcTemplate.query(sql, new TournamentRowMapper());
 	}
-
+	
+	@Override
+	public List<Tournament> getTournamentByStoreId(String storeId) {
+	    String sql = "SELECT * FROM Tournament WHERE storeId = ?";
+	    return jdbcTemplate.query(sql, new TournamentRowMapper(), storeId);
+	}
+	
+	
+	/*업데이트*/
+	
 	//룸 넘버에 맞는 룸 가지고 오기
 	@Override
 	public Tournament getByNumUpdateRoom(int tournamentNum) {
@@ -55,7 +68,34 @@ public class TournamentRepositoryImpl implements TournamentRepository {
 		String sql = "select * from Tournament where tournamentNum = ?";
 		return jdbcTemplate.queryForObject(sql, new TournamentRowMapper(),tournamentNum);
 	}
-	
+
+	@Override
+	public void changeTournament(Tournament tournament) {
+		
+		System.out.println(tournament.getTournamentNum() + "여기 왔어요?");
+	    String sql = "UPDATE Tournament SET tournamentDate=?, tournamentTime=?, " +
+	                 "tournamentReward=?, tournamentPrice=?, max_participants=? WHERE tournamentNum=?";
+	    
+	    jdbcTemplate.update(
+	        sql,
+	        tournament.getTournamentDate(),
+	        tournament.getTournamentTime(),
+	        tournament.getTournamentReward(),
+	        tournament.getTournamentPrice(),
+	        tournament.getMax_participants(),
+	        tournament.getTournamentNum()
+	    );
+	}
+
+	//delete
+	public void deleteTournament(int tournamentNum) {
+		String sql = "delete from tournament where tournamentNum = ?";	
+		jdbcTemplate.update(sql,tournamentNum);
+		
+	}
+
+
+
 	
 
 }

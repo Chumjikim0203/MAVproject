@@ -36,21 +36,21 @@ public class ClubServiceImpl implements ClubService
 	}
 
 	@Override
-	public void updateClub(Club club) 
+	public void updateClub(Club club,Member member) 
 	{
-		clubRepository.updateClub(club);
+		clubRepository.updateClub(club,member);
 	}
 
 	@Override
-	public void deleteClub(String clubName) 
+	public void deleteClub(String clubName,String c_memberId) 
 	{
-		clubRepository.deleteClub(clubName);
+		clubRepository.deleteClub(clubName,c_memberId);
 	}
 
 	@Override
-	public void joinClub(Club club, Member member) 
+	public void joinClub(Club club, ClubMember clubmember, Member member) 
 	{
-		clubRepository.joinClub(club, member);
+		clubRepository.joinClub(club, clubmember, member);
 	}
 
 	@Override
@@ -72,4 +72,32 @@ public class ClubServiceImpl implements ClubService
 	{
 		return clubRepository.getMyClub(c_memberId);
 	}
+
+	@Override
+	public ClubMember getMyClubMember(String c_memberId,String clubName) {
+		
+		ClubMember clubmember = clubRepository.getMyClubMember(c_memberId,clubName);
+		
+		return clubmember;
+		
+	}
+
+	@Override
+	public void leaveClub(String clubName, String c_memberId) 
+	{
+		clubRepository.leaveClub(clubName, c_memberId);
+	}
+
+	@Override
+	public List<ClubMember> getClubMemberList(String clubName) 
+	{
+		return clubRepository.getClubMemberList(clubName);
+	}
+
+	@Override
+	public void ejectionMember(String ClubName, String c_memberId) 
+	{
+		clubRepository.ejectionMember(ClubName, c_memberId);
+	}
+		
 }

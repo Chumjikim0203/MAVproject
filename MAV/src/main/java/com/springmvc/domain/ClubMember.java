@@ -7,6 +7,8 @@ public class ClubMember
 	private String clubGrade;
 	private boolean clubApprove;
 	
+	public ClubMember(){};
+	
 	public String getClubName() {
 		return clubName;
 	}

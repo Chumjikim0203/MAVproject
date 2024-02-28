@@ -97,12 +97,11 @@
                 <div class="detail-box"style="height: 20rem;">
                     <h4>${detailroom.roomDate}&nbsp;${detailroom.roomTime}</h4>
                     <br><br><br><br>
-                    
-                    
 					<form:form modelAttribute="matchForm" action="${pageContext.request.contextPath}/match/roomsDetail" method="post">
 					    <div id="matching_bt">
 					        <form:input path="matchTitle" class="form-control"  />
 					        <form:hidden path="roomNum" value="${detailroom.roomNum}" />
+					         <form:hidden path="roomNum" value="${detailroom.roomNum}" />
 					        <!-- 추가적인 데이터 필드들을 여기에 추가 -->
 					        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
 					    </div>
@@ -118,7 +117,6 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 <script>

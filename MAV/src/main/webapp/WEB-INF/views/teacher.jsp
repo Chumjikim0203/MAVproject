@@ -171,8 +171,8 @@
 
 <body>
  <%
-	
-
+	String memberId = request.getParameter("memberId");
+	System.out.println("teacher:"+memberId);
 %>
 		<ul class="navbar-nav center">
             	<li>

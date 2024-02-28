@@ -9,7 +9,6 @@ public class Club
 	private String clubMaster; // 동호회장 아이디
 	private int clubPoint; // 동호회 포인트
 	private String clubCategory; // 동호회 종류
-	private String clubGrade; // 동호회원 등급
 	private String clubInfo; // 동호회 소개글
 	private String clubLocale; // 동호회 활동지역
 	private String clubImages; // 동호회 이미지
@@ -43,14 +42,6 @@ public class Club
 
 	public void setClubCategory(String clubCategory) {
 		this.clubCategory = clubCategory;
-	}
-
-	public String getClubGrade() {
-		return clubGrade;
-	}
-
-	public void setClubGrade(String clubGrade) {
-		this.clubGrade = clubGrade;
 	}
 
 	public String getClubInfo() {

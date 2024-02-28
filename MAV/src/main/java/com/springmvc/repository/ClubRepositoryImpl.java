@@ -80,19 +80,21 @@ public class ClubRepositoryImpl implements ClubRepository
 
 	
 	@Override
-	public void updateClub(Club club) 
+	public void updateClub(Club club,Member member) 
 	{
-		System.out.println("수정 처리할 클럽ID : "+club.getClubNum());
-		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubNum=?";
+		System.out.println("수정 처리할 클럽ID : "+club.getClubName());
+		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubNum=? and clubMaster=?";
 		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
-						club.getClubInfo(), club.getClubNum());
+						club.getClubInfo(), club.getClubNum(), member.getMemberId());
 	}
 
 	@Override
-	public void deleteClub(String clubName) 
+	public void deleteClub(String clubName,String c_memberId) 
 	{
-		String SQL = "delete from club where clubName=?";
-		this.template.update(SQL, clubName);
+		String SQL1 = "delete from clubMember where clubName=? and c_memberId=?";
+		this.template.update(SQL1,clubName,c_memberId);
+		String SQL = "delete from club where clubName=? and clubMaster=?";
+		this.template.update(SQL, clubName,c_memberId);
 	}
 
 	@Override
@@ -104,19 +106,17 @@ public class ClubRepositoryImpl implements ClubRepository
 	}
 
 	@Override
-	public void joinClub(Club club, ClubMember clubmember) 
+	public void joinClub(Club club, ClubMember clubmember, Member member) 
 	{
-		club.setClubGrade("준회원");
+		clubmember.setClubGrade("준회원");
 		clubmember.setClubApprove(false);
-		club.setClubPoint(0);
-		String SQL = "insert into Clubmember values(null,?,?,?,?,?,?,?,?)";
-		template.update(SQL,
-				club.getClubName(),
-				club.getClubCategory(),
-				club.getClubLocale(),
-				club.getClubPoint(),
-				club.getClubGrade(),
-				club.getClubInfo());
+		clubmember.setC_memberId(member.getMemberId());
+		
+		String SQL = "insert into ClubMember values(?,?,?,?)";
+		
+		
+		template.update(SQL, club.getClubName(),clubmember.getC_memberId(),
+						clubmember.getClubGrade(),clubmember.isClubApprove());
 	}
 
 	@Override
@@ -150,6 +150,48 @@ public class ClubRepositoryImpl implements ClubRepository
 	        return null;
 	    }
 	}
+
+	@Override
+	public ClubMember getMyClubMember(String c_memberId, String clubName) {
+	    String SQL = "select * from Clubmember where c_memberId=? and clubName=?";
+
+	    // query 메소드를 사용하여 쿼리 실행
+	    List<ClubMember> clubMembers = template.query(SQL, new Object[]{c_memberId, clubName}, new ClubMemberRowMapper());
+	    
+	    // queryForObject 대신 결과가 여러 개일 수 있으므로 리스트에서 첫 번째 객체를 반환합니다.
+	    if (!clubMembers.isEmpty()) {
+	        return clubMembers.get(0);
+	    } else {
+	        return null; // 또는 예외 처리
+	    }
+	}
+
+	@Override
+	public void leaveClub(String clubName, String c_memberId) 
+	{
+		String SQL = "delete from clubmember where clubName=? and c_memberId=?";
+		
+		template.update(SQL, clubName, c_memberId);
+	}
+
+	@Override
+	public List<ClubMember> getClubMemberList(String clubName)
+	{
+		String SQL = "select * from clubmember cm inner join Member m on cm.c_memberId= m.memberId "
+					+ "where clubName=?";
+		
+		List<ClubMember> clubMembers = template.query(SQL, new Object[]{clubName}, new ClubMemberRowMapper());
+		return clubMembers;
+	}
+
+	@Override
+	public void ejectionMember(String clubName, String c_memberId) 
+	{
+	    String SQL = "delete from clubmember where clubName=? and c_memberId=?";
+	    
+	    template.update(SQL, new Object[]{clubName, c_memberId});
+	}
+
 	
 	
 }

@@ -268,24 +268,6 @@
 		<h3>멤버 주소 : ${member.memberAddr}</h3>
 		<h3>멤버 성별 : ${member.memberGender}</h3>
 		<h3>멤버 이메일 : ${member.memberEmail}</h3>
-		<a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">수정하기</a>
-		<a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">삭제하기</a>
-		<a href="<c:url value='../store/add'/>?memberId=${member.memberId}">업체신청</a>
-		<a href="<c:url value='../teacher/add'/>?memberId=${member.memberId}">강사신청</a>		
-	    <div class = "col-7 ">
-              <div class="room-title">내 클럽 리스트</div>
-               <c:forEach items="${club}" var="club">
-                   <div class="card-1 mb-3">
-                       <div class="room-info">
-                           <span class="room-title">&nbsp;&nbsp;${club.clubName}</span>
-                           <span class="room-date">클럽 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                           <span class="room-application">                          
-                         	<a href="<c:url value='/club/clubpage'/>?clubName=${club.clubName}" class="room-application-link room-application-btn">클럽 상세정보</a>
-                           </span>
-                       </div>
-                   </div>
-               </c:forEach>
-          </div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
