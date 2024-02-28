@@ -16,6 +16,7 @@ public class Store
 	private String storeInfomation; // 업체 소개글
 	private String storeNotice; // 업체 공지사항
 	private boolean storeApprove; // 업체 승인 신청
+	private boolean storeRegApprove; // 업체 신청 확인
 	private MultipartFile storeImage; // 업체 이미지
 	
 	
@@ -98,5 +99,14 @@ public class Store
 	public void setStoreApprove(boolean storeApprove) {
 		this.storeApprove = storeApprove;
 	}
-		
+	public boolean isStoreRegApprove() {
+		return storeRegApprove;
+	}
+	public void setStoreRegApprove(boolean storeRegApprove) {
+		this.storeRegApprove = storeRegApprove;
+	}
+	public String getStoreImages() {
+		return storeImages;
+	}
+	
 }

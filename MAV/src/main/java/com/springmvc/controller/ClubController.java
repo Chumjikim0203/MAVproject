@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Club;
+import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
 import com.springmvc.service.ClubService;
 
@@ -47,23 +48,22 @@ public class ClubController
 	{
 		
 		HttpSession session = request.getSession();
-		Member memberSession = (Member) session.getAttribute("member");
-		Club clubSession = (Club) session.getAttribute("club");
-		if(clubSession==null)
-		{
-			clubSession = new Club();
-		}
-		model.addAttribute("club",clubSession);
-		model.addAttribute("member", memberSession);
-		session.setAttribute("club", clubSession);
-		System.out.println("club컨트롤러의 getmapping에서 담긴 정보 : "+ memberSession.getMemberId());
-		System.out.println("club컨트롤러의 getmapping에서 담긴 클럽명 : "+ clubSession.getClubName());
+		Member member = (Member) session.getAttribute("member");
+		Club club = new Club();
+			
+		model.addAttribute("club",club);
+		model.addAttribute("member", member);
+		
+		session.setAttribute("club", club);
+		System.out.println("club컨트롤러의 getmapping에서 담긴 정보 : "+ member.getMemberId());
+		System.out.println("club컨트롤러의 getmapping에서 담긴 클럽명 : "+ club.getClubName());
 		
 		return "addClub";
 	}
 	
 	@PostMapping("/add")
-	public String addClubDone(@ModelAttribute("club") Club club, @ModelAttribute("member") Member member,HttpServletRequest request, BindingResult bindingResult, Model model)
+	public String addClubDone(@ModelAttribute("club") Club club, @ModelAttribute("member") Member member, 
+							  HttpServletRequest request, BindingResult bindingResult, Model model)
 	{
 		System.out.println("클럽 생성 postmapping 도착");
 		if(bindingResult.hasErrors())
@@ -71,36 +71,35 @@ public class ClubController
 			return "addClub";
 		}
 		HttpSession session = request.getSession();
-		Member memberSession = (Member) session.getAttribute("member");
-		Club clubSession = (Club) model.getAttribute("club");
-		model.addAttribute("member", memberSession);
-		model.addAttribute("club", clubSession);
+		member = (Member) session.getAttribute("member");
+		club = (Club) model.getAttribute("club");
+		ClubMember clubmember = new ClubMember();
+	
+		model.addAttribute("member", member);
+		model.addAttribute("club", club);
+		model.addAttribute("clubmember", clubmember);
 	
 		System.out.println("동호회 가입신청 오류 : "+bindingResult.hasErrors());
 		
-		clubService.addNewClub(clubSession, memberSession);
-		session.setAttribute("club", clubSession);
-		session.setAttribute("member", memberSession);
+		clubService.addNewClub(club,member);
+		clubService.addNewClubMember(club, clubmember, member);
 
-		System.out.println("post 에서 클럽세션에 담은 이름 : "+clubSession.getClubName());
-		System.out.println("post 에서 멤버세션에 담은 아이디 : "+memberSession.getMemberId());
+		System.out.println("post 에서 클럽세션에 담은 이름 : "+club.getClubName());
+		System.out.println("post 에서 멤버세션에 담은 아이디 : "+member.getMemberId());
 		
 		return "redirect:/club/clubpage";
 	}
 	
 	@GetMapping("/clubpage")
-	public String myclub(String clubName, HttpServletRequest request, Model model)
+	public String myclub(String clubName,HttpServletRequest request, Model model)
 	{
 		System.out.println("클럽페이지 도착");
 		HttpSession session = request.getSession();
 		Member memberSession = (Member) session.getAttribute("member");
-		Club clubSession= (Club) session.getAttribute("club");
-		if(clubSession==null)
-		{
-			clubSession = new Club();
-		}
-		Club club = clubService.getByClubName(clubName); // 클럽 ID를 통해 클럽 정보를 가져옴
+		Club club= (Club) session.getAttribute("club");
+		club = clubService.getByClubName(clubName); // 클럽 ID를 통해 클럽 정보를 가져옴
         model.addAttribute("club", club); // 모델에 클럽 정보를 추가
+        session.setAttribute("club", club);
         
         return "clubpage"; // 클럽 정보를 보여주는 뷰 페이지로 이동
 	}

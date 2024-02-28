@@ -116,8 +116,6 @@
 		<h4> 클럽 지역 : ${club.clubLocale}</h4>
 		<h4> 클럽 포인트 : ${club.clubPoint}</h4>
 		<h4> 클럽 소개글 : ${club.clubInfo}</h4>
-		<h4> 클럽 내등급 : ${club.clubGrade}</h4>
-		<h4> 클럽 승인 상황 : ${club.clubApprove}</h4>
 		<a href="/MAV/club/update">클럽 수정하기</a>
 		<a href="/MAV/club/delete">클럽 삭제하기</a>
 	</div>

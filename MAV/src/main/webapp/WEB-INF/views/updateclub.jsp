@@ -116,7 +116,7 @@
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
                    <h4 class="mb-3">동호회 생성</h4>
-                   <form:form modelAttribute="club" class="form-horizontal" action="/MAV/club/update?clubId=${club.clubId}" method="post">
+                   <form:form modelAttribute="club" class="form-horizontal" action="/MAV/club/update?clubName=${club.clubName}" method="post">
 					<fieldset>
 				 	<div class="row">
                       	<div class="col-md-7 mb-3">

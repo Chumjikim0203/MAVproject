@@ -42,39 +42,39 @@ public class LoginController
 		model.addAttribute(new Member());
 		return "login";
 	}
-	@PostMapping("/login")
-    public String login(@RequestParam("memberId") String memberId, 
-                        @RequestParam("memberPassword") String memberPassword,
-                        HttpServletRequest request) 
-	{
-		System.out.println("로그인 처리중");
-        HttpSession session = request.getSession();
-		// 사용자 인증
-        Member member = memberService.getLogin(memberId, memberPassword);
-        // Teacher 테이블 조회
-        Teacher teacher = teacherService.teacherId(memberId);
-        // Store 테이블 조회
-        Store store = storeService.getStoreById(memberId);
-        if(store != null)
-        {
-        	session.setAttribute("store", store);
-        	System.out.println("login 컨트롤러에서 담긴 사장님 정보 : "+store.getStoreId());
-        }
-        if (teacher != null) {
-            // 교사임을 세션에 저장
-            session.setAttribute("teacher", teacher);
-            System.out.println("login 컨트롤러에서 담긴 선생님 정보 : "+teacher.getTeacherId());
-        }
-        if (member != null) 
-        {
-            // 세션에 사용자 정보 저장
-            session.setAttribute("member", member);
-            System.out.println("login 컨트롤러에서 담긴 맴버 정보 : "+ member.getMemberId());
-            return "redirect:/"; // 로그인 성공 시 대시보드 페이지로 이동
-        } else {
-            return "redirect:/login?error=true"; // 로그인 실패 시 로그인 페이지로 이동
-        }
-    }
+	   @PostMapping("/login")
+	   public String login(@RequestParam("memberId") String memberId, 
+	                       @RequestParam("memberPassword") String memberPassword,
+	                       HttpServletRequest request) 
+	   {
+	       HttpSession session = request.getSession();
+	       // 사용자 인증
+	       Member member = memberService.getLogin(memberId, memberPassword);
+
+	       if (member != null) {
+	           // 세션에 사용자 정보 저장
+	           session.setAttribute("member", member);
+
+	           // Teacher 테이블 조회
+	           Teacher teacher = teacherService.teacherId(memberId);
+	           // Store 테이블 조회
+	           Store store = storeService.getStoreById(memberId);
+
+	           if (teacher != null) {
+	               // 티처 정보가 있는 경우 세션에 저장
+	               session.setAttribute("teacher", teacher);
+	           }
+	           if (store != null) {
+	               // 스토어 정보가 있는 경우 세션에 저장
+	               session.setAttribute("store", store);
+	           }
+
+	           return "redirect:/"; // 로그인 성공 시 대시보드 페이지로 이동
+	       } else {
+	           return "redirect:/login?error=true"; // 로그인 실패 시 로그인 페이지로 이동
+	       }
+
+	   }
 	@GetMapping("/loginfailed")
 	public String loginerror(Model model)
 	{

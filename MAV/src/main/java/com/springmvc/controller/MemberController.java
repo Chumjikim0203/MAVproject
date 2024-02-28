@@ -2,6 +2,7 @@ package com.springmvc.controller;
 
 import java.net.MulticastSocket;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -94,16 +95,17 @@ public class MemberController
     	return "testmember";
     }
     @GetMapping("/mypage")
-    public String memberMyPage(HttpServletRequest request, Model model) 
-    {
-    	System.out.println("마이페이지 도착");
+    public String memberMyPage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
-        Member member = (Member) session.getAttribute("member");       
+        Member member = (Member) session.getAttribute("member");
+
+        List<Club> clubs = clubService.getMyClub(member.getMemberId());
+
+        model.addAttribute("club", clubs);
         model.addAttribute("member", member);
-        session.setAttribute("member", member);
-        System.out.println("member 컨트롤러에서 담긴 멤버아이디 : "+ member.getMemberId());
         return "mypage";
     }
+
     @GetMapping("/update/member")
     public String updateMember(@RequestParam String memberId, Member member, Model model)
     {    	

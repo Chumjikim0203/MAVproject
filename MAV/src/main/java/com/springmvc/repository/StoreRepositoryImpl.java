@@ -3,9 +3,11 @@ package com.springmvc.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.springmvc.domain.Member;
 import com.springmvc.domain.Room;
 import com.springmvc.domain.Store;
 
@@ -15,11 +17,15 @@ public class StoreRepositoryImpl implements StoreRepository {
     private final JdbcTemplate jdbcTemplate;
     
     
+    //스토어 아이디에 맞는 정보가지고 가기
     @Override
     public Store getStoreById(String storeId) {
         String sql = "SELECT * FROM Store WHERE storeId = ?";
-        Store store = jdbcTemplate.queryForObject(sql,new StoreRowMapper(),storeId);
-        return store;
+        try {
+            return jdbcTemplate.queryForObject(sql, new StoreRowMapper(), storeId);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
 
@@ -94,6 +100,8 @@ public class StoreRepositoryImpl implements StoreRepository {
                 updatedRoom.getRoomNum()
         );
     }
+    
+    
 }
 
 

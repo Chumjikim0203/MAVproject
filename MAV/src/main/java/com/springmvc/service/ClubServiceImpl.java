@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springmvc.domain.Club;
+import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
 import com.springmvc.repository.ClubRepository;
 
@@ -29,13 +30,12 @@ public class ClubServiceImpl implements ClubService
 		return getByClubName;
 	}
 
-	@Override
-	public Club getByClubId(String clubId) 
-	{
-		Club getByClubId = clubRepository.getByClubId(clubId);
-		return getByClubId;
-	}
 	
+	@Override
+	public void addNewClubMember(Club club, ClubMember clubmember, Member member) 
+	{
+		clubRepository.addNewClubMember(club, clubmember, member);
+	}
 
 	@Override
 	public void updateClub(Club club) 
@@ -67,6 +67,12 @@ public class ClubServiceImpl implements ClubService
 	{
 		Club getByClubNum = clubRepository.getByClubNum(club);
 		return getByClubNum;
+	}
+
+	@Override
+	public List<Club> getMyClub(String c_memberId) 
+	{
+		return clubRepository.getMyClub(c_memberId);
 	}
 	
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -59,32 +60,20 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		return teacherlist;
 	}
 //단일출력
-	@Override
-	public Teacher teacherId(String teacherId) {
-		// TODO Auto-generated method stub
-		Teacher teacherInfo=null;
-		String SQL="SELECT COUNT(*)FROM TEACHER WHERE TEACHERId=?";
-		System.out.println("TEACHERid"+teacherId);
-		int rowCount =template.queryForObject(SQL, Integer.class,teacherId);
-		if(rowCount!=0)
-		{
-			SQL = "SELECT * FROM Teacher where teacherId=?";
-			teacherInfo = template.queryForObject(SQL, new Object[] {teacherId}, new TeacherRowMapper());
-		}
-		for(int i=0; i<teacherlist.size(); i++)
-		{
-			Teacher teacher=teacherlist.get(i);
-			if(teacher!=null && teacher.getTeacherId()!= null && teacher.getTeacherId().equals(teacherId))
-			{
-				teacherInfo=teacher;
-				break;
-			}
-		}
-		if(teacherInfo==null)
-		{
-			throw new MemberIdException(teacherId);
-		}
-		return teacherInfo;
-	}
+	   @Override
+	   public Teacher teacherId(String teacherId) {
+	       String SQL = "SELECT COUNT(*) FROM TEACHER WHERE TEACHERId=?";
+	       int rowCount = template.queryForObject(SQL, Integer.class, teacherId);
+	       if(rowCount != 0) {
+	           SQL = "SELECT * FROM Teacher where teacherId=?";
+	           try {
+	               return template.queryForObject(SQL, new Object[] {teacherId}, new TeacherRowMapper());
+	           } catch (EmptyResultDataAccessException e) {
+	               return null;
+	           }
+	       } else {
+	           return null;
+	       }
+	   }
 }
 
