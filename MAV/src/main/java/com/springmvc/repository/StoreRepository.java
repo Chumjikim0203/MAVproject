@@ -13,6 +13,7 @@ public interface StoreRepository {
 	Room  getByroomNumAllRooms(int roomNum);
 	void updateRoom(Room updateRoom);
 	Room getByRoomNum(int roomNum);
+	void CreateStore(Store store);
 	Store getStoreById(String storeId);
 }
 
