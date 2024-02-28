@@ -16,12 +16,8 @@ public class Store
 	private String storeInfomation; // 업체 소개
 	private String storeNotice; // 업체 공지사항
 	private boolean storeApprove; // 업체 승인 신청
-<<<<<<< HEAD
 	private boolean storeRegApprove; // 업체 신청 확인
-	private MultipartFile storeImage; // 업체 이미지
-=======
->>>>>>> origin/PMS
-	
+
 	
 	
 	public Store()
@@ -88,9 +84,6 @@ public class Store
 	public void setStorePhone03(String storePhone03) {
 		this.storePhone03 = storePhone03;
 	}
-	public MultipartFile getStoreImages() {
-		return storeImages;
-	}
 	public void setStoreImages(MultipartFile storeImages) {
 		this.storeImages = storeImages;
 	}
@@ -106,7 +99,7 @@ public class Store
 	public void setStoreRegApprove(boolean storeRegApprove) {
 		this.storeRegApprove = storeRegApprove;
 	}
-	public String getStoreImages() {
+	public MultipartFile getStoreImages() {
 		return storeImages;
 	}
 	

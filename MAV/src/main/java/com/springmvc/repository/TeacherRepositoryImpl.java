@@ -58,11 +58,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		List<Teacher> teacherlist=template.query(SQL, new TeacherRowMapper());
 		return teacherlist;
 	}
-<<<<<<< HEAD
-//단일출력
-=======
 //단일출력 자동으로 
->>>>>>> origin/PMS
 	   @Override
 	   public Teacher teacherId(String teacherId) {
 	       String SQL = "SELECT COUNT(*) FROM TEACHER WHERE TEACHERId=?";

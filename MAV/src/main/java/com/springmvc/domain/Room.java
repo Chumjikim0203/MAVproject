@@ -1,15 +1,12 @@
 package com.springmvc.domain;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
 
 public class Room 
 {
@@ -47,10 +44,24 @@ public class Room
     @NotNull(message = "상점 ID를 입력해주세요")
     private String storeId; // 상점 ID
    
-   public Room() {
+    private boolean isMatched;
+    
+   public boolean isMatched() {
+		return isMatched;
+	}
+
+
+	public void setMatched(boolean isMatched) {
+		this.isMatched = isMatched;
+	}
+
+
+	public Room() {
       this.roomCapacity = 1;
-      this.roomId = "mav1";
-      this.storeId = "mav1";  }
+      this.roomId = "mav";
+      this.storeId = "mav"; 
+      this.isMatched = false;
+	}
 
    
    public String getStoreId() {
@@ -134,4 +145,3 @@ public class Room
    }
    
 } 
-

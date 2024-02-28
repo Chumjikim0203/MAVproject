@@ -23,15 +23,12 @@ public class ClubServiceImpl implements ClubService
 	}
 
 	@Override
-	public List<Club> getByClubName(String clubName) 
+	public Club getByClubName(String clubName) 
 	{
 		
-		List<Club> getByClubName = clubRepository.getByClubName(clubName);
+		Club getByClubName = clubRepository.getByClubName(clubName);
 		return getByClubName;
 	}
-
-	
-<<<<<<< HEAD
 	@Override
 	public void addNewClubMember(Club club, ClubMember clubmember, Member member) 
 	{
@@ -75,7 +72,4 @@ public class ClubServiceImpl implements ClubService
 	{
 		return clubRepository.getMyClub(c_memberId);
 	}
-	
-=======
->>>>>>> origin/PMS
 }

@@ -9,7 +9,6 @@ import com.springmvc.domain.Member;
 public interface ClubRepository 
 {
 	void addNewClub(Club club, Member member);
-<<<<<<< HEAD
 	void addNewClubMember(Club club,ClubMember clubmember, Member member);
 	void joinClub(Club club, ClubMember clubmember);
 	List<Club> getAllClubList();
@@ -19,8 +18,4 @@ public interface ClubRepository
 	List<Club> getMyClub(String c_memberId);
 	void updateClub(Club club);
 	void deleteClub(String clubName);
-=======
-	List<Club> getByClubName(String clubName);
-	Club getByClubId(String clubId);
->>>>>>> origin/PMS
 }
