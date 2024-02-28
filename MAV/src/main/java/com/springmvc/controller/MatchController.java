@@ -134,7 +134,6 @@ public class MatchController {
 
      
      
-     //추 후 옮기기 에러 페이지
 
 	
 	

@@ -30,8 +30,7 @@ public class ClubRepositoryImpl implements ClubRepository
 	
 	@Override
 	public void addNewClub(Club club, Member member) 
-	{
-		
+	{	
 		club.setClubGrade("동호회장");
 		club.setClubApprove(true);
 		club.setClubPoint(0);
@@ -154,6 +153,5 @@ public class ClubRepositoryImpl implements ClubRepository
 		 Club getByClubNum = (Club) template.queryForObject(SQL, new Object[] {club.getClubNum()}, new ClubRowMapper());
 		 return getByClubNum;
 	}
-	
-	
+		
 }

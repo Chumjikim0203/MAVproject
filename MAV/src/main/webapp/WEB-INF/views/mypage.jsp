@@ -119,7 +119,7 @@
 		<h3>멤버 이메일 : ${member.memberEmail}</h3>
 		<a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">수정하기</a>
 		<a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">삭제하기</a>
-		<a href="<c:url value='./add/store'/>?memberId=${member.memberId}">업체신청</a>
+		<a href="<c:url value='./store/add'/>?memberId=${member.memberId}">업체신청</a>
 		<a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
