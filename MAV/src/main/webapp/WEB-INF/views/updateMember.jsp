@@ -69,7 +69,7 @@
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3">회원 정보 수정</h4>
-                    <form:form modelAttribute="member" class="form-horizontal" action="/MAV/member/update/member" method="post">
+                    <form:form modelAttribute="member" class="form-horizontal" action="../update/member" method="post">
 						<fieldset>
 					 	<div class="row">
 	                      	<div class="col-md-6 mb-3">

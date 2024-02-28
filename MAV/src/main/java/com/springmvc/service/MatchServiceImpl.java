@@ -18,7 +18,7 @@ public class MatchServiceImpl implements MatchService {
 	@Override
 	public void matchCreate(Match match) {
 		matchRepository.matchCreate(match);
-		
+
 	}
 
 	@Override

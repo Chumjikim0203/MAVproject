@@ -25,4 +25,3 @@ public class TeacherRowMapper implements RowMapper<Teacher> {
 	}
 
 }
-

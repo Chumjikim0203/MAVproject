@@ -19,6 +19,10 @@
     </style>
   </head>
   <body>
+  <%
+	String memberId = request.getParameter("memberId");
+	System.out.println("store:"+memberId);
+%>	
     <div class="main-container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -63,12 +67,13 @@
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3">업체등록</h4>
-                    <form:form modelAttribute="store" class="form-horizontal" action="../add/store" method="post">
+                    <form:form modelAttribute="addStore" class="form-horizontal" action="add" method="post">
 						<fieldset>
 					 	<div class="row">
 	                      	<div class="col-md-6 mb-3">
 	                       		<label for="storeName">업체명</label>
-	                         	<form:input path="storeName" class="form-control" />                          
+	                         	<form:input path="storeName" class="form-control" />
+	                         	<form:hidden class="form-control" path="storeId" value="<%=memberId%>"/>                          
 	                       	</div>
                             <div class="invalid-feedback">
                                 업체명을 입력해주세요.

@@ -73,26 +73,22 @@
        <!-- 경기장 -->
       <div class="my-3 p-3 bg-body rounded shadow">
         <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">2024-03-21</h6>
-        <c:forEach items="${myRooms}" var="room">
-	           <c:choose>
-					<c:when test="${room.matched == false}">         
-				        <div class="d-flex text-body-secondary pt-3">
-				          <img  style="border-radius: 4px; border: 0.5px solid lightgray;" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_PkKzsY07RqP-frp2roB5BKgqJpedPttcdFfhHwg.JPEG.renoma4339%2F20231023%25A3%25DF220440.jpg" alt="" width="100" height="100">
-				          &nbsp;&nbsp;&nbsp;
-				          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-				            <div class="d-flex justify-content-between">
-				              <strong class="text-gray-dark" ><h5><b>${room.roomName}</b></h5></strong>
-				         	  <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}" class="btn btn-primary">방만들기</a>   
-				            </div>
-				            <b>
-				            <span class="d-block">${room.roomDate}</span>
-				            <span class="d-block">${room.roomTime}</span>
-				            </b>
-				          </div>
-				        </div>
-	           		</c:when>
-	        </c:choose>
-       </c:forEach>
+        <c:forEach items="${myRooms}" var="room"> 
+	        <div class="d-flex text-body-secondary pt-3">
+	          <img  style="border-radius: 4px; border: 0.5px solid lightgray;" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_PkKzsY07RqP-frp2roB5BKgqJpedPttcdFfhHwg.JPEG.renoma4339%2F20231023%25A3%25DF220440.jpg" alt="" width="100" height="100">
+	          &nbsp;&nbsp;&nbsp;
+	          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+	            <div class="d-flex justify-content-between">
+	              <strong class="text-gray-dark" ><h5><b>${room.roomName}</b></h5></strong>
+	         	  <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}" class="btn btn-primary">방만들기</a>   
+	            </div>
+	            <b>
+	            <span class="d-block">${room.roomDate}</span>
+	            <span class="d-block">${room.roomTime}</span>
+	            </b>
+	          </div>
+	        </div>
+        </c:forEach> 
         
       </div>
       <footer class="footer spad">

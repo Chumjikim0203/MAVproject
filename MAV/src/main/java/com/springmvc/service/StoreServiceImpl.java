@@ -13,9 +13,7 @@ import com.springmvc.repository.StoreRepository;
 public class StoreServiceImpl implements StoreService{
     @Autowired
     private StoreRepository storeRepository;
-    
-    
-   
+
     @Override
     public void createRoom(Room room) {
         storeRepository.createRoom(room);
@@ -43,12 +41,10 @@ public class StoreServiceImpl implements StoreService{
 		storeRepository.updateRoom(updateRoom);
 		
 	}
-	
-	//스토어 아이디 가지고 오기
 	@Override
-	public Store getStoreById(String storeId) {
-		// TODO Auto-generated method stub
-		return storeRepository.getStoreById(storeId);
+	public void CreateStore(Store store) {
+		storeRepository.CreateStore(store);
+		
 	}
 }
 
