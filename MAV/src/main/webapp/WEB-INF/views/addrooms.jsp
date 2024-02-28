@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
               <label for="">경기날짜</label>
-              <form:input type="date" path="roomDate" name="roomDate" class="form-control" />
+              <form:input path="roomDate" name="roomDate" class="form-control" />
               <div class="invalid-feedback" id="roomDateFeedback">
                 경기날짜를 입력해주세요.
               </div>
@@ -89,7 +89,7 @@
 
             <div class="col-md-6 mb-3">
               <label for="" class="form-label">경기시간</label>
-              <form:input type="time" path="roomTime" name="roomTime" class="form-control" />
+              <form:input path="roomTime" name="roomTime" class="form-control" />
               <div class="invalid-feedback" id="roomTimeFeedback">
                 경기시간을 입력해주세요.
               </div>

@@ -29,6 +29,7 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 	}
 	
 
+	
 // 값넣기 컬럼명순서
 	@Override
 	public void setNewClasses(Classes classes) {

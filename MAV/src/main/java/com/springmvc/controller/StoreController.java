@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.MatchRoom;
+import com.springmvc.domain.Member;
 import com.springmvc.domain.Room;
+import com.springmvc.domain.Store;
+import com.springmvc.domain.Teacher;
 import com.springmvc.domain.Tournament;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
@@ -40,12 +43,13 @@ public class StoreController {
 	//해당 업체가 만든 모든 경기장룸을 가지고 스토어로감
 	//해당 업체가 만든 모든 토너먼트를 가지고 스토어오감 
     @GetMapping
-    public String readStoreMypage(HttpServletRequest request,Model model, Room room, MatchRoom matchRoom, Tournament tournament) {
+    public String readStoreMypage(HttpServletRequest request,Model model, Room room, MatchRoom matchRoom, Tournament tournament,Store store,Member member) {
         // 입력한 방 모두의 정보를 가지고오는 로직
     	HttpSession session = request.getSession();
+    	
+    	member=(Member)session.getAttribute("member");
+    	model.addAttribute("member",member);
     	System.out.println("session.getId() :" + session.getAttribute("member"));
-    	
-    	
     	List<Tournament> newtournament = tournamentService.getAlltournament(tournament);
     	model.addAttribute("newtournament",newtournament);
      	List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
@@ -54,6 +58,7 @@ public class StoreController {
         model.addAttribute("myRooms", myRooms);
         return "store";
     }
+    
     
     //방만들기 폼 보여주기
     @GetMapping("/addrooms")
@@ -160,7 +165,27 @@ public class StoreController {
         return "roomView";
     }
     
+    @GetMapping("/add")
+    public String createStore(@ModelAttribute("addStore") Store store,Model model,HttpServletRequest request)
+    {
+    	HttpSession sessionId=request.getSession();
+		Member member=(Member)sessionId.getAttribute("member");
+		model.addAttribute("member",member);
+		sessionId.setAttribute("member", member);
+    	System.out.println("member:"+member.getMemberId());
 
+    	
+    	return "addStore";
+    }
+    @PostMapping("/add")
+    public String returnStore(@ModelAttribute("addStore") Store store,Model model,HttpServletRequest request) {
+    	HttpSession sessionId=request.getSession();
+		Member member=(Member)sessionId.getAttribute("member");
+		model.addAttribute("member",member);
+    	storeService.CreateStore(store);
+		model.addAttribute("addstore",store);
+    	return "redirect:/store";
+    }
     
     
 	/*

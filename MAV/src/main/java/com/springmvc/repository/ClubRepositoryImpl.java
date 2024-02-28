@@ -6,7 +6,6 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -31,17 +30,37 @@ public class ClubRepositoryImpl implements ClubRepository
 	
 	@Override
 	public void addNewClub(Club club, Member member) 
+<<<<<<< HEAD
 	{		
 		club.setClubPoint(0);
 		club.setClubMaster(member.getMemberId());
 		String SQL = "insert into Club values(null,?,?,?,?,?,?,?)";
 		template.update(SQL,
+=======
+	{
+		
+		String grade = "동호회장";
+		boolean approve = true;
+		int point = 0;
+		System.out.println("1:"+ member.getMemberId());
+		System.out.println("2:"+ club.getClubName());
+		String SQL = "insert into Club values(null,?,?,?,?,?,?,?,?,?)";
+		template.update(SQL,
+				member.getMemberId(),
+				member.getMemberId(),
+>>>>>>> origin/PMS
 				club.getClubName(),
 				club.getClubMaster(),
 				club.getClubCategory(),
 				club.getClubLocale(),
+<<<<<<< HEAD
 				club.getClubPoint(),
 				club.getClubImages(),
+=======
+				point,
+				grade,
+				approve,
+>>>>>>> origin/PMS
 				club.getClubInfo());
 	}
 
@@ -54,27 +73,27 @@ public class ClubRepositoryImpl implements ClubRepository
 		clubmember.setC_memberId(member.getMemberId());
 		String SQL = "insert into clubmember values(?,?,?,?)";
 		
+<<<<<<< HEAD
 		template.update(SQL, club.getClubName(),clubmember.getC_memberId(),
 						clubmember.getClubGrade(),clubmember.isClubApprove());
 		
 		System.out.println("1 : "+clubmember.getC_memberId());
 		System.out.println("2 : "+clubmember.getClubGrade());
 		System.out.println("3 : "+clubmember.isClubApprove());
+=======
+>>>>>>> origin/PMS
 	}
 
 	@Override
-	public Club getByClubName(String clubName) {
-	    String SQL = "SELECT * FROM club WHERE clubName=?";
-	    Club club = null;
-	    try {
-	        club = template.queryForObject(SQL, new Object[]{clubName}, new ClubRowMapper());
-	    } catch (EmptyResultDataAccessException ex) {
-	        // 클럽을 찾을 수 없는 경우 예외 처리
-	        // 이 부분을 적절하게 처리해야 합니다.
-	    }
-	    return club;
+	public List<Club> getByClubName(String clubName) 
+	{
+		List<Club> getByClubName = new ArrayList<Club>();
+		String SQL = "select * from club where clubName LIKE '%'+clubName+'%'";
+		getByClubName = template.query(SQL, new ClubRowMapper());
+		return getByClubName;
 	}
 
+<<<<<<< HEAD
 	
 	@Override
 	public void updateClub(Club club) 
@@ -151,6 +170,34 @@ public class ClubRepositoryImpl implements ClubRepository
 	    }
 	}
 
+=======
+	@Override
+	public Club getByClubId(String clubId) 
+	{
+		Club clubInfo = null;
+		String SQL = "SELECT count(*) FROM Club where clubId=?";
+		int rowCount = template.queryForObject(SQL, Integer.class, clubId);
+		if(rowCount!=0)
+		{
+			SQL = "SELECT * FROM Club where clubId=?";
+			clubInfo = template.queryForObject(SQL, new Object[] {clubId}, new ClubRowMapper());
+		}
+		for(int i=0; i<listOfClubs.size(); i++)
+		{
+			Club club=listOfClubs.get(i);
+			if(club!=null && club.getClubId()!= null && club.getClubId().equals(clubId))
+			{
+				clubInfo=club;
+				break;
+			}
+		}
+		if(clubInfo==null)
+		{
+			throw new MemberIdException(clubId);
+		}
+		return clubInfo;
+	}
+>>>>>>> origin/PMS
 	
 	
 }

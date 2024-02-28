@@ -46,8 +46,8 @@ public class ClubController
 	@GetMapping("/add")
 	public String addClub(HttpServletRequest request,Model model)
 	{
-		
 		HttpSession session = request.getSession();
+<<<<<<< HEAD
 		Member member = (Member) session.getAttribute("member");
 		Club club = new Club();
 			
@@ -57,19 +57,39 @@ public class ClubController
 		session.setAttribute("club", club);
 		System.out.println("club컨트롤러의 getmapping에서 담긴 정보 : "+ member.getMemberId());
 		System.out.println("club컨트롤러의 getmapping에서 담긴 클럽명 : "+ club.getClubName());
+=======
+		Member memberSession = (Member) session.getAttribute("member");
+		Club clubSession = (Club) session.getAttribute("club");
+		if(clubSession==null)
+		{
+			clubSession = new Club();
+		}
+		session.setAttribute("club", clubSession);
+		session.setAttribute("member", memberSession);
+		System.out.println("club컨트롤러의 getmapping에서 담긴 정보 : "+ memberSession.getMemberId());
+		System.out.println("club컨트롤러의 getmapping에서 담긴 클럽명 : "+ clubSession.getClubName());
+>>>>>>> origin/PMS
 		
 		return "addClub";
 	}
 	
 	@PostMapping("/add")
+<<<<<<< HEAD
 	public String addClubDone(@ModelAttribute("club") Club club, @ModelAttribute("member") Member member, 
 							  HttpServletRequest request, BindingResult bindingResult, Model model)
+=======
+	public String addClubDone(@ModelAttribute Club club, @ModelAttribute Member member,HttpServletRequest request, BindingResult bindingResult, Model model)
+>>>>>>> origin/PMS
 	{
 		System.out.println("클럽 생성 postmapping 도착");
+		HttpSession session = request.getSession();
+		Member memberSession = (Member) session.getAttribute("member");
+		Club clubSession = (Club) session.getAttribute("club");
 		if(bindingResult.hasErrors())
 		{
 			return "addClub";
 		}
+<<<<<<< HEAD
 		HttpSession session = request.getSession();
 		member = (Member) session.getAttribute("member");
 		club = (Club) model.getAttribute("club");
@@ -92,10 +112,22 @@ public class ClubController
 	
 	@GetMapping("/clubpage")
 	public String myclub(String clubName,HttpServletRequest request, Model model)
+=======
+		System.out.println("동호회 가입신청 오류 : "+bindingResult.hasErrors());
+		clubService.addNewClub(clubSession, memberSession);
+		System.out.println("클럽 생성할 postmapping에서 담긴 클럽명 : " + clubSession.getClubName());
+		System.out.println("club컨트롤러의 postmapping에서 담긴 정보 : " + memberSession.getMemberId());
+		return "mypage";
+	}
+	
+	@GetMapping("/clubpage")
+	public String myclub(@ModelAttribute String clubName, HttpServletRequest request, Model model)
+>>>>>>> origin/PMS
 	{
 		System.out.println("클럽페이지 도착");
 		HttpSession session = request.getSession();
 		Member memberSession = (Member) session.getAttribute("member");
+<<<<<<< HEAD
 		Club club= (Club) session.getAttribute("club");
 		club = clubService.getByClubName(clubName); // 클럽 ID를 통해 클럽 정보를 가져옴
         model.addAttribute("club", club); // 모델에 클럽 정보를 추가
@@ -112,31 +144,22 @@ public class ClubController
 		model.addAttribute("club", getAllClubList);
 		return "clublist";
 	}
+=======
+		Club clubSession = (Club) session.getAttribute("club");
+		session.setAttribute("club", clubSession);
+		session.setAttribute("member", memberSession);
+		List<Club> getByClubName = clubService.getByClubName(clubSession.getClubName());
+		model.addAttribute("clubList", getByClubName);
+		return "clubpage";
+	}	
+>>>>>>> origin/PMS
 	@GetMapping("/update")
-	public String updateClub(Club club,HttpServletRequest request,Model model)
+	public String updateClub(@RequestParam String ClubId,Club club,Model model)
 	{
 		System.out.println("클럽 업데이트 getmapping 도착");
-		HttpSession session = request.getSession();
-		Club clubSession = (Club) session.getAttribute("club");
-		
-		model.addAttribute("club", clubSession);
+		Club getByClubId = clubService.getByClubId(ClubId);
+		System.out.println("업데이트 처리할 clubId" + getByClubId.getClubId());
+		model.addAttribute("club", getByClubId);
 		return "updateclub";
-	}
-	@PostMapping("/update")
-	public String updateClubDone(@ModelAttribute Club club)
-	{
-		clubService.updateClub(club);
-		return "redirect:/club/clubpage";
-	}
-	@GetMapping("/delete")
-	public String deleteClub(Club club, HttpServletRequest request)
-	{
-		System.out.println("클럽 삭제 컨트롤러 도착");
-		HttpSession session = request.getSession();
-		Club clubSession = (Club) session.getAttribute("club");
-		System.out.println("삭제 처리할 클럽명 : "+clubSession.getClubName());
-		clubService.deleteClub(clubSession.getClubName());
-		
-		return "redirect:/member/mypage";
 	}
 }

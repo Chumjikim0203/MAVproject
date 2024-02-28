@@ -1,6 +1,5 @@
 package com.springmvc.controller;
 
-import java.net.MulticastSocket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +27,6 @@ import com.springmvc.domain.Club;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Store;
 import com.springmvc.repository.MemberRepository;
-import com.springmvc.service.ClubService;
 import com.springmvc.service.MemberService;
 
 @Controller
@@ -39,8 +37,6 @@ public class MemberController
 	private MemberService memberService;
 	@Autowired
 	private MemberRepository memberRepository;
-	@Autowired
-	private ClubService clubService;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) 
@@ -66,7 +62,7 @@ public class MemberController
 		}
 		model.addAttribute("member", member);
 		memberRepository.setNewMember(member);
-		return "mypage";
+		return "memberSuccess";
 	}
 
     @ModelAttribute("genderOptions")
@@ -86,7 +82,12 @@ public class MemberController
         phone01Options.put("011", "011");
         return phone01Options;
     }
-
+	
+	/*
+	 * @GetMapping("/mypage") public String getMypage(Member member,Model model) {
+	 * List<Member> memberInfo = memberService.getAllMemberList();
+	 * model.addAttribute("member", memberInfo); return "mypage"; }
+	 */
     @GetMapping("/test")
     public String testingPage(Member member,Model model)
     {
@@ -95,6 +96,7 @@ public class MemberController
     	return "testmember";
     }
     @GetMapping("/mypage")
+<<<<<<< HEAD
     public String memberMyPage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Member member = (Member) session.getAttribute("member");
@@ -103,12 +105,23 @@ public class MemberController
 
         model.addAttribute("club", clubs);
         model.addAttribute("member", member);
+=======
+    public String memberMyPage(HttpServletRequest request, Model model) 
+    {
+        HttpSession session = request.getSession();
+        Member member = (Member) session.getAttribute("member");
+        session.setAttribute("member", member);
+        
+        System.out.println("member 컨트롤러에서 담긴 정보 : "+ member.getMemberId());
+        
+>>>>>>> origin/PMS
         return "mypage";
     }
 
     @GetMapping("/update/member")
     public String updateMember(@RequestParam String memberId, Member member, Model model)
-    {    	
+    {
+    	
     	System.out.println("업데이트 페이지 도착");
     	Member memberById = memberService.getById(memberId);
     	System.out.println("memberById에 getById 결과 대입함");
@@ -122,7 +135,7 @@ public class MemberController
     	return "mypage";
     }
     @RequestMapping(value="/delete/member")
-    public String deleteMember(@RequestParam String memberId)
+    public String deleteMember(@RequestParam String memberId, Model model)
     {
     	System.out.println("delete 라인 도착");
     	System.out.println("삭제할 ID : " +memberId);    	
