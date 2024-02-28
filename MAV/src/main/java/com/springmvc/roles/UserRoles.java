@@ -53,9 +53,6 @@ public class UserRoles
 	public boolean isClubApprove() {
 		return clubApprove;
 	}
-	public void setClubApprove(boolean clubApprove) {
-		this.clubApprove = club.isClubApprove();
-	}
 	public List<Roles> getRoles() {
 		return roles;
 	}

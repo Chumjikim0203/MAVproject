@@ -15,10 +15,9 @@ public class ClubRowMapper implements RowMapper<Club>
 	{
 		Club club = new Club();
 		
-		club.setClubApprove(rs.getBoolean("clubApprove"));
+		
 		club.setClubCategory(rs.getString("clubCategory"));
-		club.setClubGrade(rs.getString("clubGrade"));
-		club.setClubId(rs.getString("clubId"));
+		club.setClubImages(rs.getString("clubImages"));
 		club.setClubInfo(rs.getString("clubInfo"));
 		club.setClubLocale(rs.getString("clubLocale"));
 		club.setClubName(rs.getString("clubName"));

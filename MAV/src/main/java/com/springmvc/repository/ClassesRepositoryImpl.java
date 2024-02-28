@@ -29,15 +29,14 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 	}
 	
 
-	
 // 값넣기 컬럼명순서
 	@Override
 	public void setNewClasses(Classes classes) {
 		
 		
-		String SQL= "insert into classes(classId,className,classLectureDate,classLecturetime,classNumberOfStudents,classCourseContents,classGrade,classIntroduction,classImages,classLocale,classApprove)"+"Values(?,?,?,?,?,?,?,?,?,?,?)";
+		String SQL= "insert into classes(classId,className,classLectureDate,classLecturetime,classNumberOfStudents,classCourseContents,classGrade,classIntroduction,classImages,classLocale,classApprove,teacherId)"+"Values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		System.out.println("setnewCLASS실행");
-		template.update(SQL,classes.getClassId(),classes.getClassName(),classes.getClassLecturedate(),classes.getClassLecturetime(),classes.getClassNumberOfStudents(),classes.getClassCourseContents(),classes.getClassGrade(),classes.getClassIntroduction(),classes.getClassImages(),classes.getClassLocale(),classes.isClassApprove());
+		template.update(SQL,classes.getClassId(),classes.getClassName(),classes.getClassLecturedate(),classes.getClassLecturetime(),classes.getClassNumberOfStudents(),classes.getClassCourseContents(),classes.getClassGrade(),classes.getClassIntroduction(),classes.getClassImages(),classes.getClassLocale(),classes.isClassApprove(),classes.getTeacherId());
 	}
 //class번호로조회
 	@Override

@@ -69,29 +69,22 @@
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3"> 수정</h4>
-                    <form:form modelAttribute="classes" class="form-horizontal" action="../teacher" method="post">
+                    <form:form modelAttribute="update" class="form-horizontal" action="/MAV/teacher" method="post">
                   <fieldset>
                    <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="className">아이디</label>
-                               <form:input path="className" class="form-control" />                          
+                                <label for="teacherCategory">강사종류</label>
+                               <form:input path="teacherCategory" class="form-control" />                          
                              </div>
                             <div class="invalid-feedback">
-                                아이디를 입력해주세요.
+                                종목을입력해주세요
                             </div>
                            <div class="col-md-6 mb-3">
-                               <label for="className">비밀번호</label>
-                               <form:password class="form-control" path="className"/>
-                           </div>
-                            <div class="invalid-feedback">
-                                비밀번호를 입력해주세요.
-                            </div>
-                           <div class="col-md-6 mb-3">
-                                 <label for="className">생년월일</label>
-                                 <form:input type="date" class="form-control" path="className" />
+                                 <label for="className">강사이력</label>
+                                 <form:input type="date" class="form-control" path="teacherRecode" />
                              </div>
                             <div class="invalid-feedback">
-                                생년월일을 입력해주세요.
+                               
                             </div>
                   <%--          <div class="col-md-2 mb-3">
                                <label for="className">휴대폰</label>
@@ -99,48 +92,19 @@
                                    <form:options items="${phone01Options}"/>
                                </form:select>
                            </div> --%>
-                           <div class="col-md-2 mb-3">
-                               <label for="className"></label>
-                               <form:input class="form-control" path="className"/>
-                           </div>
-                           <div class="col-md-2 mb-3">
-                               <label for="className"></label>
-                               <form:input class="form-control" path="className" />
-                           </div>
-                            <div class="invalid-feedback">
-                                휴대폰번호를 입력해주세요.
-                            </div>
+                    
                          <%--   <div class="col-md-6 mb-3">
                                <label for="className">성별</label>
                                <form:select class="form-select" aria-label="Default select example" path="className">
                                    <form:options items="${genderOptions}"/>
                                </form:select>
                            </div> --%>
-                            <div class="invalid-feedback">
-                                성별을 입력해주세요.
-                            </div>
-                           <div class="col-md-6 mb-3">
-                               <label for="className">이름</label>
-                               <form:input class="form-control" path="className" />                        
-                           </div>
-                            <div class="invalid-feedback">
-                                이름을 입력해주세요.
-                            </div>                        
-                       </div>
-                       <div class="mb-3">
-                           <label for="className">이메일</label>
-                           <form:input  class="form-control" path="className" />
-                       </div>
-                        <div class="invalid-feedback">
-                            이메일을 입력해주세요.
-                        </div>
-                       <div class="mb-3">
-                           <label for="className">주소</label>
-                           <form:input class="form-control" path="className" />                  
-                       </div>
-                        <div class="invalid-feedback">
-                            주소를 입력해주세요.
-                        </div>
+                           
+                            <div class="mb-3">
+            				 	<label for="teacherInfomation">자기소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+            				 	<form:input  class="form-control"  path="teacherInfomation" name="teacherInfomation" />
+         				 	</div>                     
+                      
                        <hr class="mb-4">
                        <div class="mb-4"></div>   
                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="수정 완료"/>

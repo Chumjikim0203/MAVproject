@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.springmvc.domain.Club;
+import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
 import com.springmvc.exception.MemberIdException;
 
@@ -30,29 +31,35 @@ public class ClubRepositoryImpl implements ClubRepository
 	
 	@Override
 	public void addNewClub(Club club, Member member) 
-	{
-		
-		club.setClubGrade("동호회장");
-		club.setClubApprove(true);
+	{		
 		club.setClubPoint(0);
-		club.setClubId(member.getMemberId());
-		String SQL = "insert into Club values(null,?,?,?,?,?,?,?,?)";
+		club.setClubMaster(member.getMemberId());
+		String SQL = "insert into Club values(null,?,?,?,?,?,?,?)";
 		template.update(SQL,
-				club.getClubId(),
 				club.getClubName(),
+				club.getClubMaster(),
 				club.getClubCategory(),
 				club.getClubLocale(),
 				club.getClubPoint(),
-				club.getClubGrade(),
-				club.isClubApprove(),
+				club.getClubImages(),
 				club.getClubInfo());
+	}
+
+	
+	@Override
+	public void addNewClubMember(Club club, ClubMember clubmember, Member member) 
+	{
+		clubmember.setClubGrade("동호회장");
+		clubmember.setClubApprove(true);
+		clubmember.setC_memberId(member.getMemberId());
+		String SQL = "insert into clubmember values(?,?,?,?)";
 		
-		System.out.println("1:"+ member.getMemberId());
-		System.out.println("2:"+ club.getClubName());
-		System.out.println("3 :"+club.getClubPoint());
-		System.out.println("4 :"+club.getClubLocale());
-		System.out.println("5 :"+club.getClubGrade());
-		System.out.println("6 :"+club.isClubApprove());
+		template.update(SQL, club.getClubName(),clubmember.getC_memberId(),
+						clubmember.getClubGrade(),clubmember.isClubApprove());
+		
+		System.out.println("1 : "+clubmember.getC_memberId());
+		System.out.println("2 : "+clubmember.getClubGrade());
+		System.out.println("3 : "+clubmember.isClubApprove());
 	}
 
 	@Override
@@ -68,41 +75,14 @@ public class ClubRepositoryImpl implements ClubRepository
 	    return club;
 	}
 
-	@Override
-	public Club getByClubId(String clubId) 
-	{
-		Club clubInfo = null;
-		String SQL = "SELECT count(*) FROM Club where clubId=?";
-		int rowCount = template.queryForObject(SQL, Integer.class, clubId);
-		if(rowCount!=0)
-		{
-			SQL = "SELECT * FROM Club where clubId=?";
-			clubInfo = template.queryForObject(SQL, new Object[] {clubId}, new ClubRowMapper());
-		}
-		for(int i=0; i<listOfClubs.size(); i++)
-		{
-			Club club=listOfClubs.get(i);
-			if(club!=null && club.getClubId()!= null && club.getClubId().equals(clubId))
-			{
-				clubInfo=club;
-				break;
-			}
-		}
-		if(clubInfo==null)
-		{
-			throw new MemberIdException(clubId);
-		}
-		return clubInfo;
-	}
-
 	
 	@Override
 	public void updateClub(Club club) 
 	{
-		System.out.println("수정 처리할 클럽ID : "+club.getClubId());
-		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubId=?";
+		System.out.println("수정 처리할 클럽ID : "+club.getClubNum());
+		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubNum=?";
 		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
-						club.getClubInfo(), club.getClubId());
+						club.getClubInfo(), club.getClubNum());
 	}
 
 	@Override
@@ -121,13 +101,13 @@ public class ClubRepositoryImpl implements ClubRepository
 	}
 
 	@Override
-	public void joinClub(Club club, Member member) 
+	public void joinClub(Club club, ClubMember clubmember) 
 	{
 		club.setClubGrade("준회원");
-		club.setClubApprove(false);
+		clubmember.setClubApprove(false);
 		club.setClubPoint(0);
 		club.setClubId(member.getMemberId());
-		String SQL = "insert into Club values(null,?,?,?,?,?,?,?,?)";
+		String SQL = "insert into Clubmember values(null,?,?,?,?,?,?,?,?)";
 		template.update(SQL,
 				club.getClubId(),
 				club.getClubName(),
@@ -154,6 +134,23 @@ public class ClubRepositoryImpl implements ClubRepository
 		 Club getByClubNum = (Club) template.queryForObject(SQL, new Object[] {club.getClubNum()}, new ClubRowMapper());
 		 return getByClubNum;
 	}
+
+	@Override
+	public List<Club> getMyClub(String c_memberId) {
+	    List<Club> clubs = new ArrayList<>();
+
+	    String SQL = "SELECT * " +
+	                 "FROM clubmember cm INNER JOIN club c ON cm.clubname = c.clubname " +
+	                 "WHERE cm.c_memberId = ?";
+
+	    try {
+	        clubs = template.query(SQL, new Object[]{c_memberId}, new ClubRowMapper());
+	        return clubs;
+	    } catch (EmptyResultDataAccessException e) {
+	        return null;
+	    }
+	}
+
 	
 	
 }
