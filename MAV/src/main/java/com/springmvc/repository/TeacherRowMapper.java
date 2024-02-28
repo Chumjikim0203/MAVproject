@@ -25,7 +25,3 @@ public class TeacherRowMapper implements RowMapper<Teacher> {
 	}
 
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/KTY

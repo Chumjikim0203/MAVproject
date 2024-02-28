@@ -18,11 +18,7 @@ public class MatchServiceImpl implements MatchService {
 	@Override
 	public int matchCreate(Match match) {
 		matchRepository.matchCreate(match);
-<<<<<<< HEAD
-
-=======
 		return match.getRoomNum(); 
->>>>>>> origin/KTY
 	}
 
 	@Override

@@ -22,9 +22,6 @@ public class StoreRepositoryImpl implements StoreRepository {
         return jdbcTemplate.query(sql, new RoomRowMapper(), storeId);
     }
     
-<<<<<<< HEAD
-
-=======
     
     //스토어 아이디에 맞는 정보가지고 가기
     @Override
@@ -38,15 +35,14 @@ public class StoreRepositoryImpl implements StoreRepository {
     }
 
     //업데이트시에 사용
-	//룸 넘버에 맞는 룸정보 들고 오기
->>>>>>> origin/KTY
+   //룸 넘버에 맞는 룸정보 들고 오기
     @Override
     public Room getByroomNumAllRooms(int roomNum) {
         String sql = "SELECT * FROM Room WHERE roomNum = ?";
         return jdbcTemplate.queryForObject(sql, new RoomRowMapper(), roomNum);
     }
 
-
+    //객체생성
    @Autowired
     public StoreRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -55,8 +51,8 @@ public class StoreRepositoryImpl implements StoreRepository {
    // 방 만들기
     @Override
     public void createRoom(Room room) {
-        String sql = "INSERT INTO Room (storeId, roomName, roomCapacity, roomCount, roomCategory, roomDetail, roomDate, roomTime) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Room (storeId, roomName, roomCapacity, roomCount, roomCategory, roomDetail, roomDate, roomTime,isMatched) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(
                 sql,
                 room.getStoreId(),
@@ -66,21 +62,13 @@ public class StoreRepositoryImpl implements StoreRepository {
                 room.getRoomCategory(),
                 room.getRoomDetail(),
                 room.getRoomDate(),
-                room.getRoomTime()
+                room.getRoomTime(),
+                room.isMatched()
         );
     }
-    //스토어 아이디에 맞는 정보가지고 가기
-    @Override
-    public Store getStoreById(String storeId) {
-        String sql = "SELECT * FROM Store WHERE storeId = ?";
-        try {
-            return jdbcTemplate.queryForObject(sql, new StoreRowMapper(), storeId);
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
-    }
     
-    //방 전체 정보가지고 오기
+    
+    //방 전체 보여주기
     @Override
     public List<Room> getAllRooms(Room room) {
         String sql = "SELECT * FROM Room";
@@ -119,8 +107,6 @@ public class StoreRepositoryImpl implements StoreRepository {
                 updatedRoom.getRoomNum()
         );
     }
-   
-
     	public void CreateStore(Store store) {
     		// TODO Auto-generated method stub
     	//강사 등록	
@@ -145,17 +131,6 @@ public class StoreRepositoryImpl implements StoreRepository {
     //단일출력
 
     }
-
-    
-
-
-
-
-
-
-
-
-
 // 업체가 작성한 모든 방의 시간과 날짜만 가져오는 로직
    /*
 @Override

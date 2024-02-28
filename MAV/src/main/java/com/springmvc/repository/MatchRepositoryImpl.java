@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springmvc.domain.Match;
 import com.springmvc.domain.MatchRoom;
-import com.springmvc.domain.MatchRoom;
-import com.springmvc.repository.MatchRoomRowMapper;
+import com.springmvc.domain.Room;
 
 
 @Repository 
@@ -24,16 +23,14 @@ public class MatchRepositoryImpl implements MatchRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
     
-   public MatchRepositoryImpl() {
-   }
+	   public MatchRepositoryImpl() {
+		   
+	   }
+
    
-   
+   //매칭룸을 만드는 로직
    @Override
    public void matchCreate(Match match) {
-<<<<<<< HEAD
-       String sql = "INSERT INTO Matching (matchNum, roomNum,matchTitle ,memberId, matchStatus, matchResult) VALUES (?, ?, ?, ?, ?, ?)";
-       
-=======
        System.out.println("Roomnum : " + match.getRoomNum());
        Room room = match.getRoom();
 
@@ -53,27 +50,21 @@ public class MatchRepositoryImpl implements MatchRepository {
        
        String sql = "INSERT INTO Matching (matchNum, matchTitle, roomNum, creatorId, matchStatus, matchResult) VALUES (?, ?, ?, ?, ?, ?)";
 
->>>>>>> origin/KTY
        jdbcTemplate.update(
            sql,
-           match.getMatchNum(), // 오토인트리먼트 부분
-           match.getRoomNum(),
+           match.getMatchNum(),
            match.getMatchTitle(),
-           match.getMemberId(),
+           match.getRoomNum(),
+           match.getCreatorId(),
            match.getMatchStatus(),
            match.getMatchResult()
-       ); 
-      
+       );
    }
-<<<<<<< HEAD
-   
-=======
 
    // 매칭룸 전체 보여주기
->>>>>>> origin/KTY
    @Override
    public List<MatchRoom> findAllMatchRooms(MatchRoom matchroom) {
-	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime FROM Matching m JOIN Room r ON m.roomNum = r.roomNum";
+	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.creatorId, m.applicantId,m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime FROM Matching m JOIN Room r ON m.roomNum = r.roomNum";
 	    return jdbcTemplate.query(sql, new MatchRoomRowMapper());
 	}
 

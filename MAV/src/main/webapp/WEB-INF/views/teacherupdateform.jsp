@@ -76,35 +76,20 @@
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3"> 수정</h4>
-<<<<<<< HEAD
                     <form:form modelAttribute="update" class="form-horizontal" action="./formupdate?teacherId=${teacher.teacherId}" method="post">
-=======
-                    <form:form modelAttribute="update" class="form-horizontal" action="/MAV/teacher" method="post">
->>>>>>> origin/KTY
                   <fieldset>
                    <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="teacherCategory">강사종류</label>
-<<<<<<< HEAD
-                               <form:input path="teacherCategory" class="form-control" value="${teacher.teacherCategory}" name="teacherCategory" />                          
-=======
-                               <form:input path="teacherCategory" class="form-control" />                          
->>>>>>> origin/KTY
+                               <form:input path="teacherCategory" class="form-control" value="${teacher.teacherCategory}" name="teacherCategory" />
                              </div>
                             <div class="invalid-feedback">
                                 종목을입력해주세요
                             </div>
-<<<<<<< HEAD
                          <div class="col-md-6 mb-3">
                             <label for="teacherRecode">강사이력</label>
                             <form:input class="form-control" path="teacherRecode" name="teacherRecode" value="${teacher.teacherRecode}" />
                         </div>
-=======
-                           <div class="col-md-6 mb-3">
-                                 <label for="className">강사이력</label>
-                                 <form:input type="date" class="form-control" path="teacherRecode" />
-                             </div>
->>>>>>> origin/KTY
                             <div class="invalid-feedback">
                                
                             </div>
@@ -124,11 +109,7 @@
                            
                             <div class="mb-3">
             				 	<label for="teacherInfomation">자기소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
-<<<<<<< HEAD
             				 	<form:input  class="form-control"  path="teacherInfomation" name="teacherInfomation" value="${teacher.teacherInfomation}"/>
-=======
-            				 	<form:input  class="form-control"  path="teacherInfomation" name="teacherInfomation" />
->>>>>>> origin/KTY
          				 	</div>                     
                       
                        <hr class="mb-4">

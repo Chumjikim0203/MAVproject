@@ -44,7 +44,3 @@ public class TeacherServiceImpl implements TeacherService{
 	}
 
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/KTY

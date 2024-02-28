@@ -72,41 +72,5 @@ public class ClubServiceImpl implements ClubService
 	{
 		return clubRepository.getMyClub(c_memberId);
 	}
-<<<<<<< HEAD
-=======
-	
 
-	@Override
-	public void updateClub(Club club) 
-	{
-		clubRepository.updateClub(club);
-	}
-
-	@Override
-	public void deleteClub(String clubName) 
-	{
-		clubRepository.deleteClub(clubName);
-	}
-
-	@Override
-	public void joinClub(Club club, Member member) 
-	{
-		clubRepository.joinClub(club, member);
-	}
-
-	@Override
-	public List<Club> getAllClubList() 
-	{
-		List<Club> getAllClubList = clubRepository.getAllClubList();
-		return getAllClubList;
-	}
-
-	@Override
-	public Club getByClubNum(Club club) 
-	{
-		Club getByClubNum = clubRepository.getByClubNum(club);
-		return getByClubNum;
-	}
-	
->>>>>>> origin/KTY
 }

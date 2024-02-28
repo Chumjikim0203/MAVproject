@@ -5,23 +5,10 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.springmvc.domain.Match;
+import com.springmvc.domain.Room;
 
 public class MatchRowMapper implements RowMapper<Match> {
 
-<<<<<<< HEAD
-   @Override
-   public Match mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-       Match match = new Match();
-       match.setMatchNum(resultSet.getInt("matchNum"));
-       match.setRoomNum(resultSet.getInt("roomNum"));
-       match.setMatchTitle(resultSet.getString("matchTiltle"));
-       match.setMemberId(resultSet.getString("memberId"));
-       match.setMatchStatus(resultSet.getString("matchStatus"));
-       match.setMatchResult(resultSet.getString("matchResult"));
-       
-       return match;
-   }
-=======
 	@Override
 	public Match mapRow(ResultSet rs, int rowNum) throws SQLException {
 	    Room room = new Room();
@@ -42,6 +29,4 @@ public class MatchRowMapper implements RowMapper<Match> {
 	    return match;
 	}
 
-
->>>>>>> origin/KTY
 }

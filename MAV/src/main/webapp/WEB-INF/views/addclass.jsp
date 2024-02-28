@@ -47,13 +47,8 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="classLecturedate">강의날짜</label>
-<<<<<<< HEAD
                     <form:hidden class="form-control" path="teacherId" value="<%=memberId%>"/>
                     <form:hidden class="form-control" path="classId" value="<%=memberId%>"/>         
-=======
-                    <form:hidden class="form-control" path="classId" value="<%=memberId%>"/>
-                             
->>>>>>> origin/KTY
                     <form:input type="date" class="form-control" path="classLecturedate"  />
 					<div class="invalid-feedback">
                     	강의날짜를 선택해주세요.

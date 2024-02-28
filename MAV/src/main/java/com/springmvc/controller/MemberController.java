@@ -95,7 +95,6 @@ public class MemberController
     	return "testmember";
     }
     @GetMapping("/mypage")
-<<<<<<< HEAD
     public String memberMyPage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Member member = (Member) session.getAttribute("member");
@@ -104,16 +103,6 @@ public class MemberController
 
         model.addAttribute("club", clubs);
         model.addAttribute("member", member);
-=======
-    public String memberMyPage(HttpServletRequest request, Model model) 
-    {
-    	System.out.println("마이페이지 도착");
-        HttpSession session = request.getSession();
-        Member member = (Member) session.getAttribute("member");       
-        model.addAttribute("member", member);
-        session.setAttribute("member", member);
-        System.out.println("member 컨트롤러에서 담긴 멤버아이디 : "+ member.getMemberId());
->>>>>>> origin/KTY
         return "mypage";
     }
 

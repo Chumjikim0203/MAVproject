@@ -37,11 +37,6 @@ public class MatchController {
 	
     // 상세보기에서 매칭룸만들기
     @GetMapping("/roomsDetail")
-<<<<<<< HEAD
-    public String detailmyRooms(@RequestParam("roomNum")int roomNum, Model model) {
-    	System.out.println(roomNum);
-        model.addAttribute("matchForm", new Match());
-=======
     public String detailmyRooms(@RequestParam("roomNum")int roomNum, Model model,HttpServletRequest request ) {
     	
 		HttpSession session = request.getSession(); 
@@ -51,7 +46,6 @@ public class MatchController {
         
         
     	model.addAttribute("matchForm", new Match());
->>>>>>> origin/KTY
     	Room detailroom =storeService.getByroomNumAllRooms(roomNum);
     	
     	model.addAttribute("detailroom",detailroom);
@@ -76,20 +70,6 @@ public class MatchController {
         return "redirect:/match/matchingDetail?roomNum="+roomNum;
     }
     
-<<<<<<< HEAD
-    // 이해가 잘 안감
-    //만든 매칭룸 보여주기
-     @PostMapping("/roomsDetail")
-     public String createMatch(@ModelAttribute("matchForm") Match match, Model model) {
-    
-    	 Match newmatch = new Match(); model.addAttribute("matchForm", newmatch);
-    	 matchService.matchCreate(match);
-    	 
-      	return "redirect:/store";
-      }
-     
-     //업체가 만든게 아닌 회장이 만든 매칭룸을 매칭뷰로 보내는 로직
-=======
     
     
     
@@ -142,7 +122,7 @@ public class MatchController {
     
     //read
      //매칭뷰
->>>>>>> origin/KTY
+
      @GetMapping("/matchingView")
      public String matchingView(Model model,MatchRoom matchRoom) {
     	 

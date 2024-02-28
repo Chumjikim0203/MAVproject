@@ -32,18 +32,12 @@ public class TeacherController {
 	
 		HttpSession sessionId=request.getSession();	
 		member= (Member)sessionId.getAttribute("member");
-<<<<<<< HEAD
         teacher= teacherService.teacherId(member.getMemberId());
 		model.addAttribute("allclass",ClassesService.getAllClassesList(classes));
 //		System.out.println("teachermember:"+member.getMemberId());
 //		System.out.println("addmember:"+member.getMemberEmail());
 		System.out.println("teachermypagecontroller:"+teacher.getTeacherCategory());
 		model.addAttribute("teacher",teacher);
-=======
-		model.addAttribute("allclass",ClassesService.getAllClassesList(classes));
-//		System.out.println("teachermember:"+member.getMemberId());
-//		System.out.println("addmember:"+member.getMemberEmail());
->>>>>>> origin/KTY
 		
 		model.addAttribute("member",member);
 		
@@ -65,20 +59,12 @@ public class TeacherController {
 	}
 	//강사등록하기 서브밋c
 	@PostMapping("/add")
-<<<<<<< HEAD
 	public String submitaddteacher(@ModelAttribute("addTeacher") Teacher teacher,Model model,BindingResult bindingResult,HttpServletRequest request)
 	{
 		HttpSession sessionId=request.getSession();
 		Member member=(Member)sessionId.getAttribute("member");
 		model.addAttribute("member",member);
 		sessionId.setAttribute("member", member);
-=======
-	public String submitaddteacher(@ModelAttribute("addTeacher") Teacher teacher,Model model,BindingResult bindingResult,HttpServletRequest reqeust)
-	{
-		HttpSession sessionId=reqeust.getSession();
-		Member member=(Member)sessionId.getAttribute("member");
-		model.addAttribute("member",member);
->>>>>>> origin/KTY
 		System.out.println("memberid:"+member.getMemberId());
 	//	System.out.println("teacheradd:"+teacher.getTeacherId());
 		//에러확인코드 
@@ -91,7 +77,6 @@ public class TeacherController {
 		return "redirect:/teacher";
 	}
 	// 강사수정 u
-<<<<<<< HEAD
 	@GetMapping("/update/teacher")
 	public String updateteacher(@ModelAttribute("update") Teacher teacher,@RequestParam String teacherId,Model model, HttpServletRequest reqeust) {
 		HttpSession sessionId=reqeust.getSession();
@@ -109,16 +94,6 @@ public class TeacherController {
 	System.out.println("submitupdateteacher도착");
 		teacherService.UpdateTeacher(teacher);
 		return "redirect:/teacher";
-=======
-	@GetMapping("/update")
-	public String updateteacher(@ModelAttribute("update") Teacher teacher,Model model, HttpServletRequest reqeust) {
-		HttpSession sessionId=reqeust.getSession();
-		Member member=(Member)sessionId.getAttribute("member");
-		model.addAttribute("member",member);
-		System.out.println("여기도착 member는?:"+member);
-		teacherService.UpdateTeacher(teacher);
-		return "teacherupdateform";
->>>>>>> origin/KTY
 	}
 	// R
 

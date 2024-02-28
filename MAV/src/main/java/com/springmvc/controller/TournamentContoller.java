@@ -55,9 +55,6 @@ public class TournamentContoller {
 		return "/updateTournament";
 	}
 	
-<<<<<<< HEAD
-}
-=======
 	//update된것 저장
 	@PostMapping("/updateTournament")
 	public String changeTournament(@ModelAttribute("updateTournament")Tournament tournament) {
@@ -76,4 +73,4 @@ public class TournamentContoller {
 		return "redirect:/store";
 	}
 }
->>>>>>> origin/KTY
+

@@ -10,23 +10,15 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
+
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Teacher;
 import com.springmvc.exception.MemberIdException;
-=======
-import com.springmvc.domain.Teacher;
->>>>>>> origin/KTY
+
 
 @Repository
 public class TeacherRepositoryImpl implements TeacherRepository {
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/KTY
-	private JdbcTemplate template;
+ JdbcTemplate template;
 	@Autowired
 	public void setJdbctemplate(DataSource dataSoure) {
 		this.template=new JdbcTemplate(dataSoure);
@@ -54,14 +46,10 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	@Override
 	public void UpdateTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+
 		String SQL="update Teacher SET teacherCategory=?,teacherRecode=?,teacherInfomation=? where teacherId=?";
 		template.update(SQL,teacher.getTeacherCategory(),teacher.getTeacherRecode(),teacher.getTeacherInfomation(),teacher.getTeacherId());
-=======
-		String SQL="update teacher set teacherCategory=?,teacherRecode=?,teacherInfomation=? where teacherId=?";
-		template.update(SQL,teacher.getTeacherCategory(),teacher.getTeacherRecode(),teacher.getTeacherInfomation());
->>>>>>> origin/KTY
-		
+
 	}
 //전체 출력
 	@Override
@@ -71,11 +59,9 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		List<Teacher> teacherlist=template.query(SQL, new TeacherRowMapper());
 		return teacherlist;
 	}
-<<<<<<< HEAD
+
 //단일출력 자동으로 
-=======
-//단일출력
->>>>>>> origin/KTY
+
 	   @Override
 	   public Teacher teacherId(String teacherId) {
 	       String SQL = "SELECT COUNT(*) FROM TEACHER WHERE TEACHERId=?";
@@ -92,7 +78,3 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	       }
 	   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/KTY
