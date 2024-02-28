@@ -7,7 +7,6 @@ public class Match
     private int roomNum; // 방 번호
     private String creatorId;
     private String applicantId;
-	private String memberId; // 회원 ID
     private String matchStatus; // 매칭 상태
     
     private Room room;
@@ -52,14 +51,6 @@ public class Match
 
    public void setRoomNum(int roomNum) {
       this.roomNum = roomNum;
-   }
-
-   public String getMemberId() {
-      return memberId;
-   }
-
-   public void setMemberId(String memberId) {
-      this.memberId = memberId;
    }
 
    public String getMatchStatus() {

@@ -11,8 +11,17 @@ public class Teacher
    private String teacherLicense; // 강사 자격증
    private String teacherInfomation; // 강사 소개 
    private boolean teacherApprove; // 강사 승인 신청
+
    
-   public String getTeacherInfomation() {
+   
+   
+   public Teacher() {
+	super();
+	
+	
+   }
+
+public String getTeacherInfomation() {
       return teacherInfomation;
    }
    public void setTeacherInfomation(String teacherInfomation) {

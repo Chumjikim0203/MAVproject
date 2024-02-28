@@ -170,24 +170,33 @@
 </head>
 
 <body>
+ <%
+	String memberId = request.getParameter("memberId");
+	System.out.println("teacher:"+memberId);
+%>
+		<ul class="navbar-nav center">
+            	<li>
+            		<h5><b>${member.memberName}</b> 강사님 환영합니다!</h5>
+            	</li>
+            </ul>	
     <div class="main">
         <div class="col-4">
             <div class="card" style="width: 100%;">
-                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">강사명</h5>
+                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
                 <img src="." class="card-img-top img1" alt="...">
                 <div class="card-body">
-                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">강의종목</p>
-                    <p class="card-text" style="text-align: center; font-size: 1rem;">123@123.com</p>
+                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">${teacher.teacherCategory}</p>
+                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <a href="./Class/addclass">강의등록하기</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="./teacher/update">강사정보수정</a>
+                        <a href="./teacher/update?${teacher.teacherId}">강사정보수정</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#">강사탈퇴</a>
+                        <a href="./teacher/delete?teacherId=?">강사탈퇴</a>
                     </li>
                 </ul>
 
@@ -199,8 +208,8 @@
                 <div class="right">
                     <img src=".." class="" width="30%">
                     <div class="right-name">
-                        <p>강사명</p>
-                        <p>123@gmail.com</p>
+                        <p>${member.memberName}</p>
+                        <p>${member.memberEmail}</p>
                     </div>
                 </div>
                 <hr>

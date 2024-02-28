@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.springmvc.domain.Match;
 import com.springmvc.domain.MatchRoom;
+import com.springmvc.domain.Member;
 import com.springmvc.domain.Room;
+import com.springmvc.domain.Store;
 import com.springmvc.domain.Tournament;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
@@ -36,31 +39,46 @@ public class StoreController {
 	private TournamentService tournamentService;
 
     //대경이행님이 로긴 만들면 값 가지고 와서 store들어가자 마자 뿌리기(아이디별로 하는것 만들어야함)
-	//해당 업체가 만든 모든 매칭룸을 가지고 스토어로감
-	//해당 업체가 만든 모든 경기장룸을 가지고 스토어로감
-	//해당 업체가 만든 모든 토너먼트를 가지고 스토어오감 
+	//해당 업체가 만든 모든 경기장룸/토너먼트/매칭룸을 가지고 스토어로감
     @GetMapping
-    public String readStoreMypage(HttpServletRequest request,Model model, Room room, MatchRoom matchRoom, Tournament tournament) {
+    public String readStoreMypage(HttpServletRequest request,Model model,Room room, MatchRoom matchRoom, Tournament tournament) {
+    	
+    			
+		  HttpSession session = request.getSession(); 
+		  Member member = (Member)session.getAttribute("member"); 
+		  Store store = (Store) session.getAttribute("store");
+
+		  System.out.println("Store 정보: " + store.getStoreId() + ", " +store.getStoreName());
+		  System.out.println("Store 정보: " + store.getStoreId() +", " + store.getStoreName());
+	
+    	
         // 입력한 방 모두의 정보를 가지고오는 로직
-    	HttpSession session = request.getSession();
-    	System.out.println("session.getId() :" + session.getAttribute("member"));
-    	
-    	
-    	List<Tournament> newtournament = tournamentService.getAlltournament(tournament);
-    	model.addAttribute("newtournament",newtournament);
-     	List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
-     	model.addAttribute("matchView",matchView);
-        List<Room> myRooms = storeService.getAllRooms(room);
+		String storeId = store.getStoreId();
+		
+		//room
+        List<Room> myRooms = storeService.getRoomsByStoreId(storeId);
         model.addAttribute("myRooms", myRooms);
+        
+        //토너먼트
+    	List<Tournament> newtournament = tournamentService.getTournamentByStoreId(storeId);
+    	model.addAttribute("newtournament",newtournament);
+    	
+    	//매칭룸
+     	List<MatchRoom> matchView = matchService.getMatchRoomsByStoreId(storeId);
+     	model.addAttribute("matchView",matchView);
+     	
+
         return "store";
     }
     
     //방만들기 폼 보여주기
     @GetMapping("/addrooms")
-    public String createStoreRoomForm(@ModelAttribute("newrooms") Room room,Model model) {
-       
+    public String createStoreRoomForm(@ModelAttribute("newrooms") Room room, Model model) {
+
+
         Room newRoom = new Room();
-        model.addAttribute("newrooms",newRoom);
+       
+        model.addAttribute("newrooms", newRoom);
         newRoom.setRoomDetail("ex)\r\n"
         		+ "■구장 특이사항\r\n"
         		+ " 풋살장 가는 길: 엘리베이터를 이용하여 10층 풋살장으로 이동 \r\n"
@@ -96,10 +114,15 @@ public class StoreController {
     
     // 방 등록하기
     @PostMapping("/addrooms")
-    public String createStoreRoom(@ModelAttribute("newrooms") Room room,BindingResult bindingResult, Model model) {
+    public String createStoreRoom(HttpServletRequest request, @ModelAttribute("newrooms") Room room, Model model) {
     	
+        HttpSession session = request.getSession();
+        Store store = (Store) session.getAttribute("store");  // 세션에서 store 객체를 가져옴
+        room.setStoreId(store.getStoreId());  // 세션에서 가져온 storeId를 room 객체에 설정
+
         storeService.createRoom(room);
-        model.addAttribute("newrooms", room);
+        System.out.println("room : "+ room.getRoomCapacity());    
+        model.addAttribute("room",room);
         return "redirect:/store";
     }
     
@@ -124,6 +147,7 @@ public class StoreController {
     //수정 값 db랑 연결하는 로직
     @PostMapping("/roomsChange")
     public String changeRooms(@ModelAttribute("updateRooms")Room updateRoom) {
+    	
     	storeService.updateRoom(updateRoom);
     	
     	return "redirect:/store";
@@ -133,7 +157,7 @@ public class StoreController {
     
     
     
-    // 리드를 검증하기 위해서 가짜로 작성해둠
+    // 메인 및 룸페이지로 보내드는 리드라인
     @GetMapping("/myRooms")
     public String readAllRooms(Model model, Room room) {
     	List<Room> allrooms = storeService.getAllRooms(room);
@@ -142,20 +166,34 @@ public class StoreController {
     	return "myRooms";
     }
     
-    // 이것도 필요 없으나 우선 적으로 작성해둠
+    // 삭제
+    //룸 넘버 받아와서 삭제
     @RequestMapping("/deleteRoom")
     public String deleteRoom(@RequestParam("roomNum") int roomNum) {
     	
-    	System.out.println(roomNum + "여기까지온거 마져?");
         storeService.deleteRoom(roomNum);
         return "redirect:/store/myRooms";
     }
     
     //업체가 만든 룸을 roomview로들어왔을때 보여주는 로직
     @GetMapping("/roomView")
-    public String roomMainView(Model model, Room room) {
+    public String roomMainView(Model model, Room room, HttpServletRequest request) {
+        
+    	// 세션에서 memberId 가져오기
+		
+		 HttpSession session = request.getSession(); 
+		 Member member = (Member)session.getAttribute("member"); 
+		
+		 System.out.println("member 정보: " + member.getMemberId());
+		
+		
+		// 입력한 방 모두의 정보를 가지고오는 로직
+		String memberId = member.getMemberId();
+
         // 입력한 방 모두의 정보를 가지고오는 로직
         List<Room> myRooms = storeService.getAllRooms(room);
+
+        model.addAttribute("memberId", memberId);
         model.addAttribute("myRooms", myRooms);
         return "roomView";
     }

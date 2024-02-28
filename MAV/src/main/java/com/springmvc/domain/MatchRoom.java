@@ -21,6 +21,8 @@ public class MatchRoom {
     private int roomCapacity; // 경기장 수용인원
     private int roomCount; // 경기장 참가인원
     private String roomCategory; // 경기 종류(종목)
+    
+    
     public String getCreatorId() {
 		return creatorId;
 	}

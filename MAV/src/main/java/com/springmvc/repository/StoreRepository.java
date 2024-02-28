@@ -14,6 +14,8 @@ public interface StoreRepository {
 	void updateRoom(Room updateRoom);
 	Room getByRoomNum(int roomNum);
 	Store getStoreById(String storeId);
+	List<Room> getRoomsByStoreId(String storeId);
+	
 }
 
 

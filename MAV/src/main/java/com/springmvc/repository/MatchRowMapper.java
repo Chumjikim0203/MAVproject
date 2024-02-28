@@ -14,11 +14,10 @@ public class MatchRowMapper implements RowMapper<Match> {
 	    Room room = new Room();
 	    Match match = new Match();
 	    match.setMatchNum(rs.getInt("matchNum"));
-	    match.setMatchTitle(rs.getString("matchTiltle"));
+	    match.setMatchTitle(rs.getString("matchTitle"));
 	    match.setRoomNum(rs.getInt("roomNum"));
 	    match.setCreatorId(rs.getString("creatorId"));
 	    match.setApplicantId(rs.getString("applicantId"));
-	    match.setMemberId(rs.getString("memberId"));
 	    match.setMatchStatus(rs.getString("matchStatus"));
 	    match.setMatchResult(rs.getString("matchResult"));
 

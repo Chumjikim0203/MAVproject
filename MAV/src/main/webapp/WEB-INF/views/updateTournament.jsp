@@ -76,7 +76,7 @@
 				<form:form modelAttribute="updateTournament" class="validation-form" method="post"
 				           action="${pageContext.request.contextPath}/tournament/updateTournament" onsubmit="return validateForm()">
 				    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-				    <input type="hidden" name="updateTournament" value="${updateTournament.tournamentNum}">
+					<input type="hidden" name="tournamentNum" value="${updateTournament.tournamentNum}">
 				    <div class="row">
 				        <!-- 경기날짜 -->
 				        <div class="col-md-6 mb-3">
@@ -133,7 +133,7 @@
 				        </select>
 				    </div>
 	    			<div class="mb-4"></div>
-                    <input type="submit" value="토먼먼트 등록하기" class="btn btn-danger" >
+                    <input type="submit" value="토먼먼트 수정하기" class="btn btn-danger" >
 				</form:form>
 
 			          

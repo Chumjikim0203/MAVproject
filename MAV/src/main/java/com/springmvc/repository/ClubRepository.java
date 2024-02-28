@@ -8,6 +8,12 @@ import com.springmvc.domain.Member;
 public interface ClubRepository 
 {
 	void addNewClub(Club club, Member member);
-	List<Club> getByClubName(String clubName);
+	void joinClub(Club club, Member member);
+	List<Club> getAllClubList();
+	Club getByClubName(String clubName);
+	Club getByClubNum(Club club);
 	Club getByClubId(String clubId);
+	Club getClubInfo(Club club);
+	void updateClub(Club club);
+	void deleteClub(String clubName);
 }

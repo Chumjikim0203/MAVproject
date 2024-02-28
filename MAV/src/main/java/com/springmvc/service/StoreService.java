@@ -12,6 +12,7 @@ public interface StoreService {
 	Room getByroomNumAllRooms(int roomNum);
 	void updateRoom(Room updateRoom);
 	Store getStoreById(String storeId);
+	List<Room> getRoomsByStoreId(String storeId);
 
 }
 //List<Room> getAllRoomsByStoreId(String storeId);
