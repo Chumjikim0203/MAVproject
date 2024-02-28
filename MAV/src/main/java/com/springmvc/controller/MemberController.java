@@ -1,6 +1,5 @@
 package com.springmvc.controller;
 
-import java.net.MulticastSocket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,7 +65,7 @@ public class MemberController
 		}
 		model.addAttribute("member", member);
 		memberRepository.setNewMember(member);
-		return "mypage";
+		return "memberSuccess";
 	}
 
     @ModelAttribute("genderOptions")
@@ -86,7 +85,12 @@ public class MemberController
         phone01Options.put("011", "011");
         return phone01Options;
     }
-
+	
+	/*
+	 * @GetMapping("/mypage") public String getMypage(Member member,Model model) {
+	 * List<Member> memberInfo = memberService.getAllMemberList();
+	 * model.addAttribute("member", memberInfo); return "mypage"; }
+	 */
     @GetMapping("/test")
     public String testingPage(Member member,Model model)
     {
@@ -108,7 +112,8 @@ public class MemberController
 
     @GetMapping("/update/member")
     public String updateMember(@RequestParam String memberId, Member member, Model model)
-    {    	
+    {
+    	
     	System.out.println("업데이트 페이지 도착");
     	Member memberById = memberService.getById(memberId);
     	System.out.println("memberById에 getById 결과 대입함");
@@ -122,7 +127,7 @@ public class MemberController
     	return "mypage";
     }
     @RequestMapping(value="/delete/member")
-    public String deleteMember(@RequestParam String memberId)
+    public String deleteMember(@RequestParam String memberId, Model model)
     {
     	System.out.println("delete 라인 도착");
     	System.out.println("삭제할 ID : " +memberId);    	

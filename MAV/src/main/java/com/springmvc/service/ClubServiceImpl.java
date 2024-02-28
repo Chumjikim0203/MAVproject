@@ -29,8 +29,6 @@ public class ClubServiceImpl implements ClubService
 		Club getByClubName = clubRepository.getByClubName(clubName);
 		return getByClubName;
 	}
-
-	
 	@Override
 	public void addNewClubMember(Club club, ClubMember clubmember, Member member) 
 	{
@@ -74,5 +72,4 @@ public class ClubServiceImpl implements ClubService
 	{
 		return clubRepository.getMyClub(c_memberId);
 	}
-	
 }

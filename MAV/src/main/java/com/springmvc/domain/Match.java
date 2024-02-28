@@ -1,35 +1,27 @@
 package com.springmvc.domain;
 
+import java.sql.Time;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+
 public class Match 
 {
     private int matchNum; // 매칭 번호
-    private String matchTitle; //매칭방 제목
     private int roomNum; // 방 번호
-    private String creatorId;
-    private String applicantId;
+    private String matchTitle;
 	private String memberId; // 회원 ID
     private String matchStatus; // 매칭 상태
-    
+    private String matchResult; // 매칭 결과
+
     private Room room;
     
-    public String getCreatorId() {
-		return creatorId;
-	}
-
-	public void setCreatorId(String creatorId) {
-		this.creatorId = creatorId;
-	}
-
-	public String getApplicantId() {
-		return applicantId;
-	}
-
-	public void setApplicantId(String applicantId) {
-		this.applicantId = applicantId;
-	}
-
-	private String matchResult; // 매칭 결과
-        
+    
+    
     public String getMatchTitle() {
 		return matchTitle;
 	}

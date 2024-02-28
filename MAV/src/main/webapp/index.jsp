@@ -104,15 +104,8 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      동호회
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="/MAV/club/clubpage">동호회 페이지</a></li>
-                    </ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">동호회</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -120,7 +113,6 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#">일반매칭</a></li>
-                      <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#">토너먼트</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#">기타매칭</a></li>

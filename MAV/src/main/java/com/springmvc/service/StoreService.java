@@ -11,7 +11,7 @@ public interface StoreService {
 	void deleteRoom(int roomNum);
 	Room getByroomNumAllRooms(int roomNum);
 	void updateRoom(Room updateRoom);
+	void CreateStore(Store store);
 	Store getStoreById(String storeId);
-
 }
 //List<Room> getAllRoomsByStoreId(String storeId);

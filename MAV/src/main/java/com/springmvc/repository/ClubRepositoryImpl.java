@@ -31,6 +31,7 @@ public class ClubRepositoryImpl implements ClubRepository
 	
 	@Override
 	public void addNewClub(Club club, Member member) 
+
 	{		
 		club.setClubPoint(0);
 		club.setClubMaster(member.getMemberId());
@@ -60,17 +61,19 @@ public class ClubRepositoryImpl implements ClubRepository
 		System.out.println("1 : "+clubmember.getC_memberId());
 		System.out.println("2 : "+clubmember.getClubGrade());
 		System.out.println("3 : "+clubmember.isClubApprove());
+
 	}
 
 	@Override
 	public Club getByClubName(String clubName) {
 	    String SQL = "SELECT * FROM club WHERE clubName=?";
 	    Club club = null;
-	    try {
+	    try 
+	    {
 	        club = template.queryForObject(SQL, new Object[]{clubName}, new ClubRowMapper());
-	    } catch (EmptyResultDataAccessException ex) {
-	        // 클럽을 찾을 수 없는 경우 예외 처리
-	        // 이 부분을 적절하게 처리해야 합니다.
+	    } catch (EmptyResultDataAccessException ex) 
+	    {
+	    	
 	    }
 	    return club;
 	}
@@ -106,16 +109,13 @@ public class ClubRepositoryImpl implements ClubRepository
 		club.setClubGrade("준회원");
 		clubmember.setClubApprove(false);
 		club.setClubPoint(0);
-		club.setClubId(member.getMemberId());
 		String SQL = "insert into Clubmember values(null,?,?,?,?,?,?,?,?)";
 		template.update(SQL,
-				club.getClubId(),
 				club.getClubName(),
 				club.getClubCategory(),
 				club.getClubLocale(),
 				club.getClubPoint(),
 				club.getClubGrade(),
-				club.isClubApprove(),
 				club.getClubInfo());
 	}
 
@@ -150,7 +150,6 @@ public class ClubRepositoryImpl implements ClubRepository
 	        return null;
 	    }
 	}
-
 	
 	
 }

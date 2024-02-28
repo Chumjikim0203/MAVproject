@@ -171,8 +171,8 @@
 
 <body>
  <%
-	String memberId = request.getParameter("memberId");
-	System.out.println("teacher:"+memberId);
+	
+
 %>
 		<ul class="navbar-nav center">
             	<li>
@@ -193,7 +193,7 @@
                         <a href="./Class/addclass">강의등록하기</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="./teacher/update?${teacher.teacherId}">강사정보수정</a>
+                        <a href="./teacher/update/teacher?teacherId=${teacher.teacherId}">강사정보수정</a>
                     </li>
                     <li class="list-group-item">
                         <a href="./teacher/delete?teacherId=?">강사탈퇴</a>
@@ -208,7 +208,7 @@
                 <div class="right">
                     <img src=".." class="" width="30%">
                     <div class="right-name">
-                        <p>${member.memberName}</p>
+                        <p>${member.memberName}</p> <br>
                         <p>${member.memberEmail}</p>
                     </div>
                 </div>

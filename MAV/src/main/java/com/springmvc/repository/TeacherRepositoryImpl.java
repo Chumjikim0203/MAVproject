@@ -18,7 +18,6 @@ import com.springmvc.exception.MemberIdException;
 public class TeacherRepositoryImpl implements TeacherRepository {
 
 
-
 	private JdbcTemplate template;
 	@Autowired
 	public void setJdbctemplate(DataSource dataSoure) {
@@ -47,8 +46,8 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	@Override
 	public void UpdateTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
-		String SQL="update teacher set teacherCategory=?,teacherRecode=?,teacherInfomation=? where teacherId=?";
-		template.update(SQL,teacher.getTeacherCategory(),teacher.getTeacherRecode(),teacher.getTeacherInfomation());
+		String SQL="update Teacher SET teacherCategory=?,teacherRecode=?,teacherInfomation=? where teacherId=?";
+		template.update(SQL,teacher.getTeacherCategory(),teacher.getTeacherRecode(),teacher.getTeacherInfomation(),teacher.getTeacherId());
 		
 	}
 //전체 출력
@@ -59,7 +58,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		List<Teacher> teacherlist=template.query(SQL, new TeacherRowMapper());
 		return teacherlist;
 	}
-//단일출력
+//단일출력 자동으로 
 	   @Override
 	   public Teacher teacherId(String teacherId) {
 	       String SQL = "SELECT COUNT(*) FROM TEACHER WHERE TEACHERId=?";
@@ -76,4 +75,3 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	       }
 	   }
 }
-

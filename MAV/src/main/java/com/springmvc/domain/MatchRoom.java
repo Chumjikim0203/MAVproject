@@ -12,8 +12,9 @@ public class MatchRoom {
     private int matchNum; // 매칭 번호
     private String matchTitle;
     private int roomNum; // 방 번호
-   	private String creatorId; // 회원 ID
-	private String applicantId; // 회원 ID
+    
+    //수정하여야함
+	private String memberId; // 회원 ID
     private String matchStatus; // 매칭 상태
     private String matchResult; // 매칭 결과    
     private String storeId; // 상점 ID
@@ -21,19 +22,7 @@ public class MatchRoom {
     private int roomCapacity; // 경기장 수용인원
     private int roomCount; // 경기장 참가인원
     private String roomCategory; // 경기 종류(종목)
-    public String getCreatorId() {
-		return creatorId;
-	}
-	public void setCreatorId(String creatorId) {
-		this.creatorId = creatorId;
-	}
-	public String getApplicantId() {
-		return applicantId;
-	}
-	public void setApplicantId(String applicantId) {
-		this.applicantId = applicantId;
-	}
-	private String roomDetail; // 경기장 소개글
+    private String roomDetail; // 경기장 소개글
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate roomDate; // 경기 날짜
     @DateTimeFormat(pattern = "HH:mm")
@@ -57,6 +46,12 @@ public class MatchRoom {
 	}
 	public void setRoomNum(int roomNum) {
 		this.roomNum = roomNum;
+	}
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	public String getMatchStatus() {
 		return matchStatus;

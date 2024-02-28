@@ -32,9 +32,12 @@ public class TeacherController {
 	
 		HttpSession sessionId=request.getSession();	
 		member= (Member)sessionId.getAttribute("member");
+        teacher= teacherService.teacherId(member.getMemberId());
 		model.addAttribute("allclass",ClassesService.getAllClassesList(classes));
 //		System.out.println("teachermember:"+member.getMemberId());
 //		System.out.println("addmember:"+member.getMemberEmail());
+		System.out.println("teachermypagecontroller:"+teacher.getTeacherCategory());
+		model.addAttribute("teacher",teacher);
 		
 		model.addAttribute("member",member);
 		
@@ -56,11 +59,12 @@ public class TeacherController {
 	}
 	//강사등록하기 서브밋c
 	@PostMapping("/add")
-	public String submitaddteacher(@ModelAttribute("addTeacher") Teacher teacher,Model model,BindingResult bindingResult,HttpServletRequest reqeust)
+	public String submitaddteacher(@ModelAttribute("addTeacher") Teacher teacher,Model model,BindingResult bindingResult,HttpServletRequest request)
 	{
-		HttpSession sessionId=reqeust.getSession();
+		HttpSession sessionId=request.getSession();
 		Member member=(Member)sessionId.getAttribute("member");
 		model.addAttribute("member",member);
+		sessionId.setAttribute("member", member);
 		System.out.println("memberid:"+member.getMemberId());
 	//	System.out.println("teacheradd:"+teacher.getTeacherId());
 		//에러확인코드 
@@ -73,14 +77,23 @@ public class TeacherController {
 		return "redirect:/teacher";
 	}
 	// 강사수정 u
-	@GetMapping("/update")
-	public String updateteacher(@ModelAttribute("update") Teacher teacher,Model model, HttpServletRequest reqeust) {
+	@GetMapping("/update/teacher")
+	public String updateteacher(@ModelAttribute("update") Teacher teacher,@RequestParam String teacherId,Model model, HttpServletRequest reqeust) {
 		HttpSession sessionId=reqeust.getSession();
 		Member member=(Member)sessionId.getAttribute("member");
+		Teacher teacherById=teacherService.teacherId(teacherId);
 		model.addAttribute("member",member);
-		System.out.println("여기도착 member는?:"+member);
-		teacherService.UpdateTeacher(teacher);
+		System.out.println("여기도착 teacherid는?:"+teacher.getTeacherCategory());
+		model.addAttribute("teacher",teacherById);
+		
+		
 		return "teacherupdateform";
+	}
+	@PostMapping("/update/formupdate")
+	public String submitupdateteacher(@ModelAttribute("update")Teacher teacher,@RequestParam String teacherId) {
+	System.out.println("submitupdateteacher도착");
+		teacherService.UpdateTeacher(teacher);
+		return "redirect:/teacher";
 	}
 	// R
 
