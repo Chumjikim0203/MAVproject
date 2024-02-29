@@ -2,6 +2,7 @@ package com.springmvc.controller;
 
 import java.net.MulticastSocket;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Club;
+import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Store;
 import com.springmvc.repository.MemberRepository;
@@ -65,7 +67,7 @@ public class MemberController
 		}
 		model.addAttribute("member", member);
 		memberRepository.setNewMember(member);
-		return "mypage";
+		return "redirect:/";
 	}
 
     @ModelAttribute("genderOptions")
@@ -90,22 +92,24 @@ public class MemberController
     public String testingPage(Member member,Model model)
     {
     	List<Member> getAllmemberlist = memberService.getAllMemberList();
-    	model.addAttribute("member", getAllmemberlist );
+    	model.addAttribute("member", getAllmemberlist);
     	return "testmember";
     }
     @GetMapping("/mypage")
-    public String memberMyPage(HttpServletRequest request, Model model) 
-    {
-    	System.out.println("마이페이지 도착");
+    public String memberMyPage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
-        Member member = (Member) session.getAttribute("member");       
+        Member member = (Member) session.getAttribute("member");
+
+        List<Club> clubs = clubService.getMyClub(member.getMemberId());
+   
+        model.addAttribute("club", clubs);
         model.addAttribute("member", member);
-        session.setAttribute("member", member);
-        System.out.println("member 컨트롤러에서 담긴 멤버아이디 : "+ member.getMemberId());
+       
         return "mypage";
     }
+
     @GetMapping("/update/member")
-    public String updateMember(@RequestParam String memberId, Member member, Model model)
+    public String updateMember(@RequestParam String memberId, Member member , Model model)
     {    	
     	System.out.println("업데이트 페이지 도착");
     	Member memberById = memberService.getById(memberId);

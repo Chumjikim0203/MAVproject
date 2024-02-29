@@ -43,6 +43,7 @@ public class StoreServiceImpl implements StoreService{
 		storeRepository.updateRoom(updateRoom);
 		
 	}
+<<<<<<< HEAD
 	
 	//스토어 아이디 가지고 오기
 	@Override
@@ -50,6 +51,24 @@ public class StoreServiceImpl implements StoreService{
 		// TODO Auto-generated method stub
 		return storeRepository.getStoreById(storeId);
 	}
+=======
+	@Override
+	public void CreateStore(Store store) {
+		storeRepository.CreateStore(store);
+		
+	}
+	//스토어 아이디 가지고 오기
+	@Override
+	public Store getStoreById(String storeId) 
+	{
+		// TODO Auto-generated method stub
+		return storeRepository.getStoreById(storeId);
+	}
+	@Override
+	public List<Room> getRoomsByStoreId(String storeId) {
+		return storeRepository.getRoomsByStoreId(storeId);
+	}
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 }
 
 

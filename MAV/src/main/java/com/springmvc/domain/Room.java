@@ -12,8 +12,7 @@ public class Room
 {
 	private int roomNum; // 경기장 번호    
     
-	@NotNull(message = "경기장 ID를 입력해주세요")
-    @Size(max = 15, message = "경기장 ID는 최대 15자까지 입력 가능합니다")
+
     private String roomId; // 경기장 ID
 
     @NotNull(message = "경기장 이름을 입력해주세요")
@@ -41,7 +40,6 @@ public class Room
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime roomTime; // 경기 시간
     
-    @NotNull(message = "상점 ID를 입력해주세요")
     private String storeId; // 상점 ID
    
     private boolean isMatched;
@@ -57,9 +55,14 @@ public class Room
 
 
 	public Room() {
+<<<<<<< HEAD
       this.roomCapacity = 1;
       this.roomId = "mav";
       this.storeId = "mav"; 
+=======
+
+      this.roomCapacity = 1;
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
       this.isMatched = false;
 	}
 
@@ -145,4 +148,3 @@ public class Room
    }
    
 } 
-

@@ -42,6 +42,7 @@ public class LoginController
 		model.addAttribute(new Member());
 		return "login";
 	}
+<<<<<<< HEAD
 	@PostMapping("/login")
     public String login(@RequestParam("memberId") String memberId, 
                         @RequestParam("memberPassword") String memberPassword,
@@ -75,6 +76,41 @@ public class LoginController
             return "redirect:/login?error=true"; // 로그인 실패 시 로그인 페이지로 이동
         }
     }
+=======
+	   @PostMapping("/login")
+	   public String login(@RequestParam("memberId") String memberId, 
+	                       @RequestParam("memberPassword") String memberPassword,
+	                       HttpServletRequest request) 
+	   {
+	       HttpSession session = request.getSession();
+	       // 사용자 인증
+	       Member member = memberService.getLogin(memberId, memberPassword);
+
+	       if (member != null) {
+	           // 세션에 사용자 정보 저장
+	           session.setAttribute("member", member);
+
+	           // Teacher 테이블 조회
+	           Teacher teacher = teacherService.teacherId(memberId);
+	           // Store 테이블 조회
+	           Store store = storeService.getStoreById(memberId);
+
+	           if (teacher != null) {
+	               // 티처 정보가 있는 경우 세션에 저장
+	               session.setAttribute("teacher", teacher);
+	           }
+	           if (store != null) {
+	               // 스토어 정보가 있는 경우 세션에 저장
+	               session.setAttribute("store", store);
+	           }
+
+	           return "redirect:/"; // 로그인 성공 시 대시보드 페이지로 이동
+	       } else {
+	           return "redirect:/login?error=true"; // 로그인 실패 시 로그인 페이지로 이동
+	       }
+
+	   }
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 	@GetMapping("/loginfailed")
 	public String loginerror(Model model)
 	{

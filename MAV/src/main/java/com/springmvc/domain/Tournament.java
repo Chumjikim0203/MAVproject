@@ -23,7 +23,10 @@ public class Tournament {
     private LocalTime tournamentTime;
 
 	public Tournament() {
+<<<<<<< HEAD
 		this.storeId = "mav";
+=======
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
     }
 	
     public int getMax_participants() {
@@ -82,4 +85,8 @@ public class Tournament {
 		this.tournamentTime = tournamentTime;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba

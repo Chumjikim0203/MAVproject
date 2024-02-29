@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springmvc.domain.Club;
+import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
 import com.springmvc.repository.ClubRepository;
 
@@ -28,31 +29,28 @@ public class ClubServiceImpl implements ClubService
 		Club getByClubName = clubRepository.getByClubName(clubName);
 		return getByClubName;
 	}
-
 	@Override
-	public Club getByClubId(String clubId) 
+	public void addNewClubMember(Club club, ClubMember clubmember, Member member) 
 	{
-		Club getByClubId = clubRepository.getByClubId(clubId);
-		return getByClubId;
-	}
-	
-
-	@Override
-	public void updateClub(Club club) 
-	{
-		clubRepository.updateClub(club);
+		clubRepository.addNewClubMember(club, clubmember, member);
 	}
 
 	@Override
-	public void deleteClub(String clubName) 
+	public void updateClub(Club club,Member member) 
 	{
-		clubRepository.deleteClub(clubName);
+		clubRepository.updateClub(club,member);
 	}
 
 	@Override
-	public void joinClub(Club club, Member member) 
+	public void deleteClub(String clubName,String c_memberId) 
 	{
-		clubRepository.joinClub(club, member);
+		clubRepository.deleteClub(clubName,c_memberId);
+	}
+
+	@Override
+	public void joinClub(Club club, ClubMember clubmember, Member member) 
+	{
+		clubRepository.joinClub(club, clubmember, member);
 	}
 
 	@Override
@@ -68,5 +66,51 @@ public class ClubServiceImpl implements ClubService
 		Club getByClubNum = clubRepository.getByClubNum(club);
 		return getByClubNum;
 	}
-	
+
+	@Override
+	public List<Club> getMyClub(String c_memberId) 
+	{
+		return clubRepository.getMyClub(c_memberId);
+	}
+
+	@Override
+	public ClubMember getMyClubMember(String c_memberId,String clubName) {
+		
+		ClubMember clubmember = clubRepository.getMyClubMember(c_memberId,clubName);
+		
+		return clubmember;
+		
+	}
+
+	@Override
+	public void leaveClub(String clubName, String c_memberId) 
+	{
+		clubRepository.leaveClub(clubName, c_memberId);
+	}
+
+	@Override
+	public List<ClubMember> getClubMemberList(String clubName) 
+	{
+		return clubRepository.getClubMemberList(clubName);
+	}
+
+	@Override
+	public void ejectionMember(String ClubName, String c_memberId) 
+	{
+		clubRepository.ejectionMember(ClubName, c_memberId);
+	}
+
+	@Override
+	public void memberUpdate(ClubMember clubmember) 
+	{
+		clubRepository.memberUpdate(clubmember);
+	}
+
+	@Override
+	public ClubMember serchingC_member(String c_memberId, String clubName) 
+	{
+		ClubMember clubmember = clubRepository.serchingC_member(c_memberId, clubName);
+		return clubmember;
+	}
+		
 }

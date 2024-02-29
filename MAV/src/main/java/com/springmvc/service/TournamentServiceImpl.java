@@ -18,8 +18,11 @@ public class TournamentServiceImpl implements TournamentService {
     
 	@Override
 	public void setNewTournament(Tournament tournament) {
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 	 tournamentRepository.setTournament(tournament);
 	}
 
@@ -37,4 +40,26 @@ public class TournamentServiceImpl implements TournamentService {
 		return tournamentRepository.getByNumUpdateRoom(tournamentNum);
 	}
 
+<<<<<<< HEAD
+=======
+    //업데이트 된 것 데이터베이스 저장
+	@Override
+	public void changeTournament(Tournament tournament) {
+		tournamentRepository.changeTournament(tournament);	
+	}
+
+
+	@Override
+	public void deleteTournament(int tournamentNum) {
+		
+		tournamentRepository.deleteTournament(tournamentNum);
+	}
+
+
+	@Override
+	public List<Tournament> getTournamentByStoreId(String StoreId) {
+		return tournamentRepository.getTournamentByStoreId(StoreId);
+	}
+
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 }

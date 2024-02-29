@@ -14,11 +14,18 @@ public class MatchRowMapper implements RowMapper<Match> {
 	    Room room = new Room();
 	    Match match = new Match();
 	    match.setMatchNum(rs.getInt("matchNum"));
+<<<<<<< HEAD
 	    match.setMatchTitle(rs.getString("matchTiltle"));
 	    match.setRoomNum(rs.getInt("roomNum"));
 	    match.setCreatorId(rs.getString("creatorId"));
 	    match.setApplicantId(rs.getString("applicantId"));
 	    match.setMemberId(rs.getString("memberId"));
+=======
+	    match.setMatchTitle(rs.getString("matchTitle"));
+	    match.setRoomNum(rs.getInt("roomNum"));
+	    match.setCreatorId(rs.getString("creatorId"));
+	    match.setApplicantId(rs.getString("applicantId"));
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 	    match.setMatchStatus(rs.getString("matchStatus"));
 	    match.setMatchResult(rs.getString("matchResult"));
 
@@ -30,6 +37,9 @@ public class MatchRowMapper implements RowMapper<Match> {
 	    return match;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 }
 

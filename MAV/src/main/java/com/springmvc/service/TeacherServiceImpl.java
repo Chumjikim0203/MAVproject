@@ -42,6 +42,9 @@ public class TeacherServiceImpl implements TeacherService{
 		// TODO Auto-generated method stub
 		return teacherRepository.teacherId(teacherId);
 	}
+<<<<<<< HEAD
 
 }
+=======
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 

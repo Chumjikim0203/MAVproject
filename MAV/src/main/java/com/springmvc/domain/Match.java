@@ -7,12 +7,16 @@ public class Match
     private int roomNum; // 방 번호
     private String creatorId;
     private String applicantId;
+<<<<<<< HEAD
 	private String memberId; // 회원 ID
+=======
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
     private String matchStatus; // 매칭 상태
     
     private Room room;
     
     public String getCreatorId() {
+<<<<<<< HEAD
 		return creatorId;
 	}
 
@@ -33,11 +37,33 @@ public class Match
     public String getMatchTitle() {
 		return matchTitle;
 	}
+=======
+      return creatorId;
+   }
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 
-	public void setMatchTitle(String matchTitle) {
-		this.matchTitle = matchTitle;
-	}
-	
+   public void setCreatorId(String creatorId) {
+      this.creatorId = creatorId;
+   }
+
+   public String getApplicantId() {
+      return applicantId;
+   }
+
+   public void setApplicantId(String applicantId) {
+      this.applicantId = applicantId;
+   }
+
+   private String matchResult; // 매칭 결과
+        
+    public String getMatchTitle() {
+      return matchTitle;
+   }
+
+   public void setMatchTitle(String matchTitle) {
+      this.matchTitle = matchTitle;
+   }
+   
    public int getMatchNum() {
       return matchNum;
    }
@@ -52,14 +78,6 @@ public class Match
 
    public void setRoomNum(int roomNum) {
       this.roomNum = roomNum;
-   }
-
-   public String getMemberId() {
-      return memberId;
-   }
-
-   public void setMemberId(String memberId) {
-      this.memberId = memberId;
    }
 
    public String getMatchStatus() {

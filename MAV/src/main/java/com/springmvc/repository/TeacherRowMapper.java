@@ -23,6 +23,9 @@ public class TeacherRowMapper implements RowMapper<Teacher> {
 		teacher.setTeacherRecode(rs.getString("teacherRecode"));
 		return teacher;
 	}
+<<<<<<< HEAD
 
 }
+=======
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 

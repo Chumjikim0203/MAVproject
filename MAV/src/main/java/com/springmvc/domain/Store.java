@@ -12,12 +12,21 @@ public class Store
 	private String storePhone01; // 업체 전화번호 첫번째 
 	private String storePhone02; // 업체 전화번호 두번째
 	private String storePhone03; // 업체 전화번호 세번째
+<<<<<<< HEAD
 	private String storeImages; // 이미지 경로저장 
 	private String storeInfomation; // 업체 소개글
 	private String storeNotice; // 업체 공지사항
 	private boolean storeApprove; // 업체 승인 신청
 	private MultipartFile storeImage; // 업체 이미지
 	
+=======
+	private MultipartFile storeImages; // 업체 이미지
+	private String storeInfomation; // 업체 소개
+	private String storeNotice; // 업체 공지사항
+	private boolean storeApprove; // 업체 승인 신청
+	private boolean storeRegApprove; // 업체 신청 확인
+
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 	
 	public MultipartFile getStoreImage() {
 		return storeImage;
@@ -92,11 +101,26 @@ public class Store
 	public void setStorePhone03(String storePhone03) {
 		this.storePhone03 = storePhone03;
 	}
+<<<<<<< HEAD
+=======
+	public void setStoreImages(MultipartFile storeImages) {
+		this.storeImages = storeImages;
+	}
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 	public boolean isStoreApprove() {
 		return storeApprove;
 	}
 	public void setStoreApprove(boolean storeApprove) {
 		this.storeApprove = storeApprove;
 	}
-		
+	public boolean isStoreRegApprove() {
+		return storeRegApprove;
+	}
+	public void setStoreRegApprove(boolean storeRegApprove) {
+		this.storeRegApprove = storeRegApprove;
+	}
+	public MultipartFile getStoreImages() {
+		return storeImages;
+	}
+	
 }

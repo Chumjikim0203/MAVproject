@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.collections.bag.SynchronizedSortedBag"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -24,6 +25,12 @@
       }
    </script>
   </head>
+  <% 	
+  		String teacher= request.getParameter("teacherId");
+  		String update= request.getParameter("teacher");
+        System.out.println("update는:"+update);
+  		System.out.println("teaherupdate:"+teacher);
+  %>
   <body>
     <div class="main-container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -69,20 +76,35 @@
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3"> 수정</h4>
+<<<<<<< HEAD
                     <form:form modelAttribute="update" class="form-horizontal" action="/MAV/teacher" method="post">
+=======
+                    <form:form modelAttribute="update" class="form-horizontal" action="./formupdate?teacherId=${teacher.teacherId}" method="post">
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
                   <fieldset>
                    <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="teacherCategory">강사종류</label>
+<<<<<<< HEAD
                                <form:input path="teacherCategory" class="form-control" />                          
+=======
+                               <form:input path="teacherCategory" class="form-control" value="${teacher.teacherCategory}" name="teacherCategory" />
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
                              </div>
                             <div class="invalid-feedback">
                                 종목을입력해주세요
                             </div>
+<<<<<<< HEAD
                            <div class="col-md-6 mb-3">
                                  <label for="className">강사이력</label>
                                  <form:input type="date" class="form-control" path="teacherRecode" />
                              </div>
+=======
+                         <div class="col-md-6 mb-3">
+                            <label for="teacherRecode">강사이력</label>
+                            <form:input class="form-control" path="teacherRecode" name="teacherRecode" value="${teacher.teacherRecode}" />
+                        </div>
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
                             <div class="invalid-feedback">
                                
                             </div>
@@ -102,13 +124,18 @@
                            
                             <div class="mb-3">
             				 	<label for="teacherInfomation">자기소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+<<<<<<< HEAD
             				 	<form:input  class="form-control"  path="teacherInfomation" name="teacherInfomation" />
+=======
+            				 	<form:input  class="form-control"  path="teacherInfomation" name="teacherInfomation" value="${teacher.teacherInfomation}"/>
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
          				 	</div>                     
                       
                        <hr class="mb-4">
                        <div class="mb-4"></div>   
                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="수정 완료"/>
                        <input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>         
+               </div>
                </fieldset>
                </form:form>
                 </div>

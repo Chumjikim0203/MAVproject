@@ -82,7 +82,11 @@
 	          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 	            <div class="d-flex justify-content-between">
 	              <strong class="text-gray-dark" ><h5><b>${matchView.matchTitle}</b></h5></strong>
+<<<<<<< HEAD
 	         	  <a href="<c:url value='/match/roomsDetail'/>?roomNum=${matchView.roomNum}" class="btn btn-danger">매칭 신청하기</a>   
+=======
+	         	  <a href="<c:url value='/match/matchingDetail'/>?roomNum=${matchView.roomNum}" class="btn btn-danger">매칭 신청하기</a>   
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
 	            </div>
 	            <b>
 	            <span class="d-block">${matchView.roomDate}</span>

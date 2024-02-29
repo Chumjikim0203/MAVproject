@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.springmvc.domain.Member;
+
+import com.springmvc.domain.Store;
+
 import com.springmvc.domain.Teacher;
 import com.springmvc.repository.TeacherRepository;
 
@@ -15,4 +18,7 @@ public interface TeacherService {
 	public List<Teacher> AllTeacher();
 	public Teacher teacherId(String teacherId);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba

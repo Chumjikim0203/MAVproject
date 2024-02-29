@@ -193,7 +193,11 @@
                         <a href="./Class/addclass">강의등록하기</a>
                     </li>
                     <li class="list-group-item">
+<<<<<<< HEAD
                         <a href="./teacher/update?${teacher.teacherId}">강사정보수정</a>
+=======
+                        <a href="./teacher/update/teacher?teacherId=${teacher.teacherId}">강사정보수정</a>
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
                     </li>
                     <li class="list-group-item">
                         <a href="./teacher/delete?teacherId=?">강사탈퇴</a>
@@ -208,7 +212,11 @@
                 <div class="right">
                     <img src=".." class="" width="30%">
                     <div class="right-name">
+<<<<<<< HEAD
                         <p>${member.memberName}</p>
+=======
+                        <p>${member.memberName}</p> <br>
+>>>>>>> 6f8e02927c668559c23d378e1cd5decd4cefd5ba
                         <p>${member.memberEmail}</p>
                     </div>
                 </div>
