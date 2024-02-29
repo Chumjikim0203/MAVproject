@@ -23,6 +23,7 @@ public class ClubRowMapper implements RowMapper<Club>
 		club.setClubName(rs.getString("clubName"));
 		club.setClubNum(rs.getInt("clubNum"));
 		club.setClubPoint(rs.getInt("clubPoint"));
+		club.setClubMaster(rs.getString("clubMaster"));
 		
 		return club;
 	}

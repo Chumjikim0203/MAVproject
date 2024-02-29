@@ -99,5 +99,18 @@ public class ClubServiceImpl implements ClubService
 	{
 		clubRepository.ejectionMember(ClubName, c_memberId);
 	}
+
+	@Override
+	public void memberUpdate(ClubMember clubmember) 
+	{
+		clubRepository.memberUpdate(clubmember);
+	}
+
+	@Override
+	public ClubMember serchingC_member(String c_memberId, String clubName) 
+	{
+		ClubMember clubmember = clubRepository.serchingC_member(c_memberId, clubName);
+		return clubmember;
+	}
 		
 }

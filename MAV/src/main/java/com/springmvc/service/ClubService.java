@@ -22,5 +22,7 @@ public interface ClubService
 	void leaveClub(String clubName, String c_memberId);
 	List<ClubMember> getClubMemberList(String clubName);
 	void ejectionMember(String ClubName, String c_memberId);
+	void memberUpdate(ClubMember clubmember);
+	ClubMember serchingC_member(String c_memberId, String clubName);
 
 }

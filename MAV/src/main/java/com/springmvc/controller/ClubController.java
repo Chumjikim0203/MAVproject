@@ -108,7 +108,11 @@ public class ClubController
         model.addAttribute("club", club); // 모델에 클럽 정보를 추가
         model.addAttribute("clubmember",clubmember);
         model.addAttribute("memberList", memberList);
+        model.addAttribute("member", memberSession);
         session.setAttribute("club", club);
+        
+        System.out.println("현재 로그인한 아이디 : "+memberSession.getMemberId());
+        System.out.println("현재 조회중인 동호회장 아이디 : "+club.getClubMaster());
         
         return "clubpage"; // 클럽 정보를 보여주는 뷰 페이지로 이동
 	}
@@ -197,6 +201,19 @@ public class ClubController
 	public String ejectionMember(@RequestParam("c_memberId") String c_memberId, @RequestParam("clubName") String clubName)
 	{
 		clubService.ejectionMember(clubName, c_memberId);
-		return "redirect:/clubpage";
+		return "redirect:/member/mypage";
 	}
+	@GetMapping("/memberupdate")
+	public String memberUpdate(@RequestParam("c_memberId") String c_memberId, @RequestParam("clubName") String clubName,Model model)
+	{
+		System.out.println("동호회원 수정페이지 도착");
+		ClubMember clubMember = clubService.serchingC_member(c_memberId,clubName);
+		System.out.println("등업 처리하려는 동호회원 아이디 : "+clubMember.getC_memberId());
+		System.out.println("등업 처리하려는 동호회 이름 : "+clubMember.getClubName());
+		clubService.memberUpdate(clubMember);
+		return "redirect:/member/mypage";
+		
+	}
+	
+	
 }

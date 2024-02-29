@@ -117,11 +117,20 @@
 		<h4> 클럽 포인트 : ${club.clubPoint}</h4>
 		<h4> 클럽 소개글 : ${club.clubInfo}</h4>
 		<h4> 내 클럽 등급 : ${clubmember.clubGrade}</h4>
-		<a href="/MAV/club/update" class="btn btn-primary">클럽 수정하기</a>
-		<a href="/MAV/club/delete" class="btn btn-danger">클럽 삭제하기</a>
+		<c:choose>
+        	<c:when test="${member.memberId eq club.clubMaster}">
+				<a href="/MAV/club/update" class="btn btn-primary">클럽 수정하기</a>
+				<a href="/MAV/club/delete" class="btn btn-danger">클럽 삭제하기</a>
+			</c:when>
+		</c:choose>
 		<a href="/MAV/club/join" class="btn btn-primary">클럽 가입하기</a>
-		<a href="/MAV/club/leaveclub" class="btn btn-danger">클럽 탈퇴하기</a>
-		
+		<c:forEach items="${memberList}" var="memberList">
+			<c:choose>
+				<c:when test="${member.memberId eq memberList.c_memberId}">
+					<a href="/MAV/club/leaveclub" class="btn btn-danger">클럽 탈퇴하기</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
 		<div class = "col-12 ">
               <div class="room-title">동호회원 리스트</div>
                <c:forEach items="${memberList}" var="memberList">
@@ -131,8 +140,15 @@
                            <span class="room-date">동호회원 등급 : ${memberList.clubGrade}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                            <span class="room-application">                          
                          	<a href="<c:url value='/club/memberDetails'/>?memberId=${memberList.c_memberId}" class="btn btn-primary">동호회원 정보보기</a>
-                         	<a href="<c:url value='/club/memberupdate'/>?memberId=${memberList.c_memberId}" class="btn btn-primary">동호회원 등급수정</a>
-                         	<a href="<c:url value='/club/ejection'/>?memberId=${memberList.c_memberId}" class="btn btn-danger">동호회원 강퇴하기</a>
+                         	<c:choose>
+                         		<c:when test="${member.memberId eq club.clubMaster}">
+                         		
+                         		
+                         		
+                         			<a href="<c:url value='/club/memberupdate'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}" class="btn btn-success">동호회원 가입승인</a>
+                         			<a href="<c:url value='/club/ejection'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}" class="btn btn-danger">동호회원 강퇴하기</a>
+                         		</c:when>
+                         	</c:choose>
                            </span>
                        </div>
                    </div>

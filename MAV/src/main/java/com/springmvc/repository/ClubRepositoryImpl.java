@@ -192,6 +192,29 @@ public class ClubRepositoryImpl implements ClubRepository
 	    template.update(SQL, new Object[]{clubName, c_memberId});
 	}
 
+	@Override
+	public void memberUpdate(ClubMember clubmember) 
+	{
+		clubmember.setClubApprove(true);
+		clubmember.setClubGrade("정회원");
+		String SQL = "update clubmember set clubGrade=?, clubApprove=? where c_memberId=? and clubName=?";
+		
+		System.out.println("1. "+clubmember.getC_memberId());
+		System.out.println("2. "+clubmember.getClubName());
+		
+		
+		template.update(SQL, clubmember.getClubGrade(), clubmember.isClubApprove(),
+						clubmember.getC_memberId(), clubmember.getClubName());
+	}
+
+	@Override
+	public ClubMember serchingC_member(String c_memberId, String clubName) 
+	{
+		String SQL = "select * from clubmember where c_memberId=? and clubName=?";
+		ClubMember clubmember = (ClubMember) template.queryForObject(SQL, new Object[] {c_memberId, clubName}, new ClubMemberRowMapper());
+		return clubmember;
+	}
+
 	
 	
 }
