@@ -65,6 +65,10 @@ public class ClubController
 	}
 	
 	@PostMapping("/add")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	public String addClubDone(@ModelAttribute("club") Club club, @ModelAttribute("member") Member member, 
 							  HttpServletRequest request, BindingResult bindingResult, Model model)
 	{
@@ -100,6 +104,7 @@ public class ClubController
 		System.out.println("클럽페이지 도착");
 		HttpSession session = request.getSession();
 		Member memberSession = (Member) session.getAttribute("member");
+<<<<<<< HEAD
 		ClubMember clubmember = new ClubMember();
 		Club club= (Club) session.getAttribute("club");
 		club = clubService.getByClubName(clubName); // 클럽 ID를 통해 클럽 정보를 가져옴
@@ -113,6 +118,12 @@ public class ClubController
         
         System.out.println("현재 로그인한 아이디 : "+memberSession.getMemberId());
         System.out.println("현재 조회중인 동호회장 아이디 : "+club.getClubMaster());
+=======
+		Club club= (Club) session.getAttribute("club");
+		club = clubService.getByClubName(clubName); // 클럽 ID를 통해 클럽 정보를 가져옴
+        model.addAttribute("club", club); // 모델에 클럽 정보를 추가
+        session.setAttribute("club", club);
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
         
         return "clubpage"; // 클럽 정보를 보여주는 뷰 페이지로 이동
 	}

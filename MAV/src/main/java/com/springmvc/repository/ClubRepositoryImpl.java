@@ -82,10 +82,17 @@ public class ClubRepositoryImpl implements ClubRepository
 	@Override
 	public void updateClub(Club club,Member member) 
 	{
+<<<<<<< HEAD
 		System.out.println("수정 처리할 클럽ID : "+club.getClubName());
 		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubNum=? and clubMaster=?";
 		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
 						club.getClubInfo(), club.getClubNum(), member.getMemberId());
+=======
+		System.out.println("수정 처리할 클럽ID : "+club.getClubNum());
+		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubNum=?";
+		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
+						club.getClubInfo(), club.getClubNum());
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	}
 
 	@Override
@@ -106,6 +113,7 @@ public class ClubRepositoryImpl implements ClubRepository
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void joinClub(Club club, ClubMember clubmember, Member member) 
 	{
 		clubmember.setClubGrade("준회원");
@@ -117,6 +125,21 @@ public class ClubRepositoryImpl implements ClubRepository
 		
 		template.update(SQL, club.getClubName(),clubmember.getC_memberId(),
 						clubmember.getClubGrade(),clubmember.isClubApprove());
+=======
+	public void joinClub(Club club, ClubMember clubmember) 
+	{
+		club.setClubGrade("준회원");
+		clubmember.setClubApprove(false);
+		club.setClubPoint(0);
+		String SQL = "insert into Clubmember values(null,?,?,?,?,?,?,?,?)";
+		template.update(SQL,
+				club.getClubName(),
+				club.getClubCategory(),
+				club.getClubLocale(),
+				club.getClubPoint(),
+				club.getClubGrade(),
+				club.getClubInfo());
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	}
 
 	@Override
@@ -150,6 +173,7 @@ public class ClubRepositoryImpl implements ClubRepository
 	        return null;
 	    }
 	}
+<<<<<<< HEAD
 
 	@Override
 	public ClubMember getMyClubMember(String c_memberId, String clubName) {
@@ -215,6 +239,8 @@ public class ClubRepositoryImpl implements ClubRepository
 		return clubmember;
 	}
 
+=======
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	
 	
 }

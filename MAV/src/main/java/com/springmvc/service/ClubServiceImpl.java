@@ -33,6 +33,15 @@ public class ClubServiceImpl implements ClubService
 	public void addNewClubMember(Club club, ClubMember clubmember, Member member) 
 	{
 		clubRepository.addNewClubMember(club, clubmember, member);
+<<<<<<< HEAD
+=======
+	}
+
+	@Override
+	public void updateClub(Club club) 
+	{
+		clubRepository.updateClub(club);
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	}
 
 	@Override
@@ -73,6 +82,7 @@ public class ClubServiceImpl implements ClubService
 		return clubRepository.getMyClub(c_memberId);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public ClubMember getMyClubMember(String c_memberId,String clubName) {
 		
@@ -113,4 +123,6 @@ public class ClubServiceImpl implements ClubService
 		return clubmember;
 	}
 		
+=======
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 }
