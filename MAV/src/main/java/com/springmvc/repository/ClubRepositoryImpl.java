@@ -91,8 +91,8 @@ public class ClubRepositoryImpl implements ClubRepository
 	@Override
 	public void deleteClub(String clubName,String c_memberId) 
 	{
-		String SQL1 = "delete from clubMember where clubName=? and c_memberId=?";
-		this.template.update(SQL1,clubName,c_memberId);
+		String SQL1 = "delete from clubMember where clubName=?";
+		this.template.update(SQL1,clubName);
 		String SQL = "delete from club where clubName=? and clubMaster=?";
 		this.template.update(SQL, clubName,c_memberId);
 	}

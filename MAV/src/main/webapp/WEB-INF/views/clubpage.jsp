@@ -12,6 +12,21 @@
 		margin : 0 auto;
 	}
 </style>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    var deleteclub = document.getElementById('deleteClub');
+	    
+	    deleteclub.addEventListener('click', function(event) {
+	        event.preventDefault(); // 기본 이벤트(링크 이동) 방지
+	    
+	        // 경고창을 표시하고, 사용자의 응답에 따라 처리
+	        var confirmation = confirm("정말로 이 클럽을 삭제하시겠습니까?");
+	        if (confirmation) {
+	            window.location.href = "/MAV/club/delete";
+	        }
+	    });
+	});
+</script>
 <title>클럽 페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -120,7 +135,7 @@
 		<c:choose>
         	<c:when test="${member.memberId eq club.clubMaster}">
 				<a href="/MAV/club/update" class="btn btn-primary">클럽 수정하기</a>
-				<a href="/MAV/club/delete" class="btn btn-danger">클럽 삭제하기</a>
+				<a href="/MAV/club/delete" class="btn btn-danger" id="deleteClub">클럽 삭제하기</a>
 			</c:when>
 		</c:choose>
 		<a href="/MAV/club/join" class="btn btn-primary">클럽 가입하기</a>
