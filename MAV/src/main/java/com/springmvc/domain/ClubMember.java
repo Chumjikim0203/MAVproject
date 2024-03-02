@@ -7,8 +7,11 @@ public class ClubMember
 	private String clubGrade;
 	private boolean clubApprove;
 	
+<<<<<<< HEAD
 	public ClubMember(){};
 	
+=======
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	public String getClubName() {
 		return clubName;
 	}

@@ -270,8 +270,13 @@
 		<h3>멤버 이메일 : ${member.memberEmail}</h3>
 		<a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">수정하기</a>
 		<a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">삭제하기</a>
+<<<<<<< HEAD
 		<a href="<c:url value='../store/add'/>?memberId=${member.memberId}">업체신청</a>
 		<a href="<c:url value='../teacher/add'/>?memberId=${member.memberId}">강사신청</a>		
+=======
+		<a href="<c:url value='./add/store'/>?memberId=${member.memberId}">업체신청</a>
+		<a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>		
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	    <div class = "col-7 ">
               <div class="room-title">내 클럽 리스트</div>
                <c:forEach items="${club}" var="club">

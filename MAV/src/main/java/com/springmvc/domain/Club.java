@@ -44,6 +44,17 @@ public class Club
 		this.clubCategory = clubCategory;
 	}
 
+<<<<<<< HEAD
+=======
+	public String getClubGrade() {
+		return clubGrade;
+	}
+
+	public void setClubGrade(String clubGrade) {
+		this.clubGrade = clubGrade;
+	}
+
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
 	public String getClubInfo() {
 		return clubInfo;
 	}

@@ -101,10 +101,16 @@ public class MemberController
         Member member = (Member) session.getAttribute("member");
 
         List<Club> clubs = clubService.getMyClub(member.getMemberId());
+<<<<<<< HEAD
    
         model.addAttribute("club", clubs);
         model.addAttribute("member", member);
        
+=======
+
+        model.addAttribute("club", clubs);
+        model.addAttribute("member", member);
+>>>>>>> 0ecc706b0705039adf0b76598156110dce22af29
         return "mypage";
     }
 
