@@ -148,25 +148,34 @@
         display: none;
         
     }
-
-    
+    .club-choose
+    {
+    	list-style : none;
+    	display : flex;
+    	flex-direction : row;
+    	align-items: center;
+    	justify-content : space-around;
+    }
+    .body-btn
+    {
+    	text-decoration : none;
+    	border : 1px solid silver;
+    	border-radius : 10px;
+    	color : black;
+    	padding : 10px;
+    }
+	.clublistimage
+	{
+		height : 450px;
+	}    
+	.clublistimage img 
+	{
+	    max-width: 100%;
+	    height: auto;
+	    max-height: 100%;
+	}
     </style>
- <script> function openTab(evt, tabName) {
-          console.log("opentab실행");
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";}
-       </script>
 </head>
-
 <body>
 	<div class="main-container">
 		<c:choose>
@@ -261,14 +270,65 @@
 		        </nav>
 		       </c:otherwise>      
 		    </c:choose>
-		    <div class="main">
-	            <div class = "col-7 ">
-	               <div class="room-title">클럽 리스트</div>
+		    <div class="mt-3 clublistimage">
+	    		<img src="<c:url value="/resources/images/clublistpage.jpg"/>" style="width: 100%;">		    
+		    </div>
+	    	<div class="club-choose col-3 mt-3">	    	
+	   			<a class="body-btn" href="/MAV/club/list" role="button">전체 보기</a>
+	    		<li class="dropdown">
+                    <a class="dropdown-toggle body-btn locale" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      지역별
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('전체')">전체</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('서울')">서울</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('경기')">경기</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('충청')">충청</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('경상')">경상</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('전라')">전라</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('강원')">강원</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterLocale('제주')">제주</a></li>
+                    </ul>
+	            </li>
+	            <li class="dropdown">
+                    <a class="dropdown-toggle body-btn category" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      종목별
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('전체')">전체</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('축구')">축구</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('풋살')">풋살</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('당구')">당구</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('농구')">농구</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('야구')">야구</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('족구')">족구</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" onclick="filterCategory('기타')">기타</a></li>
+                    </ul>
+	            </li>
+	    	</div>
+		    <div class="main col-12">
+	            <div class = "col-12 ">
+	               <div class="room-title">동호회 리스트</div>
 	                <c:forEach items="${club}" var="club">
 	                    <div class="card-1 mb-3">
-	                        <div class="room-info">
+	                        <div class="room-info" style="text-align: center">
 	                            <span class="room-title">&nbsp;&nbsp;${club.clubName}</span>
-	                            <span class="room-date">클럽 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	                            <span class="room-date clubCategory">동호회 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	                            <span class="room-date clubLocale">동호회 활동지역 : ${club.clubLocale}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 	                            <span class="room-application">                          
 	                          	<a href="<c:url value='/club/clubinfo'/>?clubName=${club.clubName}" class="room-application-link room-application-btn">클럽 상세정보</a>
 	                            </span>
@@ -278,6 +338,34 @@
 	           </div>
 		   	</div>
 		</div>
+		<script>
+			function filterCategory(category) {
+			    const clubCards = document.querySelectorAll('.card-1');
+			    clubCards.forEach(card => {
+			        const clubCategory = card.querySelector('.clubCategory').textContent.trim().split(':')[1].trim();
+			        console.log("선택된 종목명 : " + category)
+			        if (category === '전체' || clubCategory === category) {
+			            card.style.display = 'block';
+			        } else {
+			            card.style.display = 'none';
+			        }
+			    });
+			}
+		</script>
+		<script>
+		    function filterLocale(locale) {
+		        const clubCards = document.querySelectorAll('.card-1');
+		        clubCards.forEach(card => {
+		            const clubLocale = card.querySelector('.clubLocale').textContent.trim().split(':')[1].trim();
+		            console.log("선택된 지역명 : " + locale)
+		            if (locale === '전체' || clubLocale === locale) {
+		                card.style.display = 'block';
+		            } else {
+		                card.style.display = 'none';
+		            }
+		        });
+		    }
+		</script>				
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 	        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 	        crossorigin="anonymous">
@@ -286,5 +374,4 @@
 	    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

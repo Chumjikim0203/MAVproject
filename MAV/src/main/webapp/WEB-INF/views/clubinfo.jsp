@@ -145,7 +145,7 @@
     .main-body
     {
     	display: flex;
-    	justify-content: space-around;
+    	justify-content: space-between;
     } 
 </style>
 <title>클럽 페이지</title>

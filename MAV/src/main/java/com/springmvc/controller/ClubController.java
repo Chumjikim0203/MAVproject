@@ -38,13 +38,29 @@ public class ClubController
     public Map<String, String> getCategoryOptions() 
     {
         Map<String, String> categoryOptions = new HashMap<>();
+        categoryOptions.put("기타", "기타");
         categoryOptions.put("농구", "농구");
         categoryOptions.put("풋살", "풋살");
         categoryOptions.put("족구", "족구");
         categoryOptions.put("당구", "당구");
         categoryOptions.put("야구", "야구");
+        categoryOptions.put("축구", "축구");
         return categoryOptions;
     }
+	@ModelAttribute("localeOptions")
+	public Map<String, String> getLocaleOptions()
+	{
+		Map<String, String> localeOptions = new HashMap<>();
+		localeOptions.put("강원", "강원");
+		localeOptions.put("제주", "제주");
+		localeOptions.put("전라", "전라");
+		localeOptions.put("경상", "경상");
+		localeOptions.put("충청", "충청");
+		localeOptions.put("경기", "경기");
+		localeOptions.put("서울", "서울");
+		
+		return localeOptions;
+	}
 	
 	@GetMapping("/add")
 	public String addClub(HttpServletRequest request,Model model)

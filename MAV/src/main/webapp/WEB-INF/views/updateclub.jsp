@@ -139,16 +139,17 @@
                        	</div>
                         <div class="invalid-feedback">
                             동호회 이름을 입력해주세요.
-                        </div>
-                    
-                        <div class="col-md-7 mb-3">
+                        </div>                    
+                        <div class="col-md-6 mb-3">
                             <label for="clubLocale">활동 지역</label>
-                            <form:input class="form-control" path="clubLocale" value="${club.clubLocale}"/>
+                            <form:select class="form-select" aria-label="Default select example" path="clubLocale" value="${club.clubLocale}">
+                            	<form:options items="${localeOptions}"/>
+                            </form:select>
                         </div>
                         <div class="invalid-feedback">
                             지역을 입력해주세요.
                         </div>                                             
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="clubCategory">활동 종류</label>
                             <form:select class="form-select" aria-label="Default select example" path="clubCategory" value="${club.clubCategory}">
                                 <form:options items="${categoryOptions}"/>
