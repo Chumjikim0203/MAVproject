@@ -11,7 +11,8 @@ public class Club
 	private String clubCategory; // 동호회 종류
 	private String clubInfo; // 동호회 소개글
 	private String clubLocale; // 동호회 활동지역
-	private String clubImages; // 동호회 이미지
+	private MultipartFile clubImages; // 동호회 이미지
+	private String imageFileName; // 이미지 파일 이름
 	
 	
 	public Club() {}
@@ -59,11 +60,11 @@ public class Club
 		this.clubLocale = clubLocale;
 	}
 
-	public String getClubImages() {
+	public MultipartFile getClubImages() {
 		return clubImages;
 	}
 
-	public void setClubImages(String clubImages) {
+	public void setClubImages(MultipartFile clubImages) {
 		this.clubImages = clubImages;
 	}
 
@@ -77,6 +78,14 @@ public class Club
 
 	public void setClubMaster(String clubMaster) {
 		this.clubMaster = clubMaster;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 	
 }

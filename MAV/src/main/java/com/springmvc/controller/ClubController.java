@@ -1,5 +1,6 @@
 package com.springmvc.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springmvc.domain.Club;
 import com.springmvc.domain.ClubMember;
@@ -89,6 +91,10 @@ public class ClubController
 		{
 			return "addClub";
 		}
+		String save = request.getSession().getServletContext().getRealPath("/resources/images");
+		MultipartFile clubImages = club.getClubImages();
+		String saveName = clubImages.getOriginalFilename();
+		File saveFile= new File(save, saveName);
 		HttpSession session = request.getSession();
 		member = (Member) session.getAttribute("member");
 		club = (Club) model.getAttribute("club");
