@@ -84,6 +84,9 @@
                    <li class="nav-item">
                     <a class="nav-link active" aria-disabled="true" href="/MAV/member/add/member">회원가입</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-disabled="true" href="/MAV/Class/classlist">강의리스트</a>
+                  </li>
                 </ul>
                 <form class="d-flex" role="search">
                   <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
@@ -132,6 +135,9 @@
                   </li>
                    <li class="nav-item">
                     <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-disabled="true" href="/MAV/Class/classlist">강의리스트</a>
                   </li>
                 </ul>
                 <form class="d-flex" role="search">

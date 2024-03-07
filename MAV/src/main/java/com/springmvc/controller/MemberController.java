@@ -37,6 +37,7 @@ import com.springmvc.service.MemberService;
 public class MemberController 
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@Autowired
 	private MemberService memberService;
 	@Autowired
@@ -71,6 +72,8 @@ public class MemberController
 		return "redirect:/";
 	}
 =======
+=======
+>>>>>>> origin/PMS
    @Autowired
    private MemberService memberService;
    @Autowired
@@ -104,7 +107,10 @@ public class MemberController
       memberRepository.setNewMember(member);
       return "redirect:/";
    }
+<<<<<<< HEAD
 >>>>>>> origin/KTY
+=======
+>>>>>>> origin/PMS
 
     @ModelAttribute("genderOptions")
     public Map<String, String> getGenderOptions() 
@@ -128,6 +134,7 @@ public class MemberController
     public String testingPage(Member member,Model model)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
     	List<Member> getAllmemberlist = memberService.getAllMemberList();
     	model.addAttribute("member", getAllmemberlist);
     	return "testmember";
@@ -136,6 +143,11 @@ public class MemberController
        model.addAttribute("member", getAllmemberlist);
        return "testmember";
 >>>>>>> origin/KTY
+=======
+       List<Member> getAllmemberlist = memberService.getAllMemberList();
+       model.addAttribute("member", getAllmemberlist);
+       return "testmember";
+>>>>>>> origin/PMS
     }
     @GetMapping("/mypage")
     public String memberMyPage(HttpServletRequest request, Model model) {
@@ -153,6 +165,7 @@ public class MemberController
     @GetMapping("/update/member")
     public String updateMember(@RequestParam String memberId, Model model)
 <<<<<<< HEAD
+<<<<<<< HEAD
     {    	
     	System.out.println("업데이트 페이지 도착");
     	Member member = memberService.getById(memberId);
@@ -162,6 +175,8 @@ public class MemberController
     	
     	return "updateMember";
 =======
+=======
+>>>>>>> origin/PMS
     {       
        System.out.println("업데이트 페이지 도착");
        Member member = memberService.getById(memberId);
@@ -170,11 +185,15 @@ public class MemberController
        model.addAttribute("member", member);
        
        return "updateMember";
+<<<<<<< HEAD
 >>>>>>> origin/KTY
+=======
+>>>>>>> origin/PMS
     }
     @PostMapping("/update/member")
     public String updateDone(@ModelAttribute("member") Member member, HttpServletRequest request)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
     	memberService.updateMember(member);
     	HttpSession session = request.getSession();
@@ -182,12 +201,17 @@ public class MemberController
     	
     	return "redirect:/member/mypage";
 =======
+=======
+>>>>>>> origin/PMS
        memberService.updateMember(member);
        HttpSession session = request.getSession();
        session.setAttribute("member", member);
        
        return "redirect:/member/mypage";
+<<<<<<< HEAD
 >>>>>>> origin/KTY
+=======
+>>>>>>> origin/PMS
     }
     @RequestMapping(value="/delete/member")
     public String deleteMember(@RequestParam String memberId)

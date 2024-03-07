@@ -69,7 +69,7 @@
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3"> 수정</h4>
-                    <form:form modelAttribute="classes" class="form-horizontal" action="/MAV/teacher/updateclass" method="post">
+                    <form:form modelAttribute="classes" class="form-horizontal" action="/MAV/Class/updateclass" method="post">
                      <form:hidden path="classNum" value="${classes.classNum}"/> 
 
                   <fieldset>
@@ -77,6 +77,7 @@
                 				<div class="col-md-6 mb-3">
                     				<label for="className">강의명</label>
                     				<form:input path="className" class="form-control" value="${classes.className}"/>
+                    				<form:hidden  class="form-control"  path="teacherId" value="${member.memberId}" />
                					 </div>
        						</div>
                             <div class="invalid-feedback">

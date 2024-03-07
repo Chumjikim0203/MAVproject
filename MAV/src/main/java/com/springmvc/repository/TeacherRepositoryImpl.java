@@ -77,4 +77,11 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	           return null;
 	       }
 	   }
+	@Override
+	public void deleteTeacher(String teacherId) {
+		String SQL="DELETE FROM Teacher where teacherId=?";
+		this.template.update(SQL,teacherId);
+		
+	}
+	   
 }
