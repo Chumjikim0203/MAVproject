@@ -130,17 +130,17 @@
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
                    <h4 class="mb-3">동호회 생성</h4>
-                   <form:form modelAttribute="club" class="form-horizontal" action="/MAV/club/update?clubNum=${club.clubNum}" method="post">
+                   <form:form modelAttribute="club" class="form-horizontal" action="/MAV/club/update?clubNum=${club.clubNum}" method="post" enctype="multipart/form-data">
 					<fieldset>
 				 	<div class="row">
-                      	<div class="col-md-7 mb-3">
+                        <div class="col-md-7 mb-3">
                        		<label for="clubName">동호회 이름</label>
-                         	<form:input path="clubName" class="form-control" value="${club.clubName}"/>                          
+                         	<form:input path="clubName" class="form-control" />                          
                        	</div>
                         <div class="invalid-feedback">
                             동호회 이름을 입력해주세요.
                         </div>                    
-                        <div class="col-md-6 mb-3">
+                      	<div class="col-md-6 mb-3">
                             <label for="clubLocale">활동 지역</label>
                             <form:select class="form-select" aria-label="Default select example" path="clubLocale" value="${club.clubLocale}">
                             	<form:options items="${localeOptions}"/>
@@ -148,16 +148,20 @@
                         </div>
                         <div class="invalid-feedback">
                             지역을 입력해주세요.
-                        </div>                                             
+                        </div>                 
                         <div class="col-md-6 mb-3">
                             <label for="clubCategory">활동 종류</label>
-                            <form:select class="form-select" aria-label="Default select example" path="clubCategory" value="${club.clubCategory}">
+                            <form:select class="form-select" aria-label="Default select example" path="clubCategory">
                                 <form:options items="${categoryOptions}"/>
                             </form:select>
-                        </div>                                            
+                        </div>
+                        <div class="col-md-7 mb-3">
+                       		<label for="clubImages">동호회 이미지</label>
+                         	<form:input type="file" path="clubImages" class="form-control" value="${club.imageFileName}"/>                          
+                       	</div>                                            
                         <div class="col-md-12 mb-3">
                             <label for="clubInfo">동호회 소개글</label>
-                            <form:textarea class="form-control" path="clubInfo" value="${club.clubInfo}" />                        
+                            <form:textarea class="form-control" path="clubInfo" />                        
                         </div>
                 	</div>
                 	<br>

@@ -109,19 +109,24 @@ public class MemberController
     }
 
     @GetMapping("/update/member")
-    public String updateMember(@RequestParam String memberId, Member member , Model model)
+    public String updateMember(@RequestParam String memberId, Model model)
     {    	
     	System.out.println("업데이트 페이지 도착");
-    	Member memberById = memberService.getById(memberId);
+    	Member member = memberService.getById(memberId);
+    	
     	System.out.println("memberById에 getById 결과 대입함");
-    	model.addAttribute("member", memberById);
+    	model.addAttribute("member", member);
+    	
     	return "updateMember";
     }
     @PostMapping("/update/member")
-    public String updateDone(@ModelAttribute Member member)
+    public String updateDone(@ModelAttribute("member") Member member, HttpServletRequest request)
     {
     	memberService.updateMember(member);
-    	return "mypage";
+    	HttpSession session = request.getSession();
+    	session.setAttribute("member", member);
+    	
+    	return "redirect:/member/mypage";
     }
     @RequestMapping(value="/delete/member")
     public String deleteMember(@RequestParam String memberId)

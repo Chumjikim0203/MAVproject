@@ -110,7 +110,7 @@
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
                    <h4 class="mb-3">동호회 생성</h4>
-                   <form:form modelAttribute="club" class="form-horizontal" action="/MAV/club/add" method="post">
+                   <form:form modelAttribute="club" class="form-horizontal" action="/MAV/club/add" method="post" enctype="multipart/form-data">
 					<fieldset>
 				 	<div class="row">
                       	<div class="col-md-7 mb-3">
@@ -134,7 +134,11 @@
                             <form:select class="form-select" aria-label="Default select example" path="clubCategory">
                                 <form:options items="${categoryOptions}"/>
                             </form:select>
-                        </div>                                            
+                        </div>
+                        <div class="col-md-7 mb-3">
+                       		<label for="clubImages">동호회 이미지</label>
+                         	<form:input type="file" path="clubImages" class="form-control" />                          
+                       	</div>                                            
                         <div class="col-md-12 mb-3">
                             <label for="clubInfo">동호회 소개글</label>
                             <form:textarea class="form-control" path="clubInfo" />                        

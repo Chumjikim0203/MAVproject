@@ -42,8 +42,10 @@ public class ClubRepositoryImpl implements ClubRepository
 				club.getClubCategory(),
 				club.getClubLocale(),
 				club.getClubPoint(),
-				club.getClubImages(),
+				club.getImageFileName(),
 				club.getClubInfo());
+		
+		System.out.println("리파짓토리에서 클럽 생성시 가져온 이미지파일 이름 : "+club.getImageFileName());
 	}
 
 	
@@ -83,9 +85,9 @@ public class ClubRepositoryImpl implements ClubRepository
 	public void updateClub(Club club,Member member) 
 	{
 		System.out.println("수정 처리할 클럽ID : "+club.getClubName());
-		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubNum=? and clubMaster=?";
+		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=?, imageFileName=?  where clubNum=? and clubMaster=?";
 		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
-						club.getClubInfo(), club.getClubNum(), member.getMemberId());
+						club.getClubInfo(),club.getImageFileName(), club.getClubNum(), member.getMemberId());
 	}
 
 	@Override

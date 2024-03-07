@@ -277,10 +277,10 @@
 				<div class="card" style="text-align: center">
 	                <h5 class="mt-2">동호회 소개글</h5>
 	                <div class="col-12 mb-3">
-	                    <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/7cc7ad0c-9886-4bc2-b5f3-ea1c1e6bf5b0/image.png" class="" width="70%">
+	                    <img src="<c:url value="/resources/images/${club.imageFileName}"/>" class="" width="70%">
 	                </div>
                     <div class="col-12">
-                        <p>${club.clubInfo}</p> <br>
+                        <p><pre>${club.clubInfo}</pre></p><br>
                    </div>              
 	            </div>
 			</div>
