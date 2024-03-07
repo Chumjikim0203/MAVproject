@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="utf-8">
@@ -196,7 +197,7 @@
                         <a href="./teacher/update/teacher?teacherId=${teacher.teacherId}">강사정보수정</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="./teacher/delete?teacherId=?">강사탈퇴</a>
+                        <a href="./teacher/delete?teacherId=${teacher.teacherId}">강사탈퇴</a>
                     </li>
                 </ul>
 
@@ -223,8 +224,7 @@
                             <span class="room-title">&nbsp;&nbsp;${allclasses.classNum} - ${allclasses.className}</span>
                             <span class="room-date">날짜 :${allclasses.classLecturedate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시간 : ${allclasses.classLecturetime}</span>
                             <span class="room-application">
-                                <span class="room-application-count">0/1</span>
-                          <button class="room-application-link room-application-btn tablinks" onclick="openTab(event, 'tab1')">수강생목록</button> 
+                            <span class="room-application-count">0/1</span> 
                           <a href="<c:url value='/Class/detailclass'/>?classNum=${allclasses.classNum}" class="room-application-link room-application-btn">조회</a>  
                           <a href="<c:url value='/Class/updateclass'/>?classNum=${allclasses.classNum}" class="room-application-link room-application-btn">수정</a>   
                           <a href="<c:url value='/Class/deleteclass'/>?classNum=${allclasses.classNum}" class="room-application-link room-application-btn">삭제</a>   
@@ -234,21 +234,13 @@
                 </c:forEach>
             </div>
             <div>
-                <div class="room-title">수강생목록</div>
-                <c:forEach items="${allclass}" var="allclasses">
-                    <div class="card-1 mb-3 tabcontent tablinks" id="tabName">
-                        <div class="room-info">
-                            <span class="room-title">&nbsp;&nbsp; ${allclasses.className}</span>
-                            <span class="room-date">날짜 :${allclasses.classLecturedate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시간 : ${allclasses.classLecturetime}</span>
-                            <span class="room-application">
-                                <a href="<c:url value='/Class/detailclass'/>?classNum=${allclasses.classNum}" class="room-application-link room-application-btn">수강등록</a>
-                            </span>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
+
+
+                    
     </div>
+</div> 
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous">

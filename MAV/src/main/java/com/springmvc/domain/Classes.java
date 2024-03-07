@@ -9,7 +9,7 @@ import com.springmvc.domain.*;
 public class Classes
 {
 	private int classNum; // 클래스 번호
-	private String classId; // 클래스 아이디
+	private String teacherId; // 클래스 아이디
 	private String className; // 클래스 이름
 	@DateTimeFormat(pattern="HH:mm")
 	private String classLecturetime; // 강의 시간
@@ -23,8 +23,8 @@ public class Classes
 	private MultipartFile classImages; // 강의 이미지(경로)dto한개 생성
 	private String classLocale; // 강의 지역
 	private boolean classApprove; // 강의 신청 승인
-	private String teacherId;
-	
+
+	private Member classmember; //개인이 신청한 클래스 맴버 
 	
 	
 	public Classes() {
@@ -60,11 +60,11 @@ public class Classes
 	public void setClassApprove(boolean classApprove) {
 		this.classApprove = classApprove;
 	}
-	public String getClassId() {
-		return classId;
+	public String getteacherId() {
+		return teacherId;
 	}
-	public void setClassId(String classId) {
-		this.classId = classId;
+	public void setteacherId(String teacherId) {
+		this.teacherId = teacherId;
 	}
 	public String getClassLecturetime() {
 		return classLecturetime;
@@ -119,6 +119,12 @@ public class Classes
 	}
 	public void setTeacherId(String teacherId) {
 		this.teacherId = teacherId;
+	}
+	public Member getClassmember() {
+		return classmember;
+	}
+	public void setClassmember(Member classmember) {
+		this.classmember = classmember;
 	}
 	
 	

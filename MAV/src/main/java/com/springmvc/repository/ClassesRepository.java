@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.springmvc.domain.Classes;
-public interface ClassesRepository {
+public interface ClassesRepository  {
 	List<Classes> getAllClassesList(Classes classes);
 	void setNewClasses(Classes classes);
 	public Classes getById(int classNum);

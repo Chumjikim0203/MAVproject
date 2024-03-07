@@ -51,22 +51,24 @@ public class StoreController {
         System.out.println("Store 정보: " + store.getStoreId() + ", " +store.getStoreName());
         System.out.println("Store 정보: " + store.getStoreId() +", " + store.getStoreName());
    
+       
+        // 입력한 방 모두의 정보를 가지고오는 로직
+      String storeId = store.getStoreId();
+      
         model.addAttribute("member",member);
-           
-          // 입력한 방 모두의 정보를 가지고오는 로직
-         String storeId = store.getStoreId();
-         
-         //room
-          List<Room> myRooms = storeService.getRoomsByStoreId(storeId);
-          model.addAttribute("myRooms", myRooms);
-           
-          //토너먼트
-          List<Tournament> newtournament = tournamentService.getTournamentByStoreId(storeId);
-          model.addAttribute("newtournament",newtournament);
-          
-          //매칭룸
-           List<MatchRoom> matchView = matchService.getMatchRoomsByStoreId(storeId);
-           model.addAttribute("matchView",matchView);
+
+      
+      //room
+        List<Room> myRooms = storeService.getRoomsByStoreId(storeId);
+        model.addAttribute("myRooms", myRooms);
+        
+        //토너먼트
+       List<Tournament> newtournament = tournamentService.getTournamentByStoreId(storeId);
+       model.addAttribute("newtournament",newtournament);
+       
+       //매칭룸
+        List<MatchRoom> matchView = matchService.getMatchRoomsByStoreId(storeId);
+        model.addAttribute("matchView",matchView);
         
 
         return "store";
@@ -202,23 +204,48 @@ public class StoreController {
     @GetMapping("/add")
     public String createStore(@ModelAttribute("addStore") Store store,Model model,HttpServletRequest request)
     {
-    	HttpSession sessionId=request.getSession();
-		Member member=(Member)sessionId.getAttribute("member");
-		model.addAttribute("member",member);
-		sessionId.setAttribute("member", member);
-    	System.out.println("member:"+member.getMemberId());
-
     	
-    	return "addStore";
+       HttpSession sessionId=request.getSession();
+       Member member=(Member)sessionId.getAttribute("member");
+       System.out.println("member:"+member.getMemberId());
+       model.addAttribute("member",member);
+       sessionId.setAttribute("member", member);
+
+
+       
+       return "addStore";
     }
+
     @PostMapping("/add")
     public String returnStore(@ModelAttribute("addStore") Store store,Model model,HttpServletRequest request) {
-    	HttpSession sessionId=request.getSession();
-		Member member=(Member)sessionId.getAttribute("member");
-		model.addAttribute("member",member);
-    	storeService.CreateStore(store);
-		model.addAttribute("addstore",store);
-    	return "redirect:/store";
+    	System.out.println("포스트store:"+store.getStoreName());
+      HttpSession sessionId=request.getSession();
+      Member member=(Member)sessionId.getAttribute("member");
+      model.addAttribute("member",member);
+      storeService.CreateStore(store);
+      model.addAttribute("addstore",store);
+      return "redirect:/store";
+    }
+
+    @GetMapping("/update")
+    public String UpdateStore(@ModelAttribute("store") Store store,Model model,@RequestParam String storeId) {
+    	Store storeById=storeService.getStoreById(storeId);
+    	model.addAttribute("store",storeById);
+    	System.out.println("컨트롤store:"+storeById.getStoreAddr());
+
+    	return "storeupdateform";
+    }
+    @PostMapping("/update")
+    public String submitStore(@ModelAttribute("store") Store store){
+    	System.out.println("컨트롤store2:"+store.getStoreId());
+    	storeService.UpdateStore(store);	
+    	return "redirect:/";
+    }
+    
+    @GetMapping("/delete")
+    public String DeleteStore(@RequestParam String storeId){
+    	storeService.DeleteStore(storeId);
+    	return "redirect:/";
     }
     
     

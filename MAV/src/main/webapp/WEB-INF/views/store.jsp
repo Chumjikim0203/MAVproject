@@ -189,8 +189,8 @@
                 <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${store.storeName}</h5>
                 <img src="." class="card-img-top img1" alt="...">
                 <div class="card-body">
-                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">김태영사무소</p>
-                    <p class="card-text" style="text-align: center; font-size: 1rem;">123@123.com</p>
+                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">${store.storeName}</p>
+                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -200,11 +200,11 @@
                         <a href="./store/addrooms">경기장만들기</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#">업주탈퇴</a>
+                        <a href="store/delete?storeId=${store.storeId}">업주탈퇴</a>
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">정보수정</a>
+                    <a href="store/update?storeId=${store.storeId}" class="card-link">정보수정</a>
                 </div>
             </div>
         </div>
@@ -214,8 +214,8 @@
                 <div class="right">
                     <img src=".." class="" width="30%">
                     <div class="right-name">
-                        <p>업주명</p>
-                        <p>123@gmail.com</p>
+                        <p>${store.storeName}</p>
+                        <p>${member.memberEmail}</p>
                     </div>
                 </div>
                 <hr>

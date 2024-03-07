@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Club;
+import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Store;
 import com.springmvc.repository.MemberRepository;
@@ -35,39 +36,39 @@ import com.springmvc.service.MemberService;
 @RequestMapping("/member")
 public class MemberController 
 {
-	@Autowired
-	private MemberService memberService;
-	@Autowired
-	private MemberRepository memberRepository;
-	@Autowired
-	private ClubService clubService;
-	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) 
-	{
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-	}
-	
-	@GetMapping("/add/member")
-	public String addMember(Model model)
-	{
-		System.out.println("회원가입 페이지 도착");
-		model.addAttribute("member", new Member());
-		return "addMember";
-	}
-	
-	@PostMapping("/add/member")
-	public String addDone(@ModelAttribute Member member, BindingResult bindingResult, Model model)
-	{		
-		if(bindingResult.hasErrors())
-		{
-			return "addMember";
-		}
-		model.addAttribute("member", member);
-		memberRepository.setNewMember(member);
-		return "mypage";
-	}
+   @Autowired
+   private MemberService memberService;
+   @Autowired
+   private MemberRepository memberRepository;
+   @Autowired
+   private ClubService clubService;
+   
+   @InitBinder
+   public void initBinder(WebDataBinder binder) 
+   {
+       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+       binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+   }
+   
+   @GetMapping("/add/member")
+   public String addMember(Model model)
+   {
+      System.out.println("회원가입 페이지 도착");
+      model.addAttribute("member", new Member());
+      return "addMember";
+   }
+   
+   @PostMapping("/add/member")
+   public String addDone(@ModelAttribute Member member, BindingResult bindingResult, Model model)
+   {      
+      if(bindingResult.hasErrors())
+      {
+         return "addMember";
+      }
+      model.addAttribute("member", member);
+      memberRepository.setNewMember(member);
+      return "redirect:/";
+   }
 
     @ModelAttribute("genderOptions")
     public Map<String, String> getGenderOptions() 
@@ -90,9 +91,9 @@ public class MemberController
     @GetMapping("/test")
     public String testingPage(Member member,Model model)
     {
-    	List<Member> getAllmemberlist = memberService.getAllMemberList();
-    	model.addAttribute("member", getAllmemberlist );
-    	return "testmember";
+       List<Member> getAllmemberlist = memberService.getAllMemberList();
+       model.addAttribute("member", getAllmemberlist);
+       return "testmember";
     }
     @GetMapping("/mypage")
     public String memberMyPage(HttpServletRequest request, Model model) {
@@ -100,33 +101,39 @@ public class MemberController
         Member member = (Member) session.getAttribute("member");
 
         List<Club> clubs = clubService.getMyClub(member.getMemberId());
-
+   
         model.addAttribute("club", clubs);
         model.addAttribute("member", member);
+     
         return "mypage";
     }
 
     @GetMapping("/update/member")
-    public String updateMember(@RequestParam String memberId, Member member, Model model)
-    {    	
-    	System.out.println("업데이트 페이지 도착");
-    	Member memberById = memberService.getById(memberId);
-    	System.out.println("memberById에 getById 결과 대입함");
-    	model.addAttribute("member", memberById);
-    	return "updateMember";
+    public String updateMember(@RequestParam String memberId, Model model)
+    {       
+       System.out.println("업데이트 페이지 도착");
+       Member member = memberService.getById(memberId);
+       
+       System.out.println("memberById에 getById 결과 대입함");
+       model.addAttribute("member", member);
+       
+       return "updateMember";
     }
     @PostMapping("/update/member")
-    public String updateDone(@ModelAttribute Member member)
+    public String updateDone(@ModelAttribute("member") Member member, HttpServletRequest request)
     {
-    	memberService.updateMember(member);
-    	return "mypage";
+       memberService.updateMember(member);
+       HttpSession session = request.getSession();
+       session.setAttribute("member", member);
+       
+       return "redirect:/member/mypage";
     }
     @RequestMapping(value="/delete/member")
     public String deleteMember(@RequestParam String memberId)
     {
-    	System.out.println("delete 라인 도착");
-    	System.out.println("삭제할 ID : " +memberId);    	
-    	memberService.deleteMember(memberId);
-    	return "redirect:/member/mypage";
+       System.out.println("delete 라인 도착");
+       System.out.println("삭제할 ID : " +memberId);       
+       memberService.deleteMember(memberId);
+       return "redirect:/member/mypage";
     }
 }

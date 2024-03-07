@@ -107,30 +107,83 @@ public class StoreRepositoryImpl implements StoreRepository {
                 updatedRoom.getRoomNum()
         );
     }
-    	public void CreateStore(Store store) {
-    		// TODO Auto-generated method stub
-    	//강사 등록	
-    		store.setStoreApprove(true);
-    		String SQL="INSERT INTO Store (storeId,storeName,storeAddr,storeCategory,storeCode,storePhone01,storePhone02,storePhone03,storeInfomation,storeNotice,storeApprove)"
-    				+"values(?,?,?,?,?,?,?,?,?,?,?)";
-    		jdbcTemplate.update(SQL,
-    				store.getStoreId(),
-    				store.getStoreName(),
-    				store.getStoreAddr(),
-    				store.getStoreCategory(),
-    				store.getStoreCode(),
-    				store.getStorePhone01(),
-    				store.getStorePhone02(),
-    				store.getStorePhone03(),
-    				store.getStoreInfomation(),
-    				store.getStoreNotice(),
-    				store.isStoreApprove()
-    				);
-    	
-    	}
-    //단일출력
+    
+    public void CreateStore(Store store) {
+        // TODO Auto-generated method stub
+     //강사 등록   
+        store.setStoreApprove(true);
+        String SQL="INSERT INTO Store (storeId,storeName,storeAddr,storeCategory,storeCode,storePhone01,storePhone02,storePhone03,storeInfomation,storeNotice,storeApprove)"
+              +"values(?,?,?,?,?,?,?,?,?,?,?)";
+        
+        
+          jdbcTemplate.update(SQL,
+                
+              store.getStoreId(),
+              store.getStoreName(),
+              store.getStoreAddr(),
+              store.getStoreCategory(),
+              store.getStoreCode(),
+              store.getStorePhone01(),
+              store.getStorePhone02(),
+              store.getStorePhone03(),
+              store.getStoreInfomation(),
+              store.getStoreNotice(),
+              store.isStoreApprove()
+              );
+     
+     }
 
-    }
+
+	@Override
+	public void UpdateStore(Store store) {
+		// TODO Auto-generated method stub
+		String SQL="UPDATE "
+				+ "Store SET storeName=?,"
+				+ "storeAddr=?,"
+				+ "storeCategory=?,"
+				+ "storePhone01=?,"
+				+ "storePhone02=?,"
+				+ "storePhone03=?,"
+				+ "storeInfomation=?,"
+				+ "storeNotice=?,"
+				+ "storeCode=?"
+				+ "where storeId=?";
+		jdbcTemplate.update(SQL,
+				store.getStoreName(),
+				store.getStoreAddr(),
+				store.getStoreCategory(),
+				store.getStorePhone01(),
+				store.getStorePhone02(),
+				store.getStorePhone03(),
+				store.getStoreInfomation(),
+				store.getStoreNotice(),
+				store.getStoreCode(),
+				store.getStoreId()
+				);
+
+	}
+
+
+	@Override
+	public void DeleteStore(String storeId) {
+		// TODO Auto-generated method stub
+		String SQL="DELETE FROM STORE WHERE storeId=?";
+		this.jdbcTemplate.update(SQL,storeId);
+	}
+
+
+}
+    
+	
+
+
+
+
+
+
+
+
+
 // 업체가 작성한 모든 방의 시간과 날짜만 가져오는 로직
    /*
 @Override
