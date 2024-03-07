@@ -35,7 +35,7 @@ public class StoreRepositoryImpl implements StoreRepository {
     }
 
     //업데이트시에 사용
-   //룸 넘버에 맞는 룸정보 들고 오기
+	//룸 넘버에 맞는 룸정보 들고 오기
     @Override
     public Room getByroomNumAllRooms(int roomNum) {
         String sql = "SELECT * FROM Room WHERE roomNum = ?";
@@ -51,8 +51,8 @@ public class StoreRepositoryImpl implements StoreRepository {
    // 방 만들기
     @Override
     public void createRoom(Room room) {
-        String sql = "INSERT INTO Room (storeId, roomName, roomCapacity, roomCount, roomCategory, roomDetail, roomDate, roomTime,isMatched) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Room (storeId, roomName, roomCapacity, roomCount, roomCategory, roomDetail, roomDate, roomTime,matched) " +
+        				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(
                 sql,
                 room.getStoreId(),
@@ -63,7 +63,7 @@ public class StoreRepositoryImpl implements StoreRepository {
                 room.getRoomDetail(),
                 room.getRoomDate(),
                 room.getRoomTime(),
-                room.isMatched()
+                room.getMatched()
         );
     }
     
@@ -107,42 +107,47 @@ public class StoreRepositoryImpl implements StoreRepository {
                 updatedRoom.getRoomNum()
         );
     }
-    	public void CreateStore(Store store) {
-    		// TODO Auto-generated method stub
-    	//강사 등록	
-    		store.setStoreApprove(true);
-    		String SQL="INSERT INTO Store (storeId,storeName,storeAddr,storeCategory,storeCode,storePhone01,storePhone02,storePhone03,storeInfomation,storeNotice,storeApprove)"
-    				+"values(?,?,?,?,?,?,?,?,?,?,?)";
-    		jdbcTemplate.update(SQL,
-    				store.getStoreId(),
-    				store.getStoreName(),
-    				store.getStoreAddr(),
-    				store.getStoreCategory(),
-    				store.getStoreCode(),
-    				store.getStorePhone01(),
-    				store.getStorePhone02(),
-    				store.getStorePhone03(),
-    				store.getStoreInfomation(),
-    				store.getStoreNotice(),
-    				store.isStoreApprove()
-    				);
-    	
-    	}
-    //단일출력
+    
+    public void CreateStore(Store store) {
+        // TODO Auto-generated method stub
+     //업체등록 
+        store.setStoreApprove(true);
+        String SQL="INSERT INTO Store (storeId,storeName,storeAddr,storeCategory,storeCode,storePhone01,storePhone02,storePhone03,storeInfomation,storeNotice,storeApprove)"
+              +"values(?,?,?,?,?,?,?,?,?,?,?)";
+        
+        
+          jdbcTemplate.update(SQL,
+        		  
+              store.getStoreId(),
+              store.getStoreName(),
+              store.getStoreAddr(),
+              store.getStoreCategory(),
+              store.getStoreCode(),
+              store.getStorePhone01(),
+              store.getStorePhone02(),
+              store.getStorePhone03(),
+              store.getStoreInfomation(),
+              store.getStoreNotice(),
+              store.isStoreApprove()
+              );
+     
+     }
 
-    }
-// 업체가 작성한 모든 방의 시간과 날짜만 가져오는 로직
-   /*
-@Override
-public List<Room> getAllRoomsByStoreId(String storeId) {
-    String sql = "SELECT roomNum, roomName, roomDate, roomTime FROM Room WHERE storeId = ?";
-    return jdbcTemplate.query(sql, new Object[]{storeId}, new RoomRowMapper());
+    //매칭 신청시 매치드 값 바꾸기
+	@Override
+	public void updateMatchedValue(int roomNum, int matchedValue) {
+        String sql = "UPDATE Room SET matched = ? WHERE roomNum = ?";
+        jdbcTemplate.update(sql, matchedValue,roomNum);		
+	}
+	
+	
+	
+
 }
-    */
 
 
-// 한 업체가 작성한 모든방의 시간과 날짜만 가져오는 로직
-   /*
-    * @Override public List<Room> getAllRoomsByStoreId(String storeId) { // TODO
-    * Auto-generated method stub return null; }
-    */ 
+
+
+
+
+

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.springmvc.domain.Match;
 import com.springmvc.domain.MatchRoom;
+import com.springmvc.domain.Room;
 
 public interface MatchService {
 	int matchCreate(Match match); 	
@@ -11,5 +12,4 @@ public interface MatchService {
 	List<MatchRoom> getMatchRoomsByStoreId(String storeId);
 	MatchRoom getMatchByRoomNum(int roomNum);
 	void applyMatch(Match match);
-
 }

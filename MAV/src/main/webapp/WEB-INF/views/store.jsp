@@ -8,8 +8,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>업체 마이페이지</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    
    
     <style>
@@ -17,13 +18,15 @@
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #f8f9fa;
             color: #212529;
+            width: 80vw;
+            margin: 0 auto;
+
         }
 
         .main {
-            width: 80%;
-            margin: 0 auto;
             display: flex;
             padding: 2rem;
+           
         }
 
         .col-4 {
@@ -115,7 +118,7 @@
         
         .room-dt{
         
-           text-align: left;
+	        text-align: left;
         
         }
         .romm-ddt{
@@ -153,6 +156,16 @@
             border-radius: 0.25rem;
             text-decoration: none;
         }
+        
+        .room-application-btn4 {
+            padding: 0.5rem 1rem;
+            background-color: #FEA51d;
+            color: white;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            border: none;
+            
+        }
 
         .room-info {
             display: flex;
@@ -161,43 +174,114 @@
             font-size: 1rem;
         }
         
+        .modal-mid{
+             display: flex;
+             justify-content: center;
+	         align-items: center;
+	         font-size: 0.5rem;
+        	
+        }
+        
+        .modal-mid-bt{
+        margin: 0 1rem
+        }
+        
+        .modal-mid-title-bt{
+              display: flex;
+             justify-content: space-btween;
+	         align-items: center;
+	         font-size: 0.5rem;
+        }
 
     </style>
-    <script type="text/javascript">
-    // 간단한 함수로 확인 팝업 창을 띄우고 확인 여부에 따라 삭제 요청을 보내거나 취소
-    function confirmDelete(roomNum) {
-        if (window.confirm("매칭대기중인 방입니다. 정말로 삭제하시겠습니까?")) {
-            // 삭제 요청을 보낼 수 있는 로직 추가
-            // 예를 들어, AJAX를 사용하여 서버로 삭제 요청
-            window.location.href = "<c:url value='/store/deleteMyRoom'/>?roomNum=" + roomNum;
-        }
-    }
-  
+	<script type="text/javascript">
+	    function confirmDelete(roomNum) {
+	        if (window.confirm("매칭대기중인 방입니다. 정말로 삭제하시겠습니까?")) {
+	            window.location.href = "<c:url value='/room/deleteMyRoom'/>?roomNum=" + roomNum;
+	        }
+	    }
+	    $(document).ready(function() {
+	        // 모든 버튼에 대한 클릭 이벤트 핸들러
+	        $('#roomManagementButton, #MatchRoomManagementButton, #ResultManagementButton, #TournamentButton').click(function(e) {
+	            e.preventDefault();
 
-</script>
+	            // 각 버튼에 대한 AJAX 요청 URL
+	            var urls = {
+	                'roomManagementButton': './store/RoomManagement',
+	                'MatchRoomManagementButton': './store/MatchRoomManagement',
+	                'ResultManagementButton': './store/ResultManagement',
+	                'TournamentButton': './tournament/tournamentManagement'
+	            };
+
+	            // 각 버튼에 대한 컨텐츠 ID
+	            var contents = {
+	                'roomManagementButton': '#content1',
+	                'MatchRoomManagementButton': '#content2',
+	                'ResultManagementButton': '#content3',
+	                'TournamentButton': '#content4'
+	            };
+
+	            // 클릭한 버튼의 ID를 가져옵니다.
+	            var id = $(this).attr('id');
+
+	            // 다른 컨텐츠들을 숨깁니다.
+	            $.each(contents, function(key, value) {
+	                if (key !== id) $(value).hide();
+	            });
+
+	            // AJAX 요청을 보냅니다.
+	            $.ajax({
+	                url: urls[id],
+	                type: 'get',
+	                dataType: 'html',
+	                success: function(data) {
+	                    // 해당 컨텐츠를 보이게 하고, 데이터를 채웁니다.
+	                    $(contents[id]).show().html(data);
+	                },
+	                error: function(xhr, status, error) {
+	                    console.error('AJAX 요청 실패:', error);
+	                }
+	            });
+	        });
+	    });
+
+	</script>
+
 </head>
-
+<jsp:include page="./section/nav.jsp" />
 <body>
-			<ul class="navbar-nav center">
-            	<li>
-            		<h5><b>${member.memberName}</b> 업주님 환영합니다!</h5>
-            	</li>
-            </ul>	
+	<ul class="navbar-nav center">
+      <li>
+         <h5><b>${member.memberName}</b> 업주님 환영합니다!</h5>
+      </li>
+   </ul>	
     <div class="main">
         <div class="col-4">
             <div class="card" style="width: 100%;">
-                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${store.storeName}</h5>
+                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">업주</h5>
                 <img src="." class="card-img-top img1" alt="...">
                 <div class="card-body">
                     <p class="card-text" style="text-align: center; font-size: 1.2rem;">김태영사무소</p>
                     <p class="card-text" style="text-align: center; font-size: 1rem;">123@123.com</p>
                 </div>
                 <ul class="list-group list-group-flush">
+                	<li class="list-group-item">
+						<a href="#" id="roomManagementButton">경기장관리</a>
+                    </li>
+                    <li class="list-group-item">
+						<a href="#" id="MatchRoomManagementButton">매칭룸관리</a>
+                    </li>
+                     <li class="list-group-item">
+						<a href="#" id="ResultManagementButton">결과관리</a>
+                    </li>
+                    <li class="list-group-item">
+						<a href="#" id="TournamentButton">토너먼트관리</a>
+                    </li>
                     <li class="list-group-item">
                         <a href="./tournament/addtournament">토너먼트등록</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="./store/addrooms">경기장만들기</a>
+                        <a href="./room/addrooms">경기장만들기</a>
                     </li>
                     <li class="list-group-item">
                         <a href="#">업주탈퇴</a>
@@ -219,95 +303,94 @@
                     </div>
                 </div>
                 <hr>
-            </div>
-            <br>
-            <!-- 경기장 관리 부분 -->
-            <div class="room-title">경기장관리</div>
-            <c:forEach items="${myRooms}" var="room">
-                <c:choose>
-                    <c:when test="${room.matched == false}">
-                        <div class="card-1 mb-3">
-                            <div class="room-info">
-                                <div class="room-date">
-                                    <span>${room.roomDate}<br>${room.roomTime}</span>
-                                </div>
-                                <div class="room-title room-dt">
-                                    <span class="romm-ddt">no.${room.roomNum} &nbsp${room.roomName}</span>
-                                </div>
-                                <span class="room-application .ehgus">
-                                    <span class="room-application-count">0/1</span>
-                                    <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}"
-                                        class="room-application-link room-application-btn">조회</a>
-                                    <a href="<c:url value='/store/roomsUpdate'/>?roomNum=${room.roomNum}"
-                                        class="room-application-link room-application-btn">수정</a>
-                                    <a href="<c:url value='/store/deleteMyRoom'/>?roomNum=${room.roomNum}"
-                                        class="room-application-link room-application-btn">삭제</a>
-                                </span>
-                            </div>
-                        </div>
-                    </c:when>
-                </c:choose>
-                
-            </c:forEach>
-            <!-- 매칭룸관리 -->
-            <div class="room-title">매칭룸관리</div>
-            <c:forEach items="${myRooms}" var="room">
-                <c:choose>
-                    <c:when test="${room.matched == true}">
-                        <c:forEach items="${matchView}" var="MatchRoom">
-                            <c:if test="${room.roomNum == MatchRoom.roomNum}">
-                                <div class="card-1 mb-4">
-                                    <div class="room-info">
-                                        <div class="room-date">
-                                            <span>${room.roomDate}<br>${room.roomTime}</span>
-                                        </div>
-                                        <div class="room-title room-dt">
-                                            <span class="romm-ddt">no.${room.roomNum} &nbsp${room.roomName} </span><br>
-                                            <span class="romm-ddt">${MatchRoom.matchTitle}</span>
-                                        </div>
-                                        <span class="room-application .ehgus">
-                                            <span class="room-application-count">0/1</span>
-                                            <a href="<c:url value='/match/matchingDetail'/>?roomNum=${MatchRoom.roomNum}"
-                                                class="room-application-link room-application-btn2">조회</a>
-                                            <!-- 수정코드 필요여부에 따라 -->
-                                            <%-- <a href="<c:url value='/store/roomsUpdate'/>?roomNum=${room.roomNum}" class="room-application-link room-application-btn2">수정</a> --%>
-                                            <a href="#" class="room-application-link room-application-btn2"
-                                                onclick="confirmDelete(${room.roomNum});">삭제</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </c:if>
-                        </c:forEach>
-                    </c:when>
-                </c:choose>
-            </c:forEach>
-            <!-- 토너먼트 관리 -->
-            <div class="room-title">토너먼트관리</div>
-            <c:forEach items="${newtournament}" var="tournament">
-                <div class="card-1 mb-4">
-                    <div class="room-info">
-                        <div class="room-date">
-                            <span>${tournament.tournamentDate}<br>${tournament.tournamentTime}</span>
-                        </div>
-                        <div class="room-title room-dt">
-                            <span class="romm-ddt">no.${tournament.tournamentNum} </span><br>
-                        </div>
-                        <span class="room-application .ehgus">
-                            <span class="room-application-count">0/1</span>
-                            <a href="<c:url value='/tournament/updateTournament'/>?tournamentNum=${tournament.tournamentNum}"
-                                class="room-application-link room-application-btn3">수정</a>
-                            <!-- 수정코드 필요여부에 따라 -->
-                            <a href="<c:url value='/tournament/deleteTournament'/>?tournamentNum=${tournament.tournamentNum}"
-                                class="room-application-link room-application-btn3">삭제</a>							
-                        </span>
-                    </div>
-                </div>
-            </c:forEach>
+            </div> 
+             <br>           
+             <div>
+	             <div id="content1"></div> 
+	             <div id="content2"></div> 
+	             <div id="content3"></div>
+	             <div id="content4"></div> 
+             </div>
         </div>
-    </div>
+  </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
 </body>
+
+
+<!-- 
+       $(document).ready(function() {
+           $('#roomManagementButton').click(function(e) {
+               e.preventDefault();
+   
+               $.ajax({
+                   url: './store/RoomManagement',
+                   type: 'get',
+                   dataType: 'html',
+                   success: function(data) {
+                       $('#content1').html(data);
+                   },
+                   error: function(xhr, status, error) {
+                       console.error('AJAX 요청 실패:', error);
+                   }
+               });
+           });
+       });
+       $(document).ready(function() {
+           $('#MatchRoomManagementButton').click(function(e) {
+               e.preventDefault();
+   
+               $.ajax({
+                   url: './store/MatchRoomManagement',
+                   type: 'get',
+                   dataType: 'html',
+                   success: function(data) {
+                       $('#content2').html(data);
+                   },
+                   error: function(xhr, status, error) {
+                       console.error('AJAX 요청 실패:', error);
+                   }
+               });
+           });
+       });      
+       $(document).ready(function() {
+           $('#ResultManagementButton').click(function(e) {
+               e.preventDefault();
+   
+               $.ajax({
+                   url: './store/ResultManagement',
+                   type: 'get',
+                   dataType: 'html',
+                   success: function(data) {
+                       $('#content3').html(data);
+                   },
+                   error: function(xhr, status, error) {
+                       console.error('AJAX 요청 실패:', error);
+                   }
+               });
+           });
+       });
+       $(document).ready(function() {
+           $('#TournamentButton').click(function(e) {
+               e.preventDefault();
+   
+               $.ajax({
+                   url: './tournament/tournamentManagement',
+                   type: 'get',
+                   dataType: 'html',
+                   success: function(data) {
+                       $('#content4').html(data);
+                   },
+                   error: function(xhr, status, error) {
+                       console.error('AJAX 요청 실패:', error);
+                   }
+               });
+           });
+       });
+
+ -->
 </html>
+
 

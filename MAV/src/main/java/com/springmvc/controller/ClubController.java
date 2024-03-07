@@ -131,7 +131,11 @@ public class ClubController
 
 		System.out.println("post 에서 클럽세션에 담은 이름 : "+club.getClubName());
 		System.out.println("post 에서 멤버세션에 담은 아이디 : "+member.getMemberId());
+<<<<<<< HEAD
 		System.out.println("post 에서 클럽에 담긴 이미지 이름 : "+club.getImageFileName());
+=======
+		
+>>>>>>> origin/KTY
 		return "redirect:/member/mypage";
 	}
 	
@@ -156,7 +160,11 @@ public class ClubController
         System.out.println("현재 로그인한 아이디 : "+memberSession.getMemberId());
         System.out.println("현재 조회중인 동호회장 아이디 : "+club.getClubMaster());
         
+<<<<<<< HEAD
         return "clubinfo"; // 클럽 정보를 보여주는 뷰 페이지로 이동
+=======
+        return "clubpage"; // 클럽 정보를 보여주는 뷰 페이지로 이동
+>>>>>>> origin/KTY
 	}
 	
 	@GetMapping("/list")
@@ -186,6 +194,7 @@ public class ClubController
 	    HttpSession session = request.getSession();
 	    Member member = (Member) session.getAttribute("member");
 	    
+<<<<<<< HEAD
 	    String save = request.getSession().getServletContext().getRealPath("/resources/images");
 		MultipartFile clubImages = club.getClubImages();		
 		System.out.println("post에서 받아온 클럽이미지 : "+club.getClubImages());
@@ -209,13 +218,19 @@ public class ClubController
 			}
 		}
 	    
+=======
+>>>>>>> origin/KTY
 	    System.out.println("POST member에 담긴 아이디 : " + member.getMemberName());
 	    System.out.println("POST member에 담긴 클럽명 : " + club.getClubName());
 	    
 	    clubService.updateClub(club, member);
 	    
+<<<<<<< HEAD
 	    
 	    return "redirect:/member/mypage";
+=======
+	    return "clubpage";
+>>>>>>> origin/KTY
 	}
 
 	@GetMapping("/delete")
@@ -281,6 +296,7 @@ public class ClubController
 		
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("/clubsetting")
 	public String clubsetting(@RequestParam("clubName")String clubName,HttpServletRequest request, Model model)
 	{
@@ -302,4 +318,7 @@ public class ClubController
         
         return "clubsetting"; // 클럽 정보를 보여주는 뷰 페이지로 이동		
 	}
+=======
+	
+>>>>>>> origin/KTY
 }

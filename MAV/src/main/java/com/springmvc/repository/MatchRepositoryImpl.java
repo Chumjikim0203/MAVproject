@@ -41,12 +41,12 @@ public class MatchRepositoryImpl implements MatchRepository {
        int roomNum = match.getRoomNum();
        System.out.println(roomNum + ": roomNum");
        room.setRoomNum(roomNum);
-       room.setMatched(true); // isMatched 값 true
+       room.setMatched(1); // matched 값 1
 
 
-       String sqlUpdate = "UPDATE Room SET isMatched = ? WHERE roomNum = ?";
+       String sqlUpdate = "UPDATE Room SET matched = ? WHERE roomNum = ?";
 
-       jdbcTemplate.update(sqlUpdate,room.isMatched(),room.getRoomNum());
+       jdbcTemplate.update(sqlUpdate,room.getMatched(),room.getRoomNum());
        
        String sql = "INSERT INTO Matching (matchNum, matchTitle, roomNum, creatorId, matchStatus, matchResult) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -64,20 +64,20 @@ public class MatchRepositoryImpl implements MatchRepository {
    // 매칭룸 전체 보여주기
    @Override
    public List<MatchRoom> findAllMatchRooms(MatchRoom matchroom) {
-	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.creatorId, m.applicantId,m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime FROM Matching m JOIN Room r ON m.roomNum = r.roomNum";
+	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.creatorId, m.applicantId,m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime, r.matched FROM Matching m JOIN Room r ON m.roomNum = r.roomNum";
 	    return jdbcTemplate.query(sql, new MatchRoomRowMapper());
 	}
 
    //매칭룸 아이디별 보여주기
    @Override
    public List<MatchRoom> getMatchRoomsByStoreId(String storeId) {
-	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.creatorId, m.applicantId,m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime FROM Matching m JOIN Room r ON m.roomNum = r.roomNum";
+	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.creatorId, m.applicantId,m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime, r.matched FROM Matching m JOIN Room r ON m.roomNum = r.roomNum";
 	    return jdbcTemplate.query(sql, new MatchRoomRowMapper());
    }
    
    //룸넘버에따른 정보가지고 오기
    public MatchRoom getMatchByRoomNum(int roomNum) {
-	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.creatorId, m.applicantId, m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime FROM Matching m JOIN Room r ON m.roomNum = r.roomNum WHERE r.roomNum = ?";
+	    String sql = "SELECT m.matchNum, m.matchTitle, r.roomNum, m.creatorId, m.applicantId, m.matchStatus, m.matchResult, r.storeId, r.roomName, r.roomCapacity, r.roomCount, r.roomCategory, r.roomDetail, r.roomDate, r.roomTime, r.matched FROM Matching m JOIN Room r ON m.roomNum = r.roomNum WHERE r.roomNum = ?";
 	    
 	    List<MatchRoom> matchRooms = jdbcTemplate.query(sql, new Object[]{roomNum}, new MatchRoomRowMapper());
 

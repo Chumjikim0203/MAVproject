@@ -8,7 +8,11 @@ public class ClubMember
 	private boolean clubApprove;
 	
 	public ClubMember(){};
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> origin/KTY
 	public String getClubName() {
 		return clubName;
 	}

@@ -9,17 +9,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세 페이지</title>
+    <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
+    
+ 		body{
+            width: 80vw;  
+            margin: 0 auto;
+        }	   
+    
         .carousel-inner img {
             width: 100%;
             height: 65vh;
             object-fit: cover;
         }
-        .container {
-            width: 80%;  
-            margin: 0 auto;
-        }
+
         .detail-box {
             padding: 1rem;
             margin-bottom: 2rem;
@@ -44,7 +48,7 @@
             display: flex;
 
         }
-
+			
         .additional-info-box {
             padding: 1rem;
             margin-bottom: 2rem;
@@ -52,12 +56,17 @@
             border-radius: 10px;
             background-color: white;
         }
+        
+        .tiny{
+        font-size: xx-small;
+        }
+        
+
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light container">
-        <a class="navbar-brand" href="#">Logo</a>
-    </nav>
+<jsp:include page="./section/nav.jsp" />
+
 
     <div id="carouselExampleIndicators" class="carousel slide container" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -93,17 +102,24 @@
                    <pre>${detailroom.roomDetail}</pre>
                 </div>
             </div>
-            <div class="detail-right">
-                <div class="detail-box"style="height: 20rem;">
+            <div class="detail-right" style="position: relative;">
+                <div class="detail-box"style="height: 25rem;">
                     <h4>${detailroom.roomDate}&nbsp;${detailroom.roomTime}</h4>
-                    <br><br><br><br>
+                    <br>
 					<form:form modelAttribute="matchForm" action="${pageContext.request.contextPath}/match/roomsDetail" method="post">
 					    <div id="matching_bt">
-					        <form:input path="matchTitle" class="form-control"  />
-					        <form:hidden path="roomNum" value="${detailroom.roomNum}" />
-					         <form:hidden path="roomNum" value="${detailroom.roomNum}" />
+					        <span>방제 :</span><br>
+					        <form:input path="matchTitle" class="form-control"   />
+					        <form:hidden path="roomNum" value="${detailroom.roomNum}" />					       
 					        <!-- 추가적인 데이터 필드들을 여기에 추가 -->
-					        <button type="submit" class="btn btn-primary mt-2">매칭 만들기</button>
+					                <br><label for="clubSelect">동호회 :</label><br>
+							        <select name="selectedClub" id="clubSelect" class="form-control form-select">
+							            <c:forEach var="club" items="${memberClubs}">
+							                <option value="${club.clubName}">${club.clubName}</option>
+							            </c:forEach>
+							        </select><br>
+					        <button type="submit" class="btn btn-primary mt-2 float-right" style="position: absolute; right: 20px; "  >매칭 만들기</button><br><br>
+					        <p class= "tiny text-secondary"><i class="fa-solid fa-triangle-exclamation"></i> 경기는 동호회장만 만들 수 있습니다.
 					    </div>
 					</form:form>
 

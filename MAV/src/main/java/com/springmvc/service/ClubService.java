@@ -10,7 +10,10 @@ public interface ClubService
 {
 
 	void addNewClub(Club club,Member member);
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/KTY
 	void joinClub(Club club, ClubMember clubmember, Member member);
 	Club getByClubName(String clubName);
 	List<Club> getAllClubList();
@@ -25,5 +28,15 @@ public interface ClubService
 	void ejectionMember(String ClubName, String c_memberId);
 	void memberUpdate(ClubMember clubmember);
 	ClubMember serchingC_member(String c_memberId, String clubName);
+<<<<<<< HEAD
 
+=======
+	
+	
+	//내가 동호회장인 클럽정보
+	List<Club> getMyMasterClub(String c_memberId);
+	
+	// 클럽포인트 업데이트
+	void updateClubPoint(String ClubName, int clubPoint);
+>>>>>>> origin/KTY
 }

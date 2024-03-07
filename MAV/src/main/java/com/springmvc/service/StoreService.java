@@ -11,9 +11,11 @@ public interface StoreService {
 	void deleteRoom(int roomNum);
 	Room getByroomNumAllRooms(int roomNum);
 	void updateRoom(Room updateRoom);
-	void CreateStore(Store store);
 	Store getStoreById(String storeId);
 	List<Room> getRoomsByStoreId(String storeId);
+	void CreateStore(Store store);
+	void updateMatchedValue(int roomNum, int matchedValue);
+
 
 }
 //List<Room> getAllRoomsByStoreId(String storeId);

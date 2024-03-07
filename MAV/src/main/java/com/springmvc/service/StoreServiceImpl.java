@@ -13,7 +13,9 @@ import com.springmvc.repository.StoreRepository;
 public class StoreServiceImpl implements StoreService{
     @Autowired
     private StoreRepository storeRepository;
-
+    
+    
+   
     @Override
     public void createRoom(Room room) {
         storeRepository.createRoom(room);
@@ -41,15 +43,10 @@ public class StoreServiceImpl implements StoreService{
 		storeRepository.updateRoom(updateRoom);
 		
 	}
-	@Override
-	public void CreateStore(Store store) {
-		storeRepository.CreateStore(store);
-		
-	}
+	
 	//스토어 아이디 가지고 오기
 	@Override
-	public Store getStoreById(String storeId) 
-	{
+	public Store getStoreById(String storeId) {
 		// TODO Auto-generated method stub
 		return storeRepository.getStoreById(storeId);
 	}
@@ -57,11 +54,16 @@ public class StoreServiceImpl implements StoreService{
 	public List<Room> getRoomsByStoreId(String storeId) {
 		return storeRepository.getRoomsByStoreId(storeId);
 	}
+	
+	@Override
+	public void CreateStore(Store store) {
+	   storeRepository.CreateStore(store);
+	      
+	}
+	@Override
+	public void updateMatchedValue(int roomNum, int matchedValue) {
+		storeRepository.updateMatchedValue(roomNum, matchedValue);	
+	}
+
 }
 
-
-//대경이행님이 로긴 만들면 값 가지고 와서 store들어가자 마자 뿌리기
-//@Override
-//public List<Room> getAllRoomsByStoreId(String storeId) {
-//  return storeRepository.getAllRoomsByStoreId(storeId);
-//}

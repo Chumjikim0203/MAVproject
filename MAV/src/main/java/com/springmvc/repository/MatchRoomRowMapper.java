@@ -18,9 +18,13 @@ public class MatchRoomRowMapper implements RowMapper<MatchRoom> {
 	public MatchRoom mapRow(ResultSet rs, int rowNum) throws SQLException{
 		
 		
+
+		
         MatchRoom matchRoom = new MatchRoom();
         matchRoom.setMatchNum(rs.getInt("matchNum"));
         matchRoom.setMatchTitle(rs.getString("matchTitle"));
+		matchRoom.setCreatorId(rs.getString("creatorId"));
+		matchRoom.setApplicantId(rs.getString("applicantId"));
         matchRoom.setRoomNum(rs.getInt("roomNum"));
         matchRoom.setMatchStatus(rs.getString("matchStatus"));
         matchRoom.setMatchResult(rs.getString("matchResult"));
@@ -30,16 +34,13 @@ public class MatchRoomRowMapper implements RowMapper<MatchRoom> {
         matchRoom.setRoomCount(rs.getInt("roomCount"));
         matchRoom.setRoomCategory(rs.getString("roomCategory"));
         matchRoom.setRoomDetail(rs.getString("roomDetail"));
-
-        // 날짜와 시간 필드는 적절하게 변환해야 합니다.
+        matchRoom.setMatched(rs.getInt("matched"));
+        
         matchRoom.setRoomDate(rs.getDate("roomDate").toLocalDate());
         matchRoom.setRoomTime(rs.getTime("roomTime").toLocalTime());
 
         return matchRoom;
 
 	}
-	
-	
-
 
 }

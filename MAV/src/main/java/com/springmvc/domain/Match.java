@@ -8,35 +8,48 @@ public class Match
     private String creatorId;
     private String applicantId;
     private String matchStatus; // 매칭 상태
-    
     private Room room;
+    private String matchResult; // 매칭 결과
     
-    public String getCreatorId() {
-      return creatorId;
-   }
+    
+    //디비연결 x    
+    private String selectedClub;
 
-   public void setCreatorId(String creatorId) {
-      this.creatorId = creatorId;
-   }
+    
+    public String getSelectedClub() {
+		return selectedClub;
+	}
 
-   public String getApplicantId() {
-      return applicantId;
-   }
+	public void setSelectedClub(String selectedClub) {
+		this.selectedClub = selectedClub;
+	}
 
-   public void setApplicantId(String applicantId) {
-      this.applicantId = applicantId;
-   }
+	public String getCreatorId() {
+		return creatorId;
+	}
 
-   private String matchResult; // 매칭 결과
+	public void setCreatorId(String creatorId) {
+		this.creatorId = creatorId;
+	}
+
+	public String getApplicantId() {
+		return applicantId;
+	}
+
+	public void setApplicantId(String applicantId) {
+		this.applicantId = applicantId;
+	}
+
+	
         
     public String getMatchTitle() {
-      return matchTitle;
-   }
+		return matchTitle;
+	}
 
-   public void setMatchTitle(String matchTitle) {
-      this.matchTitle = matchTitle;
-   }
-   
+	public void setMatchTitle(String matchTitle) {
+		this.matchTitle = matchTitle;
+	}
+	
    public int getMatchNum() {
       return matchNum;
    }

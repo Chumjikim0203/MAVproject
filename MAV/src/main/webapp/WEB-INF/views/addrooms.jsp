@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.time.LocalDate" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -17,7 +19,7 @@
 
     <style>
         .container {
-            width: 70%;
+            width: 80vw;
             margin: 0 auto;
         }
 
@@ -71,7 +73,7 @@
                 <h4 class="mb-3">경기장 등록</h4>
                 
                 <form:form modelAttribute="newrooms" class="validation-form" method="post"
-                    action="${pageContext.request.contextPath}/store/addrooms" onsubmit="return validateForm()">
+                    action="${pageContext.request.contextPath}/room/addrooms" onsubmit="return validateForm()">
               <label for="">구장이름</label>
               <form:input  path="roomName" name="roomName" class="form-control" />
               <div class="invalid-feedback" id="roomCountFeedback">
@@ -81,7 +83,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
               <label for="">경기날짜</label>
-              <form:input path="roomDate" name="roomDate" class="form-control" />
+                <form:input type="date" path="roomDate" name="roomDate" class="form-control" min="<%= LocalDate.now() %>" />
               <div class="invalid-feedback" id="roomDateFeedback">
                 경기날짜를 입력해주세요.
               </div>
@@ -89,7 +91,7 @@
 
             <div class="col-md-6 mb-3">
               <label for="" class="form-label">경기시간</label>
-              <form:input path="roomTime" name="roomTime" class="form-control" />
+              <form:input type="time" path="roomTime" name="roomTime" class="form-control" />
               <div class="invalid-feedback" id="roomTimeFeedback">
                 경기시간을 입력해주세요.
               </div>

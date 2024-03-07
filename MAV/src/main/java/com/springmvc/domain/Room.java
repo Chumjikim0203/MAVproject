@@ -11,25 +11,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Room 
 {
 	private int roomNum; // 경기장 번호    
-    
-
-    private String roomId; // 경기장 ID
-
-    @NotNull(message = "경기장 이름을 입력해주세요")
-    @Size(max = 20, message = "경기장 이름은 최대 20자까지 입력 가능합니다")
+    private String storeId; // 상점 ID
     private String roomName; // 경기장 이름
-
-
-    @NotNull(message = "경기장 수용인원을 입력해주세요")
-    private int roomCapacity; // 경기장 수용인원
-
-    @NotNull(message = "경기장 참가인원을 입력해주세요")
+    private int roomCapacity; // 경기장 수용인원   
     private int roomCount; // 경기장 참가인원
-
-    @NotNull(message = "경기 종류(종목)를 입력해주세요")
-    @Size(max = 10, message = "경기 종류(종목)는 최대 10자까지 입력 가능합니다")
     private String roomCategory; // 경기 종류(종목)
-
     private String roomDetail; // 경기장 소개글
 
     @NotNull(message = "경기 날짜를 입력해주세요")
@@ -40,24 +26,24 @@ public class Room
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime roomTime; // 경기 시간
     
-    private String storeId; // 상점 ID
    
-    private boolean isMatched;
+    private int matched;
     
-   public boolean isMatched() {
-		return isMatched;
+
+	public int getMatched() {
+		return matched;
 	}
 
 
-	public void setMatched(boolean isMatched) {
-		this.isMatched = isMatched;
+	public void setMatched(int matched) {
+		this.matched = matched;
 	}
 
 
 	public Room() {
 
       this.roomCapacity = 1;
-      this.isMatched = false;
+      this.matched = 0;
 	}
 
    
@@ -75,14 +61,6 @@ public class Room
 
    public void setRoomNum(int roomNum) {
       this.roomNum = roomNum;
-   }
-
-   public String getRoomId() {
-      return roomId;
-   }
-
-   public void setRoomId(String roomId) {
-      this.roomId = roomId;
    }
 
    public String getRoomName() {
@@ -142,3 +120,4 @@ public class Room
    }
    
 } 
+

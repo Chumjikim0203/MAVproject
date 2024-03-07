@@ -113,4 +113,20 @@ public class ClubServiceImpl implements ClubService
 		ClubMember clubmember = clubRepository.serchingC_member(c_memberId, clubName);
 		return clubmember;
 	}
+<<<<<<< HEAD
+=======
+
+	@Override
+	public List<Club> getMyMasterClub(String c_memberId) {
+		// TODO Auto-generated method stub
+		return clubRepository.getMyMasterClub(c_memberId);
+	}
+	
+	//클럽포인트 업데이트
+	@Override
+	public void updateClubPoint(String ClubName, int clubPoint) {
+		 clubRepository.updateClubPoint(ClubName,clubPoint);		
+	}
+		
+>>>>>>> origin/KTY
 }

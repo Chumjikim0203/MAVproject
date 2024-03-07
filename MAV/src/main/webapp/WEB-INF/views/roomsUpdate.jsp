@@ -70,7 +70,7 @@
 	        <div class="input-form col-md-12 mx-auto">
 	            <h4 class="mb-3">경기장 수정</h4>
 	            <form:form modelAttribute="updateRooms" class="validation-form" method="post"
-	                action="${pageContext.request.contextPath}/store/roomsChange" onsubmit="return validateForm()">
+	                action="${pageContext.request.contextPath}/room/roomsChange" onsubmit="return validateForm()">
 	                <!-- CSRF 토큰 추가 -->
 	                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	                

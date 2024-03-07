@@ -13,10 +13,11 @@ public interface StoreRepository {
 	Room  getByroomNumAllRooms(int roomNum);
 	void updateRoom(Room updateRoom);
 	Room getByRoomNum(int roomNum);
-	void CreateStore(Store store);
 	Store getStoreById(String storeId);
 	List<Room> getRoomsByStoreId(String storeId);
-	
+	void CreateStore(Store store);
+	void updateMatchedValue(int roomNum, int matchedValue);
+
 }
 
 

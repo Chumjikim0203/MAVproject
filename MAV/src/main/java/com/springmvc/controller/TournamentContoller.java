@@ -1,5 +1,7 @@
 package com.springmvc.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.springmvc.domain.MatchRoom;
+import com.springmvc.domain.Member;
+import com.springmvc.domain.Room;
 import com.springmvc.domain.Store;
 import com.springmvc.domain.Tournament;
 import com.springmvc.service.TournamentService;
@@ -72,5 +77,24 @@ public class TournamentContoller {
 		tournamentService.deleteTournament(tournamentNum);
 		return "redirect:/store";
 	}
+	
+	//ajax 연결부
+    @GetMapping("/tournamentManagement")
+    public String tournamentManagement(HttpServletRequest request, Model model, MatchRoom matchRoom, Room room) {
+    	
+		HttpSession session = request.getSession(); 
+		Member member = (Member)session.getAttribute("member"); 
+		Store store = (Store) session.getAttribute("store");
+		System.out.println(store.getStoreId() + ": 이 부분 확인");
+		System.out.println("Store 정보: " + store.getStoreId() + ", " +store.getStoreName());
+		
+        // 입력한 방 모두의 정보를 가지고오는 로직
+		String storeId = store.getStoreId();
+        model.addAttribute("member",member);
+		
+    	List<Tournament> newtournament = tournamentService.getTournamentByStoreId(storeId);
+    	model.addAttribute("newtournament",newtournament);
+        
+        return "sectionTManagement";
+    }
 }
-

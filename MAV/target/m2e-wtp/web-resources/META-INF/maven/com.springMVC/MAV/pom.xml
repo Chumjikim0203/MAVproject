@@ -172,7 +172,7 @@
 		  <version>2.5.1.RELEASE</version>
 	  </dependency>
 	  <!-- Tiles -->
-	  	  <dependency>
+	 <dependency>
 		  <groupId>org.apache.tiles</groupId>
 		  <artifactId>tiles-servlet</artifactId>
 		  <version>3.0.8</version>
@@ -224,6 +224,7 @@
         <artifactId>mysql-connector-java</artifactId>
         <version>8.0.24</version>
     </dependency>
+
    </dependencies>
     <build>
         <plugins>

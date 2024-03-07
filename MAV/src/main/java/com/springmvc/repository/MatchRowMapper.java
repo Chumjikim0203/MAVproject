@@ -21,12 +21,14 @@ public class MatchRowMapper implements RowMapper<Match> {
 	    match.setMatchStatus(rs.getString("matchStatus"));
 	    match.setMatchResult(rs.getString("matchResult"));
 
-	    boolean isMatched = rs.getBoolean("isMatched");
-	    room.setMatched(isMatched);
+        room.setMatched(rs.getInt("matched"));
+
 
 	    match.setRoom(room);
 
 	    return match;
 	}
 
+
 }
+

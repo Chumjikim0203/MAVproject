@@ -272,7 +272,10 @@
 		<a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">삭제하기</a>
 		<a href="<c:url value='../store/add'/>?memberId=${member.memberId}">업체신청</a>
 		<a href="<c:url value='../teacher/add'/>?memberId=${member.memberId}">강사신청</a>		
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/KTY
 	    <div class = "col-7 ">
               <div class="room-title">내 클럽 리스트</div>
                <c:forEach items="${club}" var="club">

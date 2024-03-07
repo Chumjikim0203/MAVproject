@@ -36,6 +36,7 @@ import com.springmvc.service.MemberService;
 @RequestMapping("/member")
 public class MemberController 
 {
+<<<<<<< HEAD
 	@Autowired
 	private MemberService memberService;
 	@Autowired
@@ -69,6 +70,41 @@ public class MemberController
 		memberRepository.setNewMember(member);
 		return "redirect:/";
 	}
+=======
+   @Autowired
+   private MemberService memberService;
+   @Autowired
+   private MemberRepository memberRepository;
+   @Autowired
+   private ClubService clubService;
+   
+   @InitBinder
+   public void initBinder(WebDataBinder binder) 
+   {
+       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+       binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+   }
+   
+   @GetMapping("/add/member")
+   public String addMember(Model model)
+   {
+      System.out.println("회원가입 페이지 도착");
+      model.addAttribute("member", new Member());
+      return "addMember";
+   }
+   
+   @PostMapping("/add/member")
+   public String addDone(@ModelAttribute Member member, BindingResult bindingResult, Model model)
+   {      
+      if(bindingResult.hasErrors())
+      {
+         return "addMember";
+      }
+      model.addAttribute("member", member);
+      memberRepository.setNewMember(member);
+      return "redirect:/";
+   }
+>>>>>>> origin/KTY
 
     @ModelAttribute("genderOptions")
     public Map<String, String> getGenderOptions() 
@@ -91,9 +127,15 @@ public class MemberController
     @GetMapping("/test")
     public String testingPage(Member member,Model model)
     {
+<<<<<<< HEAD
     	List<Member> getAllmemberlist = memberService.getAllMemberList();
     	model.addAttribute("member", getAllmemberlist);
     	return "testmember";
+=======
+       List<Member> getAllmemberlist = memberService.getAllMemberList();
+       model.addAttribute("member", getAllmemberlist);
+       return "testmember";
+>>>>>>> origin/KTY
     }
     @GetMapping("/mypage")
     public String memberMyPage(HttpServletRequest request, Model model) {
@@ -110,6 +152,7 @@ public class MemberController
 
     @GetMapping("/update/member")
     public String updateMember(@RequestParam String memberId, Model model)
+<<<<<<< HEAD
     {    	
     	System.out.println("업데이트 페이지 도착");
     	Member member = memberService.getById(memberId);
@@ -118,22 +161,40 @@ public class MemberController
     	model.addAttribute("member", member);
     	
     	return "updateMember";
+=======
+    {       
+       System.out.println("업데이트 페이지 도착");
+       Member member = memberService.getById(memberId);
+       
+       System.out.println("memberById에 getById 결과 대입함");
+       model.addAttribute("member", member);
+       
+       return "updateMember";
+>>>>>>> origin/KTY
     }
     @PostMapping("/update/member")
     public String updateDone(@ModelAttribute("member") Member member, HttpServletRequest request)
     {
+<<<<<<< HEAD
     	memberService.updateMember(member);
     	HttpSession session = request.getSession();
     	session.setAttribute("member", member);
     	
     	return "redirect:/member/mypage";
+=======
+       memberService.updateMember(member);
+       HttpSession session = request.getSession();
+       session.setAttribute("member", member);
+       
+       return "redirect:/member/mypage";
+>>>>>>> origin/KTY
     }
     @RequestMapping(value="/delete/member")
     public String deleteMember(@RequestParam String memberId)
     {
-    	System.out.println("delete 라인 도착");
-    	System.out.println("삭제할 ID : " +memberId);    	
-    	memberService.deleteMember(memberId);
-    	return "redirect:/member/mypage";
+       System.out.println("delete 라인 도착");
+       System.out.println("삭제할 ID : " +memberId);       
+       memberService.deleteMember(memberId);
+       return "redirect:/member/mypage";
     }
 }
