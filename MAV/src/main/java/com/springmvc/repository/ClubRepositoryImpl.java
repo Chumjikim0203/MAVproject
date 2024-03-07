@@ -84,27 +84,16 @@ public class ClubRepositoryImpl implements ClubRepository
 	public void updateClub(Club club,Member member) 
 	{
 		System.out.println("수정 처리할 클럽ID : "+club.getClubName());
-<<<<<<< HEAD
 		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=?, imageFileName=?  where clubNum=? and clubMaster=?";
 		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
 						club.getClubInfo(),club.getImageFileName(), club.getClubNum(), member.getMemberId());
-=======
-		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=? where clubNum=? and clubMaster=?";
-		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
-						club.getClubInfo(), club.getClubNum(), member.getMemberId());
->>>>>>> origin/KTY
 	}
 
 	@Override
 	public void deleteClub(String clubName,String c_memberId) 
 	{
-<<<<<<< HEAD
 		String SQL1 = "delete from clubMember where clubName=?";
 		this.template.update(SQL1,clubName);
-=======
-		String SQL1 = "delete from clubMember where clubName=? and c_memberId=?";
-		this.template.update(SQL1,clubName,c_memberId);
->>>>>>> origin/KTY
 		String SQL = "delete from club where clubName=? and clubMaster=?";
 		this.template.update(SQL, clubName,c_memberId);
 	}
@@ -226,9 +215,6 @@ public class ClubRepositoryImpl implements ClubRepository
 		ClubMember clubmember = (ClubMember) template.queryForObject(SQL, new Object[] {c_memberId, clubName}, new ClubMemberRowMapper());
 		return clubmember;
 	}
-<<<<<<< HEAD
-=======
-
 	//내가 동호회장인 클럽정보
 	@Override
 	public List<Club> getMyMasterClub(String c_memberId) {
@@ -253,9 +239,5 @@ public class ClubRepositoryImpl implements ClubRepository
         template.update(sql, clubPoint, ClubName);
 		
 	}
->>>>>>> origin/KTY
-	
 
-
-	
 }

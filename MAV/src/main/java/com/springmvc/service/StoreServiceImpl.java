@@ -34,32 +34,6 @@ public class StoreServiceImpl implements StoreService{
       return storeRepository.getAllRooms(room);
    }
 
-   @Override
-   public void deleteRoom(int roomNum) {
-      storeRepository.deleteRoom(roomNum);
-   }
-   @Override
-   public void updateRoom(Room updateRoom) {
-      storeRepository.updateRoom(updateRoom);
-      
-   }
-   
-   //스토어 아이디 가지고 오기
-   @Override
-   public Store getStoreById(String storeId) {
-      // TODO Auto-generated method stub
-      return storeRepository.getStoreById(storeId);
-   }
-   @Override
-   public List<Room> getRoomsByStoreId(String storeId) {
-      return storeRepository.getRoomsByStoreId(storeId);
-   }
-   
-   @Override
-   public void CreateStore(Store store) {
-      storeRepository.CreateStore(store);
-         
-   }
 	@Override
 	public void UpdateStore(Store store) {
 		// TODO Auto-generated method stub
@@ -71,7 +45,6 @@ public class StoreServiceImpl implements StoreService{
 		storeRepository.DeleteStore(storeId);
 	}
 
-<<<<<<< HEAD
 	@Override
 	public void deleteRoom(int roomNum) {
 		storeRepository.deleteRoom(roomNum);
@@ -103,7 +76,5 @@ public class StoreServiceImpl implements StoreService{
 		storeRepository.updateMatchedValue(roomNum, matchedValue);	
 	}
 
-=======
->>>>>>> origin/PMS
 }
 

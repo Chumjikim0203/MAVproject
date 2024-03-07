@@ -44,10 +44,6 @@ public class Club
 	public void setClubCategory(String clubCategory) {
 		this.clubCategory = clubCategory;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/KTY
 	public String getClubInfo() {
 		return clubInfo;
 	}

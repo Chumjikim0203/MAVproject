@@ -113,8 +113,6 @@ public class ClubServiceImpl implements ClubService
 		ClubMember clubmember = clubRepository.serchingC_member(c_memberId, clubName);
 		return clubmember;
 	}
-<<<<<<< HEAD
-=======
 
 	@Override
 	public List<Club> getMyMasterClub(String c_memberId) {
@@ -127,6 +125,5 @@ public class ClubServiceImpl implements ClubService
 	public void updateClubPoint(String ClubName, int clubPoint) {
 		 clubRepository.updateClubPoint(ClubName,clubPoint);		
 	}
-		
->>>>>>> origin/KTY
+
 }
