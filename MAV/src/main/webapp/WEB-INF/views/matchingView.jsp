@@ -63,55 +63,6 @@
         </div>
       </div>
     </nav>
-<<<<<<< HEAD
-	 <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
-	    <div class="col-md-6 px-0">
-	      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
-	      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
-	      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
-	    </div>
-	 </div>
-
-  		
-       <!-- 매칭룸 -->
-     <div class="my-3 p-3 bg-body rounded shadow">
-        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">날짜마다</h6>
-        
-	        
-		<c:forEach items="${matchView}" var="matchView"> 
-		    <c:choose>
-		        <c:when test="${matchView.matched eq 1}">
-		        	<!-- matched가 1인 경우 -->		        
-		            <div class="d-flex text-body-secondary pt-3">
-		                <img style="border-radius: 4px; border: 0.5px solid lightgray;" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_Pk...\"" alt="" width="100" height="100">
-		                &nbsp;&nbsp;&nbsp;
-		                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-		                    <div class="d-flex justify-content-between">
-		                        <strong class="text-gray-dark"><h5><b>${matchView.matchTitle}</b></h5></strong>
-		                        <c:set var="buttonClass" value="btn btn-danger" />
-		                        <c:set var="buttonText" value="매칭 신청하기" />
-		                        
-		                        <!-- matched가 2인 경우 -->
-		                        <c:if test="${matchView.matched eq 2}">
-		                            <c:set var="buttonClass" value="btn btn-warning" />
-		                            <c:set var="buttonText" value="매칭 완료" />
-		                        </c:if>
-		                        
-		                        <a href="<c:url value='/match/matchingDetail'/>?roomNum=${matchView.roomNum}" class="${buttonClass}">${buttonText}</a>                
-		                    </div>
-		                    <b>
-		                        <span class="d-block">${matchView.roomDate}</span>
-		                        <span class="d-block">${matchView.roomTime}</span>
-		                    </b>
-		                </div>
-		            </div>
-		        </c:when>
-		        <c:when test="${matchView.matched eq 3}">
-		            <!-- 내용이 없으므로 아무것도 출력하지 않음 -->
-		        </c:when>
-		    </c:choose>
-		</c:forEach>        
-=======
     <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
        <div class="col-md-6 px-0">
          <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
@@ -140,8 +91,6 @@
              </div>
            </div>
         </c:forEach>  
-      
->>>>>>> origin/PMS
       </div> 
       <footer class="footer spad">
         <div class="container">
