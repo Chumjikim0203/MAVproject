@@ -15,10 +15,12 @@
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
         rel='stylesheet' type='text/css'>
 
-<style>
-    * {
-        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    }
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * 
+        {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
 
     .notice {
         padding-top: 3rem;

@@ -13,7 +13,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    
    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        * 
+        {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
         body {
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #f8f9fa;

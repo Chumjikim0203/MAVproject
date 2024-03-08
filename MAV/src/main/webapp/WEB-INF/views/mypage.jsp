@@ -5,9 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
- body {
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * 
+        {
             font-family: 'Noto Sans KR', sans-serif;
+        }
+ 		body 
+ 		{
             background-color: #f8f9fa;
             color: #212529;
         }
