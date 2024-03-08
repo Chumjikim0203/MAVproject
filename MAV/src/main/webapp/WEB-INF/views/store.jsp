@@ -253,13 +253,8 @@
 	</script>
 
 </head>
-<jsp:include page="./section/nav.jsp" />
 <body>
-	<ul class="navbar-nav center">
-      <li>
-         <h5><b>${member.memberName}</b> 업주님 환영합니다!</h5>
-      </li>
-   </ul>	
+	<jsp:include page="./section/nav.jsp" />	
     <div class="main">
         <div class="col-4">
             <div class="card" style="width: 100%;">

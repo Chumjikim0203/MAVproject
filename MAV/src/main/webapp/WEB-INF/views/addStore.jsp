@@ -29,56 +29,18 @@
 	System.out.println("store:"+memberId);
 %>	
     <div class="main-container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">MAV</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">동호회</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      매칭
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="../login">로그인</a>
-                  </li>
-                   <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="../add/member">회원가입</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">search</button>
-                </form>
-              </div>
-            </div>
-        </nav>
+    	<jsp:include page="./section/nav.jsp"/>        
         <div class="container">
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3">업체등록</h4>
-                    <form:form modelAttribute="addStore" class="form-horizontal" action="add" method="post">
+                    <form:form modelAttribute="store" class="form-horizontal" action="add" method="post">
 						<fieldset>
 					 	<div class="row">
 	                      	<div class="col-md-6 mb-3">
 	                       		<label for="storeName">업체명</label>
 	                         	<form:input path="storeName" class="form-control" />
-	                         	<form:hidden class="form-control" path="storeId" value="<%=memberId%>"/>                          
+	                         	<form:hidden class="form-control" path="storeId" value="${member.memberId}"/>                          
 	                       	</div>
                             <div class="invalid-feedback">
                                 업체명을 입력해주세요.

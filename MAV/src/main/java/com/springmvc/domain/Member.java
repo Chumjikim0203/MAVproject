@@ -23,6 +23,7 @@ public class Member
 	private String memberPhone03; // 멤버 핸드폰 세번째
 	private String memberGender; // 멤버 성별
 	private String memberEmail; // 멤버 이메일
+	private boolean adminApprove;
 
 	
 	public Member()
@@ -99,6 +100,12 @@ public class Member
 	}
 	public void setMemberEmail(String memberEmail) {
 		this.memberEmail = memberEmail;
+	}
+	public boolean isAdminApprove() {
+		return adminApprove;
+	}
+	public void setAdminApprove(boolean adminApprove) {
+		this.adminApprove = adminApprove;
 	}
 	
 	

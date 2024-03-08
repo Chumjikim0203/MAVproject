@@ -180,12 +180,8 @@
 	String memberId = request.getParameter("memberId");
 	System.out.println("teacher:"+memberId);
 %>
-		<ul class="navbar-nav center">
-            	<li>
-            		<h5><b>${member.memberName}</b> 강사님 환영합니다!</h5>
-            	</li>
-            </ul>	
     <div class="main">
+    <jsp:include page="./section/nav.jsp" />
         <div class="col-4">
             <div class="card" style="width: 100%;">
                 <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>

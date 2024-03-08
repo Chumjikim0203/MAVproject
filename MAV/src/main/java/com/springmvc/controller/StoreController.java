@@ -142,28 +142,38 @@ public class StoreController {
     */
 
     @GetMapping("/add")
-    public String createStore(@ModelAttribute("addStore") Store store,Model model,HttpServletRequest request)
+    public String createStore(Model model,HttpServletRequest request)
     {
     	
        HttpSession sessionId=request.getSession();
        Member member=(Member)sessionId.getAttribute("member");
+       Store store = (Store)sessionId.getAttribute("store");
+       if(store==null)
+       {
+    	   store = new Store();
+       }
        System.out.println("member:"+member.getMemberId());
+       model.addAttribute("store",store);
        model.addAttribute("member",member);
-       sessionId.setAttribute("member", member);
-
-
+       
+       System.out.println("현재 업체 등록시도중인 memberId : "+ member.getMemberId());
+       System.out.println("현재 업체 등록시도중인 storeId : "+store.getStoreId());
        
        return "addStore";
     }
 
     @PostMapping("/add")
-    public String returnStore(@ModelAttribute("addStore") Store store,Model model,HttpServletRequest request) {
-    	System.out.println("포스트store:"+store.getStoreName());
-      HttpSession sessionId=request.getSession();
-      Member member=(Member)sessionId.getAttribute("member");
-      model.addAttribute("member",member);
+    public String returnStore(@ModelAttribute ("store") Store store,@ModelAttribute ("member") Member member, Model model,HttpServletRequest request) {
+      HttpSession session = request.getSession();
+    	
       storeService.CreateStore(store);
-      model.addAttribute("addstore",store);
+      model.addAttribute("store",store);
+      model.addAttribute("member", member);
+      
+      session.setAttribute("store", store);
+      session.setAttribute("member", member);
+      System.out.println("현재 업체 등록시도중인 memberId : "+ member.getMemberId());
+      System.out.println("현재 업체 등록시도중인 storeId : "+store.getStoreId());
       return "redirect:/store";
     }
 

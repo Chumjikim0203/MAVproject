@@ -74,6 +74,7 @@
 <body>
     <br><br><br>
     <div class="container">
+    <jsp:include page="./section/nav.jsp" />
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
                 <h4 class="mb-3">토너먼트 등록</h4>

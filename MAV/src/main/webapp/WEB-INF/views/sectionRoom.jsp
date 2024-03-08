@@ -11,7 +11,6 @@
 <body>
 	   <!-- 경기장 관리 부분 -->
 	   <div>
-	   
 	 <div class="room-title">경기장관리</div>
 	  <c:forEach items="${myRooms}" var="room">
 	      <c:choose>

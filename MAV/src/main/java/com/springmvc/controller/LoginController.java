@@ -68,7 +68,7 @@ public class LoginController
 	               // 스토어 정보가 있는 경우 세션에 저장
 	               session.setAttribute("store", store);
 	           }
-
+	       System.out.println("로그인한 사람의 관리자승인 : "+member.isAdminApprove());
 	           return "redirect:/"; // 로그인 성공 시 대시보드 페이지로 이동
 	       } else {
 	           return "redirect:/login?error=true"; // 로그인 실패 시 로그인 페이지로 이동

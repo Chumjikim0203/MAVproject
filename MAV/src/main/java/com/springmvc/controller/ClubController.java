@@ -132,6 +132,7 @@ public class ClubController
 		System.out.println("post 에서 클럽세션에 담은 이름 : "+club.getClubName());
 		System.out.println("post 에서 멤버세션에 담은 아이디 : "+member.getMemberId());
 		System.out.println("post 에서 클럽에 담긴 이미지 이름 : "+club.getImageFileName());
+		System.out.println("파일이 실제 저장되는 경로 : "+save);
 
 		return "redirect:/member/mypage";
 	}

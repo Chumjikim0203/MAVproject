@@ -21,7 +21,13 @@
  		body{
             width: 80vw;  
             margin: 0 auto;
-        }	   
+        }
+        .carousel-inner
+        {
+        	margin-top : 20px;
+        	margin-bottom : 20px;
+        	width : 100%
+        } 
     
         .carousel-inner img {
             width: 100%;
@@ -73,29 +79,29 @@
 <jsp:include page="./section/nav.jsp" />
 
 
-    <div id="carouselExampleIndicators" class="carousel slide container" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
-            </div>
-          <div class="carousel-item active">
-            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
-          </div>
-          <div class="carousel-item active">
-            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <br>
     <div class="container">
+    	<jsp:include page="./section/nav.jsp"/>
+	    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+	        <div class="carousel-inner">
+	            <div class="carousel-item active">
+	                <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
+	            </div>
+	          <div class="carousel-item active">
+	            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
+	          </div>
+	          <div class="carousel-item active">
+	            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
+	          </div>
+	        </div>
+	        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+	          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	          <span class="visually-hidden">Previous</span>
+	        </button>
+	        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+	          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	          <span class="visually-hidden">Next</span>
+	        </button>
+	    </div>
         <div class="detail-row d-flex">
             <div class="detail-left">
                 <div class="detail-box">

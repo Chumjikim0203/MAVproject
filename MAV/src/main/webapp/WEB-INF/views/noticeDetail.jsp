@@ -79,9 +79,8 @@
     </style>
 </head>
 <body>
-<br><br><br>
-<jsp:include page="./section/nav.jsp" />
 <div class="container">
+<jsp:include page="./section/nav.jsp" />
     <div class="input-form-backgroud row">
         <div class="input-form col-md-12 mx-auto">
             <h3 class="mb-4"><b>${detailNotice.noticeTitle}</h4>               

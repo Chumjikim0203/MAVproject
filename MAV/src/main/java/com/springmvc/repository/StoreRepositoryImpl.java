@@ -113,7 +113,7 @@ public class StoreRepositoryImpl implements StoreRepository {
      //업체등록 
 
         store.setStoreApprove(true);
-        String SQL="INSERT INTO Store (storeId,storeName,storeAddr,storeCategory,storeCode,storePhone01,storePhone02,storePhone03,storeInfomation,storeNotice,storeApprove)"
+        String SQL="INSERT INTO Store (storeId,storeName,storeAddr,storeCategory,storePhone01,storePhone02,storePhone03,storeInfomation,storeNotice,storeCode,storeApprove)"
               +"values(?,?,?,?,?,?,?,?,?,?,?)";
         
         
@@ -123,12 +123,12 @@ public class StoreRepositoryImpl implements StoreRepository {
               store.getStoreName(),
               store.getStoreAddr(),
               store.getStoreCategory(),
-              store.getStoreCode(),
               store.getStorePhone01(),
               store.getStorePhone02(),
               store.getStorePhone03(),
               store.getStoreInfomation(),
               store.getStoreNotice(),
+              store.getStoreCode(),
               store.isStoreApprove()
               );
      

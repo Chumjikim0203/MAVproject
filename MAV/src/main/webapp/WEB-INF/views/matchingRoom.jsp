@@ -9,14 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>매칭 상세 페이지</title>
-    <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    
     <style>
-        * 
-        {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
             
         body{
             width: 80vw;  
@@ -103,59 +101,60 @@
     </div>
     <br>
     <div class="container">     
-			<!-- applicantId가 null이 아닌 경우에 실행되는 부분 -->
-			<c:if test="${matching.applicantId != null}">						
-			   	<div class="detail-box boxes">  
-			    <p>${matching.creatorId} vs ${matching.applicantId}</p>
-			    
-				<!-- Button trigger modal -->
-				<c:if test="${member.memberId == room.storeId}">		    
-					<button type="button" class="room-application-link room-application-btn4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					    점수부여
-					</button>
-				</c:if>	
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				    <div class="modal-dialog">
-				        <div class="modal-content">
-				            <div class="modal-header">
-				                <div class="modal-mid-title-bt">
-				                    <div>
-				                        <b><h5 class="modal-title " id="exampleModalLabel">&nbsp Home : ${matching.creatorId}&nbsp&nbsp&nbsp&nbsp</h5></b>
-				                    </div>
-				                    <div>
-				                        <b><h5 class="modal-title " id="exampleModalLabel">Away : ${matching.applicantId}</h5></b>
-				                    </div>
-				                </div>
-				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				            </div>
-				            <div class="modal-body">
-				            
-				                <!-- 모달 수정해야 하는부분 -->
-								<form:form modelAttribute="resultForm" method="post" action="/MAV/match/matchpoint">
-									<input type="hidden" name="roomNum" value="${matching.roomNum}" />
-				                    <input type="hidden" name="creatorId" value="${matching.creatorId}">
-				                    <input type="hidden" name="applicantId" value="${matching.applicantId}">
-				                    
-				                    <div class="modal-mid">
-				                        <button type="submit" name="result" value="승" class="btn btn-primary modal-mid-bt">&nbsp&nbsp승리&nbsp&nbsp</button>
-				                        <button type="submit" name="result" value="무" class="btn btn-warning modal-mid-bt">&nbsp&nbsp무승부&nbsp&nbsp</button>
-				                        <button type="submit" name="result" value="패" class="btn btn-danger modal-mid-bt">&nbsp&nbsp패배&nbsp&nbsp</button>
-				                    </div>
-				                </form:form>
-				            </div>
-				            <div class="modal-footer">
-				                <div class="home"> 
-				                    <b><p class="text-muted">※ Home기준</p></b>
-				                </div>
-				                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-				            </div>
-				        </div>
-				    </div>
-				</div>
-			</div>			    
-			</c:if>									
-		
+         <!-- applicantId가 null이 아닌 경우에 실행되는 부분 -->
+         <c:if test="${matching.applicantId != null}">                  
+               <div class="detail-box boxes">  
+             <p>${matching.creatorId} vs ${matching.applicantId}</p>
+             
+            <!-- Button trigger modal -->
+            <c:if test="${member.memberId == room.storeId}">          
+
+               <button type="button" class="room-application-link room-application-btn4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                   점수부여
+               </button>
+            </c:if>   
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-mid-title-bt">
+                                <div>
+                                    <b><h5 class="modal-title " id="exampleModalLabel">&nbsp Home : ${matching.creatorId}&nbsp&nbsp&nbsp&nbsp</h5></b>
+                                </div>
+                                <div>
+                                    <b><h5 class="modal-title " id="exampleModalLabel">Away : ${matching.applicantId}</h5></b>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        
+                            <!-- 모달 수정해야 하는부분 -->
+                        <form:form modelAttribute="resultForm" method="post" action="/MAV/match/matchpoint">
+                           <input type="hidden" name="roomNum" value="${matching.roomNum}" />
+                                <input type="hidden" name="creatorId" value="${matching.creatorId}">
+                                <input type="hidden" name="applicantId" value="${matching.applicantId}">
+                                
+                                <div class="modal-mid">
+                                    <button type="submit" name="result" value="승" class="btn btn-primary modal-mid-bt">&nbsp&nbsp승리&nbsp&nbsp</button>
+                                    <button type="submit" name="result" value="무" class="btn btn-warning modal-mid-bt">&nbsp&nbsp무승부&nbsp&nbsp</button>
+                                    <button type="submit" name="result" value="패" class="btn btn-danger modal-mid-bt">&nbsp&nbsp패배&nbsp&nbsp</button>
+                                </div>
+                            </form:form>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="home"> 
+                                <b><p class="text-muted">※ Home기준</p></b>
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>             
+         </c:if>                           
+      
         <div class="detail-row d-flex">
             <div class="detail-left">
                 <div class="detail-box">
@@ -168,9 +167,9 @@
                 </div>
             </div>
             <div class="detail-right">
-			<!-- applicantId가 null인 경우에 실행되는 부분 -->
-			<c:if test="${matching.applicantId == null}">			    
-			       <div class="detail-box"style="height: 30rem;">
+         <!-- applicantId가 null인 경우에 실행되는 부분 -->
+         <c:if test="${matching.applicantId == null}">             
+                <div class="detail-box"style="height: 30rem;">
                     <b><p>MatchDate :<b>
                     <h5>${room.roomDate}<br>${room.roomTime}</h5>                   
                     <b><p>방제 : ${matching.matchTitle}<b>
@@ -178,25 +177,25 @@
                     <p>동호회 점수 : ${clubInfos.clubPoint} point
                     <p>동호회 정보 : ${clubInfos.clubInfo}                  
                     <a href="#">상세정보</a>                    
-				<form:form modelAttribute="matching" action="${pageContext.request.contextPath}/match/matchingApply" method="post" onsubmit="return checkIds('${member.memberId}')">
-				    <div id="matching_bt">
-				        <form:hidden path="roomNum" value="${room.roomNum}" />
-				        <form:hidden path="creatorId" value="${clubInfos.clubMaster}"  id = "creatorId"/>
-				        <div class="selector">
-					        <button type="submit" class="btn btn-danger mt-2">매칭신청하기</button><br>
-			                <label for="clubSelect" class=" mt-3"></label><br>
-					        <select name="selectedClub" id="clubSelect" class="form-control form-select  mt-2">
-					            <option value="none">== 동호회 선택하기 ==</option> <!-- 기본 옵션 -->					        
-					            <c:forEach var="club" items="${memberClubs}">
-					                <option value="${club.clubName}">${club.clubName}</option>
-					            </c:forEach>
-					        </select>				        
-					        <!-- 추가적인 데이터 필드들을 여기에 추가 -->
-				        </div>
-				    </div>
-				</form:form>
+            <form:form modelAttribute="matching" action="${pageContext.request.contextPath}/match/matchingApply" method="post" onsubmit="return checkIds('${member.memberId}')">
+                <div id="matching_bt">
+                    <form:hidden path="roomNum" value="${room.roomNum}" />
+                    <form:hidden path="creatorId" value="${clubInfos.clubMaster}"  id = "creatorId"/>
+                    <div class="selector">
+                       <button type="submit" class="btn btn-danger mt-2">매칭신청하기</button><br>
+                         <label for="clubSelect" class=" mt-3"></label><br>
+                       <select name="selectedClub" id="clubSelect" class="form-control form-select  mt-2">
+                           <option value="none">== 동호회 선택하기 ==</option> <!-- 기본 옵션 -->                       
+                           <c:forEach var="club" items="${memberClubs}">
+                               <option value="${club.clubName}">${club.clubName}</option>
+                           </c:forEach>
+                       </select>                    
+                       <!-- 추가적인 데이터 필드들을 여기에 추가 -->
+                    </div>
                 </div>
-			</c:if>
+            </form:form>
+                </div>
+         </c:if>
                 <div class="detail-box additional-info-box" style="height: 30rem;">
                     <div id="googleMapContainer">
                         <iframe id="googleMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3258.9865696752536!2d128.58126887497116!3d35.231704354538195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356f32161a07d2b5%3A0xd8e276b01df1f6e4!2z7JWE7J207Yuw7JeQ65OA64S37ZWZ7JuQ!5e0!3m2!1sko!2skr!4v1708005623123!5m2!1sko!2skr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -205,36 +204,36 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
-	<script>
+   <script>
     
-	function checkIds(applicantId) {
-		var creatorIdField = document.querySelector('#creatorId');
-		var creatorId = creatorIdField.value;
+   function checkIds(applicantId) {
+      var creatorIdField = document.querySelector('#creatorId');
+      var creatorId = creatorIdField.value;
 
-	    if (creatorId === applicantId) {
-	        alert("방장의 아이디와 동일한 아이디로 신청할 수 없습니다.");
-	        return false;
-	    }
+       if (creatorId === applicantId) {
+           alert("방장의 아이디와 동일한 아이디로 신청할 수 없습니다.");
+           return false;
+       }
 
-	    console.log("Creator ID: " + creatorId);
-	    console.log("Applicant ID: " + applicantId);
+       console.log("Creator ID: " + creatorId);
+       console.log("Applicant ID: " + applicantId);
 
-	    var selectedClub = document.getElementById('clubSelect').value;
-	    if (selectedClub === "") {
-	        alert("동호회를 선택하세요.");
-	        return false;
-	    }
+       var selectedClub = document.getElementById('clubSelect').value;
+       if (selectedClub === "") {
+           alert("동호회를 선택하세요.");
+           return false;
+       }
 
-	    return true;
-	}
-	
-	function submitForm(result) {
-	    var form = document.getElementById('resultForm');
-	    form.action += "?result=" + result;
-	    form.submit();
-	}
-	
-	</script>
+       return true;
+   }
+   
+   function submitForm(result) {
+       var form = document.getElementById('resultForm');
+       form.action += "?result=" + result;
+       form.submit();
+   }
+   
+   </script>
 </html>
-
