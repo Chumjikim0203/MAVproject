@@ -16,8 +16,9 @@
     
     <style>
             
-        body{
-            width: 80vw;  
+        .main-container
+        {
+            width: 80%;  
             margin: 0 auto;
         }
         .carousel-inner img {
@@ -78,6 +79,7 @@
 </head>
 <body>
 <jsp:include page="./section/nav.jsp" />
+<div class="main-container">
     <div id="carouselExampleIndicators" class="carousel slide container" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -204,6 +206,7 @@
             </div>
         </div>
     </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
    <script>

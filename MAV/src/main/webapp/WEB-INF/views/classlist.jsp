@@ -178,10 +178,9 @@
 </head>
 
 <body>
-	<div class="main-container">
 	<jsp:include page="./section/nav.jsp"/>
-	    <div class="main">
-	        
+	<div class="main-container">
+	    <div class="main">	        
             <br>
             <div class = "col-7 ">
                <div class="room-title">강의 리스트</div>

@@ -21,8 +21,9 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        body {
-            width: 80vw;
+        .container 
+        {
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -92,6 +93,4 @@
         </div>
     </div>
 </div>
-
-
 </html>

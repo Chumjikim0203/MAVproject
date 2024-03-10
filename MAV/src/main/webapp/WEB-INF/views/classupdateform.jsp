@@ -14,7 +14,7 @@
         }
         .main-container
         {
-            width: 70%;
+            width: 80%;
             margin: 0 auto;
         }
         .container
@@ -30,9 +30,9 @@
    </script>
   </head>
   <body>
+  <jsp:include page="./section/nav.jsp"/>
     <div class="main-container">
        <div class="container">
-       <jsp:include page="./section/nav.jsp"/>
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3"> 수정</h4>

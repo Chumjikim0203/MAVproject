@@ -19,13 +19,12 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
+        .main-container 
+        {
             background-color: #f8f9fa;
             color: #212529;
-            width: 80vw;
+            width: 80%;
             margin: 0 auto;
-
         }
 
         .main {
@@ -254,64 +253,66 @@
 
 </head>
 <body>
-	<jsp:include page="./section/nav.jsp" />	
-    <div class="main">
-        <div class="col-4">
-            <div class="card" style="width: 100%;">
-                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">업주</h5>
-                <img src="." class="card-img-top img1" alt="...">
-                <div class="card-body">
-                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">${store.storeName}</p>
-                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                	<li class="list-group-item">
-						<a href="#" id="roomManagementButton">경기장관리</a>
-                    </li>
-                    <li class="list-group-item">
-						<a href="#" id="MatchRoomManagementButton">매칭룸관리</a>
-                    </li>
-                     <li class="list-group-item">
-						<a href="#" id="ResultManagementButton">결과관리</a>
-                    </li>
-                    <li class="list-group-item">
-						<a href="#" id="TournamentButton">토너먼트관리</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="./tournament/addtournament">토너먼트등록</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="./room/addrooms">경기장만들기</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="store/delete?storeId=${store.storeId}">업주탈퇴</a>
-                    </li>
-                </ul>
-                <div class="card-body">
-                    <a href="store/update?storeId=${store.storeId}" class="card-link">정보수정</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-7">
-            <div class="card">
-                <h5>개인정보</h5>
-                <div class="right">
-                    <img src=".." class="" width="30%">
-                    <div class="right-name">
-                        <p>${store.storeName}</p>
-                        <p>${member.memberEmail}</p>
-                    </div>
-                </div>
-                <hr>
-            </div> 
-             <br>           
-             <div>
-	             <div id="content1"></div> 
-	             <div id="content2"></div> 
-	             <div id="content3"></div>
-	             <div id="content4"></div> 
-             </div>
-        </div>
+	<jsp:include page="./section/nav.jsp" />
+	<div class="main-container">	
+	    <div class="main">
+	        <div class="col-4">
+	            <div class="card" style="width: 100%;">
+	                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">업주</h5>
+	                <img src="." class="card-img-top img1" alt="...">
+	                <div class="card-body">
+	                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">${store.storeName}</p>
+	                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
+	                </div>
+	                <ul class="list-group list-group-flush">
+	                	<li class="list-group-item">
+							<a href="#" id="roomManagementButton">경기장관리</a>
+	                    </li>
+	                    <li class="list-group-item">
+							<a href="#" id="MatchRoomManagementButton">매칭룸관리</a>
+	                    </li>
+	                     <li class="list-group-item">
+							<a href="#" id="ResultManagementButton">결과관리</a>
+	                    </li>
+	                    <li class="list-group-item">
+							<a href="#" id="TournamentButton">토너먼트관리</a>
+	                    </li>
+	                    <li class="list-group-item">
+	                        <a href="./tournament/addtournament">토너먼트등록</a>
+	                    </li>
+	                    <li class="list-group-item">
+	                        <a href="./room/addrooms">경기장만들기</a>
+	                    </li>
+	                    <li class="list-group-item">
+	                        <a href="store/delete?storeId=${store.storeId}">업주탈퇴</a>
+	                    </li>
+	                </ul>
+	                <div class="card-body">
+	                    <a href="store/update?storeId=${store.storeId}" class="card-link">정보수정</a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="col-7">
+	            <div class="card">
+	                <h5>개인정보</h5>
+	                <div class="right">
+	                    <img src=".." class="" width="30%">
+	                    <div class="right-name">
+	                        <p>${store.storeName}</p>
+	                        <p>${member.memberEmail}</p>
+	                    </div>
+	                </div>
+	                <hr>
+	            </div> 
+	             <br>           
+	             <div>
+		             <div id="content1"></div> 
+		             <div id="content2"></div> 
+		             <div id="content3"></div>
+		             <div id="content4"></div> 
+	             </div>
+	        </div>
+	  </div>
   </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

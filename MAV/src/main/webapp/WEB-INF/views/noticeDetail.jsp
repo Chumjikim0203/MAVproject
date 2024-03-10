@@ -21,8 +21,9 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        body {
-            width: 70vw;
+        .main-container 
+        {
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -79,19 +80,20 @@
     </style>
 </head>
 <body>
-<div class="container">
 <jsp:include page="./section/nav.jsp" />
-    <div class="input-form-backgroud row">
-        <div class="input-form col-md-12 mx-auto">
-            <h3 class="mb-4"><b>${detailNotice.noticeTitle}</h4>               
-                <div class="bonmun">
-                	<p><pre>${detailNotice.noticeContents}</pre></p>
-                </div> 
-            </form>
-        </div>
-    </div>
-</div>
-<br><br>
+<div class="main-container">
+	<div class="container">
+	    <div class="input-form-backgroud row">
+	        <div class="input-form col-md-12 mx-auto">
+	            <h3 class="mb-4"><b>${detailNotice.noticeTitle}</h4>               
+	                <div class="bonmun">
+	                	<p><pre>${detailNotice.noticeContents}</pre></p>
+	                </div> 
+	            </form>
+	        </div>
+	    </div>
+	</div>
+	<br><br>
    <table class="table ">
             <tr>
                 <th scope="coltitle" colspan="5" class="text-center" >제목</th>           
@@ -111,12 +113,12 @@
                 <td  colspan="1" class="table_body">${notices.noticeDate}</td>
             </tr>
     </table>
-
     <div class="row">
         <div class="col-md-10 row "> 
         </div>
         <br>
         <a href="./list" class=" col-md-2 text-center ">전체보기</a>                
     </div>
-    
+</div>
+</body>
 </html>

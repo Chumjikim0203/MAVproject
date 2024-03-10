@@ -180,8 +180,8 @@
 	String memberId = request.getParameter("memberId");
 	System.out.println("teacher:"+memberId);
 %>
-    <div class="main">
     <jsp:include page="./section/nav.jsp" />
+    <div class="main">
         <div class="col-4">
             <div class="card" style="width: 100%;">
                 <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
@@ -235,9 +235,7 @@
                 </c:forEach>
             </div>
             <div>
-
-
-                    
+         </div>                    
     </div>
 </div> 
 

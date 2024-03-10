@@ -21,33 +21,37 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-
-    .notice {
-        padding-top: 3rem;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 3rem;
-        font-weight: bold;
-    }
-
-    .noticemom {
-        width: 80vw;
-        height: 10rem;
-        margin: 0 auto;
-    }
+        .main-container
+        {
+        	width:80%;
+        	margin: 0 auto;
+        }
+	    .notice 
+	    {
+	        padding-top: 3rem;
+	        margin: 0 auto;
+	        text-align: center;
+	        font-size: 3rem;
+	        font-weight: bold;
+	    }
+	
+	    .noticemom 
+	    {       
+	        height: 10rem;
+	        margin: 0 auto;
+	    }
 
 
 </style>
 </head>
 
 <body>
-    <jsp:include page="./section/nav.jsp" />
-
+<jsp:include page="./section/nav.jsp" />
+<div class="main-container">
     <div class="noticemom">
         <h1 class="notice mt-5">공지사항</h1>
     </div>
     <section class="board">
-
         <!-- board list area -->
         <div id="board-list" class="container mt-3">
             <table class="table ">
@@ -101,7 +105,6 @@
                                 href="<c:url value='/notice/list'/>?page=${page}">${page}</a>
                         </li>
                     </c:forEach>
-
                     <c:if test="${currentPage < pageCount}">
                         <li class="page-item"><a class="page-link"
                             href="<c:url value='/notice/list'/>?page=${currentPage + 1}"
@@ -112,5 +115,6 @@
             </nav>
         </div>
     </section>
+</div>
 </body>
 </html>

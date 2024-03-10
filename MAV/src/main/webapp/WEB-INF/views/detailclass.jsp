@@ -55,8 +55,8 @@
     </style>
 </head>
 <body>   
+<jsp:include page="./section/nav.jsp"/>
     <div class="container">
-    	<jsp:include page="./section/nav.jsp"/>
 	    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 	        <div class="carousel-inner">
 	            <div class="carousel-item active">

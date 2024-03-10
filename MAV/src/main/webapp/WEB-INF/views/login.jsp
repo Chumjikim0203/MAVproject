@@ -19,7 +19,7 @@
         }
         .main-container
         {
-        	width : 70%;
+        	width : 80%;
         	margin : 0 auto;
         }
         .wrap {
@@ -58,8 +58,8 @@
     </style>
 </head>
 <body>
+<jsp:include page="./section/nav.jsp"/>
 	<div class="main-container">
-		<jsp:include page="./section/nav.jsp"/>
 	    <div class="wrap">
 	        <div class="login col-6">
 	            <h2>Log-in</h2>

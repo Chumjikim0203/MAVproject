@@ -18,7 +18,7 @@
         }
         .main-container
         {
-        	width : 70%;
+        	width : 80%;
         	margin : 0 auto;
         }
 
@@ -174,8 +174,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
-	  	<jsp:include page="./section/nav.jsp" />
 		<h3>멤버 아이디 : ${member.memberId}</h3>
 		<h3>멤버 이름 : ${member.memberName}</h3>
 		<h3>멤버 생년월일 : ${member.memberBirth}</h3>

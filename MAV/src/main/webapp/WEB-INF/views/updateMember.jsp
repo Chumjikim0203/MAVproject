@@ -14,7 +14,7 @@
         }tyle>
         .main-container
         {
-            width: 70%;
+            width: 80%;
             margin: 0 auto;
         }
         .container
@@ -30,8 +30,8 @@
 	</script>
   </head>
   <body>
+  <jsp:include page="./section/nav.jsp" />
     <div class="main-container">
-        <jsp:include page="./section/nav.jsp" />
         <div class="container">
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">

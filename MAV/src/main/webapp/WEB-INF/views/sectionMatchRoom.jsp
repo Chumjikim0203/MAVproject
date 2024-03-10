@@ -16,6 +16,7 @@
 <title></title>
 </head>
 <body>
+<div>
             <!-- 매칭룸관리 -->
         <div class="room-title">매칭룸관리</div>
         <c:forEach items="${myRooms}" var="room">

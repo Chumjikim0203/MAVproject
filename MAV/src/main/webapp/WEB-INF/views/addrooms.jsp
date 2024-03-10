@@ -24,7 +24,7 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
         .container {
-            width: 80vw;
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -71,8 +71,8 @@
 </head>
 
 <body>
-    <div class="container">
     <jsp:include page="./section/nav.jsp"/>
+    <div class="container">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
                 <h4 class="mb-3">경기장 등록</h4>

@@ -14,8 +14,9 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        body{
-            width: 80vw;
+        .main-container
+        {
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -32,15 +33,14 @@
   </head>
   <body>
 <jsp:include page="./section/nav.jsp" />
-  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
-      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
-    </div>
-  </div>
-  
-  
+	<div class="main-container">
+	  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+	    <div class="col-md-6 px-0">
+	      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
+	      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
+	      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
+	    </div>
+	  </div>  
        <!-- 경기장 -->
       <div class="my-3 p-3 bg-body rounded shadow">
         <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">날짜 / 종목</h6>
@@ -121,9 +121,7 @@
             </div>
         </div>
     </footer>
-
     </div>
-  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

@@ -19,8 +19,9 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        body {
-            width: 80vw;
+        .container 
+        {
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -66,7 +67,6 @@
     </style>
 </head>
 <body>
-<br><br><br>
 <jsp:include page="./section/nav.jsp" />
 <div class="container">
     <div class="input-form-backgroud row">

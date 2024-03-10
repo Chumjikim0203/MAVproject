@@ -11,8 +11,7 @@
   <title>회원가입 화면 샘플 - Bootstrap</title>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -24,7 +23,7 @@
 
     .container
     {
-     width: 70%;
+     width: 80%;
      margin: 0 auto;
     }
   </style>
@@ -36,8 +35,8 @@
 	System.out.println("addteacherjsp:"+memberId);
 %>	
 
-       <div class="container">
        <jsp:include page="./section/nav.jsp"/>
+       <div class="container">
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
                    <h4 class="mb-3">강사 가입</h4>

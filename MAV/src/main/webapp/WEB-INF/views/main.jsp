@@ -16,8 +16,9 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        body{
-            width: 80vw;
+        .main-container
+        {
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -56,6 +57,7 @@
   </head>
   <body>
 	<jsp:include page="./section/nav.jsp"/>
+	<div class="main-container">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -181,7 +183,6 @@
         </small>
       </div>    
     </div>
-  </div>
 <jsp:include page="./section/footer.jsp" />
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
