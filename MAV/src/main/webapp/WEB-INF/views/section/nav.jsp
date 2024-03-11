@@ -20,12 +20,6 @@
         	text-decoration: underline;
         	color: #28BEA2;
         }
-        
-         /* 검색 입력 테두리 색상 변경 */
-/*         .form-control {
-            border-color: #0023a4;
-        } */
-
         /* 검색 버튼 텍스트 색상 변경 */
         .btn-outline-success {
             color: #28BEA2;
@@ -36,340 +30,382 @@
             border-color:#d3d3d3;
             font-weight: bold;   
         }
+        .nav-container
+		{
+			background: rgb(248,249,250);
+			border-bottom: 1px solid #d3d3d3; 
+		}
+		.nav-inner
+		{
+			width:80%;
+			margin : 0 auto;
+		}
+		h5
+		{
+			margin-bottom: 0 !important;
+		}
     </style>   
 </head>
-<body>   
-    <c:choose>
-	    <c:when test="${!empty member.memberId}">
-	    	<c:choose>
-	    		<c:when test="${teacher.teacherApprove eq true && store.storeApprove eq true}">
-		       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-		            <div class="container-fluid">
-		              <a class="navbar-brand" href="#">MAV</a>
-		              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		              </button>
-		              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      동호회
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      매칭
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      강의
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="/MAV/Class/addclass">강의등록</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="/MAV/Class/classlist">강의관리</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/store">업체관리</a>
-		                  </li>        
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-		                  </li>
-		                   <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-		                  </li>
-		                </ul>
-		                <h5>${member.memberName}님 환영합니다!</h5>
-		                <form class="d-flex" role="search">
-		                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-		                  <button class="btn btn-outline-success" type="submit">search</button>
-		                </form>
-		              </div>
-		            </div>
-		        </nav>		        
-		        </c:when>
-	    		<c:when test="${teacher.teacherApprove eq true}">
-		       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-		            <div class="container-fluid">
-		              <a class="navbar-brand" href="#">MAV</a>
-		              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		              </button>
-		              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      동호회
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      매칭
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      강의
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="/MAV/Class/addclass">강의등록</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="/MAV/Class/classlist">강의관리</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-		                  </li>
-		                   <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-		                  </li>
-		                </ul>
-		                <form class="d-flex" role="search">
-		                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-		                  <button class="btn btn-outline-success" type="submit">search</button>
-		                </form>
-		              </div>
-		            </div>
-		        </nav>
-		       </c:when>
-		        <c:when test="${store.storeApprove eq true}">
-		       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-		            <div class="container-fluid">
-		              <a class="navbar-brand" href="#">MAV</a>
-		              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		              </button>
-		              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      동호회
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      매칭
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/store">업체관리</a>
-		                  </li>           
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-		                  </li>
-		                   <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-		                  </li>
-		                </ul>
-		                <form class="d-flex" role="search">
-		                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-		                  <button class="btn btn-outline-success" type="submit">search</button>
-		                </form>
-		              </div>
-		            </div>
-		        </nav>
-		       </c:when>
-		         <c:when test="${member.adminApprove eq true}">
-		       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-				            <div class="container-fluid">
-				              <a class="navbar-brand" href="#">MAV</a>
-				              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				                <span class="navbar-toggler-icon"></span>
-				              </button>
-				              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				                  <li class="nav-item">
-				                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-				                  </li>
-				                  <li class="nav-item dropdown">
-				                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				                      동호회
-				                    </a>
-				                    <ul class="dropdown-menu">
-				                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
-				                      <li><hr class="dropdown-divider"></li>
-				                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
-				                    </ul>
-				                  </li>
-				                  <li class="nav-item dropdown">
-				                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				                      매칭
-				                    </a>
-				                    <ul class="dropdown-menu">
-				                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-				                      <li><hr class="dropdown-divider"></li>
-				                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-				                      <li><hr class="dropdown-divider"></li>
-				                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-				                    </ul>
-				                  </li>
-				                  <li class="nav-item dropdown">
-				                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				                     관리자메뉴
-				                   </a>
-				                   <ul class="dropdown-menu">
-				                     <li><a class="dropdown-item" href="#">강사승인</a></li>
-				                     <li><hr class="dropdown-divider"></li>
-				                     <li><a class="dropdown-item" href="#">업체승인</a></li>
-				                     <li><hr class="dropdown-divider"></li>
-				                     <li><a class="dropdown-item" href="/MAV/notice/writeForm">공지사항작성</a></li>
-				                   </ul>
-				                  </li>         
-				                  <li class="nav-item">
-				                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-				                  </li>
-				                   <li class="nav-item">
-				                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-				                  </li>
-				                </ul>
-				                <form class="d-flex" role="search">
-				                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-				                  <button class="btn btn-outline-success" type="submit">search</button>
-				                </form>
-				              </div>
-				            </div>
-				        </nav>
-		        </c:when>
-		        <c:otherwise>
-		        	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-				            <div class="container-fluid">
-				              <a class="navbar-brand" href="#">MAV</a>
-				              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				                <span class="navbar-toggler-icon"></span>
-				              </button>
-				              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				                  <li class="nav-item">
-				                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-				                  </li>
-				                  <li class="nav-item dropdown">
-				                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				                      동호회
-				                    </a>
-				                    <ul class="dropdown-menu">
-				                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
-				                      <li><hr class="dropdown-divider"></li>
-				                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
-				                    </ul>
-				                  </li>
-				                  <li class="nav-item dropdown">
-				                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				                      매칭
-				                    </a>
-				                    <ul class="dropdown-menu">
-				                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-				                      <li><hr class="dropdown-divider"></li>
-				                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-				                      <li><hr class="dropdown-divider"></li>
-				                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-				                    </ul>
-				                  </li>        
-				                  <li class="nav-item">
-				                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-				                  </li>
-				                   <li class="nav-item">
-				                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-				                  </li>
-				                </ul>
-				                <form class="d-flex" role="search">
-				                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-				                  <button class="btn btn-outline-success" type="submit">search</button>
-				                </form>
-				              </div>
-				            </div>
-				        </nav>
-		        </c:otherwise>
-		       </c:choose>
-		</c:when>
-        <c:otherwise>
-       		<nav class="navbar navbar-expand-lg bg-body-tertiary">
-		            <div class="container-fluid">
-		              <a class="navbar-brand" href="#">MAV</a>
-		              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		              </button>
-		              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link" href="#">동호회</a>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      매칭
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/login">로그인</a>
-		                  </li>
-		                   <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/add/member">회원가입</a>
-		                  </li>
-		                </ul>
-		                <form class="d-flex" role="search">
-		                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-		                  <button class="btn btn-outline-success" type="submit">search</button>
-		                </form>
-		              </div>
-		            </div>
-		        </nav>
-       </c:otherwise>
-	</c:choose>		   	
-	</body>
+<body>
+<div class="nav-container">
+	<div class="nav-inner">
+	    <c:choose>
+		    <c:when test="${!empty member.memberId}">
+		    	<c:choose>
+		    		<c:when test="${teacher.teacherApprove eq true && store.storeApprove eq true}">
+			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+			            <div class="container-fluid">
+			              <a class="navbar-brand" href="#">MAV</a>
+			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			                <span class="navbar-toggler-icon"></span>
+			              </button>
+			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      동호회
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      매칭
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      강의
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="/MAV/Class/addclass">강의등록</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="/MAV/Class/classlist">강의리스트</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="/MAV/teacher">강사페이지</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/store">업체관리</a>
+			                  </li>        
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
+			                  </li>
+			                   <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
+			                  </li>
+			                </ul>
+			                <h5>${member.memberName} 강사&업주님 환영합니다!</h5>
+			                <form class="d-flex" role="search">
+			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+			                  <button class="btn btn-outline-success" type="submit">search</button>
+			                </form>
+			              </div>
+			            </div>
+			        </nav>		        
+			        </c:when>
+		    		<c:when test="${teacher.teacherApprove eq true}">
+			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+			            <div class="container-fluid">
+			              <a class="navbar-brand" href="#">MAV</a>
+			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			                <span class="navbar-toggler-icon"></span>
+			              </button>
+			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      동호회
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      매칭
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      강의
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="/MAV/Class/addclass">강의등록</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="/MAV/Class/classlist">강의리스트</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="/MAV/teacher">강사페이지</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
+			                  </li>
+			                   <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
+			                  </li>
+			                </ul>
+			                <h5>${member.memberName} 강사님 환영합니다!</h5>
+			                <form class="d-flex" role="search">
+			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+			                  <button class="btn btn-outline-success" type="submit">search</button>
+			                </form>
+			              </div>
+			            </div>
+			        </nav>
+			       </c:when>
+			        <c:when test="${store.storeApprove eq true}">
+			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+			            <div class="container-fluid">
+			              <a class="navbar-brand" href="#">MAV</a>
+			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			                <span class="navbar-toggler-icon"></span>
+			              </button>
+			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      동호회
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      매칭
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      강의
+			                    </a>
+			                    <ul class="dropdown-menu">			                 
+			                      <li><a class="dropdown-item" href="/MAV/Class/classlist">강의리스트</a></li>			                 
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/store">업체관리</a>
+			                  </li>           
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
+			                  </li>
+			                   <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
+			                  </li>
+			                </ul>
+			                <h5>${member.memberName} 업주님 환영합니다!</h5>
+			                <form class="d-flex" role="search">
+			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+			                  <button class="btn btn-outline-success" type="submit">search</button>
+			                </form>
+			              </div>
+			            </div>
+			        </nav>
+			       </c:when>
+			         <c:when test="${member.adminApprove eq true}">
+			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+					            <div class="container-fluid">
+					              <a class="navbar-brand" href="#">MAV</a>
+					              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					                <span class="navbar-toggler-icon"></span>
+					              </button>
+					              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					                  <li class="nav-item">
+					                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
+					                  </li>
+					                  <li class="nav-item dropdown">
+					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					                      동호회
+					                    </a>
+					                    <ul class="dropdown-menu">
+					                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
+					                      <li><hr class="dropdown-divider"></li>
+					                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
+					                    </ul>
+					                  </li>
+					                  <li class="nav-item dropdown">
+					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					                      매칭
+					                    </a>
+					                    <ul class="dropdown-menu">
+					                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+					                      <li><hr class="dropdown-divider"></li>
+					                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
+					                      <li><hr class="dropdown-divider"></li>
+					                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+					                    </ul>
+					                  </li>
+					                  <li class="nav-item dropdown">
+					                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					                     관리자메뉴
+					                   </a>
+					                   <ul class="dropdown-menu">
+					                     <li><a class="dropdown-item" href="#">강사승인</a></li>
+					                     <li><hr class="dropdown-divider"></li>
+					                     <li><a class="dropdown-item" href="#">업체승인</a></li>
+					                     <li><hr class="dropdown-divider"></li>
+					                     <li><a class="dropdown-item" href="/MAV/notice/writeForm">공지사항작성</a></li>
+					                   </ul>
+					                  </li>         
+					                  <li class="nav-item">
+					                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
+					                  </li>
+					                   <li class="nav-item">
+					                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
+					                  </li>
+					                </ul>
+					                <h5>${member.memberName} 관리자님 환영합니다!</h5>
+					                <form class="d-flex" role="search">
+					                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+					                  <button class="btn btn-outline-success" type="submit">search</button>
+					                </form>
+					              </div>
+					            </div>
+					        </nav>
+			        </c:when>
+			        <c:otherwise>
+			        	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+					            <div class="container-fluid">
+					              <a class="navbar-brand" href="#">MAV</a>
+					              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					                <span class="navbar-toggler-icon"></span>
+					              </button>
+					              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					                  <li class="nav-item">
+					                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
+					                  </li>
+					                  <li class="nav-item dropdown">
+					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					                      동호회
+					                    </a>
+					                    <ul class="dropdown-menu">
+					                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
+					                      <li><hr class="dropdown-divider"></li>
+					                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
+					                    </ul>
+					                  </li>
+					                  <li class="nav-item dropdown">
+					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					                      매칭
+					                    </a>
+					                    <ul class="dropdown-menu">
+					                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+					                      <li><hr class="dropdown-divider"></li>
+					                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
+					                      <li><hr class="dropdown-divider"></li>
+					                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+					                    </ul>
+					                  </li>
+					                  <li class="nav-item dropdown">
+					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					                      강의
+					                    </a>
+					                    <ul class="dropdown-menu">			                 
+					                      <li><a class="dropdown-item" href="/MAV/Class/classlist">강의리스트</a></li>			                 
+					                    </ul>
+					                  </li>        
+					                  <li class="nav-item">
+					                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
+					                  </li>
+					                   <li class="nav-item">
+					                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
+					                  </li>
+					                </ul>
+					                <h5>${member.memberName} 회원님 환영합니다!</h5>
+					                <form class="d-flex" role="search">
+					                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+					                  <button class="btn btn-outline-success" type="submit">search</button>
+					                </form>
+					              </div>
+					            </div>
+					        </nav>
+			        </c:otherwise>
+			       </c:choose>
+			</c:when>
+	        <c:otherwise>
+	       		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			            <div class="container-fluid">
+			              <a class="navbar-brand" href="#">MAV</a>
+			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			                <span class="navbar-toggler-icon"></span>
+			              </button>
+			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
+			                  </li>
+			                  <li class="nav-item">
+			                    <a class="nav-link" href="#">동호회</a>
+			                  </li>
+			                  <li class="nav-item dropdown">
+			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			                      매칭
+			                    </a>
+			                    <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
+			                      <li><hr class="dropdown-divider"></li>
+			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                    </ul>
+			                  </li>
+			                  <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/login">로그인</a>
+			                  </li>
+			                   <li class="nav-item">
+			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/add/member">회원가입</a>
+			                  </li>
+			                </ul>
+			                <form class="d-flex" role="search">
+			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+			                  <button class="btn btn-outline-success" type="submit">search</button>
+			                </form>
+			              </div>
+			            </div>
+			        </nav>
+	       </c:otherwise>
+		</c:choose>
+	</div>
+</div>  	
+</body>
 </html>       

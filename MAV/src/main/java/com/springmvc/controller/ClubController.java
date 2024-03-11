@@ -123,12 +123,15 @@ public class ClubController
 		model.addAttribute("member", member);
 		model.addAttribute("club", club);
 		model.addAttribute("clubmember", clubmember);
+		
 	
 		System.out.println("동호회 가입신청 오류 : "+bindingResult.hasErrors());
 		
 		clubService.addNewClub(club,member);
 		clubService.addNewClubMember(club, clubmember, member);
 
+		session.setAttribute("club", club);
+		session.setAttribute("member", member);
 		System.out.println("post 에서 클럽세션에 담은 이름 : "+club.getClubName());
 		System.out.println("post 에서 멤버세션에 담은 아이디 : "+member.getMemberId());
 		System.out.println("post 에서 클럽에 담긴 이미지 이름 : "+club.getImageFileName());

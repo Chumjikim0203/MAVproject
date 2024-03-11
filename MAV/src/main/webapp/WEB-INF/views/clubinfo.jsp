@@ -157,7 +157,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="./section/nav.jsp"/>
+<jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
 		<div class="main-body mt-3">
 			<div class="col-3">

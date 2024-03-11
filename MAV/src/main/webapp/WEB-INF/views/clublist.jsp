@@ -16,15 +16,13 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        body 
+        .main-container
         {
-            width : 80%;
-        	margin : 0 auto;
+        	width:80%;
+        	margin: 0 auto;
         }
-
         .main {
             display: flex;
-            padding: 2rem;
         }
 
         .col-4 {
@@ -79,16 +77,19 @@
             margin-bottom: 1rem;
         }
 
-        .card-1 {
+        .card-1 
+        {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 0.5rem;
+            justify-content: space-around;
+            padding: 1rem;
             margin-bottom: 1.5rem;
+            margin-right : 1rem;
             border: 1px solid #dee2e6;
-            border-radius: 0.25rem;
+            border-radius: 20px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align : center;
         }
 
         h1 {
@@ -98,8 +99,9 @@
         }
 
         a {
-            color: #007bff;
-            text-decoration: none;
+            color: black;
+            text-decoration: none !important;
+            
         }
 
         a:hover {
@@ -109,6 +111,7 @@
         .room-title {
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            margin-top : 1rem;
             color: #343a40;
         }
 
@@ -176,14 +179,33 @@
 	.clublistimage img 
 	{
 	    max-width: 100%;
-	    height: auto;
 	    max-height: 100%;
 	}
+	.card-container
+	{
+		display: flex;
+		flex-wrap : wrap;
+	}
+	 .default-image 
+	 {
+        background-image: url("/resources/images/MAVlogo.png");
+        /* 기본 이미지의 크기와 스타일을 조절할 수 있습니다. */
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .card-1 img
+    {
+    	height: 180px;
+    	width: 230px;
+        margin-bottom : 15px;
+        margin-top : 10px;
+        
+    }
     </style>
 </head>
 <body>
+<jsp:include page="./section/nav.jsp"/>
 	<div class="main-container">
-		<jsp:include page="./section/nav.jsp"/>
 		    <div class="mt-3 clublistimage">
 	    		<img src="<c:url value="/resources/images/clublistpage.jpg"/>" style="width: 100%;">		    
 		    </div>
@@ -235,23 +257,25 @@
 	            </li>
 	    	</div>
 		    <div class="main col-12">
-	            <div class = "col-12 ">
+	            <div class = "col-12">
 	               <div class="room-title">동호회 리스트</div>
-	                <c:forEach items="${club}" var="club">
-	                    <div class="card-1 mb-3">
-	                        <div class="room-info" style="text-align: center">
-	                            <span class="room-title">&nbsp;&nbsp;${club.clubName}</span>
-	                            <span class="room-date clubCategory">동호회 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	                            <span class="room-date clubLocale">동호회 활동지역 : ${club.clubLocale}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	                            <span class="room-application">                          
-	                          	<a href="<c:url value='/club/clubinfo'/>?clubName=${club.clubName}" class="room-application-link room-application-btn">클럽 상세정보</a>
-	                            </span>
-	                        </div>
-	                    </div>
-	                </c:forEach>
+	               	<div class="card-container">
+		                <c:forEach items="${club}" var="club">
+			              	<div class="card-1" style="width: 18rem;">
+			              	<a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
+								  <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName}"/>" onerror="this.classList.add('default-image');" />
+								  <div class="card-body">
+									    <h5 class="card-title">${club.clubName}</h5>
+									    <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
+									    <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
+								 </div>
+							</a>
+							</div>
+		                </c:forEach>
+					</div>
+	             </div>
 	           </div>
 		   	</div>
-		</div>
 		<script>
 			function filterCategory(category) {
 			    const clubCards = document.querySelectorAll('.card-1');

@@ -47,7 +47,7 @@ public class LoginController
 	                       @RequestParam("memberPassword") String memberPassword,
 	                       HttpServletRequest request) 
 	   {
-	       HttpSession session = request.getSession();
+	       HttpSession session = request.getSession(true);
 	       // 사용자 인증
 	       Member member = memberService.getLogin(memberId, memberPassword);
 

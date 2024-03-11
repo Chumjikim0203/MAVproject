@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Classes;
 import com.springmvc.domain.Member;
+import com.springmvc.domain.Store;
 import com.springmvc.domain.Teacher;
 import com.springmvc.repository.ClassesRepository;
 import com.springmvc.service.ClasseService;
@@ -135,6 +136,9 @@ public class ClassController {
 	  public String detailclass(@RequestParam("classNum") int classNum, Model model,HttpServletRequest request,Member member) {
 		  HttpSession sessionId=request.getSession();	
 		  member= (Member)sessionId.getAttribute("member");
+		  Store store= (Store) sessionId.getAttribute("store");
+		  model.addAttribute("member",member);
+		  model.addAttribute("store",store);
 		  model.addAttribute("detailclass",ClassesService.getById(classNum));
 		  System.out.println("cs.getby:"+ClassesService.getById(classNum));
 		  return "detailclass";
@@ -145,8 +149,12 @@ public class ClassController {
 	  public String ClassList( Model model,HttpServletRequest request,Member member,Teacher teacher, Classes classes) {
 		  HttpSession sessionId=request.getSession();	
 		  member= (Member)sessionId.getAttribute("member");
+		  Store store = (Store) sessionId.getAttribute("store");
 		  teacher= teacherService.teacherId(member.getMemberId());
 		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList(classes);
+		  model.addAttribute("member",member);
+		  model.addAttribute("teacher", teacher);
+		  model.addAttribute("store", store);
 		  model.addAttribute("classes",classesall);
 		  System.out.println("classlist도착 member는:"+member.getMemberId());
 		  System.out.println("classes:"+classesall);

@@ -201,7 +201,6 @@
                         <a href="./teacher/delete?teacherId=${teacher.teacherId}">강사탈퇴</a>
                     </li>
                 </ul>
-
             </div>
         </div>
         <div class="col-7">

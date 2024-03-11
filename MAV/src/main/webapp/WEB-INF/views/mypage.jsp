@@ -20,6 +20,8 @@
         {
         	width : 80%;
         	margin : 0 auto;
+        	display: flex;
+        	margin-top : 30px;
         }
 
         .main {
@@ -153,8 +155,10 @@
         display: none;
         
     }
-
-    
+	.list
+	{
+		padding : 0 30px;
+	}
     </style>
  <script> function openTab(evt, tabName) {
           console.log("opentab실행");
@@ -176,29 +180,60 @@
 <body>
 <jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
-		<h3>멤버 아이디 : ${member.memberId}</h3>
-		<h3>멤버 이름 : ${member.memberName}</h3>
-		<h3>멤버 생년월일 : ${member.memberBirth}</h3>
-		<h3>멤버 주소 : ${member.memberAddr}</h3>
-		<h3>멤버 성별 : ${member.memberGender}</h3>
-		<h3>멤버 이메일 : ${member.memberEmail}</h3>
-		<a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">수정하기</a>
-		<a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">삭제하기</a>
-		<a href="<c:url value='/store/add'/>?memberId=${member.memberId}">업체신청</a>
-		<a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>		
+		<div class="user-info col-4">
+			<div class="card" style="width: 100%;">
+                <img src="." class="card-img-top img1" alt="...">
+                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
+                <div class="card-body">
+                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">개인정보수정</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">회원탈퇴하기</a>
+                    </li>
+                    <li class="list-group-item">
+                       <a href="<c:url value='/store/add'/>?memberId=${member.memberId}">업체신청</a>
+                    </li>
+                    <li class="list-group-item">
+                       <a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>
+                    </li>
+                </ul>
+            </div>
+		</div>
 	    <div class = "col-7 ">
-              <div class="room-title">내 클럽 리스트</div>
+	    	<div class="card mb-3" style="width: 100%;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">생년월일 : ${member.memberBirth}</p>
+                    </li>
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">주소 : ${member.memberAddr}</p>
+                    </li>
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">이메일 : ${member.memberEmail}</p>
+                    </li>
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">전화번호  : ${member.memberPhone01}-${member.memberPhone02}-${member.memberPhone03}</p>
+                    </li>
+                </ul>
+            </div>
+	    	<div class="card list" style="width: 100%;">
+              <div class="room-title mt-3">내 동호회 리스트</div>
                <c:forEach items="${club}" var="club">
                    <div class="card-1 mb-3">
                        <div class="room-info">
                            <span class="room-title">&nbsp;&nbsp;${club.clubName}</span>
-                           <span class="room-date">클럽 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                           <span class="room-date">동호회 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                            <span class="room-application">                          
-                         	<a href="<c:url value='/club/clubinfo'/>?clubName=${club.clubName}" class="room-application-link room-application-btn">클럽 상세정보</a>
+                         	<a href="<c:url value='/club/clubinfo'/>?clubName=${club.clubName}" class="room-application-link room-application-btn">동호회 상세정보</a>
                            </span>
                        </div>
                    </div>
                </c:forEach>
+             </div>
           </div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />

@@ -33,10 +33,15 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 	
 // 값넣기 컬럼명순서
 	@Override
-	public void setNewClasses(Classes classes) {
-	    String SQL= "insert into classes(classId,className,classLectureDate,classLecturetime,classNumberOfStudents,classCourseContents,classGrade,classIntroduction,classImages,classLocale,classApprove,teacherId) Values(?,?,?,?,?,?,?,?,?,?,?,?)";
+	public void setNewClasses(Classes classes) 
+	{
+		classes.setClassApprove(true);
+	    String SQL= "insert into classes(classId,className,classLectureDate,classLecturetime,classNumberOfStudents,classCourseContents,classGrade,classIntroduction,classImages,classLocale,classApprove) Values(?,?,?,?,?,?,?,?,?,?,?)";
 	    System.out.println("setnewCLASS실행");
-	    template.update(SQL, classes.getteacherId(), classes.getClassName(), classes.getClassLecturedate(), classes.getClassLecturetime(), classes.getClassNumberOfStudents(), classes.getClassCourseContents(), classes.getClassGrade(), classes.getClassIntroduction(), classes.getClassImages(), classes.getClassLocale(), classes.isClassApprove(), classes.getTeacherId());
+	    template.update(SQL, classes.getteacherId(), classes.getClassName(), classes.getClassLecturedate(), 
+	    					 classes.getClassLecturetime(), classes.getClassNumberOfStudents(), classes.getClassCourseContents(),
+	    					 classes.getClassGrade(), classes.getClassIntroduction(), classes.getClassImages(), 
+	    					 classes.getClassLocale(), classes.isClassApprove());
 	}
 
 
@@ -86,8 +91,8 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 	@Override
 	public void setUpdateClasses(Classes classes) {
 			System.out.println("setUpdateclasses1:"+classes.getClassNum());
-			String SQL="UPDATE CLASSES SET teacherId=?,classLectureDate=?,classLecturetime=?,classNumberOfStudents=?,classCourseContents=?,classGrade=?,classIntroduction=?,classLocale=?,className=? where classNum=?";
-			template.update(SQL,classes.getteacherId(),classes.getClassLecturedate(),classes.getClassLecturetime(),classes.getClassNumberOfStudents(),classes.getClassCourseContents(),classes.getClassGrade(),classes.getClassIntroduction(),classes.getClassLocale(),classes.getClassName(),classes.getClassNum());
+			String SQL="UPDATE CLASSES SET classId=?,classLectureDate=?,classLecturetime=?,classNumberOfStudents=?,classCourseContents=?,classGrade=?,classIntroduction=?,classLocale=?,className=? where classNum=?";
+			template.update(SQL,classes.getClassId(),classes.getClassLecturedate(),classes.getClassLecturetime(),classes.getClassNumberOfStudents(),classes.getClassCourseContents(),classes.getClassGrade(),classes.getClassIntroduction(),classes.getClassLocale(),classes.getClassName(),classes.getClassNum());
 			template.execute("COMMIT");
 			System.out.println("setUpdateClasses2:"+classes.getClassNum());	
 					
