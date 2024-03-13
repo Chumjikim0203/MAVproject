@@ -194,12 +194,20 @@
                     <li class="list-group-item">
                         <a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">회원탈퇴하기</a>
                     </li>
-                    <li class="list-group-item">
-                       <a href="<c:url value='/store/add'/>?memberId=${member.memberId}">업체신청</a>
-                    </li>
-                    <li class="list-group-item">
-                       <a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>
-                    </li>
+                    <c:choose>
+                    	<c:when test="${store.storeId == null }">
+		                    <li class="list-group-item">
+		                       <a href="<c:url value='/store/add'/>?memberId=${member.memberId}">업체신청</a>
+		                    </li>
+	                    </c:when>
+                    </c:choose>
+                    <c:choose>
+	                    <c:when test="${teacher.teacherId == null}">
+	                    <li class="list-group-item">
+	                       <a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>
+	                    </li>
+	                    </c:when>
+	                </c:choose>
                 </ul>
             </div>
 		</div>

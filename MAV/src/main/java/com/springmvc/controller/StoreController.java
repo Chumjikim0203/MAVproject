@@ -155,6 +155,8 @@ public class StoreController {
        System.out.println("member:"+member.getMemberId());
        model.addAttribute("store",store);
        model.addAttribute("member",member);
+       sessionId.setAttribute("store", store);
+       sessionId.setAttribute("member",member);
        
        System.out.println("현재 업체 등록시도중인 memberId : "+ member.getMemberId());
        System.out.println("현재 업체 등록시도중인 storeId : "+store.getStoreId());
@@ -165,10 +167,8 @@ public class StoreController {
     @PostMapping("/add")
     public String returnStore(@ModelAttribute ("store") Store store,@ModelAttribute ("member") Member member, Model model,HttpServletRequest request) {
       HttpSession session = request.getSession();
-    	
+      member = (Member) session.getAttribute("member");
       storeService.CreateStore(store);
-      model.addAttribute("store",store);
-      model.addAttribute("member", member);
       
       session.setAttribute("store", store);
       session.setAttribute("member", member);
@@ -193,8 +193,11 @@ public class StoreController {
     }
     
     @GetMapping("/delete")
-    public String DeleteStore(@RequestParam String storeId){
-    	storeService.DeleteStore(storeId);
+    public String DeleteStore(@RequestParam String storeId,HttpServletRequest request){
+    	Store store = storeService.DeleteStore(storeId);
+    	HttpSession session = request.getSession();
+    	session.setAttribute("store", store);
+    	
     	return "redirect:/";
     }
     

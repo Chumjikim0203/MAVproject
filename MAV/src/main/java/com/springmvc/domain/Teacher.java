@@ -6,9 +6,11 @@ public class Teacher
 {
    private String teacherId; // 강사 아이디
    private MultipartFile teacherImages; // 강사 이미지
+   private String teacherimageFileName;  //이미지 파일이름
    private String teacherCategory; // 강사 종류
    private String teacherRecode; // 강사 이력
-   private String teacherLicense; // 강사 자격증
+   private MultipartFile teacherLicense; // 강사 자격증
+   private String LicenseimageFileName; //  자격증이미지 파일이름
    private String teacherInfomation; // 강사 소개 
    private boolean teacherApprove; // 강사 승인 신청
 
@@ -16,9 +18,9 @@ public class Teacher
    
    
    public Teacher() {
-	super();
-	
-	
+   super();
+   
+   
    }
 
 public String getTeacherInfomation() {
@@ -51,10 +53,10 @@ public String getTeacherInfomation() {
    public void setTeacherRecode(String teacherRecode) {
       this.teacherRecode = teacherRecode;
    }
-   public String getTeacherLicense() {
+   public MultipartFile getTeacherLicense() {
       return teacherLicense;
    }
-   public void setTeacherLicense(String teacherLicense) {
+   public void setTeacherLicense(MultipartFile teacherLicense) {
       this.teacherLicense = teacherLicense;
    }
    public boolean isTeacherApprove() {
@@ -62,5 +64,20 @@ public String getTeacherInfomation() {
    }
    public void setTeacherApprove(boolean teacherApprove) {
       this.teacherApprove = teacherApprove;
+   }
+   public String getTeacherimageFileName() {
+      return teacherimageFileName;
+   }
+
+   public void setTeacherimageFileName(String teacherimageFileName) {
+      this.teacherimageFileName = teacherimageFileName;
+   }
+
+   public String getLicenseimageFileName() {
+      return LicenseimageFileName;
+   }
+
+   public void setLicenseimageFileName(String licenseimageFileName) {
+      LicenseimageFileName = licenseimageFileName;
    }
 }

@@ -151,7 +151,13 @@
     {
     	display: flex;
     	justify-content: space-between;
-    } 
+    }
+    .clubImages img
+    {
+    	margin-top : 10px;
+    	margin-bottom : 10px;
+    }
+    
 </style>
 <title>클럽 페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -188,8 +194,12 @@
 			<div class="col-8" style="text-align: center">
 				<div class="card" style="text-align: center">
 	                <h5 class="mt-2">동호회 소개글</h5>
-	                <div class="col-12 mb-3">
-	                    <img src="<c:url value="/resources/images/${club.imageFileName}"/>" class="" width="70%">
+	                <div class="col-12 mb-3 clubImages">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName1}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName2}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName3}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName4}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName5}"/>" class="" width="70%">	                    
 	                </div>
                     <div class="col-12">
                         <p><pre>${club.clubInfo}</pre></p><br>
@@ -198,6 +208,18 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		// 이미지 요소 가져오기
+		var imgList = document.getElementsByClassName('clubImage');
+	
+		// 이미지가 로드되지 않았을 경우를 처리할 수도 있습니다.
+		for (var i = 0; i < imgList.length; i++) {
+		    var img = imgList[i];
+		    if (!img.complete || img.naturalWidth === 0) {
+		        img.style.display = "none"; // 대체할 기본 이미지 경로 설정
+		    }
+		}
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
 </body>
 </html>

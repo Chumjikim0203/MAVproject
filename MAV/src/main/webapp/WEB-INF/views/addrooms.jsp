@@ -67,7 +67,6 @@
         }
     </style>
 </head>
-
 <body>
     <jsp:include page="./section/nav.jsp"/>
     <div class="container">

@@ -17,7 +17,11 @@ public class ClubRowMapper implements RowMapper<Club>
 		
 		
 		club.setClubCategory(rs.getString("clubCategory"));
-		club.setImageFileName(rs.getString("imageFileName"));
+		club.setImageFileName1(rs.getString("imageFileName1"));
+		club.setImageFileName2(rs.getString("imageFileName2"));
+		club.setImageFileName3(rs.getString("imageFileName3"));
+		club.setImageFileName4(rs.getString("imageFileName4"));
+		club.setImageFileName5(rs.getString("imageFileName5"));
 		club.setClubInfo(rs.getString("clubInfo"));
 		club.setClubLocale(rs.getString("clubLocale"));
 		club.setClubName(rs.getString("clubName"));

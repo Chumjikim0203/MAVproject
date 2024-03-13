@@ -40,9 +40,9 @@ public class StoreServiceImpl implements StoreService{
 		storeRepository.UpdateStore(store);
 	}
 	@Override
-	public void DeleteStore(String storeId) {
+	public Store DeleteStore(String storeId) {
 		// TODO Auto-generated method stub
-		storeRepository.DeleteStore(storeId);
+		return storeRepository.DeleteStore(storeId);
 	}
 
 	@Override

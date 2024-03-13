@@ -45,8 +45,8 @@ public class TeacherServiceImpl implements TeacherService{
 
 
 	@Override
-	public void deleteTeacher(String teacherId) {
-		teacherRepository.deleteTeacher(teacherId);
+	public Teacher deleteTeacher(String teacherId) {
+		return teacherRepository.deleteTeacher(teacherId);
 		
 	}
 

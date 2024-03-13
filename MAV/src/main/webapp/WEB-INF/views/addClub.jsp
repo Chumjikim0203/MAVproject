@@ -57,9 +57,25 @@
                             </form:select>
                         </div>
                         <div class="col-md-7 mb-3">
-                       		<label for="clubImages">동호회 이미지</label>
-                         	<form:input type="file" path="clubImages" class="form-control" />                          
-                       	</div>                                            
+                       		<label for="clubImages">동호회 이미지1</label>
+                         	<form:input type="file" path="clubImages1" class="form-control" />                          
+                       	</div>
+                       	<div class="col-md-7 mb-3">
+                       		<label for="clubImages">동호회 이미지2</label>
+                         	<form:input type="file" path="clubImages2" class="form-control" />                          
+                       	</div> 
+                       	<div class="col-md-7 mb-3">
+                       		<label for="clubImages">동호회 이미지3</label>
+                         	<form:input type="file" path="clubImages3" class="form-control" />                          
+                       	</div> 
+                       	<div class="col-md-7 mb-3">
+                       		<label for="clubImages">동호회 이미지4</label>
+                         	<form:input type="file" path="clubImages4" class="form-control" />                          
+                       	</div> 
+                       	<div class="col-md-7 mb-3">
+                       		<label for="clubImages">동호회 이미지5</label>
+                         	<form:input type="file" path="clubImages5" class="form-control" />                          
+                       	</div>                                             
                         <div class="col-md-12 mb-3">
                             <label for="clubInfo">동호회 소개글</label>
                             <form:textarea class="form-control" path="clubInfo" />                        

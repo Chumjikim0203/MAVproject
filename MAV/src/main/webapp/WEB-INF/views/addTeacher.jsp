@@ -11,7 +11,8 @@
   <title>회원가입 화면 샘플 - Bootstrap</title>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -23,7 +24,7 @@
 
     .container
     {
-     width: 80%;
+     width: 70%;
      margin: 0 auto;
     }
   </style>
@@ -31,16 +32,16 @@
 
  <body>
  <%
-	String memberId = request.getParameter("memberId");
-	System.out.println("addteacherjsp:"+memberId);
-%>	
+   String memberId = request.getParameter("memberId");
+   System.out.println("addteacherjsp:"+memberId);
+%>   
 
-       <jsp:include page="./section/nav.jsp"/>
        <div class="container">
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
                    <h4 class="mb-3">강사 가입</h4>
-                   <form:form modelAttribute="addTeacher" class="form-horizontal" action="/MAV/teacher/add" method="post">
+                   <form:form modelAttribute="addTeacher" class="form-horizontal" action="/MAV/teacher/add" method="post" enctype="multipart/form-data">
+
                <fieldset>
                 <div class="row">
                          <div class="col-md-6 ">
@@ -60,33 +61,33 @@
                               강사이력을 입력해주세요.
                         </div>  
                         <div class="col-md-12">
-           				 	<label for="teacherInfomation">강사소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
-           					<form:textarea cols="50" rows="5" class="form-control" path="teacherInfomation" name="teacherInfomation"/>
-           			   </div>
+                           <label for="teacherInfomation">강사소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+                          <form:textarea cols="50" rows="5" class="form-control" path="teacherInfomation" name="teacherInfomation"/>
+                       </div>
                      
-                        <!--             <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                   <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-                <div  class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                   <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-                <div  class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-            </div>  -->
-                                      
-                       
-         				 
-                                            
-                        
+                       <div class="row">
+                         <div class="col-md-6 mb-3">
+                             <label for="teacherLicense" class="form-label">강사자격증</label>
+                             <form:input class="form-control" type="file" path="teacherLicense"/>
+                         </div>
+                         <div class="col-md-6 mb-3">
+                             <label for="teacherLicense" class="form-label">강사자격증</label>
+                            <form:input class="form-control" type="file" path="teacherLicense"/>
+                         </div>
+                         <div  class="col-md-6 mb-3">
+                             <label for="teacherLicense" class="form-label">강사자격증</label>
+                            <form:input class="form-control" type="file" path="teacherLicense"/>
+                         </div>
+                         <div  class="col-md-6 mb-3">
+                             <label for="teacherLicense" class="form-label">강사자격증</label>
+                             <form:input class="form-control" type="file" path="teacherLicense"/>
+                         </div>
+                            <div  class="col-md-6 mb-3">
+                             <label for="teacherImages" class="form-label">강사사진</label>
+                             <form:input class="form-control" type="file" path="teacherImages"/>
+                         </div>
+                        </div>
+                            
             </div>
                    <br>
                     <hr class="mb-4">

@@ -173,11 +173,13 @@ public class StoreRepositoryImpl implements StoreRepository {
 
 
 	@Override
-	public void DeleteStore(String storeId) {
-		// TODO Auto-generated method stub
-		String SQL="DELETE FROM STORE WHERE storeId=?";
-		this.jdbcTemplate.update(SQL,storeId);
+	public Store DeleteStore(String storeId) {
+	    String SQL = "DELETE FROM STORE WHERE storeId=?";
+	    jdbcTemplate.update(SQL, storeId);
+	  
+	    return null;
 	}
+
 
 
 }

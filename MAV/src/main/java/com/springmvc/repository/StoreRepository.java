@@ -18,7 +18,7 @@ public interface StoreRepository {
 	void CreateStore(Store store);
 	void updateMatchedValue(int roomNum, int matchedValue);
    void UpdateStore(Store store);
-   void DeleteStore(String storeId);
+   Store DeleteStore(String storeId);
 }
 
 
