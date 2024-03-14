@@ -21,6 +21,6 @@ public class NoticeRowMapper implements RowMapper<Notice> {
         notice.setNoticeDate(rs.getDate("noticeDate").toLocalDate());
         // notice.setFileAttached(rs.getInt("fileAttached"));
 
-        return notice; // 수정된 부분
+        return notice; 
 	}
 }

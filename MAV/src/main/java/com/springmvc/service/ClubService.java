@@ -25,10 +25,10 @@ public interface ClubService
 	void memberUpdate(ClubMember clubmember);
 	ClubMember serchingC_member(String c_memberId, String clubName);
 	
-	
 	//내가 동호회장인 클럽정보
 	List<Club> getMyMasterClub(String c_memberId);
 	
 	// 클럽포인트 업데이트
 	void updateClubPoint(String ClubName, int clubPoint);
+
 }

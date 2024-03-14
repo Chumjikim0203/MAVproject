@@ -1,76 +1,115 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!doctype html>
-<html lang="en">
-  <head>
-  	<style>
-  		
-		.main-container
-		{
-			width: 70%;
-			margin: 0 auto;
-		}
-  	</style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>로그인</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-  <body>
-  	<div class="main-container mb-3">
-	   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">MAV</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">동호회</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      매칭
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="./login">로그인</a>
-                  </li>
-                   <li class="nav-item">
-                    <a class="nav-link active" aria-disabled="true" href="./member/add/member">회원가입</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">search</button>
-                </form>
-              </div>
-            </div>
-        </nav>
-        <div class="myform">
-		  <div class="logo">
-		  		로그인		 
-		  </div>
-		    <form:form modelAttribute="member" action="./login" method="post" >
-		        <form:input type="text" path="memberId" />
-		        <form:input type="password" path="memberPassword" />
-		        <button type="submit">로그인</button>
-		        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-		    </form:form>
+<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page import="java.time.LocalDate"%>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+	crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/53a8c415f1.js"
+	crossorigin="anonymous"></script>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+	rel="stylesheet">
+<style>
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+	background: #ecf0f3;
+}
+
+.main-container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.wrap {
+	display: flex;
+	justify-content: center;
+	height: auto;
+	background: #ecf0f3;
+	margin-top: 150px;
+}
+
+.login {
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 40%;
+	height: 150%;
+}
+
+h2, h4 {
+	color: #333;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #4B70E2;
+	margin-bottom: 20px;
+}
+
+.submit {
+	text-align: center;
+}
+
+.submit input[type="submit"] {
+	border: none;
+	background: #4B70E2;
+	color: #fff;
+	padding: 10px 100px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<div class="main-container">
+		<jsp:include page="./section/nav.jsp" />
+		<div class="wrap">
+			<div class="login col-6">
+				<h2>Log-in</h2>
+				<br>
+				<div class="login_sns"></div>
+				<form:form modelAttribute="member" action="./login" method="post">
+					<div class="login_id">
+						<h4>ID</h4>
+						<form:input type="text" class="form-control" path="memberId" />
+					</div>
+					<div class="login_pw">
+						<h4>Password</h4>
+						<form:input type="password" class="form-control"
+							path="memberPassword" />
+					</div>
+					<div class="login_etc">
+						<div class="checkbox"></div>
+						<div class="forgot_pw"></div>
+					</div><br>
+					<div class="submit">
+						<input type="submit" value="로그인">
+					</div>
+				</form:form>
+			</div>
 		</div>
 	</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

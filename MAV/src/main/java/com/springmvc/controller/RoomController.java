@@ -125,27 +125,16 @@ public class RoomController
     //업체가 만든 룸을 roomview로들어왔을때 보여주는 로직
     @GetMapping("/roomView")
     public String roomMainView(Model model, Room room, HttpServletRequest request) {
-        
-    	// 세션에서 memberId 가져오기
-		
-		 HttpSession session = request.getSession(); 
-		 Member member = (Member)session.getAttribute("member"); 
-		
-		 System.out.println("member 정보: " + member.getMemberId());
-		
-		
-		// 입력한 방 모두의 정보를 가지고오는 로직
-		String memberId = member.getMemberId();
+
 
         // 입력한 방 모두의 정보를 가지고오는 로직
         List<Room> myRooms = storeService.getAllRooms(room);
 
-        model.addAttribute("memberId", memberId);
         model.addAttribute("myRooms", myRooms);
         return "roomView";
     }
     
-    // 메인 및 룸페이지로 보내드는 리드라인 추 후 삭제가능
+    // 메인 및 룸페이지로 보내는 리드라인 추 후 삭제가능
     @GetMapping("/myRooms")
     public String readAllRooms(Model model, Room room) {
     	List<Room> allrooms = storeService.getAllRooms(room);

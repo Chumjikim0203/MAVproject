@@ -8,7 +8,7 @@ public class ClubMember
 	private boolean clubApprove;
 	
 	public ClubMember(){};
-	
+
 	public String getClubName() {
 		return clubName;
 	}

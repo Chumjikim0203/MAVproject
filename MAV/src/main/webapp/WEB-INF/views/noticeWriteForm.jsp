@@ -15,56 +15,55 @@
 	<script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <style>
-        body {
-            width: 80vw;
-            margin: 0 auto;
-        }
+<style>
+body {
+	width: 70vw;
+	margin: 0 auto;
+}
 
-        .input-form-backgroud {
-            background-color: #f8f9fa;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 10px;
-        }
 
-        .input-form {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-        }
+.input-form-backgroud {
+	padding: 2px;
+	margin-top: 30px;
+	border : 1px solid #d3d3d3;
+	border-radius: 5px;
+}
 
-        .form-control {
-            margin-bottom: 15px;
-        }
+.input-form {
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 5px;
+}
 
-        .mb-4 {
-            margin-bottom: 4rem;
-        }
+.form-control {
+	margin-bottom: 15px;
+}
 
-        .validation-form {
-            position: relative;
-        }
+.mb-4 {
+	margin-bottom: 4rem;
+}
 
-        .invalid-feedback {
-            display: none;
-            color: #dc3545;
-        }
+.validation-form {
+	position: relative;
+}
 
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
+.invalid-feedback {
+	display: none;
+	color: #dc3545;
+}
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
+.btn-primary {
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.btn-primary:hover {
+	background-color: #0056b3;
+	border-color: #0056b3;
+}
     </style>
 </head>
 <body>
-<h1>글쓰기 폼</h1>
-<br><br><br>
 <jsp:include page="./section/nav.jsp" />
 <div class="container">
     <div class="input-form-backgroud row">

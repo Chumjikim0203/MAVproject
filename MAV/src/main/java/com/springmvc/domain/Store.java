@@ -17,8 +17,22 @@ public class Store
 	private String storeNotice; // 업체 공지사항
 	private boolean storeApprove; // 업체 승인 신청
 	private MultipartFile storeImage; // 업체 이미지
+    private Double latitude;
+    private Double longitude;
 	
 	
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
 	public MultipartFile getStoreImage() {
 		return storeImage;
 	}

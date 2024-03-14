@@ -1,5 +1,11 @@
 package com.springmvc.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvc.domain.Classes;
 import com.springmvc.domain.Member;
+import com.springmvc.domain.Teacher;
+import com.springmvc.repository.ClassesRepository;
 import com.springmvc.service.ClasseService;
+import com.springmvc.service.TeacherService;
 
 @Controller
 @RequestMapping("/Class")
 public class ClassController {
 	@Autowired
 	private ClasseService ClassesService;
+	@Autowired
+	private TeacherService teacherService;
 //	@GetMapping
 //	public String teacher(Model model ,Classes classes) {
 //		model.addAttribute("allclass",ClassesService.getAllClassesList(classes));
@@ -26,11 +37,15 @@ public class ClassController {
 //	}
 
 	@GetMapping("/addclass")
-	public String addclassform(@ModelAttribute("newclasses")Classes claases, Model model) {
+	public String addclassform(@ModelAttribute("newclasses")Classes claases, Model model,HttpServletRequest request,Member member,Teacher teacher) {
+		HttpSession sessionId=request.getSession();	
+		member= (Member)sessionId.getAttribute("member");
+		teacher= (Teacher)sessionId.getAttribute("teacher");
 		Classes classes = new Classes();
-
-		System.out.println("GETadd도착");
+		System.out.println("Getadd:"+teacher.getTeacherId());
 		model.addAttribute("classes", classes);
+		model.addAttribute("member", member);
+		model.addAttribute("teacher",teacher);
 		classes.setClassIntroduction("ex)"
 		+ "■강의 특이사항\r\n"
         + " 학원 가는 길: 엘리베이터를 이용하여 10층  \r\n"
@@ -61,10 +76,13 @@ public class ClassController {
 
 	//강의등록 하기버튼
 	  @PostMapping("/addclass") 
-	  public String createaddclass(@ModelAttribute Classes classes,BindingResult bindingResult, Model model)
+	  public String createaddclass(@ModelAttribute Classes classes,BindingResult bindingResult, Model model,HttpServletRequest request,Teacher teacher)
 	  { 
-	  System.out.println("addclass도착");
-
+	  HttpSession sessionId=request.getSession();	
+	  teacher= (Teacher)sessionId.getAttribute("teacher");
+	  classes = (Classes) model.getAttribute("classes");
+	  System.out.println("addteacherId:"+teacher.getTeacherId());
+	  model.addAttribute("teacher",teacher); 
 	  model.addAttribute("classes",classes); 
 	  ClassesService.setNewClasses(classes);
 	 // return "redirect:/teacher";
@@ -82,10 +100,15 @@ public class ClassController {
 //		  return "teacher";
 //	  }
 	  @GetMapping("/updateclass")
-	  public String updateclass(@RequestParam ("classNum")int classNum, Model model) {
+	  public String updateclass(@RequestParam ("classNum")int classNum, Model model,HttpServletRequest request,Member member,Teacher teacher) {
+		  HttpSession sessionId=request.getSession();	
+		  member= (Member)sessionId.getAttribute("member");
+          teacher= teacherService.teacherId(member.getMemberId());
 		  System.out.println("updateclass도착:"+classNum);
 		  Classes getById=ClassesService.getById(classNum);
 		  model.addAttribute("classes",getById);
+		  model.addAttribute("teacher",teacher);
+		  model.addAttribute("member",member);
 //		  뷰페이지에  <form:form modelAttribute="classes" 와 매핑
 		  return "classupdateform";
 	  }
@@ -109,13 +132,46 @@ public class ClassController {
 	  }
 		//상세정보뿌려주기
 	  @GetMapping("/detailclass")
-	  public String detailclass(@RequestParam int classNum, Model model ) {
+	  public String detailclass(@RequestParam("classNum") int classNum, Model model,HttpServletRequest request,Member member) {
+		  HttpSession sessionId=request.getSession();	
+		  member= (Member)sessionId.getAttribute("member");
 		  model.addAttribute("detailclass",ClassesService.getById(classNum));
 		  System.out.println("cs.getby:"+ClassesService.getById(classNum));
 		  return "detailclass";
 	  }
 	  
-	 
+	  //read classList
+	  @GetMapping("/classlist")
+	  public String ClassList( Model model,HttpServletRequest request,Member member,Teacher teacher, Classes classes) {
+		  HttpSession sessionId=request.getSession();	
+		  member= (Member)sessionId.getAttribute("member");
+		  teacher= teacherService.teacherId(member.getMemberId());
+		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList(classes);
+		  model.addAttribute("classes",classesall);
+		  System.out.println("classlist도착 member는:"+member.getMemberId());
+		  System.out.println("classes:"+classesall);
+		  return "classlist";
+	  }
+	  @GetMapping("/addmember")
+	  public String addclassmember(@ModelAttribute("detailclass") Classes classes, HttpServletRequest request,Model model) {
+	        HttpSession sessionId = request.getSession();	
+	        Member member = (Member)sessionId.getAttribute("member");
+	        String memberlistname =member.getMemberName();
+	        
+	        classes = ClassesService.getById(classes.getClassNum());
+	        List<Member> memberlist=new ArrayList<Member>();
+	        if (classes != null && member != null) 
+	        {
+	        	 memberlist.add(member);	           
+	        }
+	        
+	        System.out.println("classes 에 담긴 클래스 넘버 : "+classes.getClassNum());
+	        System.out.println("member:"+memberlist);
+	        model.addAttribute("memberlist",memberlist);
+	        model.addAttribute("detailclass",classes);
+	        return "detailclass";
+	    }
+
 	     
 }
 

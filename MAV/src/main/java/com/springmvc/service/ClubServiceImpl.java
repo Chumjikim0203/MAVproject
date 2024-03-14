@@ -33,6 +33,7 @@ public class ClubServiceImpl implements ClubService
 	public void addNewClubMember(Club club, ClubMember clubmember, Member member) 
 	{
 		clubRepository.addNewClubMember(club, clubmember, member);
+
 	}
 
 	@Override
@@ -124,5 +125,5 @@ public class ClubServiceImpl implements ClubService
 	public void updateClubPoint(String ClubName, int clubPoint) {
 		 clubRepository.updateClubPoint(ClubName,clubPoint);		
 	}
-		
+
 }

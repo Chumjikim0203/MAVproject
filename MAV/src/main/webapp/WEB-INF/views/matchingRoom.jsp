@@ -9,8 +9,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>매칭 상세 페이지</title>
-    <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+    
     <style>
             
         body{
@@ -71,6 +74,43 @@
             text-decoration: none;
             border: none;
           }
+          
+
+    
+/* 기본 버튼 스타일 */
+.btn.primary {
+    background-color: transparent;
+    border-color: #007bff;
+    color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.warning {
+    background-color: transparent;
+    border-color: #ffc107;
+    color: #ffc107;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.danger {
+    background-color: transparent;
+    border-color: #dc3545;
+    color: #dc3545;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* 마우스 호버 시 배경색 변경 */
+.btn:hover {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #fff !important;
+}
+
+.modal-mid-bt {
+    margin: 0 10px; /* 좌우 마진을 10px로 설정합니다. */
+}
+
+                   
     </style>
 </head>
 <body>
@@ -101,10 +141,11 @@
 			<!-- applicantId가 null이 아닌 경우에 실행되는 부분 -->
 			<c:if test="${matching.applicantId != null}">						
 			   	<div class="detail-box boxes">  
-			    <p>${matching.creatorId} vs ${matching.applicantId}</p>
+			    <p>${matching.creatorId} 🆚  ${matching.applicantId}</p>
 			    
 				<!-- Button trigger modal -->
 				<c:if test="${member.memberId == room.storeId}">		    
+
 					<button type="button" class="room-application-link room-application-btn4" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					    점수부여
 					</button>
@@ -115,11 +156,11 @@
 				        <div class="modal-content">
 				            <div class="modal-header">
 				                <div class="modal-mid-title-bt">
-				                    <div>
+				                    <div style="text-align: start; ">
 				                        <b><h5 class="modal-title " id="exampleModalLabel">&nbsp Home : ${matching.creatorId}&nbsp&nbsp&nbsp&nbsp</h5></b>
 				                    </div>
 				                    <div>
-				                        <b><h5 class="modal-title " id="exampleModalLabel">Away : ${matching.applicantId}</h5></b>
+				                        <b><h5 class="modal-title " id="exampleModalLabel">&nbsp Away : ${matching.applicantId}</h5></b>
 				                    </div>
 				                </div>
 				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -132,11 +173,11 @@
 				                    <input type="hidden" name="creatorId" value="${matching.creatorId}">
 				                    <input type="hidden" name="applicantId" value="${matching.applicantId}">
 				                    
-				                    <div class="modal-mid">
-				                        <button type="submit" name="result" value="승" class="btn btn-primary modal-mid-bt">&nbsp&nbsp승리&nbsp&nbsp</button>
-				                        <button type="submit" name="result" value="무" class="btn btn-warning modal-mid-bt">&nbsp&nbsp무승부&nbsp&nbsp</button>
-				                        <button type="submit" name="result" value="패" class="btn btn-danger modal-mid-bt">&nbsp&nbsp패배&nbsp&nbsp</button>
-				                    </div>
+									<div class="modal-mid text-center ">
+									    <button type="submit" name="result" value="승" class="btn btn-primary modal-mid-bt primary mdbt">&nbsp;&nbsp;승리&nbsp;&nbsp;</button>
+									    <button type="submit" name="result" value="무" class="btn btn-warning modal-mid-bt warning mdbt">&nbsp;&nbsp;무승부&nbsp;&nbsp;</button>
+									    <button type="submit" name="result" value="패" class="btn btn-danger modal-mid-bt danger mdbt">&nbsp;&nbsp;패배&nbsp;&nbsp;</button>
+									</div>
 				                </form:form>
 				            </div>
 				            <div class="modal-footer">
@@ -200,6 +241,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 	<script>
     

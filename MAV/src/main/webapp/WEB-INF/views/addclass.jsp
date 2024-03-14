@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+  <%@ page import="java.time.LocalDate" %>
 <!DOCTYPE html>
 <html>
 
@@ -26,10 +27,6 @@
 </head>
 
 <body>
-<%
-	String memberId = request.getParameter("memberId");
-	System.out.println("폼에서:"+memberId);
-%>	
     <br><br><br>
   <div class="container">
     <div class="input-form-backgroud row">
@@ -47,9 +44,9 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="classLecturedate">강의날짜</label>
-                    <form:hidden class="form-control" path="teacherId" value="<%=memberId%>"/>
-                    <form:hidden class="form-control" path="classId" value="<%=memberId%>"/>         
-                    <form:input type="date" class="form-control" path="classLecturedate"  />
+                    <form:hidden class="form-control" path="teacherId" value="${teacher.teacherId}"/>
+        
+                    <form:input type="date" class="form-control" path="classLecturedate" min="<%= LocalDate.now() %>"  />
 					<div class="invalid-feedback">
                     	강의날짜를 선택해주세요.
                		</div>
@@ -92,12 +89,12 @@
                    <form:input  class="form-control"  path="classLocale"/>
                 </div>
             </div>
-  <%--           <div class="row">
+             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="classImages" class="form-label">강의 이미지</label>
                     <form:input class="form-control" type="file" path="classImages"/>
                 </div>
-            </div>  --%>
+           	</div>  
 
           <div class="mb-3">
             <label for="classIntroduction">강의소개<span class="text-muted">&nbsp;(필수 아님)</span></label>

@@ -10,6 +10,8 @@
     <title>상세 페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
+    
+    
         .carousel-inner img {
             width: 100%;
             height: 65vh;
@@ -85,12 +87,58 @@
             <div class="detail-box detail-right" style="height: 810px;">
                 <h2>강의 정보</h2>
                 <button type="button" class="btn btn-primary mt-2">수정</button>
-                <a href="/MAV/Class" class="btn btn-primary mt-2">강의신청하기</a>
-                <br><br><br><br><br><br><br>
+               <!-- 강의 신청하기 버튼 -->
+				
+				<a href="/MAV/Class/addmember?classNum=${detailclass.classNum}" class="btn btn-primary mt-2">강의신청하기</a>
+                 <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+	            	${detailclass.className} 수강생 목록
+	        	</button>
+                <br><br>
+  
+                       <!-- 모달  -->
+
+	 
+	    <div class="card-1 mb-3">
+	        <!-- 강의 정보 -->
+	 		
+	        <!-- 수강생 목록 버튼 -->
+	      
+	
+	        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        	
+                            <div class="modal-mid-title-bt">                           
+                                <div>
+                                    <b><h5 class="modal-title " id="exampleModalLabel">${detailclass.classNum} ${detailclass.className} 수강목록</h5></b>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        
+                            <!-- 모달  -->
+                        <form:form modelAttribute="resultForm" method="post" action="/MAV/match/matchpoint">
+                                <div class="modal-mid">
+                                   <c:forEach items="${memberlist}" var="memberlist">                                    	
+                              			<h5 class="" id="">${memberlist.memberName}  ${memberlist.memberGender}</h5>
+                                   </c:forEach>
+                               </div>
+                            </form:form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </div>
+
+	<br><br><br><br><br><br><br>
                 <h2>지도 정보</h2>
                 <input type="text" class="form-control" placeholder="추가 정보 입력">
                 <button type="button" class="btn btn-primary mt-2">추가</button>
-            
             </div>
         
         </div>

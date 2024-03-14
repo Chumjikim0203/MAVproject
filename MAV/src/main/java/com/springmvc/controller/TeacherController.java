@@ -95,6 +95,10 @@ public class TeacherController {
 		teacherService.UpdateTeacher(teacher);
 		return "redirect:/teacher";
 	}
-	// R
+	@GetMapping("delete")
+	public String  deleteteacher (@RequestParam String teacherId) {
+		teacherService.deleteTeacher(teacherId);
+		return "redirect:/";
+	}
 
 }

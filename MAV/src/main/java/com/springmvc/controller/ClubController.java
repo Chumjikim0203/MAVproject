@@ -1,5 +1,6 @@
 package com.springmvc.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springmvc.domain.Club;
 import com.springmvc.domain.ClubMember;
@@ -38,13 +40,29 @@ public class ClubController
     public Map<String, String> getCategoryOptions() 
     {
         Map<String, String> categoryOptions = new HashMap<>();
+        categoryOptions.put("기타", "기타");
         categoryOptions.put("농구", "농구");
         categoryOptions.put("풋살", "풋살");
         categoryOptions.put("족구", "족구");
         categoryOptions.put("당구", "당구");
         categoryOptions.put("야구", "야구");
+        categoryOptions.put("축구", "축구");
         return categoryOptions;
     }
+	@ModelAttribute("localeOptions")
+	public Map<String, String> getLocaleOptions()
+	{
+		Map<String, String> localeOptions = new HashMap<>();
+		localeOptions.put("강원", "강원");
+		localeOptions.put("제주", "제주");
+		localeOptions.put("전라", "전라");
+		localeOptions.put("경상", "경상");
+		localeOptions.put("충청", "충청");
+		localeOptions.put("경기", "경기");
+		localeOptions.put("서울", "서울");
+		
+		return localeOptions;
+	}
 	
 	@GetMapping("/add")
 	public String addClub(HttpServletRequest request,Model model)
@@ -73,9 +91,33 @@ public class ClubController
 		{
 			return "addClub";
 		}
+		String save = request.getSession().getServletContext().getRealPath("/resources/images");
+		MultipartFile clubImages = club.getClubImages();		
+		System.out.println("post에서 받아온 클럽이미지 : "+club.getClubImages());
+		
+		String saveName = clubImages.getOriginalFilename();
+		System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+		
+		File saveFile= new File(save, saveName);
+		
+		
 		HttpSession session = request.getSession();
 		member = (Member) session.getAttribute("member");
-		club = (Club) model.getAttribute("club");
+		
+		if(clubImages !=null && !clubImages.isEmpty())
+		{
+			try 
+			{
+				clubImages.transferTo(saveFile);
+				club.setImageFileName(saveName);
+			
+			} 
+			catch (Exception e) 
+			{
+				throw new RuntimeException("동호회 이미지 업로드가 실패했습니다.", e);
+			}
+		}
+		
 		ClubMember clubmember = new ClubMember();
 	
 		model.addAttribute("member", member);
@@ -89,11 +131,12 @@ public class ClubController
 
 		System.out.println("post 에서 클럽세션에 담은 이름 : "+club.getClubName());
 		System.out.println("post 에서 멤버세션에 담은 아이디 : "+member.getMemberId());
-		
+		System.out.println("post 에서 클럽에 담긴 이미지 이름 : "+club.getImageFileName());
+
 		return "redirect:/member/mypage";
 	}
 	
-	@GetMapping("/clubpage")
+	@GetMapping("/clubinfo")
 	public String myclub(String clubName,HttpServletRequest request, Model model)
 	{
 		List<ClubMember> memberList = new ArrayList();
@@ -114,7 +157,7 @@ public class ClubController
         System.out.println("현재 로그인한 아이디 : "+memberSession.getMemberId());
         System.out.println("현재 조회중인 동호회장 아이디 : "+club.getClubMaster());
         
-        return "clubpage"; // 클럽 정보를 보여주는 뷰 페이지로 이동
+        return "clubinfo"; // 클럽 정보를 보여주는 뷰 페이지로 이동
 	}
 	
 	@GetMapping("/list")
@@ -144,12 +187,35 @@ public class ClubController
 	    HttpSession session = request.getSession();
 	    Member member = (Member) session.getAttribute("member");
 	    
+	    String save = request.getSession().getServletContext().getRealPath("/resources/images");
+		MultipartFile clubImages = club.getClubImages();		
+		System.out.println("post에서 받아온 클럽이미지 : "+club.getClubImages());
+		
+		String saveName = clubImages.getOriginalFilename();
+		System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+		
+		File saveFile= new File(save, saveName);
+		
+		if(clubImages !=null && !clubImages.isEmpty())
+		{
+			try 
+			{
+				clubImages.transferTo(saveFile);
+				club.setImageFileName(saveName);
+			
+			} 
+			catch (Exception e) 
+			{
+				throw new RuntimeException("동호회 이미지 업로드가 실패했습니다.", e);
+			}
+		}
+
 	    System.out.println("POST member에 담긴 아이디 : " + member.getMemberName());
 	    System.out.println("POST member에 담긴 클럽명 : " + club.getClubName());
 	    
 	    clubService.updateClub(club, member);
-	    
-	    return "clubpage";
+
+	    return "redirect:/member/mypage";
 	}
 
 	@GetMapping("/delete")
@@ -215,5 +281,26 @@ public class ClubController
 		
 	}
 	
-	
+	@GetMapping("/clubsetting")
+	public String clubsetting(@RequestParam("clubName")String clubName,HttpServletRequest request, Model model)
+	{
+		List<ClubMember> memberList = new ArrayList();
+		System.out.println("클럽관리페이지 도착");
+		HttpSession session = request.getSession();
+		Member memberSession = (Member) session.getAttribute("member");
+		ClubMember clubmember = new ClubMember();
+		Club club = clubService.getByClubName(clubName);
+		clubmember = clubService.getMyClubMember(memberSession.getMemberId(), club.getClubName());
+		memberList = (List<ClubMember>) clubService.getClubMemberList(clubName);
+        model.addAttribute("club", club); // 모델에 클럽 정보를 추가
+        model.addAttribute("clubmember",clubmember);
+        model.addAttribute("memberList", memberList);
+        model.addAttribute("member", memberSession);
+        
+        System.out.println("현재 로그인한 아이디 : "+memberSession.getMemberId());
+        System.out.println("현재 조회중인 동호회장 아이디 : "+club.getClubMaster());
+        
+        return "clubsetting"; // 클럽 정보를 보여주는 뷰 페이지로 이동		
+	}
+
 }

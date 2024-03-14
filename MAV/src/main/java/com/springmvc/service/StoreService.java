@@ -7,15 +7,19 @@ import com.springmvc.domain.Store;
 
 public interface StoreService {
    void createRoom(Room room);
-	List<Room> getAllRooms(Room room);
-	void deleteRoom(int roomNum);
-	Room getByroomNumAllRooms(int roomNum);
-	void updateRoom(Room updateRoom);
-	Store getStoreById(String storeId);
-	List<Room> getRoomsByStoreId(String storeId);
-	void CreateStore(Store store);
-	void updateMatchedValue(int roomNum, int matchedValue);
+   void updateMatchedValue(int roomNum, int matchedValue);
+   List<Room> getAllRooms(Room room);
+   void deleteRoom(int roomNum);
+   Room getByroomNumAllRooms(int roomNum);
+   void updateRoom(Room updateRoom);
+   Store getStoreById(String storeId);
+   List<Room> getRoomsByStoreId(String storeId);
+   void CreateStore(Store store);
+   void UpdateStore(Store store);
+   Store DeleteStore(String storeId);
+   Room getBycoordinate(int roomNum);
 
 
+   
 }
 //List<Room> getAllRoomsByStoreId(String storeId);

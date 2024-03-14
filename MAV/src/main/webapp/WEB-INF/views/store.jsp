@@ -14,13 +14,14 @@
    
    
     <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
-            width: 80vw;
-            margin: 0 auto;
-
+        body 
+        {
+            font-family: 'Noto Sans KR', sans-serif;            
+        }
+        .main-container
+        {
+           width : 80%;
+           margin : 0 auto;
         }
 
         .main {
@@ -118,7 +119,7 @@
         
         .room-dt{
         
-	        text-align: left;
+           text-align: left;
         
         }
         .romm-ddt{
@@ -177,9 +178,9 @@
         .modal-mid{
              display: flex;
              justify-content: center;
-	         align-items: center;
-	         font-size: 0.5rem;
-        	
+            align-items: center;
+            font-size: 0.5rem;
+           
         }
         
         .modal-mid-bt{
@@ -187,210 +188,177 @@
         }
         
         .modal-mid-title-bt{
-              display: flex;
+             display: flex;
              justify-content: space-btween;
-	         align-items: center;
-	         font-size: 0.5rem;
+            align-items: center;
+            font-size: 0.5rem;
         }
+        
+        .title-flex{
+            display: flex;
+             justify-content: space-between;
+             
+        }
+        
+        #createRoomDropdown, #createTournamentDropdown {
+        background-color: rgb(253, 241, 241);
+        border-radius: 4px;
+      }
 
     </style>
-	<script type="text/javascript">
-	    function confirmDelete(roomNum) {
-	        if (window.confirm("매칭대기중인 방입니다. 정말로 삭제하시겠습니까?")) {
-	            window.location.href = "<c:url value='/room/deleteMyRoom'/>?roomNum=" + roomNum;
-	        }
-	    }
-	    $(document).ready(function() {
-	        // 모든 버튼에 대한 클릭 이벤트 핸들러
-	        $('#roomManagementButton, #MatchRoomManagementButton, #ResultManagementButton, #TournamentButton').click(function(e) {
-	            e.preventDefault();
+   <script type="text/javascript">
+       function confirmDelete(roomNum) {
+           if (window.confirm("매칭대기중인 방입니다. 정말로 삭제하시겠습니까?")) {
+               window.location.href = "<c:url value='/room/deleteMyRoom'/>?roomNum=" + roomNum;
+           }
+       }
+       $(document).ready(function() {
+           // 모든 버튼에 대한 클릭 이벤트 핸들러
+           $('#roomManagementButton, #MatchRoomManagementButton, #ResultManagementButton, #TournamentButton').click(function(e) {
+               e.preventDefault();
 
-	            // 각 버튼에 대한 AJAX 요청 URL
-	            var urls = {
-	                'roomManagementButton': './store/RoomManagement',
-	                'MatchRoomManagementButton': './store/MatchRoomManagement',
-	                'ResultManagementButton': './store/ResultManagement',
-	                'TournamentButton': './tournament/tournamentManagement'
-	            };
+               // 각 버튼에 대한 AJAX 요청 URL
+               var urls = {
+                   'roomManagementButton': './store/RoomManagement',
+                   'MatchRoomManagementButton': './store/MatchRoomManagement',
+                   'ResultManagementButton': './store/ResultManagement',
+                   'TournamentButton': './tournament/tournamentManagement'
+               };
 
-	            // 각 버튼에 대한 컨텐츠 ID
-	            var contents = {
-	                'roomManagementButton': '#content1',
-	                'MatchRoomManagementButton': '#content2',
-	                'ResultManagementButton': '#content3',
-	                'TournamentButton': '#content4'
-	            };
+               // 각 버튼에 대한 컨텐츠 ID
+               var contents = {
+                   'roomManagementButton': '#content1',
+                   'MatchRoomManagementButton': '#content2',
+                   'ResultManagementButton': '#content3',
+                   'TournamentButton': '#content4'
+               };
 
-	            // 클릭한 버튼의 ID를 가져옵니다.
-	            var id = $(this).attr('id');
+               // 클릭한 버튼의 ID를 가져옵니다.
+               var id = $(this).attr('id');
 
-	            // 다른 컨텐츠들을 숨깁니다.
-	            $.each(contents, function(key, value) {
-	                if (key !== id) $(value).hide();
-	            });
+               // 다른 컨텐츠들을 숨깁니다.
+               $.each(contents, function(key, value) {
+                   if (key !== id) $(value).hide();
+               });
 
-	            // AJAX 요청을 보냅니다.
-	            $.ajax({
-	                url: urls[id],
-	                type: 'get',
-	                dataType: 'html',
-	                success: function(data) {
-	                    // 해당 컨텐츠를 보이게 하고, 데이터를 채웁니다.
-	                    $(contents[id]).show().html(data);
-	                },
-	                error: function(xhr, status, error) {
-	                    console.error('AJAX 요청 실패:', error);
-	                }
-	            });
-	        });
-	    });
+               // AJAX 요청을 보냅니다.
+               $.ajax({
+                   url: urls[id],
+                   type: 'get',
+                   dataType: 'html',
+                   success: function(data) {
+                       // 해당 컨텐츠를 보이게 하고, 데이터를 채웁니다.
+                       $(contents[id]).show().html(data);
+                   },
+                   error: function(xhr, status, error) {
+                       console.error('AJAX 요청 실패:', error);
+                   }
+               });
+           });
+       });
+       
+       document.addEventListener("DOMContentLoaded", function() {
+         // '경기장 관리' 버튼에 클릭 이벤트 리스너를 추가합니다.
+         document.getElementById("roomManagementButton").addEventListener("click", function() {
+           // '경기장 만들기' 드롭다운의 현재 표시 상태를 가져옵니다.
+           var createRoomDropdown = document.getElementById("createRoomDropdown");
+           if (createRoomDropdown.style.display === "none") {
+             // 드롭다운이 숨겨져 있으면 보이게 합니다.
+             createRoomDropdown.style.display = "block";
+           } else {
+             // 드롭다운이 보이고 있으면 숨깁니다.
+             createRoomDropdown.style.display = "none";
+           }
+         });
+       });
+       document.addEventListener("DOMContentLoaded", function() {
+            // '토너먼트 관리' 버튼에 클릭 이벤트 리스너를 추가합니다.
+            document.getElementById("TournamentButton").addEventListener("click", function() {
+              // '토너먼트 등록' 드롭다운의 현재 표시 상태를 가져옵니다.
+              var createTournamentDropdown = document.getElementById("createTournamentDropdown");
+              if (createTournamentDropdown.style.display === "none") {
+                // 드롭다운이 숨겨져 있으면 보이게 합니다.
+                createTournamentDropdown.style.display = "block";
+              } else {
+                // 드롭다운이 보이고 있으면 숨깁니다.
+                createTournamentDropdown.style.display = "none";
+              }
+            });
+          });
+       
 
-	</script>
+   </script>
 
 </head>
-<jsp:include page="./section/nav.jsp" />
+
 <body>
-	<ul class="navbar-nav center">
-      <li>
-         <h5><b>${member.memberName}</b> 업주님 환영합니다!</h5>
-      </li>
-   </ul>	
+<jsp:include page="./section/nav.jsp" />
+<div class="main-container">  
     <div class="main">
         <div class="col-4">
             <div class="card" style="width: 100%;">
                 <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">업주</h5>
                 <img src="." class="card-img-top img1" alt="...">
                 <div class="card-body">
-                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">김태영사무소</p>
-                    <p class="card-text" style="text-align: center; font-size: 1rem;">123@123.com</p>
+                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">${store.storeName}</p>
+                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                	<li class="list-group-item">
-						<a href="#" id="roomManagementButton">경기장관리</a>
-                    </li>
+               <li class="list-group-item">
+                 <a href="#" id="roomManagementButton">경기장관리</a>
+                 <div id="createRoomDropdown" style="display: none;">
+                   <a href="./room/addrooms" class=""><span> - 경기장만들기</span></a>
+                 </div>
+               </li>
+                    
                     <li class="list-group-item">
-						<a href="#" id="MatchRoomManagementButton">매칭룸관리</a>
+                  <a href="#" id="MatchRoomManagementButton">매칭룸관리</a>
                     </li>
                      <li class="list-group-item">
-						<a href="#" id="ResultManagementButton">결과관리</a>
+                  <a href="#" id="ResultManagementButton">결과관리</a>
                     </li>
+               <li class="list-group-item">
+                 <a href="#" id="TournamentButton">토너먼트관리</a>
+                 <div id="createTournamentDropdown" style="display: none;">
+                   <a href="./tournament/addtournament" class=""><span> - 토너먼트 만들기</span></a>
+                 </div>
+               </li>
                     <li class="list-group-item">
-						<a href="#" id="TournamentButton">토너먼트관리</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="./tournament/addtournament">토너먼트등록</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="./room/addrooms">경기장만들기</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">업주탈퇴</a>
+                        <a href="store/delete?storeId=${store.storeId}">업주탈퇴</a>
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">정보수정</a>
+                    <a href="store/update?storeId=${store.storeId}" class="card-link">정보수정</a>
                 </div>
             </div>
-        </div>
+        </div>      
         <div class="col-7">
             <div class="card">
                 <h5>개인정보</h5>
                 <div class="right">
                     <img src=".." class="" width="30%">
                     <div class="right-name">
-                        <p>업주명</p>
-                        <p>123@gmail.com</p>
+                        <p>${store.storeName}</p>
+                        <p>${member.memberEmail}</p>
                     </div>
                 </div>
                 <hr>
             </div> 
              <br>           
              <div>
-	             <div id="content1"></div> 
-	             <div id="content2"></div> 
-	             <div id="content3"></div>
-	             <div id="content4"></div> 
+                <div id="content1"></div> 
+                <div id="content2"></div> 
+                <div id="content3"></div>
+                <div id="content4"></div> 
              </div>
         </div>
   </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
 </body>
 
-
-<!-- 
-       $(document).ready(function() {
-           $('#roomManagementButton').click(function(e) {
-               e.preventDefault();
-   
-               $.ajax({
-                   url: './store/RoomManagement',
-                   type: 'get',
-                   dataType: 'html',
-                   success: function(data) {
-                       $('#content1').html(data);
-                   },
-                   error: function(xhr, status, error) {
-                       console.error('AJAX 요청 실패:', error);
-                   }
-               });
-           });
-       });
-       $(document).ready(function() {
-           $('#MatchRoomManagementButton').click(function(e) {
-               e.preventDefault();
-   
-               $.ajax({
-                   url: './store/MatchRoomManagement',
-                   type: 'get',
-                   dataType: 'html',
-                   success: function(data) {
-                       $('#content2').html(data);
-                   },
-                   error: function(xhr, status, error) {
-                       console.error('AJAX 요청 실패:', error);
-                   }
-               });
-           });
-       });      
-       $(document).ready(function() {
-           $('#ResultManagementButton').click(function(e) {
-               e.preventDefault();
-   
-               $.ajax({
-                   url: './store/ResultManagement',
-                   type: 'get',
-                   dataType: 'html',
-                   success: function(data) {
-                       $('#content3').html(data);
-                   },
-                   error: function(xhr, status, error) {
-                       console.error('AJAX 요청 실패:', error);
-                   }
-               });
-           });
-       });
-       $(document).ready(function() {
-           $('#TournamentButton').click(function(e) {
-               e.preventDefault();
-   
-               $.ajax({
-                   url: './tournament/tournamentManagement',
-                   type: 'get',
-                   dataType: 'html',
-                   success: function(data) {
-                       $('#content4').html(data);
-                   },
-                   error: function(xhr, status, error) {
-                       console.error('AJAX 요청 실패:', error);
-                   }
-               });
-           });
-       });
-
- -->
 </html>
-
 

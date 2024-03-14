@@ -18,6 +18,11 @@ public interface NoticeService {
 	int getTotalCount();
 	List<Notice> getNotices(int page);
 	void updateHits(int noticeNum);
+	
+
+    Notice getPreviousNotice(int noticeNum);
+
+    Notice getNextNotice(int noticeNum);
 
 }
 
