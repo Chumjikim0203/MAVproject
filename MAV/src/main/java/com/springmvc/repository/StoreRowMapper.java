@@ -15,7 +15,6 @@ public class StoreRowMapper implements RowMapper<Store> {
 		store.setStoreAddr(rs.getString("storeAddr"));
 		store.setStoreApprove(rs.getBoolean("storeApprove"));
 		store.setStoreCategory(rs.getString("storeCategory"));
-		store.setStoreCode(rs.getString("storeCode"));
 		store.setStoreId(rs.getString("storeId"));
 //		store.setStoreImages(rs.getString("storeImages"));
 		store.setStoreInfomation(rs.getString("storeInfomation"));

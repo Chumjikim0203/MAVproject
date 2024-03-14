@@ -194,6 +194,7 @@ public class ClubController
 		
 		model.addAttribute("club", club);
 		model.addAttribute("member", member);
+		session.setAttribute("club", club);
 		return "updateclub";
 	}
 	@PostMapping("/update")

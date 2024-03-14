@@ -21,6 +21,10 @@
         {
             margin-top: 20px;
         }
+        .btn-container
+        {
+        	display:flex;
+        }
     </style>
     <script>
 		function goBack() 
@@ -72,7 +76,7 @@
 	                        </div>
 	                        <div class="col-md-2 mb-3">
 	                            <label for="memberPhone03"></label>
-	                            <form:input class="form-control" path="memberPhone03" value="${member.memberPhone02}"/>
+	                            <form:input class="form-control" path="memberPhone03" value="${member.memberPhone03}"/>
 	                        </div>
                             <div class="invalid-feedback">
                                 휴대폰번호를 입력해주세요.
@@ -102,44 +106,48 @@
                             이메일을 입력해주세요.
                         </div>
 	                    <div class="row">
-                      <div class="col-md-6">
-                          <label for="sample6_postcode">주소</label><br>
-                          <div class="row mb-2">
-                              <div class="col-md-4">
-                                  <input type="text" id="sample6_postcode" placeholder="우편번호" class="form-control">
-                              </div>
-                           <div class="col-md-4" style="margin-left: -1rem; padding: 0 -1rem;">
-                               <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="form-control btn btn-outline-primary">
-                           </div>
-                          </div>
-                          <div>
-                             <input type="text" id="sample6_address" placeholder="주소" class="form-control mb-2" >
-                             <div class="d-flex">
-                                   <input type="text" id="sample6_detailAddress" placeholder="상세주소" class="form-control mb-2" >
-                                <input type="text" id="sample6_extraAddress" placeholder="참고항목" class="form-control mb-2" style="margin-left: 5px;">
-                             </div>
-                          </div>
-                      </div>
-                  </div>
-                   <hr class="mb-4">
-                   <div class="mb-4"></div>	
-	               	<input class="btn btn-primary btn-lg btn-block" type="submit" value="수정 완료"/>
-	               	<input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>			
-					</fieldset>
-					</form:form>
+	                     <div class="col-md-6">
+						    <form:input type="hidden" id="memberAddr" class="form-control" path="memberAddr" /> 
+						    <label for="sample6_postcode">주소</label><br>
+						    <div class="row mb-2">
+						        <div class="col-md-4">
+						            <input type="text" id="sample6_postcode" placeholder="우편번호" class="form-control">
+						        </div>
+						        <div class="col-md-4" style="margin-left: -1rem; padding: 0 -1rem;">
+						            <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="form-control btn btn-outline-primary">
+						        </div>
+						    </div>
+						    <div>
+						        <input type="text" id="sample6_address" placeholder="주소" class="form-control mb-2" />
+						        <div class="d-flex">
+						            <input type="text" id="sample6_detailAddress" placeholder="상세주소" class="form-control mb-2" />
+						            <input type="text" id="sample6_extraAddress" placeholder="참고항목" class="form-control mb-2" style="margin-left: 5px;"/>
+						        </div>
+						    </div>
+						</div>
+						</div>
+						<hr class="mb-4">
+						<div class="mb-4"></div>
+						<div class="btn-container">
+							<input class="btn btn-primary btn-lg btn-block" style="margin-right : 15px;" type="submit" value="수정 완료" onclick="combineAddr()"/>
+							<input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>
+						</div>
+						</fieldset>			
+						</form:form>
+						
+					</div>
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript">
 		  function combineAddr() {
-		       var post = document.getElementById('sample6_postcode').value; // 우편번호
 		       var addr = document.getElementById('sample6_address').value; // 주소
 		       var detailAddr = document.getElementById('sample6_detailAddress').value; // 상세주소
 		       var extraAddr = document.getElementById('sample6_extraAddress').value; // 참고항목
 		
 		       // 문자열로 합침
-		       var fullAddr = post + ' ' + addr + ' ' + detailAddr + ' ' + extraAddr;
+		       var fullAddr = addr + ' ' + detailAddr + ' ' + extraAddr;
 		
 		       // 히든 input 태그에 값 저장
 		       document.getElementById('memberAddr').value = fullAddr;
@@ -193,6 +201,5 @@
 		       }).open();
 		   }		  		  
 	</script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

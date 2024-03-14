@@ -230,13 +230,13 @@
             </div>
 	    	<div class="card list" style="width: 100%;">
               <div class="room-title mt-3">내 동호회 리스트</div>
-               <c:forEach items="${club}" var="club">
+               <c:forEach items="${clubs}" var="clubs">
                    <div class="card-1 mb-3">
                        <div class="room-info">
-                           <span class="room-title">&nbsp;&nbsp;${club.clubName}</span>
-                           <span class="room-date">동호회 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                           <span class="room-title">&nbsp;&nbsp;${clubs.clubName}</span>
+                           <span class="room-date">동호회 종류 : ${clubs.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                            <span class="room-application">                          
-                         	<a href="<c:url value='/club/clubinfo'/>?clubName=${club.clubName}" class="room-application-link room-application-btn">동호회 상세정보</a>
+                         	<a href="<c:url value='/club/clubinfo'/>?clubName=${clubs.clubName}" class="room-application-link room-application-btn">동호회 상세정보</a>
                            </span>
                        </div>
                    </div>
@@ -244,23 +244,5 @@
              </div>
           </div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      // datepicker 요소 가져오기
-      var datepicker = document.getElementById('datepicker');
-
-      // datepicker 값 변경 시 이벤트 처리
-      datepicker.addEventListener('change', function() {
-        var selectedDate = datepicker.value;
-        console.log('선택된 날짜:', selectedDate);
-
-        // 선택된 날짜를 기반으로 추가 작업 수행
-        // 예: 서버에 전송, 다른 동작 수행 등
-});
-    </script>
 </body>
 </html>

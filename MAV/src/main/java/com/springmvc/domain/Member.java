@@ -17,6 +17,8 @@ public class Member
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate memberBirth; // 멤버 생년월일	
 	private String viewBirth; // 보여주기위한 임시 생년월일
+	private String memberDetailAddr; // 멤버 상세주소
+	private String memberExtraAddr; // 멤버 추가주소
 	private String memberAddr; // 멤버 주소
 	private String memberPhone01; // 멤버 핸드폰 첫번째
 	private String memberPhone02; // 멤버 핸드폰 두번째
@@ -106,6 +108,18 @@ public class Member
 	}
 	public void setAdminApprove(boolean adminApprove) {
 		this.adminApprove = adminApprove;
+	}
+	public String getMemberDetailAddr() {
+		return memberDetailAddr;
+	}
+	public void setMemberDetailAddr(String memberDetailAddr) {
+		this.memberDetailAddr = memberDetailAddr;
+	}
+	public String getMemberExtraAddr() {
+		return memberExtraAddr;
+	}
+	public void setMemberExtraAddr(String memberExtraAddr) {
+		this.memberExtraAddr = memberExtraAddr;
 	}
 	
 	

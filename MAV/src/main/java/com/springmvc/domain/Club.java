@@ -20,7 +20,7 @@ public class Club
 	private String imageFileName2; // 이미지 파일 이름
 	private String imageFileName3; // 이미지 파일 이름
 	private String imageFileName4; // 이미지 파일 이름
-	private String imageFileName5; // 이미지 파일 이
+	private String imageFileName5; // 이미지 파일 이름
 	
 	
 	public Club() {}

@@ -46,7 +46,7 @@
                         <div class="invalid-feedback">업체명을 입력해주세요.</div>
                         <div class="col-md-6 mb-3">
                            <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-12">
                                  <label for="storeAddr">업체주소</label>
                                  <div class="row mb-2">
                                     <div class="col-md-4">
@@ -106,7 +106,7 @@
                             </div> --%>
                         <div class="col-md-6 mb-3">
                            <label for="storeCode">사업자번호</label>
-                           <form:input class="form-control" path="storeCode" />
+                           <form:input class="form-control" path="storeCode"/>
                         </div>
                         <div class="invalid-feedback">사업자번호를 입력해주세요</div>
                      </div>

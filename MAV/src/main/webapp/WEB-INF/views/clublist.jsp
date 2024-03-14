@@ -263,7 +263,7 @@
 		                <c:forEach items="${club}" var="club">
 			              	<div class="card-1" style="width: 18rem;">
 			              	<a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
-								  <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName}"/>" onerror="this.classList.add('default-image');" />
+								  <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
 								  <div class="card-body">
 									    <h5 class="card-title">${club.clubName}</h5>
 									    <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>

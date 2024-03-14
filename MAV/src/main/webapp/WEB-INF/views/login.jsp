@@ -69,7 +69,7 @@
 	   border: none;
 	   background: #4B70E2;
 	   color: #fff;
-	   padding: 10px 100px;
+	   padding: 10px 20%;
 	   border-radius: 5px;
 	   cursor: pointer;
 	}
@@ -82,7 +82,7 @@
   </div>
    <div class="main-container">
       <div class="wrap">
-         <div class="login col-6">
+         <div class="login col-6 col-md-3">
             <h2>Log-in</h2>
             <br>
             <div class="login_sns"></div>

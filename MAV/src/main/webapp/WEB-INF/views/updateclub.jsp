@@ -78,23 +78,23 @@
                             </form:select>
                         </div>
                         <div class="col-md-7 mb-3">
-                       		<label for="clubImages">동호회 이미지1</label>
+                       		<label for="clubImages1">대표 사진</label>
                          	<form:input type="file" path="clubImages1" class="form-control" value="${club.imageFileName1}"/>                          
                        	</div>
                        	<div class="col-md-7 mb-3">
-                       		<label for="clubImages">동호회 이미지2</label>
+                       		<label for="clubImages2">동호회 사진1</label>
                          	<form:input type="file" path="clubImages2" class="form-control" value="${club.imageFileName2}"/>                          
                        	</div>     
                        	<div class="col-md-7 mb-3">
-                       		<label for="clubImages">동호회 이미지3</label>
+                       		<label for="clubImages3">동호회 사진2</label>
                          	<form:input type="file" path="clubImages3" class="form-control" value="${club.imageFileName3}"/>                          
                        	</div>     
                        	<div class="col-md-7 mb-3">
-                       		<label for="clubImages">동호회 이미지4</label>
+                       		<label for="clubImages4">동호회 사진3</label>
                          	<form:input type="file" path="clubImages4" class="form-control" value="${club.imageFileName4}"/>                          
                        	</div>     
                        	<div class="col-md-7 mb-3">
-                       		<label for="clubImages">동호회 이미지5</label>
+                       		<label for="clubImages5">동호회 사진4</label>
                          	<form:input type="file" path="clubImages5" class="form-control" value="${club.imageFileName5}"/>                          
                        	</div>                                            
                         <div class="col-md-12 mb-3">
@@ -113,6 +113,5 @@
            </div>
        </div>
    </div>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
  </body>
 </html>

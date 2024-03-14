@@ -11,9 +11,7 @@
   <title>회원가입 화면 샘플 - Bootstrap</title>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * 
@@ -24,18 +22,15 @@
 
     .container
     {
-     width: 70%;
+     width: 80%;
      margin: 0 auto;
+     margin-top : 15px; 
     }
   </style>
 </head>
 
  <body>
- <%
-   String memberId = request.getParameter("memberId");
-   System.out.println("addteacherjsp:"+memberId);
-%>   
-
+ <jsp:include page="./section/nav.jsp"/>
        <div class="container">
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
@@ -46,7 +41,7 @@
                 <div class="row">
                          <div class="col-md-6 ">
                              <label for="teacherCategory">강사종류</label>
-                             <form:hidden class="form-control" path="teacherId" value="<%=memberId%>"/>
+                             <form:hidden class="form-control" path="teacherId" value="${member.memberId}"/>
                              
                             <form:input path="teacherCategory" class="form-control" name="teacherCategory"/>                          
                           </div>

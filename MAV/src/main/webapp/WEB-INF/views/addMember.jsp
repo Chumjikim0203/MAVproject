@@ -105,7 +105,7 @@
                           <label for="sample6_postcode">주소</label><br>
                           <div class="row mb-2">
                               <div class="col-md-4">
-                                  <input type="text" id="sample6_postcode" placeholder="우편번호" class="form-control">
+                                  <input type="text" name="memberPostCode" id="sample6_postcode" placeholder="우편번호" class="form-control">
                               </div>
                            <div class="col-md-4" style="margin-left: -1rem; padding: 0 -1rem;">
                                <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="form-control btn btn-outline-primary">
@@ -121,7 +121,7 @@
                       </div>
                   </div>
                           
-                       <form:input type="hidden" id="memberAddr" class="form-control" path="memberAddr" /> 
+                       <form:input type="hidden" id="memberAddr" class="form-control" path="memberAddr" />                     
                         <div class="invalid-feedback">
                             주소를 입력해주세요.
                         </div>
@@ -135,17 +135,15 @@
         </div>
     </div>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
   <script type="text/javascript">
   function combineAddr() {
-       var post = document.getElementById('sample6_postcode').value; // 우편번호
        var addr = document.getElementById('sample6_address').value; // 주소
        var detailAddr = document.getElementById('sample6_detailAddress').value; // 상세주소
        var extraAddr = document.getElementById('sample6_extraAddress').value; // 참고항목
 
        // 문자열로 합침
-       var fullAddr = post + ' ' + addr + ' ' + detailAddr + ' ' + extraAddr;
+       var fullAddr = addr + ' ' + detailAddr + ' ' + extraAddr;
 
        // 히든 input 태그에 값 저장
        document.getElementById('memberAddr').value = fullAddr;
