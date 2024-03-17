@@ -10,7 +10,7 @@ public interface ClassesRepository  {
 	public Classes getById(int classNum);
 	public void setdeleteClasses(int classNum);	
 	void setUpdateClasses(Classes classes);
-	
+
 	//강좌신청한 사람 목록 
 	
 	

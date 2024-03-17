@@ -19,7 +19,7 @@ public class TeacherRowMapper implements RowMapper<Teacher> {
 		teacher.setTeacherId(rs.getString("teacherId"));
 	//	teacher.setTeacherImages(rs.get);
 		teacher.setTeacherInfomation(rs.getString("teacherInfomation"));
-		teacher.setTeacherLicense(rs.getString("teacherLicense"));
+	//	teacher.setLicenseimageFileName(rs.getString("teacherLicense"));
 		teacher.setTeacherRecode(rs.getString("teacherRecode"));
 		return teacher;
 	}

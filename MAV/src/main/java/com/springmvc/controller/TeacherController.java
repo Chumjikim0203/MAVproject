@@ -1,5 +1,10 @@
 package com.springmvc.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springmvc.domain.Classes;
 import com.springmvc.domain.Member;
@@ -59,8 +65,66 @@ public class TeacherController {
 	}
 	//강사등록하기 서브밋c
 	@PostMapping("/add")
-	public String submitaddteacher(@ModelAttribute("addTeacher") Teacher teacher,Model model,BindingResult bindingResult,HttpServletRequest request)
+	public String submitaddteacher(@ModelAttribute("addTeacher") Teacher teacher,
+//            @RequestParam("teacherLicense") List<MultipartFile> teacherLicenses,
+			  @RequestParam("teacherImages") MultipartFile teacherImages,
+             Model model,BindingResult bindingResult,HttpServletRequest request)
 	{
+
+		List<MultipartFile> teacherLicense = new ArrayList<MultipartFile>();
+        List<String> LicenseimageFileName = new ArrayList<String>();
+		String save = request.getSession().getServletContext().getRealPath("/resources/images");
+		//이미지 경로 =SAVE
+		System.out.println("이미지경로:"+save);		
+		
+		teacherLicense.add(teacher.getTeacherLicense1());
+		teacherLicense.add(teacher.getTeacherLicense2());
+		teacherLicense.add(teacher.getTeacherLicense3());
+		teacherLicense.add(teacher.getTeacherLicense4());
+		teacherLicense.add(teacher.getTeacherLicense5());
+		
+		for(int i=0; i<teacherLicense.size(); i++)
+		{
+			MultipartFile file = teacherLicense.get(i);
+			String saveName = file.getOriginalFilename();			
+			LicenseimageFileName.add(saveName);			
+			System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+			
+			File saveFile= new File(save, saveName);
+			
+			if(file !=null && !file.isEmpty())
+			{
+				try 
+				{
+					file.transferTo(saveFile);
+					teacher.setLicenseimageFileName1(saveName);
+					
+				} 
+				catch (Exception e) 
+				{
+					throw new RuntimeException("자격증 이미지 업로드가 실패했습니다.", e);
+				}
+			}
+			
+		}
+		 // 강사 이미지 처리
+	    if (teacherImages != null && !teacherImages.isEmpty()) {
+	        String teacherImageFileName = teacherImages.getOriginalFilename();
+	        File teacherImageFile = new File(save, teacherImageFileName);
+	        try {
+	        	System.out.println("post에서 받아온 강사이미지 파일이름 : "+teacherImageFileName);
+	            teacherImages.transferTo(teacherImageFile);
+	            teacher.setTeacherimageFileName(teacherImageFileName);
+	        } catch (Exception e) {
+	            throw new RuntimeException("강사 이미지 업로드 실패", e);
+	        }
+	    }
+		teacher.setLicenseimageFileName1(LicenseimageFileName.get(0));
+		teacher.setLicenseimageFileName2(LicenseimageFileName.get(1));
+		teacher.setLicenseimageFileName3(LicenseimageFileName.get(2));
+		teacher.setLicenseimageFileName4(LicenseimageFileName.get(3));
+		teacher.setLicenseimageFileName5(LicenseimageFileName.get(4));
+		
 		HttpSession sessionId=request.getSession();
 		Member member=(Member)sessionId.getAttribute("member");
 		model.addAttribute("member",member);

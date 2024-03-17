@@ -40,7 +40,8 @@
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
                    <h4 class="mb-3">강사 가입</h4>
-                   <form:form modelAttribute="addTeacher" class="form-horizontal" action="/MAV/teacher/add" method="post">
+                   <form:form modelAttribute="addTeacher" class="form-horizontal" action="/MAV/teacher/add" method="post" enctype="multipart/form-data">
+
                <fieldset>
                 <div class="row">
                          <div class="col-md-6 ">
@@ -64,29 +65,34 @@
            					<form:textarea cols="50" rows="5" class="form-control" path="teacherInfomation" name="teacherInfomation"/>
            			   </div>
                      
-                        <!--             <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                   <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-                <div  class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                   <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-                <div  class="col-md-6 mb-3">
-                    <label for="teacherLicense" class="form-label">강사자격증</label>
-                    <form:input class="form-control" type="file" path="teacherLicense"/>
-                </div>
-            </div>  -->
-                                      
-                       
+                       <div class="row">
+			                <div class="col-md-6 mb-3">
+			                    <label for="teacherLicense1" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense1"/>
+			                </div>
+			                <div class="col-md-6 mb-3">
+			                    <label for="teacherLicense2" class="form-label">강사자격증</label>
+			                   <form:input class="form-control" type="file" path="teacherLicense2"/>
+			                </div>
+			                <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense3" class="form-label">강사자격증</label>
+			                   <form:input class="form-control" type="file" path="teacherLicense3"/>
+			                </div>
+			                <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense4" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense4"/>
+			                </div>
+    			             <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense5" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense5"/>
+			                </div>
+			                   <div  class="col-md-6 mb-3">
+			                    <label for="teacherImages" class="form-label">강사사진</label>
+			                    <form:input class="form-control" type="file" path="teacherImages"/>
+			                </div>
+           				 </div>
          				 
-                                            
-                        
+                            
             </div>
                    <br>
                     <hr class="mb-4">

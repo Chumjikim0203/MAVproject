@@ -29,14 +29,18 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		// TODO Auto-generated method stub
 	//강사 등록	
 		teacher.setTeacherApprove(true);
-		String SQL="INSERT INTO Teacher (teacherId,teacherImages,teacherCategory,teacherRecode,teacherLicense,teacherInfomation,teacherApprove)"
-		+"values(?,?,?,?,?,?,?)";
+		String SQL="INSERT INTO Teacher (teacherId,teacherimageFileName,teacherCategory,teacherRecode,LicenseimageFileName1,LicenseimageFileName2,LicenseimageFileName3,LicenseimageFileName4,LicenseimageFileName5,teacherInfomation,teacherApprove)"
+		+"values(?,?,?,?,?,?,?,?,?,?,?)";
 		template.update(SQL,
 				teacher.getTeacherId(),
-				teacher.getTeacherImages(),
+				teacher.getTeacherimageFileName(),
 				teacher.getTeacherCategory(),
 				teacher.getTeacherRecode(),
-				teacher.getTeacherLicense(),
+			    teacher.getLicenseimageFileName1(),
+			    teacher.getLicenseimageFileName2(),
+			    teacher.getLicenseimageFileName3(),
+			    teacher.getLicenseimageFileName4(),
+			    teacher.getLicenseimageFileName5(),
 				teacher.getTeacherInfomation(),
 				teacher.isTeacherApprove()
 				);

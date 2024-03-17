@@ -205,7 +205,8 @@
                         <a href="./teacher/delete?teacherId=${teacher.teacherId}">강사탈퇴</a>
                     </li>
                 </ul>
-
+				 <img  src="<c:url value="/resources/images/${teacher.teacherLicense1}"/>" />이미지2
+				
             </div>
         </div>
         <div class="col-7">
@@ -241,7 +242,7 @@
             <div>
 
 
-                    
+        </div>            
     </div>
 </div> 
 
