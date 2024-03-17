@@ -43,7 +43,7 @@
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto">
                     <h4 class="mb-3"> 수정</h4>
-                    <form:form modelAttribute="update" class="form-horizontal" action="./formupdate?teacherId=${teacher.teacherId}" method="post">
+                    <form:form modelAttribute="update" class="form-horizontal" action="./formupdate?teacherId=${teacher.teacherId}" method="post" enctype="multipart/form-data">
                   <fieldset>
                    <div class="row">
                             <div class="col-md-6 mb-3">
@@ -57,23 +57,32 @@
                             <label for="teacherRecode">강사이력</label>
                             <form:input class="form-control" path="teacherRecode" name="teacherRecode" value="${teacher.teacherRecode}" />
                         </div>
-                            <div class="invalid-feedback">
-                               
-                            </div>
-                  <%--          <div class="col-md-2 mb-3">
-                               <label for="className">휴대폰</label>
-                               <form:select class="form-select" aria-label="Default select example" path="className">
-                                   <form:options items="${phone01Options}"/>
-                               </form:select>
-                           </div> --%>
-                    
-                         <%--   <div class="col-md-6 mb-3">
-                               <label for="className">성별</label>
-                               <form:select class="form-select" aria-label="Default select example" path="className">
-                                   <form:options items="${genderOptions}"/>
-                               </form:select>
-                           </div> --%>
-                           
+                        <div class="row">
+			                <div class="col-md-6 mb-3">
+			                    <label for="teacherLicense1" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense1"/>
+			                </div>
+			                <div class="col-md-6 mb-3">
+			                    <label for="teacherLicense2" class="form-label">강사자격증</label>
+			                   <form:input class="form-control" type="file" path="teacherLicense2"/>
+			                </div>
+			                <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense3" class="form-label">강사자격증</label>
+			                   <form:input class="form-control" type="file" path="teacherLicense3"/>
+			                </div>
+			                <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense4" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense4"/>
+			                </div>
+    			             <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense5" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense5"/>
+			                </div>
+			                   <div  class="col-md-6 mb-3">
+			                    <label for="teacherImages" class="form-label">강사사진</label>
+			                    <form:input class="form-control" type="file" path="teacherImages"/>
+			                </div>
+           				 </div>                                
                             <div class="mb-3">
             				 	<label for="teacherInfomation">자기소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
             				 	<form:textarea cols="50" rows="5" class="form-control"  path="teacherInfomation" name="teacherInfomation" value="${teacher.teacherInfomation}"/>

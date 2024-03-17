@@ -175,16 +175,19 @@ public class ClassController {
 		  ClassesService.setdeleteClasses(classNum);
 		  return "redirect:/teacher";
 	  }
-		//상세정보뿌려주기
-	  @GetMapping("/detailclass")
-	  public String detailclass(@RequestParam("classNum") int classNum, Model model,HttpServletRequest request,Member member) {
-		  HttpSession sessionId=request.getSession();	
-		  member= (Member)sessionId.getAttribute("member");
-		  model.addAttribute("detailclass",ClassesService.getById(classNum));
-		  System.out.println("cs.getby:"+ClassesService.getById(classNum));
-		  return "detailclass";
-	  }
-	  
+	   //상세정보뿌려주기
+	     @GetMapping("/detailclass")
+	     public String detailclass(@RequestParam("classNum") int classNum, Model model,HttpServletRequest request,Member member) {
+	        HttpSession sessionId=request.getSession(); 
+	        
+	        Classes classes = ClassesService.getById(classNum);
+	        member= (Member)sessionId.getAttribute("member");
+	        model.addAttribute("detailclass",ClassesService.getById(classNum));
+	        model.addAttribute("classes",classes);
+	        model.addAttribute("member",member);
+	        System.out.println("cs.getby:"+ClassesService.getById(classNum));
+	        return "detailclass";
+	     }
 	  //read classList
 	  @GetMapping("/classlist")
 	  public String ClassList( Model model,HttpServletRequest request,Member member,Teacher teacher, Classes classes) {
@@ -193,6 +196,8 @@ public class ClassController {
 		  teacher= teacherService.teacherId(member.getMemberId());
 		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList(classes);
 		  model.addAttribute("classes",classesall);
+		  model.addAttribute("member", member);
+		  model.addAttribute("teacher", teacher);
 		  System.out.println("classlist도착 member는:"+member.getMemberId());
 		  System.out.println("classes:"+classesall);
 		  return "classlist";

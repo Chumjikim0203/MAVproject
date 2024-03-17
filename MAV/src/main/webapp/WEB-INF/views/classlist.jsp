@@ -241,7 +241,7 @@
 		                <c:forEach items="${classes}" var="classes">
 			              	<div class="card-1" style="width: 18rem;">
 			              	<a href="<c:url value='/Class/detailclass'/>?classNum=${classes.classNum}">
-								  <img class="card-img-top" src="<c:url value="/resources/images/${classes.fileName}"/>" onerror="this.classList.add('default-image');" />
+								  <img class="card-img-top" src="<c:url value="/resources/images/${classes.classImagesFileName1}"/>" onerror="this.classList.add('default-image');" />
 								  <div class="card-body">
 									    <h5 class="card-title">${classes.className}</h5>
 									    <p class="card-text classLectureTime">강의 시간 : ${classes.classLecturetime}</p>

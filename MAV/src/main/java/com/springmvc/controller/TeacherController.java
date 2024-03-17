@@ -155,8 +155,49 @@ public class TeacherController {
 		return "teacherupdateform";
 	}
 	@PostMapping("/update/formupdate")
-	public String submitupdateteacher(@ModelAttribute("update")Teacher teacher,@RequestParam String teacherId) {
+	public String submitupdateteacher(@ModelAttribute("update")Teacher teacher,@RequestParam String teacherId,HttpServletRequest request) {
 	System.out.println("submitupdateteacher도착");
+	List<MultipartFile> teacherLicense = new ArrayList<MultipartFile>();
+    List<String> LicenseimageFileName = new ArrayList<String>();
+	String save = request.getSession().getServletContext().getRealPath("/resources/images");
+	//이미지 경로 =SAVE
+	System.out.println("이미지경로:"+save);		
+	
+	teacherLicense.add(teacher.getTeacherLicense1());
+	teacherLicense.add(teacher.getTeacherLicense2());
+	teacherLicense.add(teacher.getTeacherLicense3());
+	teacherLicense.add(teacher.getTeacherLicense4());
+	teacherLicense.add(teacher.getTeacherLicense5());
+	
+	for(int i=0; i<teacherLicense.size(); i++)
+	{
+		MultipartFile file = teacherLicense.get(i);
+		String saveName = file.getOriginalFilename();			
+		LicenseimageFileName.add(saveName);			
+		System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+		
+		File saveFile= new File(save, saveName);
+		
+		if(file !=null && !file.isEmpty())
+		{
+			try 
+			{
+				file.transferTo(saveFile);
+				teacher.setLicenseImageFileName1(saveName);
+				
+			} 
+			catch (Exception e) 
+			{
+				throw new RuntimeException("자격증 이미지 업로드가 실패했습니다.", e);
+			}
+		}
+		
+	}
+	teacher.setLicenseImageFileName1(LicenseimageFileName.get(0));
+	teacher.setLicenseImageFileName2(LicenseimageFileName.get(1));
+	teacher.setLicenseImageFileName3(LicenseimageFileName.get(2));
+	teacher.setLicenseImageFileName4(LicenseimageFileName.get(3));
+	teacher.setLicenseImageFileName5(LicenseimageFileName.get(4));
 		teacherService.UpdateTeacher(teacher);
 		return "redirect:/teacher";
 	}
