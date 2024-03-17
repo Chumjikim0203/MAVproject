@@ -60,7 +60,7 @@
 	    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 	        <div class="carousel-inner">
 	            <div class="carousel-item active">
-	                <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
+	                <img src="<c:url value='resources/images/${detailclass.classImagesFileName1}'/>" class="d-block w-100" alt="첫 번째 슬라이드">
 	            </div>
 	          <div class="carousel-item active">
 	            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
