@@ -28,4 +28,5 @@ public interface ClubRepository
 	List<Club> getMyMasterClub(String c_memberId);
 	//클럽 포인트 업데이트
 	void updateClubPoint(String ClubName, int clubPoint);
+	int clubMemberCount(String clubName);
 }

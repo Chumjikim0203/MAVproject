@@ -42,7 +42,7 @@
                   <fieldset>
                            <div class="row">
                 				<div class="col-md-6 mb-3">
-                    				<label for="className">강의명</label>
+                    				<label for="className" class="form-label">강의명</label>
                     				<form:input path="className" class="form-control" value="${classes.className}"/>
                     				<form:hidden  class="form-control"  path="teacherId" value="${member.memberId}" />
                					 </div>
@@ -52,7 +52,7 @@
                             </div>
                            <div class="row">
 				                <div class="col-md-6 mb-3">
-				                    <label for="classLecturedate">강의날짜</label>
+				                    <label for="classLecturedate" class="form-label">강의날짜</label>
 				                    <form:input type="date" class="form-control" path="classLecturedate" value="${classes.classLecturedate}" />
 									<div class="invalid-feedback">
 				                    	강의날짜를 선택해주세요.
@@ -60,7 +60,7 @@
 				                </div>
 				
 				                <div class="col-md-6 mb-3">
-				                    <label for="classLecturetime">강의시간</label>
+				                    <label for="classLecturetime" class="form-label">강의시간</label>
 				                   	<form:input type="time" class="form-control" path="classLecturetime" value="${classes.classLecturetime}" />
 									<div class="invalid-feedback">
 				                    	강의시간를 선택해주세요.
@@ -83,14 +83,14 @@
                            </div> --%>
 					<div class="row">
 	                	<div class="col-md-6 mb-3">
-	                    	<label for="classNumberOfStudents">강의수강인원</label>
+	                    	<label for="classNumberOfStudents" class="form-label">강의수강인원</label>
 	                    	<form:input class="form-control" path="classNumberOfStudents"  value="${classes.classNumberOfStudents}"  />
 	                    	<div class="invalid-feedback">
 	                    	강의수강인원을 입력해주세요
 	                    	</div>
 	                	</div>
                 		<div class="col-md-6 mb-3">
-                    		<label for="classGrade">강의 등급</label>
+                    		<label for="classGrade" class="form-label">강의 등급</label>
                    			<form:input  class="form-control" path="classGrade"  value="${classes.classGrade}" />
                    			 <div class="invalid-feedback">
                     			강의 등급을 입력해주세요.
@@ -100,8 +100,8 @@
                        
                        <div class="row">
                 			<div class=" col-md-6 mb-3">
-			                    <label for="classCourseContents">수강 내용</label>
-			                    <form:input   class="form-control" path="classCourseContents"  value="${classes.classCourseContents}" />
+			                    <label for="classCourseContents" class="form-label">수강 내용</label>
+			                    <form:input class="form-control" path="classCourseContents"  value="${classes.classCourseContents}" />
 			                    <div class="invalid-feedback">
 			                    수강내용을 입력해주세요.
 			                    </div>

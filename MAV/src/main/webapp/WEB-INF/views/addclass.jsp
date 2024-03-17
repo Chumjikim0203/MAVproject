@@ -40,12 +40,12 @@
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>  
         <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="className">강의명</label>
+                    <label for="className" class="form-label">강의명</label>
                     <form:input path="className" class="form-control"  />
                 </div>
        </div>
             <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3" class="form-label">
                     <label for="classLecturedate">강의날짜</label>
                     <form:hidden class="form-control" path="teacherId" value="${teacher.teacherId}"/>
         
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="classLecturetime">강의시간</label>
+                    <label for="classLecturetime" class="form-label">강의시간</label>
                    	<form:input type="time" class="form-control" path="classLecturetime" />
 					<div class="invalid-feedback">
                     	강의시간를 선택해주세요.
@@ -65,14 +65,14 @@
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="classNumberOfStudents">강의수강인원</label>
+                    <label for="classNumberOfStudents" class="form-label">강의수강인원</label>
                     <form:input class="form-control" path="classNumberOfStudents"   />
                     <div class="invalid-feedback">
                     강의수강인원을 입력해주세요
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="classGrade">강의 등급</label>
+                    <label for="classGrade" class="form-label">강의 등급</label>
                    <form:input  class="form-control" path="classGrade"  />
                     <div class="invalid-feedback">
                     강의 등급을 입력해주세요.
@@ -81,7 +81,7 @@
             </div>
             <div class="row">
                 <div class=" col-md-6 mb-3">
-                    <label for="classCourseContents">수강 내용</label>
+                    <label for="classCourseContents" class="form-label">수강 내용</label>
                     <form:input   class="form-control" path="classCourseContents"  />
                     <div class="invalid-feedback">
                     수강내용을 입력해주세요.
@@ -100,12 +100,12 @@
            	</div>  
 
           <div class="mb-3">
-            <label for="classIntroduction">강의소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+            <label for="classIntroduction" class="form-label">강의소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
            <form:textarea cols="50" rows="2" class="form-control" path="classIntroduction" />
             </div>
 
           <div class="mb-4"></div>
-             <input class="" type="submit" value="강의등록하기"/>
+             <input class="btn btn-primary btn-lg btn-block" type="submit" value="강의등록하기"/>
         </form:form>
       </div>
     </div>

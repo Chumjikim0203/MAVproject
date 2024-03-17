@@ -21,6 +21,7 @@ public class Club
 	private String imageFileName3; // 이미지 파일 이름
 	private String imageFileName4; // 이미지 파일 이름
 	private String imageFileName5; // 이미지 파일 이름
+	private int clubMemberCount; // 클럽 인원수 확인용
 	
 	
 	public Club() {}
@@ -158,6 +159,14 @@ public class Club
 
 	public void setImageFileName5(String imageFileName5) {
 		this.imageFileName5 = imageFileName5;
+	}
+
+	public int getClubMemberCount() {
+		return clubMemberCount;
+	}
+
+	public void setClubMemberCount(int clubMemberCount) {
+		this.clubMemberCount = clubMemberCount;
 	}
 	
 	

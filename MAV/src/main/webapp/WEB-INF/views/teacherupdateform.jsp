@@ -76,13 +76,15 @@
                            
                             <div class="mb-3">
             				 	<label for="teacherInfomation">자기소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
-            				 	<form:input  class="form-control"  path="teacherInfomation" name="teacherInfomation" value="${teacher.teacherInfomation}"/>
+            				 	<form:textarea cols="50" rows="5" class="form-control"  path="teacherInfomation" name="teacherInfomation" value="${teacher.teacherInfomation}"/>
          				 	</div>                     
                       
                        <hr class="mb-4">
-                       <div class="mb-4"></div>   
-                       <input class="btn btn-primary btn-lg btn-block" type="submit" value="수정 완료"/>
-                       <input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>         
+                       <div class="mb-4"></div> 
+                       <div class="d-flex">  
+                       		<input class="btn btn-primary btn-lg btn-block" style="margin-right : 10px" type="submit" value="수정 완료"/>
+                       		<input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>
+                       </div>         
                </div>
                </fieldset>
                </form:form>

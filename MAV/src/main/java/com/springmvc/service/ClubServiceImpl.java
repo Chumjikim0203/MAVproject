@@ -122,8 +122,17 @@ public class ClubServiceImpl implements ClubService
 	
 	//클럽포인트 업데이트
 	@Override
-	public void updateClubPoint(String ClubName, int clubPoint) {
-		 clubRepository.updateClubPoint(ClubName,clubPoint);		
+	public void updateClubPoint(String clubName, int clubPoint) {
+		 clubRepository.updateClubPoint(clubName,clubPoint);
+		 
+		 
+	}
+
+	@Override
+	public int clubMemberCount(String clubName) 
+	{
+		int count = clubRepository.clubMemberCount(clubName);
+		return count;
 	}
 
 }

@@ -123,29 +123,6 @@
          <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">
             <i class="fa-solid fa-fire">&nbsp;</i></i> Matching Room
          </h6>
-         <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link active"
-               aria-current="page" href="#">전체</a></li>&nbsp;
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-               role="button" aria-expanded="false">종목</a>
-               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">탁구</a></li>
-                  <li><a class="dropdown-item" href="#">풋살</a></li>
-                  <li><a class="dropdown-item" href="#">축구</a></li>
-                  <li><a class="dropdown-item" href="#">농구</a></li>
-                  <li><a class="dropdown-item" href="#">야구</a></li>
-                  <li><a class="dropdown-item" href="#">볼링</a></li>
-                  <li><a class="dropdown-item" href="#">당구</a></li>
-                  <li><a class="dropdown-item" href="#">배드민턴</a></li>
-                  <li><a class="dropdown-item" href="#">골프</a></li>
-                  <li><a class="dropdown-item" href="#">스쿼시</a></li>
-                  <li><a class="dropdown-item" href="#">테니스</a></li>
-                  <li><hr class="dropdown-divider"></li>
-               </ul></li> &nbsp;
-            <label for="datepicker"></label>
-            <input type="date" id="datepicker">
-         </ul>
          <div class="d-flex text-body-secondary pt-3 col-md-12 row">
            <c:forEach var="matchView" items="${matchView}">         
               <div class="d-flex matchlist">                                 
@@ -176,29 +153,6 @@
          <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow2">
             <i class="fa-solid fa-calendar-days"></i>&nbsp;</i></i> Field
          </h6>
-         <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link active"
-               aria-current="page" href="#">전체</a></li>&nbsp;
-            <li class="nav-item dropdown"><a
-               class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-               role="button" aria-expanded="false">종목</a>
-               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">탁구</a></li>
-                  <li><a class="dropdown-item" href="#">풋살</a></li>
-                  <li><a class="dropdown-item" href="#">축구</a></li>
-                  <li><a class="dropdown-item" href="#">농구</a></li>
-                  <li><a class="dropdown-item" href="#">야구</a></li>
-                  <li><a class="dropdown-item" href="#">볼링</a></li>
-                  <li><a class="dropdown-item" href="#">당구</a></li>
-                  <li><a class="dropdown-item" href="#">배드민턴</a></li>
-                  <li><a class="dropdown-item" href="#">골프</a></li>
-                  <li><a class="dropdown-item" href="#">스쿼시</a></li>
-                  <li><a class="dropdown-item" href="#">테니스</a></li>
-                  <li><hr class="dropdown-divider"></li>
-               </ul></li> &nbsp;
-            <label for="datepicker"></label>
-            <input type="date" id="datepicker">
-         </ul>
          <div class="d-flex text-body-secondary pt-3 col-md-12 row">
                <c:forEach var="myRooms" items="${myRooms}">  
                 <c:if test="${myRooms.matched == 0}">

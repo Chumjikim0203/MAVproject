@@ -213,101 +213,100 @@
 	   			<a class="body-btn" href="/MAV/club/list" role="button">전체 보기</a>
 	    		<li class="dropdown">
                     <a class="dropdown-toggle body-btn locale" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      지역별
+                      <span id="selectedLocale">지역별</span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('전체')">전체</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('전체')">전체</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('서울')">서울</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('서울')">서울</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('경기')">경기</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('경기')">경기</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('충청')">충청</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('충청')">충청</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('경상')">경상</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('경상')">경상</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('전라')">전라</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('전라')">전라</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('강원')">강원</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('강원')">강원</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterLocale('제주')">제주</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterLocale('제주')">제주</button></li>
                     </ul>
 	            </li>
 	            <li class="dropdown">
                     <a class="dropdown-toggle body-btn category" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      종목별
+                     	<span id="selectedCategory">종목별</span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('전체')">전체</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('전체')">전체</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('축구')">축구</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('축구')">축구</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('풋살')">풋살</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('풋살')">풋살</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('당구')">당구</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('당구')">당구</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('농구')">농구</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('농구')">농구</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('야구')">야구</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('야구')">야구</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('족구')">족구</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('족구')">족구</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="filterCategory('기타')">기타</a></li>
+                      <li><button class="dropdown-item" href="#" onclick="filterCategory('기타')">기타</button></li>
                     </ul>
 	            </li>
 	    	</div>
-		    <div class="main col-12">
-	            <div class = "col-12">
-	               <div class="room-title">동호회 리스트</div>
-	               	<div class="card-container">
-		                <c:forEach items="${club}" var="club">
-			              	<div class="card-1" style="width: 18rem;">
-			              	<a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
-								  <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
-								  <div class="card-body">
-									    <h5 class="card-title">${club.clubName}</h5>
-									    <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
-									    <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
-								 </div>
-							</a>
-							</div>
-		                </c:forEach>
-					</div>
-	             </div>
-	           </div>
+		 <div class="main col-12">
+				    <div class="col-12">
+				        <div class="room-title">동호회 리스트</div>
+				        <div class="card-container">
+				            <c:forEach items="${club}" var="club">
+				                <div class="card-1" style="width: 18rem;">
+				                    <a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
+				                        <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
+				                        <div class="card-body">
+				                            <h5 class="card-title">${club.clubName}</h5>
+				                            <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
+				                            <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
+				                            <p class="card-text clubLocale">동호회 인원수 : ${club.clubMemberCount}</p>
+				                        </div>
+				                    </a>
+				                </div>
+				            </c:forEach>
+				        </div>
+				    </div>
+				</div>
 		   	</div>
 		<script>
-			function filterCategory(category) {
-			    const clubCards = document.querySelectorAll('.card-1');
-			    clubCards.forEach(card => {
-			        const clubCategory = card.querySelector('.clubCategory').textContent.trim().split(':')[1].trim();
-			        console.log("선택된 종목명 : " + category)
-			        if (category === '전체' || clubCategory === category) {
-			            card.style.display = 'block';
-			        } else {
-			            card.style.display = 'none';
-			        }
-			    });
-			}
-		</script>
-		<script>
+		    var currentLocale = '전체';
+		    var currentCategory = '전체';
 		    function filterLocale(locale) {
+		        currentLocale = locale; // 선택한 지역을 현재 지역으로 설정
+		        document.getElementById('selectedLocale').textContent = locale; // 선택한 지역을 표시
+		        filterCards(); // 카드 필터링 함수 호출
+		    }
+		    function filterCategory(category) {
+		        currentCategory = category; // 선택한 종목을 현재 종목으로 설정
+		        document.getElementById('selectedCategory').textContent = category; // 선택한 종목을 표시
+		        filterCards(); // 카드 필터링 함수 호출
+		    }
+		
+		    function filterCards() {
 		        const clubCards = document.querySelectorAll('.card-1');
 		        clubCards.forEach(card => {
 		            const clubLocale = card.querySelector('.clubLocale').textContent.trim().split(':')[1].trim();
-		            console.log("선택된 지역명 : " + locale)
-		            if (locale === '전체' || clubLocale === locale) {
+		            const clubCategory = card.querySelector('.clubCategory').textContent.trim().split(':')[1].trim();
+		            
+		            // 지역 및 종목이 '전체'인 경우 모든 카드를 표시
+		            if ((currentLocale === '전체' || clubLocale === currentLocale) && 
+		                (currentCategory === '전체' || clubCategory === currentCategory)) {
 		                card.style.display = 'block';
 		            } else {
 		                card.style.display = 'none';
 		            }
 		        });
 		    }
-		</script>				
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-	        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-	        crossorigin="anonymous">
-	    </script>
+		</script>
 	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

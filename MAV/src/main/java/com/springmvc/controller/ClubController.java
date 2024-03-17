@@ -175,13 +175,19 @@ public class ClubController
 	}
 	
 	@GetMapping("/list")
-	public String clubList(Model model)
+	public String clubList(Model model) 
 	{
-		System.out.println("클럽 리스트 페이지 도착");
-		List<Club> getAllClubList = clubService.getAllClubList();
-		model.addAttribute("club", getAllClubList);
-		return "clublist";
+	    System.out.println("클럽 리스트 페이지 도착");
+	    List<Club> getAllClubList = clubService.getAllClubList();
+	    for (Club club : getAllClubList)
+	    {
+	        int countMember = clubService.clubMemberCount(club.getClubName());
+	        club.setClubMemberCount(countMember);
+	    }
+	    model.addAttribute("club", getAllClubList);
+	    return "clublist";
 	}
+
 	@GetMapping("/update")
 	public String updateClub(HttpServletRequest request,Model model)
 	{

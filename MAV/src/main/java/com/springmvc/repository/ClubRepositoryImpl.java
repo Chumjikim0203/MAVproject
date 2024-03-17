@@ -247,4 +247,13 @@ public class ClubRepositoryImpl implements ClubRepository
 		
 	}
 
+	@Override
+	public int clubMemberCount(String clubName) 
+	{
+		 String SQL = "SELECT COUNT(c_memberId) FROM clubMember WHERE clubName=?";
+		 int count = template.queryForObject(SQL, Integer.class, clubName);
+		 return count;
+	}
+
+	
 }

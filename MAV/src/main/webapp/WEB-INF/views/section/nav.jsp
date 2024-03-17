@@ -60,15 +60,12 @@
 		    		<c:when test="${teacher.teacherApprove eq true && store.storeApprove eq true}">
 			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
 			            <div class="container-fluid">
-			              <a class="navbar-brand" href="#">MAV</a>
+			              <a class="navbar-brand" href="/MAV/main">MAV</a>
 			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			                <span class="navbar-toggler-icon"></span>
 			              </button>
 			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			                  <li class="nav-item">
-			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-			                  </li>
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">			                  
 			                  <li class="nav-item dropdown">
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			                      동호회
@@ -113,11 +110,7 @@
 			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
 			                  </li>
 			                </ul>
-			                <h5>${member.memberName} 강사&업주님 환영합니다!</h5>
-			                <form class="d-flex" role="search">
-			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-			                  <button class="btn btn-outline-success" type="submit">search</button>
-			                </form>
+			                <h5>${member.memberName} 강사&업주님 환영합니다!</h5>			             
 			              </div>
 			            </div>
 			        </nav>		        
@@ -125,15 +118,12 @@
 		    		<c:when test="${teacher.teacherApprove eq true}">
 			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
 			            <div class="container-fluid">
-			              <a class="navbar-brand" href="#">MAV</a>
+			              <a class="navbar-brand" href="/MAV/main">MAV</a>
 			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			                <span class="navbar-toggler-icon"></span>
 			              </button>
 			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			                  <li class="nav-item">
-			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-			                  </li>
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">			                  
 			                  <li class="nav-item dropdown">
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			                      동호회
@@ -175,11 +165,7 @@
 			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
 			                  </li>
 			                </ul>
-			                <h5>${member.memberName} 강사님 환영합니다!</h5>
-			                <form class="d-flex" role="search">
-			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-			                  <button class="btn btn-outline-success" type="submit">search</button>
-			                </form>
+			                <h5>${member.memberName} 강사님 환영합니다!</h5>			                
 			              </div>
 			            </div>
 			        </nav>
@@ -187,15 +173,12 @@
 			        <c:when test="${store.storeApprove eq true}">
 			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
 			            <div class="container-fluid">
-			              <a class="navbar-brand" href="#">MAV</a>
+			              <a class="navbar-brand" href="/MAV/main">MAV</a>
 			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			                <span class="navbar-toggler-icon"></span>
 			              </button>
 			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			                  <li class="nav-item">
-			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-			                  </li>
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">			                  
 			                  <li class="nav-item dropdown">
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			                      동호회
@@ -236,11 +219,7 @@
 			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
 			                  </li>
 			                </ul>
-			                <h5>${member.memberName} 업주님 환영합니다!</h5>
-			                <form class="d-flex" role="search">
-			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-			                  <button class="btn btn-outline-success" type="submit">search</button>
-			                </form>
+			                <h5>${member.memberName} 업주님 환영합니다!</h5>			                
 			              </div>
 			            </div>
 			        </nav>
@@ -248,15 +227,12 @@
 			         <c:when test="${member.adminApprove eq true}">
 			       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
 					            <div class="container-fluid">
-					              <a class="navbar-brand" href="#">MAV</a>
+					              <a class="navbar-brand" href="/MAV/main">MAV</a>
 					              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					                <span class="navbar-toggler-icon"></span>
 					              </button>
 					              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-					                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					                  <li class="nav-item">
-					                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-					                  </li>
+					                <ul class="navbar-nav me-auto mb-2 mb-lg-0">					                 
 					                  <li class="nav-item dropdown">
 					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					                      동호회
@@ -298,11 +274,7 @@
 					                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
 					                  </li>
 					                </ul>
-					                <h5>${member.memberName} 관리자님 환영합니다!</h5>
-					                <form class="d-flex" role="search">
-					                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-					                  <button class="btn btn-outline-success" type="submit">search</button>
-					                </form>
+					                <h5>${member.memberName} 관리자님 환영합니다!</h5>					                
 					              </div>
 					            </div>
 					        </nav>
@@ -310,15 +282,12 @@
 			        <c:otherwise>
 			        	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 					            <div class="container-fluid">
-					              <a class="navbar-brand" href="#">MAV</a>
+					              <a class="navbar-brand" href="/MAV/main">MAV</a>
 					              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					                <span class="navbar-toggler-icon"></span>
 					              </button>
 					              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-					                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					                  <li class="nav-item">
-					                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-					                  </li>
+					                <ul class="navbar-nav me-auto mb-2 mb-lg-0">					                  
 					                  <li class="nav-item dropdown">
 					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					                      동호회
@@ -356,11 +325,7 @@
 					                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
 					                  </li>
 					                </ul>
-					                <h5>${member.memberName} 회원님 환영합니다!</h5>
-					                <form class="d-flex" role="search">
-					                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-					                  <button class="btn btn-outline-success" type="submit">search</button>
-					                </form>
+					                <h5>${member.memberName} 회원님 환영합니다!</h5>					                
 					              </div>
 					            </div>
 					        </nav>
@@ -370,15 +335,12 @@
 	        <c:otherwise>
 	       		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			            <div class="container-fluid">
-			              <a class="navbar-brand" href="#">MAV</a>
+			              <a class="navbar-brand" href="/MAV/main">MAV</a>
 			              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			                <span class="navbar-toggler-icon"></span>
 			              </button>
 			              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			                  <li class="nav-item">
-			                    <a class="nav-link active" aria-current="page" href="/MAV/main">Home</a>
-			                  </li>
+			                <ul class="navbar-nav me-auto mb-2 mb-lg-0">			                  
 			                  <li class="nav-item">
 			                    <a class="nav-link" href="#">동호회</a>
 			                  </li>
@@ -400,11 +362,7 @@
 			                   <li class="nav-item">
 			                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/add/member">회원가입</a>
 			                  </li>
-			                </ul>
-			                <form class="d-flex" role="search">
-			                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-			                  <button class="btn btn-outline-success" type="submit">search</button>
-			                </form>
+			                </ul>			                
 			              </div>
 			            </div>
 			        </nav>

@@ -45,38 +45,6 @@
                         </div>
                         <div class="invalid-feedback">업체명을 입력해주세요.</div>
                         <div class="col-md-6 mb-3">
-                           <div class="row">
-                              <div class="col-12">
-                                 <label for="storeAddr">업체주소</label>
-                                 <div class="row mb-2">
-                                    <div class="col-md-4">
-                                       <input type="text" id="sample6_postcode" placeholder="우편번호"
-                                          class="form-control">
-                                    </div>
-                                    <div class="col-md-4"
-                                       style="margin-left: -1rem; padding: 0 -1rem;">
-                                       <input type="button" onclick="sample6_execDaumPostcode()"
-                                          value="우편번호 찾기"
-                                          class="form-control btn btn-outline-primary">
-                                    </div>
-                                 </div>
-                                 <div>
-                                    <input type="text" id="sample6_address" placeholder="주소"
-                                       class="form-control mb-2">
-                                    <div class="d-flex">
-                                       <input type="text" id="sample6_detailAddress"
-                                          placeholder="상세주소" class="form-control mb-2"> <input
-                                          type="text" id="sample6_extraAddress" placeholder="참고항목"
-                                          class="form-control mb-2" style="margin-left: 5px;">
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <form:input type="hidden" id="storeAddr" class="form-control"
-                              path="storeAddr" />
-                        </div>
-                        <div class="invalid-feedback">업체주소를 입력해주세요.</div>
-                        <div class="col-md-6 mb-3">
                            <label for="storeCategory">업체종목</label>
                            <form:input class="form-control" path="storeCategory" />
                         </div>
@@ -109,6 +77,37 @@
                            <form:input class="form-control" path="storeCode"/>
                         </div>
                         <div class="invalid-feedback">사업자번호를 입력해주세요</div>
+                           <div class="col-md-6 mb-3">
+                           <div class="row">
+                              <div class="col-12">
+                                 <label for="storeAddr">업체주소</label>
+                                 <div class="row mb-2">
+                                    <div class="col-md-4">
+                                       <input type="text" id="sample6_postcode" placeholder="우편번호"
+                                          class="form-control">
+                                    </div>
+                                    <div class="col-md-4"
+                                       style="margin-left: -1rem; padding: 0 -1rem;">
+                                       <input type="button" onclick="sample6_execDaumPostcode()"
+                                          value="우편번호 찾기"
+                                          class="form-control btn btn-outline-primary">
+                                    </div>
+                                 </div>
+                                 <div>
+                                    <input type="text" id="sample6_address" placeholder="주소"
+                                       class="form-control mb-2">
+                                    <div class="d-flex">
+                                       <input type="text" id="sample6_detailAddress"
+                                          placeholder="상세주소" class="form-control mb-2"> <input
+                                          type="text" id="sample6_extraAddress" placeholder="참고항목"
+                                          class="form-control mb-2" style="margin-left: 5px;">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <form:input type="hidden" id="storeAddr" class="form-control"
+                              path="storeAddr" />
+                        </div>
                      </div>
                      <hr class="mb-4">
                      <div class="mb-4"></div>
