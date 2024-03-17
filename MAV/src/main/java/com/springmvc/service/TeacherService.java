@@ -17,5 +17,5 @@ public interface TeacherService {
 	void UpdateTeacher(Teacher teacher);
 	public List<Teacher> AllTeacher();
 	public Teacher teacherId(String teacherId);
-	Teacher deleteTeacher(String teacherId);
+    Teacher deleteTeacher(String teacherId);
 }

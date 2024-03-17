@@ -176,16 +176,11 @@
 </head>
 
 <body>
- <%
-	String memberId = request.getParameter("memberId");
-	System.out.println("teacher:"+memberId);
-%>
     <jsp:include page="./section/nav.jsp" />
     <div class="main">
         <div class="col-4">
             <div class="card" style="width: 100%;">
                 <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
-                <img src="." class="card-img-top img1" alt="...">
                 <div class="card-body">
                     <p class="card-text" style="text-align: center; font-size: 1.2rem;">${teacher.teacherCategory}</p>
                     <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
@@ -199,7 +194,7 @@
                     </li>
                     <li class="list-group-item">
                         <a href="./teacher/delete?teacherId=${teacher.teacherId}">강사탈퇴</a>
-                    </li>
+                    </li>                  
                 </ul>
             </div>
         </div>

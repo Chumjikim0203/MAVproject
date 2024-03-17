@@ -12,6 +12,7 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * 
@@ -24,7 +25,7 @@
     {
      width: 80%;
      margin: 0 auto;
-     margin-top : 15px; 
+     margin-top : 20px;
     }
   </style>
 </head>
@@ -56,32 +57,37 @@
                               강사이력을 입력해주세요.
                         </div>  
                         <div class="col-md-12">
-                           <label for="teacherInfomation">강사소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
-                          <form:textarea cols="50" rows="5" class="form-control" path="teacherInfomation" name="teacherInfomation"/>
-                       </div>
+           				 	<label for="teacherInfomation">강사소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+           					<form:textarea cols="50" rows="5" class="form-control" path="teacherInfomation" name="teacherInfomation"/>
+           			   </div>
                      
                        <div class="row">
-                         <div class="col-md-6 mb-3">
-                             <label for="teacherLicense" class="form-label">강사자격증</label>
-                             <form:input class="form-control" type="file" path="teacherLicense"/>
-                         </div>
-                         <div class="col-md-6 mb-3">
-                             <label for="teacherLicense" class="form-label">강사자격증</label>
-                            <form:input class="form-control" type="file" path="teacherLicense"/>
-                         </div>
-                         <div  class="col-md-6 mb-3">
-                             <label for="teacherLicense" class="form-label">강사자격증</label>
-                            <form:input class="form-control" type="file" path="teacherLicense"/>
-                         </div>
-                         <div  class="col-md-6 mb-3">
-                             <label for="teacherLicense" class="form-label">강사자격증</label>
-                             <form:input class="form-control" type="file" path="teacherLicense"/>
-                         </div>
-                            <div  class="col-md-6 mb-3">
-                             <label for="teacherImages" class="form-label">강사사진</label>
-                             <form:input class="form-control" type="file" path="teacherImages"/>
-                         </div>
-                        </div>
+			                <div class="col-md-6 mb-3">
+			                    <label for="teacherLicense1" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense1"/>
+			                </div>
+			                <div class="col-md-6 mb-3">
+			                    <label for="teacherLicense2" class="form-label">강사자격증</label>
+			                   <form:input class="form-control" type="file" path="teacherLicense2"/>
+			                </div>
+			                <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense3" class="form-label">강사자격증</label>
+			                   <form:input class="form-control" type="file" path="teacherLicense3"/>
+			                </div>
+			                <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense4" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense4"/>
+			                </div>
+    			             <div  class="col-md-6 mb-3">
+			                    <label for="teacherLicense5" class="form-label">강사자격증</label>
+			                    <form:input class="form-control" type="file" path="teacherLicense5"/>
+			                </div>
+			                   <div  class="col-md-6 mb-3">
+			                    <label for="teacherImages" class="form-label">강사사진</label>
+			                    <form:input class="form-control" type="file" path="teacherImages"/>
+			                </div>
+           				 </div>
+         				 
                             
             </div>
                    <br>

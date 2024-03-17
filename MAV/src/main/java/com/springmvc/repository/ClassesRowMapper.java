@@ -14,7 +14,7 @@ public class ClassesRowMapper implements RowMapper<Classes> {
 	public Classes mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TODO Auto-generated method stub
 		Classes classes=new Classes();
-		classes.setClassId(rs.getString("classId"));
+		classes.setteacherId(rs.getString("teacherId"));
 		classes.setClassNum(rs.getInt("classNum"));
 		classes.setClassName(rs.getString("className"));
 		classes.setClassLecturedate(rs.getDate("classLectureDate").toLocalDate());

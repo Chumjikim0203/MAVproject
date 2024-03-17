@@ -1,5 +1,6 @@
 package com.springmvc.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springmvc.domain.Classes;
 import com.springmvc.domain.Member;
-import com.springmvc.domain.Store;
 import com.springmvc.domain.Teacher;
 import com.springmvc.repository.ClassesRepository;
 import com.springmvc.service.ClasseService;
@@ -77,12 +78,55 @@ public class ClassController {
 
 	//강의등록 하기버튼
 	  @PostMapping("/addclass") 
-	  public String createaddclass(@ModelAttribute Classes classes,BindingResult bindingResult, Model model,HttpServletRequest request,Teacher teacher)
+	  public String createaddclass(@ModelAttribute Classes classes,
+			  BindingResult bindingResult, 
+			  Model model,HttpServletRequest request,Teacher teacher)
 	  { 
 	  HttpSession sessionId=request.getSession();	
 	  teacher= (Teacher)sessionId.getAttribute("teacher");
 	  classes = (Classes) model.getAttribute("classes");
 	  System.out.println("addteacherId:"+teacher.getTeacherId());
+	  List<MultipartFile> classImages = new ArrayList<MultipartFile>();
+      List<String> classImagesFileName = new ArrayList<String>();
+		String save = request.getSession().getServletContext().getRealPath("/resources/images");
+		//이미지 경로 =SAVE
+		System.out.println("이미지경로:"+save);		
+		classImages.add(classes.getClassImages1());
+		classImages.add(classes.getClassImages2());
+		classImages.add(classes.getClassImages3());
+		classImages.add(classes.getClassImages4());
+		classImages.add(classes.getClassImages5());
+		
+		for(int i=0; i<classImages.size(); i++)
+		{
+			MultipartFile file = classImages.get(i);
+			String saveName = file.getOriginalFilename();			
+			classImagesFileName.add(saveName);			
+			System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+			
+			File saveFile= new File(save, saveName);
+			
+			if(file !=null && !file.isEmpty())
+			{
+				try 
+				{
+					file.transferTo(saveFile);
+					classes.setClassImagesFileName1(saveName);
+					
+				} 
+				catch (Exception e) 
+				{
+					throw new RuntimeException("강의 이미지 업로드가 실패했습니다.", e);
+				}
+			}
+			
+		}
+		classes.setClassImagesFileName1(classImagesFileName.get(0));
+		classes.setClassImagesFileName2(classImagesFileName.get(1));
+		classes.setClassImagesFileName3(classImagesFileName.get(2));
+		classes.setClassImagesFileName4(classImagesFileName.get(3));
+		classes.setClassImagesFileName5(classImagesFileName.get(4));
+	  
 	  model.addAttribute("teacher",teacher); 
 	  model.addAttribute("classes",classes); 
 	  ClassesService.setNewClasses(classes);
@@ -136,9 +180,6 @@ public class ClassController {
 	  public String detailclass(@RequestParam("classNum") int classNum, Model model,HttpServletRequest request,Member member) {
 		  HttpSession sessionId=request.getSession();	
 		  member= (Member)sessionId.getAttribute("member");
-		  Store store= (Store) sessionId.getAttribute("store");
-		  model.addAttribute("member",member);
-		  model.addAttribute("store",store);
 		  model.addAttribute("detailclass",ClassesService.getById(classNum));
 		  System.out.println("cs.getby:"+ClassesService.getById(classNum));
 		  return "detailclass";
@@ -149,12 +190,8 @@ public class ClassController {
 	  public String ClassList( Model model,HttpServletRequest request,Member member,Teacher teacher, Classes classes) {
 		  HttpSession sessionId=request.getSession();	
 		  member= (Member)sessionId.getAttribute("member");
-		  Store store = (Store) sessionId.getAttribute("store");
 		  teacher= teacherService.teacherId(member.getMemberId());
 		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList(classes);
-		  model.addAttribute("member",member);
-		  model.addAttribute("teacher", teacher);
-		  model.addAttribute("store", store);
 		  model.addAttribute("classes",classesall);
 		  System.out.println("classlist도착 member는:"+member.getMemberId());
 		  System.out.println("classes:"+classesall);
@@ -182,4 +219,3 @@ public class ClassController {
 
 	     
 }
-
