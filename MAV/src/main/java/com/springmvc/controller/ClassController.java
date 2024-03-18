@@ -1,10 +1,15 @@
 package com.springmvc.controller;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> origin/KTY
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -91,14 +96,19 @@ public class ClassController {
 
 	//강의등록 하기버튼
 	  @PostMapping("/addclass") 
+<<<<<<< HEAD
 	  public String createaddclass(@ModelAttribute Classes classes,
 			  BindingResult bindingResult, 
 			  Model model,HttpServletRequest request,Teacher teacher)
+=======
+	  public String createaddclass(@ModelAttribute Classes classes,BindingResult bindingResult, Model model,HttpServletRequest request,Teacher teacher)
+>>>>>>> origin/KTY
 	  { 
 	  HttpSession sessionId=request.getSession();	
 	  teacher= (Teacher)sessionId.getAttribute("teacher");
 	  classes = (Classes) model.getAttribute("classes");
 	  System.out.println("addteacherId:"+teacher.getTeacherId());
+<<<<<<< HEAD
 	  List<MultipartFile> classImages = new ArrayList<MultipartFile>();
       List<String> classImagesFileName = new ArrayList<String>();
 		String save = request.getSession().getServletContext().getRealPath("/resources/images");
@@ -140,6 +150,8 @@ public class ClassController {
 		classes.setClassImagesFileName4(classImagesFileName.get(3));
 		classes.setClassImagesFileName5(classImagesFileName.get(4));
 	  
+=======
+>>>>>>> origin/KTY
 	  model.addAttribute("teacher",teacher); 
 	  model.addAttribute("classes",classes); 
 	  ClassesService.setNewClasses(classes);
@@ -188,6 +200,7 @@ public class ClassController {
 		  ClassesService.setdeleteClasses(classNum);
 		  return "redirect:/teacher";
 	  }
+<<<<<<< HEAD
 	   //상세정보뿌려주기
 	     @GetMapping("/detailclass")
 	     public String detailclass(@RequestParam("classNum") int classNum, Model model,HttpServletRequest request,Member member) {
@@ -215,6 +228,30 @@ public class ClassController {
 		  System.out.println("classes:"+classesall);
 		  return "classlist";
 	  }
+=======
+		//상세정보뿌려주기
+	  @GetMapping("/detailclass")
+	  public String detailclass(@RequestParam("classNum") int classNum, Model model,HttpServletRequest request,Member member) {
+		  HttpSession sessionId=request.getSession();	
+		  member= (Member)sessionId.getAttribute("member");
+		  model.addAttribute("detailclass",ClassesService.getById(classNum));
+		  System.out.println("cs.getby:"+ClassesService.getById(classNum));
+		  return "detailclass";
+	  }
+	  
+	  //read classList
+	  @GetMapping("/classlist")
+	  public String ClassList( Model model,HttpServletRequest request,Member member,Teacher teacher, Classes classes) {
+		  HttpSession sessionId=request.getSession();	
+		  member= (Member)sessionId.getAttribute("member");
+		  teacher= teacherService.teacherId(member.getMemberId());
+		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList(classes);
+		  model.addAttribute("classes",classesall);
+		  System.out.println("classlist도착 member는:"+member.getMemberId());
+		  System.out.println("classes:"+classesall);
+		  return "classlist";
+	  }
+>>>>>>> origin/KTY
 	  @GetMapping("/addmember")
 	  public String addclassmember(@ModelAttribute("detailclass") Classes classes, HttpServletRequest request,Model model) {
 	        HttpSession sessionId = request.getSession();	

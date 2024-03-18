@@ -35,7 +35,11 @@ public class Classes
 	private String classLocale; // 강의 주소
 	private boolean classApprove; // 강의 신청 승인
 
+<<<<<<< HEAD
 	private Member classmember; // 강의신청하기 눌렷을떄 
+=======
+	private Member classmember; //개인이 신청한 클래스 맴버 
+>>>>>>> origin/KTY
 	
 	
 	public Classes() {
@@ -126,6 +130,7 @@ public class Classes
 	public void setClassmember(Member classmember) {
 		this.classmember = classmember;
 	}
+<<<<<<< HEAD
 	public String getClassImagesFileName1() {
 		return classImagesFileName1;
 	}
@@ -187,3 +192,8 @@ public class Classes
 		this.classImages5 = classImages5;
 	}
 }
+=======
+	
+	
+}
+>>>>>>> origin/KTY

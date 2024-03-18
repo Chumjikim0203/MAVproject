@@ -128,6 +128,7 @@ public class ClubServiceImpl implements ClubService
 		 
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int clubMemberCount(String clubName) 
 	{
@@ -135,4 +136,6 @@ public class ClubServiceImpl implements ClubService
 		return count;
 	}
 
+=======
+>>>>>>> origin/KTY
 }

@@ -57,6 +57,7 @@
                             </form:select>
                         </div>
                         <div class="col-md-7 mb-3">
+<<<<<<< HEAD
                        		<label for="clubImages">대표 사진</label>
                          	<form:input type="file" path="clubImages1" class="form-control" />                          
                        	</div>
@@ -76,6 +77,11 @@
                        		<label for="clubImages">동호회 사진4</label>
                          	<form:input type="file" path="clubImages5" class="form-control" />                          
                        	</div>                                             
+=======
+                       		<label for="clubImages">동호회 이미지</label>
+                         	<form:input type="file" path="clubImages" class="form-control" />                          
+                       	</div>                                            
+>>>>>>> origin/KTY
                         <div class="col-md-12 mb-3">
                             <label for="clubInfo">동호회 소개글</label>
                             <form:textarea class="form-control" path="clubInfo" />                        

@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import com.springmvc.domain.Room;
 
 public class RoomRowMapper implements RowMapper<Room> {
+	
    public Room mapRow(ResultSet rs, int rowNum)throws SQLException{
        Room room = new Room();
        room.setRoomNum(rs.getInt("roomNum"));

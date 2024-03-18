@@ -17,5 +17,10 @@ public interface TeacherService {
 	void UpdateTeacher(Teacher teacher);
 	public List<Teacher> AllTeacher();
 	public Teacher teacherId(String teacherId);
+<<<<<<< HEAD
     Teacher deleteTeacher(String teacherId);
 }
+=======
+    void deleteTeacher(String teacherId);
+}
+>>>>>>> origin/KTY

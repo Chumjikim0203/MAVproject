@@ -7,7 +7,11 @@ import com.springmvc.domain.Store;
 
 public interface StoreService {
    void createRoom(Room room);
+<<<<<<< HEAD
 	void updateMatchedValue(int roomNum, int matchedValue);
+=======
+   void updateMatchedValue(int roomNum, int matchedValue);
+>>>>>>> origin/KTY
    List<Room> getAllRooms(Room room);
    void deleteRoom(int roomNum);
    Room getByroomNumAllRooms(int roomNum);
@@ -17,6 +21,10 @@ public interface StoreService {
    void CreateStore(Store store);
    void UpdateStore(Store store);
    Store DeleteStore(String storeId);
+<<<<<<< HEAD
+=======
+   Room getBycoordinate(int roomNum);
+>>>>>>> origin/KTY
 
 
    

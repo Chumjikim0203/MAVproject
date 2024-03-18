@@ -82,6 +82,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	       }
 	   }
 	@Override
+<<<<<<< HEAD
 	public Teacher deleteTeacher(String teacherId) {
 		String SQL="DELETE FROM Teacher where teacherId=?";
 		template.update(SQL,teacherId);
@@ -90,3 +91,12 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	}
 	   
 }
+=======
+	public void deleteTeacher(String teacherId) {
+		String SQL="DELETE FROM Teacher where teacherId=?";
+		this.template.update(SQL,teacherId);
+		
+	}
+	   
+}
+>>>>>>> origin/KTY

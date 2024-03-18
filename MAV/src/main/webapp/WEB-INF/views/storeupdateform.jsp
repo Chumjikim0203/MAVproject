@@ -11,6 +11,7 @@
     <title>업체 정보 수정</title>
 
     <!-- Bootstrap CSS -->
+<<<<<<< HEAD
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
    rel="stylesheet"
    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
@@ -24,6 +25,15 @@
         }
         .container {
             width: 80%;
+=======
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+
+    <style>
+        .container {
+            width: 70%;
+>>>>>>> origin/KTY
             margin: 0 auto;
         }
 
@@ -74,7 +84,12 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 <jsp:include page="./section/nav.jsp" />
+=======
+
+    <br><br><br>
+>>>>>>> origin/KTY
 	<div class="container">
 	    <div class="input-form-backgroud row">
 	        <div class="input-form col-md-12 mx-auto">

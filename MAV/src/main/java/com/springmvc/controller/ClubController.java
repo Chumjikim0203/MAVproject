@@ -91,8 +91,19 @@ public class ClubController
 		{
 			return "addClub";
 		}
+		String save = request.getSession().getServletContext().getRealPath("/resources/images");
+		MultipartFile clubImages = club.getClubImages();		
+		System.out.println("post에서 받아온 클럽이미지 : "+club.getClubImages());
+		
+		String saveName = clubImages.getOriginalFilename();
+		System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+		
+		File saveFile= new File(save, saveName);
+		
+		
 		HttpSession session = request.getSession();
 		member = (Member) session.getAttribute("member");
+<<<<<<< HEAD
 		String save = request.getSession().getServletContext().getRealPath("/resources/images");
 		List<MultipartFile> clubImages = new ArrayList<MultipartFile>();
 	    List<String> imageFileNames = new ArrayList<String>();
@@ -132,6 +143,23 @@ public class ClubController
 		club.setImageFileName3(imageFileNames.get(2));
 		club.setImageFileName4(imageFileNames.get(3));
 		club.setImageFileName5(imageFileNames.get(4));
+=======
+		
+		if(clubImages !=null && !clubImages.isEmpty())
+		{
+			try 
+			{
+				clubImages.transferTo(saveFile);
+				club.setImageFileName(saveName);
+			
+			} 
+			catch (Exception e) 
+			{
+				throw new RuntimeException("동호회 이미지 업로드가 실패했습니다.", e);
+			}
+		}
+		
+>>>>>>> origin/KTY
 		ClubMember clubmember = new ClubMember();
 	
 		model.addAttribute("member", member);
@@ -144,8 +172,14 @@ public class ClubController
 		clubService.addNewClub(club,member);
 		clubService.addNewClubMember(club, clubmember, member);
 
+<<<<<<< HEAD
 		session.setAttribute("club", club);
 		session.setAttribute("member", member);
+=======
+		System.out.println("post 에서 클럽세션에 담은 이름 : "+club.getClubName());
+		System.out.println("post 에서 멤버세션에 담은 아이디 : "+member.getMemberId());
+		System.out.println("post 에서 클럽에 담긴 이미지 이름 : "+club.getImageFileName());
+>>>>>>> origin/KTY
 
 		return "redirect:/member/mypage";
 	}
@@ -211,6 +245,7 @@ public class ClubController
 	    List<MultipartFile> clubImages = new ArrayList<MultipartFile>();
 	    List<String> imageFileNames = new ArrayList<String>();
 	    
+<<<<<<< HEAD
 		clubImages.add(club.getClubImages1());
 		clubImages.add(club.getClubImages2());
 		clubImages.add(club.getClubImages3());
@@ -246,6 +281,30 @@ public class ClubController
 		club.setImageFileName3(imageFileNames.get(2));
 		club.setImageFileName4(imageFileNames.get(3));
 		club.setImageFileName5(imageFileNames.get(4));
+=======
+	    String save = request.getSession().getServletContext().getRealPath("/resources/images");
+		MultipartFile clubImages = club.getClubImages();		
+		System.out.println("post에서 받아온 클럽이미지 : "+club.getClubImages());
+		
+		String saveName = clubImages.getOriginalFilename();
+		System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+		
+		File saveFile= new File(save, saveName);
+		
+		if(clubImages !=null && !clubImages.isEmpty())
+		{
+			try 
+			{
+				clubImages.transferTo(saveFile);
+				club.setImageFileName(saveName);
+			
+			} 
+			catch (Exception e) 
+			{
+				throw new RuntimeException("동호회 이미지 업로드가 실패했습니다.", e);
+			}
+		}
+>>>>>>> origin/KTY
 
 	    System.out.println("POST member에 담긴 아이디 : " + member.getMemberName());
 	    System.out.println("POST member에 담긴 클럽명 : " + club.getClubName());

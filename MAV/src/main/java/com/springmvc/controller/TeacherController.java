@@ -202,10 +202,15 @@ public class TeacherController {
 		return "redirect:/teacher";
 	}
 	@GetMapping("delete")
+<<<<<<< HEAD
 	public String  deleteteacher (@RequestParam String teacherId,HttpServletRequest request) {
 		Teacher teacher = teacherService.deleteTeacher(teacherId);
 		HttpSession session = request.getSession();
 		session.setAttribute("teacher", teacher);
+=======
+	public String  deleteteacher (@RequestParam String teacherId) {
+		teacherService.deleteTeacher(teacherId);
+>>>>>>> origin/KTY
 		return "redirect:/";
 	}
 

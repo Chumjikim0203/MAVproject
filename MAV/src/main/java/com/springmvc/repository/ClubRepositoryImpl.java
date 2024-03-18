@@ -41,6 +41,7 @@ public class ClubRepositoryImpl implements ClubRepository
 				club.getClubCategory(),
 				club.getClubLocale(),
 				club.getClubPoint(),
+<<<<<<< HEAD
 				club.getImageFileName1(),
 				club.getImageFileName2(),
 				club.getImageFileName3(),
@@ -49,6 +50,12 @@ public class ClubRepositoryImpl implements ClubRepository
 				club.getClubInfo());
 		
 		System.out.println("리파짓토리에서 클럽 생성시 가져온 이미지파일 이름 : "+club.getImageFileName1());
+=======
+				club.getImageFileName(),
+				club.getClubInfo());
+		
+		System.out.println("리파짓토리에서 클럽 생성시 가져온 이미지파일 이름 : "+club.getImageFileName());
+>>>>>>> origin/KTY
 	}
 
 	
@@ -88,12 +95,18 @@ public class ClubRepositoryImpl implements ClubRepository
 	public void updateClub(Club club,Member member) 
 	{
 		System.out.println("수정 처리할 클럽ID : "+club.getClubName());
+<<<<<<< HEAD
 		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=?, imageFileName1=?, imageFileName2=?"
 				+ ", imageFileName3=?, imageFileName4=?, imageFileName5=?  where clubNum=? and clubMaster=?";
 		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
 						club.getClubInfo(),club.getImageFileName1(), club.getImageFileName2(), 
 						club.getImageFileName3(), club.getImageFileName4(), club.getImageFileName5(), 
 						club.getClubNum(), member.getMemberId());
+=======
+		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=?, imageFileName=?  where clubNum=? and clubMaster=?";
+		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
+						club.getClubInfo(),club.getImageFileName(), club.getClubNum(), member.getMemberId());
+>>>>>>> origin/KTY
 	}
 
 	@Override
@@ -247,6 +260,7 @@ public class ClubRepositoryImpl implements ClubRepository
 		
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int clubMemberCount(String clubName) 
 	{
@@ -256,4 +270,6 @@ public class ClubRepositoryImpl implements ClubRepository
 	}
 
 	
+=======
+>>>>>>> origin/KTY
 }

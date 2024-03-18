@@ -182,4 +182,8 @@
     </section>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/KTY

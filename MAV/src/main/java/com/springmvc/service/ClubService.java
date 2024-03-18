@@ -29,8 +29,13 @@ public interface ClubService
 	List<Club> getMyMasterClub(String c_memberId);
 	
 	// 클럽포인트 업데이트
+<<<<<<< HEAD
 	void updateClubPoint(String clubName, int clubPoint);
 
 	// 클럽 인원수 확인용
 	int clubMemberCount(String clubName);
+=======
+	void updateClubPoint(String ClubName, int clubPoint);
+
+>>>>>>> origin/KTY
 }

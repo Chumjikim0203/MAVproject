@@ -29,7 +29,11 @@
 </head>
 
 <body>
+<<<<<<< HEAD
  <jsp:include page="./section/nav.jsp"/>
+=======
+    <br><br><br>
+>>>>>>> origin/KTY
   <div class="container">
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
@@ -86,6 +90,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="row">
 		        <div class="col-md-6 mb-3">
 		            <label for="classImages1" class="form-label">강의사진</label>
@@ -108,6 +113,14 @@
 		            <form:input class="form-control" type="file" path="classImages5"/>
 		        </div>
 	       </div> 
+=======
+             <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="classImages" class="form-label">강의 이미지</label>
+                    <form:input class="form-control" type="file" path="classImages"/>
+                </div>
+           	</div>  
+>>>>>>> origin/KTY
 
           <div class="mb-3">
             <label for="classIntroduction">강의소개<span class="text-muted">&nbsp;(필수 아님)</span></label>

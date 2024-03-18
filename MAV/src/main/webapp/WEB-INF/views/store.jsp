@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<<<<<<< HEAD
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 	  * 
@@ -21,6 +22,19 @@
         {
         	width : 80%;
         	margin : 0 auto;
+=======
+   
+   
+    <style>
+        body 
+        {
+            font-family: 'Noto Sans KR', sans-serif;            
+        }
+        .main-container
+        {
+           width : 80%;
+           margin : 0 auto;
+>>>>>>> origin/KTY
         }
 
         .main {
@@ -353,7 +367,18 @@
         </div>
   </div>
 </div>
+<<<<<<< HEAD
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 
 </html>
+=======
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+>>>>>>> origin/KTY

@@ -75,6 +75,43 @@
             text-decoration: none;
             border: none;
           }
+          
+
+    
+/* 기본 버튼 스타일 */
+.btn.primary {
+    background-color: transparent;
+    border-color: #007bff;
+    color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.warning {
+    background-color: transparent;
+    border-color: #ffc107;
+    color: #ffc107;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.danger {
+    background-color: transparent;
+    border-color: #dc3545;
+    color: #dc3545;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* 마우스 호버 시 배경색 변경 */
+.btn:hover {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #fff !important;
+}
+
+.modal-mid-bt {
+    margin: 0 10px; /* 좌우 마진을 10px로 설정합니다. */
+}
+
+                   
     </style>
 </head>
 <body>
@@ -103,6 +140,7 @@
     </div>
     <br>
     <div class="container">     
+<<<<<<< HEAD
          <!-- applicantId가 null이 아닌 경우에 실행되는 부분 -->
          <c:if test="${matching.applicantId != null}">                  
                <div class="detail-box boxes">  
@@ -157,6 +195,62 @@
          </div>             
          </c:if>                           
       
+=======
+			<!-- applicantId가 null이 아닌 경우에 실행되는 부분 -->
+			<c:if test="${matching.applicantId != null}">						
+			   	<div class="detail-box boxes">  
+			    <p>${matching.creatorId} 🆚  ${matching.applicantId}</p>
+			    
+				<!-- Button trigger modal -->
+				<c:if test="${member.memberId == room.storeId}">		    
+
+					<button type="button" class="room-application-link room-application-btn4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					    점수부여
+					</button>
+				</c:if>	
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <div class="modal-mid-title-bt">
+				                    <div style="text-align: start; ">
+				                        <b><h5 class="modal-title " id="exampleModalLabel">&nbsp Home : ${matching.creatorId}&nbsp&nbsp&nbsp&nbsp</h5></b>
+				                    </div>
+				                    <div>
+				                        <b><h5 class="modal-title " id="exampleModalLabel">&nbsp Away : ${matching.applicantId}</h5></b>
+				                    </div>
+				                </div>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				            </div>
+				            <div class="modal-body">
+				            
+				                <!-- 모달 수정해야 하는부분 -->
+								<form:form modelAttribute="resultForm" method="post" action="/MAV/match/matchpoint">
+									<input type="hidden" name="roomNum" value="${matching.roomNum}" />
+				                    <input type="hidden" name="creatorId" value="${matching.creatorId}">
+				                    <input type="hidden" name="applicantId" value="${matching.applicantId}">
+				                    
+									<div class="modal-mid text-center ">
+									    <button type="submit" name="result" value="승" class="btn btn-primary modal-mid-bt primary mdbt">&nbsp;&nbsp;승리&nbsp;&nbsp;</button>
+									    <button type="submit" name="result" value="무" class="btn btn-warning modal-mid-bt warning mdbt">&nbsp;&nbsp;무승부&nbsp;&nbsp;</button>
+									    <button type="submit" name="result" value="패" class="btn btn-danger modal-mid-bt danger mdbt">&nbsp;&nbsp;패배&nbsp;&nbsp;</button>
+									</div>
+				                </form:form>
+				            </div>
+				            <div class="modal-footer">
+				                <div class="home"> 
+				                    <b><p class="text-muted">※ Home기준</p></b>
+				                </div>
+				                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>			    
+			</c:if>									
+		
+>>>>>>> origin/KTY
         <div class="detail-row d-flex">
             <div class="detail-left">
                 <div class="detail-box">
@@ -206,7 +300,10 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> origin/KTY
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
    <script>

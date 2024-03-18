@@ -45,8 +45,13 @@ public class TeacherServiceImpl implements TeacherService{
 
 
 	@Override
+<<<<<<< HEAD
 	public Teacher deleteTeacher(String teacherId) {
 		return teacherRepository.deleteTeacher(teacherId);
+=======
+	public void deleteTeacher(String teacherId) {
+		teacherRepository.deleteTeacher(teacherId);
+>>>>>>> origin/KTY
 		
 	}
 
