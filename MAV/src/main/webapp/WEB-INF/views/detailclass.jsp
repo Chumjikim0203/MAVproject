@@ -66,7 +66,7 @@
               <img src=<c:url value="/resources/images/${classes.classImagesFileName2}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
              </div>
              <div class="carousel-item active">
-               <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
+               <img src=<c:url value="/resources/images/${classes.classImagesFileName3}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
              </div>
            </div>
            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -152,7 +152,5 @@
         
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

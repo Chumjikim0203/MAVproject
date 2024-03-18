@@ -72,10 +72,9 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="classGrade">강의 등급</label>
-                   <form:input  class="form-control" path="classGrade"  />
-                    <div class="invalid-feedback">
-                    강의 등급을 입력해주세요.
-                    </div>
+                   <form:select class="form-select" aria-label="Default select example" path="classGrade">
+                                <form:options items="${gradeOptions}"/>
+                   </form:select>
                 </div>
             </div>
             <div class="row">

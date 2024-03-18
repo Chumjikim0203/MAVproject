@@ -2,7 +2,9 @@ package com.springmvc.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -38,6 +40,17 @@ public class ClassController {
 //		return "teacher";
 //	}
 
+	@ModelAttribute("gradeOptions")
+	public Map<String, String> getLocaleOptions()
+	{
+		Map<String, String> gradeOptions = new HashMap<>();
+		gradeOptions.put("중급(51~100)", "중급(51~100)");
+		gradeOptions.put("고급(101 이상)", "고급(101 이상)");
+		gradeOptions.put("초급(0~50)", "초급(0~50)");
+		
+		return gradeOptions;
+	}
+	
 	@GetMapping("/addclass")
 	public String addclassform(@ModelAttribute("newclasses")Classes claases, Model model,HttpServletRequest request,Member member,Teacher teacher) {
 		HttpSession sessionId=request.getSession();	

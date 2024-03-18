@@ -186,7 +186,4 @@ public class Classes
 	public void setClassImages5(MultipartFile classImages5) {
 		this.classImages5 = classImages5;
 	}
-	
-	
-	
 }
