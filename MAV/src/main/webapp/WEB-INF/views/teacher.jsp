@@ -11,7 +11,12 @@
     <title>강사 마이페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        * 
+        {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
         body {
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #f8f9fa;
@@ -171,20 +176,11 @@
 </head>
 
 <body>
- <%
-	String memberId = request.getParameter("memberId");
-	System.out.println("teacher:"+memberId);
-%>
-		<ul class="navbar-nav center">
-            	<li>
-            		<h5><b>${member.memberName}</b> 강사님 환영합니다!</h5>
-            	</li>
-            </ul>	
+    <jsp:include page="./section/nav.jsp" />
     <div class="main">
         <div class="col-4">
             <div class="card" style="width: 100%;">
                 <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
-                <img src="." class="card-img-top img1" alt="...">
                 <div class="card-body">
                     <p class="card-text" style="text-align: center; font-size: 1.2rem;">${teacher.teacherCategory}</p>
                     <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
@@ -198,9 +194,8 @@
                     </li>
                     <li class="list-group-item">
                         <a href="./teacher/delete?teacherId=${teacher.teacherId}">강사탈퇴</a>
-                    </li>
+                    </li>                  
                 </ul>
-
             </div>
         </div>
         <div class="col-7">
@@ -234,18 +229,9 @@
                 </c:forEach>
             </div>
             <div>
-
-
-                    
+         </div>                    
     </div>
-</div> 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous">
-
-       </script>
+</div>
 </body>
 
 </html>

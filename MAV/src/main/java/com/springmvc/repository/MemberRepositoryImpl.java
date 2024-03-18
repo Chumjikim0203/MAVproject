@@ -91,6 +91,7 @@ public class MemberRepositoryImpl implements MemberRepository
 		template.update(SQL, member.getMemberPassword() , member.getMemberBirth(), member.getMemberPhone01(), member.getMemberPhone02(), 
 						member.getMemberPhone03(),member.getMemberGender(), member.getMemberName(), member.getMemberEmail(), member.getMemberAddr(),
 						member.getMemberId());
+		System.out.println("업데이트 처리중인 멤버의 주소 : "+member.getMemberAddr());
 	}
 
 

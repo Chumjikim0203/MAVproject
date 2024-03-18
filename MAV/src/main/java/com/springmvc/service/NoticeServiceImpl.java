@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springmvc.domain.Notice;
+import com.springmvc.domain.Page;
 import com.springmvc.repository.NoticeRepository;
 
 @Service
@@ -59,16 +60,7 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeRepository.updateHits(noticeNum);
 		
 	}
-	
-	@Override
-	public Notice getPreviousNotice(int noticeNum) {
-	    return noticeRepository.getPreviousNotice(noticeNum);
-	}
 
-	@Override
-	public Notice getNextNotice(int noticeNum) {
-	    return noticeRepository.getNextNotice(noticeNum);
-	}
 
 
 }

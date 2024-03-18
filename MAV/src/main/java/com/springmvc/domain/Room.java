@@ -154,4 +154,3 @@ public class Room
 		this.store = store;
 	}
 } 
-

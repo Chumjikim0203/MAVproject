@@ -32,6 +32,7 @@ public class StoreServiceImpl implements StoreService {
 	public List<Room> getAllRooms(Room room) {
 		return storeRepository.getAllRooms(room);
 	}
+<<<<<<< HEAD
 
 	@Override
 	public void UpdateStore(Store store) {
@@ -85,3 +86,58 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 }
+=======
+
+	@Override
+	public void UpdateStore(Store store) {
+		// TODO Auto-generated method stub
+		storeRepository.UpdateStore(store);
+	}
+
+	@Override
+	public Store DeleteStore(String storeId) {
+		// TODO Auto-generated method stub
+		return storeRepository.DeleteStore(storeId);
+	}
+
+	@Override
+	public void deleteRoom(int roomNum) {
+		storeRepository.deleteRoom(roomNum);
+	}
+
+	@Override
+	public void updateRoom(Room updateRoom) {
+		storeRepository.updateRoom(updateRoom);
+
+	}
+
+	// 스토어 아이디 가지고 오기
+	@Override
+	public Store getStoreById(String storeId) {
+		// TODO Auto-generated method stub
+		return storeRepository.getStoreById(storeId);
+	}
+
+	@Override
+	public List<Room> getRoomsByStoreId(String storeId) {
+		return storeRepository.getRoomsByStoreId(storeId);
+	}
+
+	@Override
+	public void CreateStore(Store store) {
+		storeRepository.CreateStore(store);
+
+	}
+
+	@Override
+	public void updateMatchedValue(int roomNum, int matchedValue) {
+		storeRepository.updateMatchedValue(roomNum, matchedValue);
+	}
+
+	@Override
+	public RoomWithCoordinate getBycoordinate(int roomNum) {
+		return storeRepository.getBycoordinate(roomNum);
+	}
+
+}
+>>>>>>> 9bc076e281d1bb3dc124f6f1a057270ed06c7423

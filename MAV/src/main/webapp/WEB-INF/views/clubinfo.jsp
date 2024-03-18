@@ -5,10 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+    * 
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
 	.main-container
 	{
-		width : 70%;
+		width : 80%;
 		margin : 0 auto;
 	}
     .main {
@@ -146,107 +151,20 @@
     {
     	display: flex;
     	justify-content: space-between;
-    } 
+    }
+    .clubImages img
+    {
+    	margin-top : 10px;
+    	margin-bottom : 10px;
+    }
+    
 </style>
 <title>클럽 페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
-	  	<c:choose>
-	    	<c:when test="${empty sessionScope.member}">
-		        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-		            <div class="container-fluid">
-		              <a class="navbar-brand" href="#">MAV</a>
-		              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		              </button>
-		              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link" href="/MAV/add/club">동호회</a>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      매칭
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-		                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/login">로그인</a>
-		                  </li>
-		                   <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/add/member">회원가입</a>
-		                  </li>
-		                </ul>
-		                <form class="d-flex" role="search">
-		                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-		                  <button class="btn btn-outline-success" type="submit">search</button>
-		                </form>
-		              </div>
-		            </div>
-		        </nav>
-	        	</c:when>
-	        	   <c:otherwise>
-	       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-	            <div class="container-fluid">
-	              <a class="navbar-brand" href="#">MAV</a>
-	              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	                <span class="navbar-toggler-icon"></span>
-	              </button>
-	              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-	                  <li class="nav-item">
-	                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-	                  </li>
-	                  <li class="nav-item dropdown">
-	                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	                      동호회
-	                    </a>
-	                    <ul class="dropdown-menu">
-	                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>
-	                      <li><hr class="dropdown-divider"></li>
-	                      <li><a class="dropdown-item" href="/MAV/club/clubpage">동호회 페이지</a></li>
-	                      <li><hr class="dropdown-divider"></li>
-	                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
-	                    </ul>
-	                  </li>
-	                  <li class="nav-item dropdown">
-	                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	                      매칭
-	                    </a>
-	                    <ul class="dropdown-menu">
-	                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-	                      <li><hr class="dropdown-divider"></li>
-	                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-	                      <li><hr class="dropdown-divider"></li>
-	                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-	                    </ul>
-	                  </li>
-	                  <li class="nav-item">
-	                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-	                  </li>
-	                   <li class="nav-item">
-	                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-	                  </li>
-	                </ul>
-	                <form class="d-flex" role="search">
-	                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-	                  <button class="btn btn-outline-success" type="submit">search</button>
-	                </form>
-	              </div>
-	            </div>
-	        </nav>
-	       </c:otherwise> 
-		</c:choose>
 		<div class="main-body mt-3">
 			<div class="col-3">
 				<div class="card" style="width: 100%;">
@@ -276,8 +194,12 @@
 			<div class="col-8" style="text-align: center">
 				<div class="card" style="text-align: center">
 	                <h5 class="mt-2">동호회 소개글</h5>
-	                <div class="col-12 mb-3">
-	                    <img src="<c:url value="/resources/images/${club.imageFileName}"/>" class="" width="70%">
+	                <div class="col-12 mb-3 clubImages">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName1}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName2}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName3}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName4}"/>" class="" width="70%">
+	                    <img class="clubImage" src="<c:url value="/resources/images/${club.imageFileName5}"/>" class="" width="70%">	                    
 	                </div>
                     <div class="col-12">
                         <p><pre>${club.clubInfo}</pre></p><br>
@@ -286,6 +208,17 @@
 			</div>
 		</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
+	<script>
+		// 이미지 요소 가져오기
+		var imgList = document.getElementsByClassName('clubImage');
+	
+		// 이미지가 로드되지 않았을 경우를 처리할 수도 있습니다.
+		for (var i = 0; i < imgList.length; i++) {
+		    var img = imgList[i];
+		    if (!img.complete || img.naturalWidth === 0) {
+		        img.style.display = "none"; // 대체할 기본 이미지 경로 설정
+		    }
+		}
+	</script>
 </body>
 </html>

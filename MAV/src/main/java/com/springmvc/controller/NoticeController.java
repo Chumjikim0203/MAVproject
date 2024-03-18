@@ -33,18 +33,17 @@ public class NoticeController {
     public String list(@RequestParam(name="page", defaultValue = "1") int page,Model model, Notice notice) {
     	
         
-        int totalCount = noticeService.getTotalCount(); 
-        List<Notice> notices = noticeService.getNotices(page);  
+        int totalCount = noticeService.getTotalCount(); // 11
+        List<Notice> notices = noticeService.getNotices(page); // page가 1,2,3,4 ....
         int pageCount = totalCount / 10; // 1
-        // 나머지 1p
-        if(totalCount % 10 > 0){ 
+        if(totalCount % 10 > 0){ // 나머지가 있을 경우 1page를 추가
             pageCount++;
         }
         int currentPage = page;
 
     	model.addAttribute("notices",notices);
-        model.addAttribute("pageCount", pageCount);//전페
-        model.addAttribute("currentPage", currentPage);//현페
+        model.addAttribute("pageCount", pageCount);//전체페이지
+        model.addAttribute("currentPage", currentPage);//현재페이지
         
         return "noticeList";
 
@@ -89,17 +88,15 @@ public class NoticeController {
     
     @GetMapping("/noticeDetail")
     public String noticeDetail(@RequestParam("noticeNum") int noticeNum, Model model) {
-        Notice detailNotice = noticeService.getByNotice(noticeNum);
-        noticeService.updateHits(noticeNum);
-
-        Notice previousNotice = noticeService.getPreviousNotice(noticeNum);
-        Notice nextNotice = noticeService.getNextNotice(noticeNum);
-
-        model.addAttribute("detailNotice", detailNotice);
-        model.addAttribute("previousNotice", previousNotice);
-        model.addAttribute("nextNotice", nextNotice);
-
-        return "noticeDetail";
+    	
+    		
+    	    Notice detailNotice =  noticeService.getByNotice(noticeNum);
+    		System.out.println(detailNotice.getNoticeContents() + ": detailNotice.getNoticeContents()" );
+    		
+    		noticeService.updateHits(noticeNum);
+    		model.addAttribute("detailNotice", detailNotice );
+    	
+            return "noticeDetail";        
     }
 
 	

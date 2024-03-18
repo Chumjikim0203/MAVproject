@@ -15,7 +15,12 @@
    rel="stylesheet"
    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
    crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+	  * 
+       {
+           font-family: 'Noto Sans KR', sans-serif;
+       }
       .main-container
         {
             width: 80%;
@@ -114,33 +119,10 @@
    </div>
    <!-- 매칭룸 -->
    <div class="list-container col-12">
-      <div class="my-3 p-3 bg-body rounded shadow" style = "width : 48%">
+      <div class="my-3 p-3 bg-body rounded shadow" style = "width : 48%; border-radius : 15px;">
          <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">
             <i class="fa-solid fa-fire">&nbsp;</i></i> Matching Room
          </h6>
-         <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link active"
-               aria-current="page" href="#">전체</a></li>&nbsp;
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-               role="button" aria-expanded="false">종목</a>
-               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">탁구</a></li>
-                  <li><a class="dropdown-item" href="#">풋살</a></li>
-                  <li><a class="dropdown-item" href="#">축구</a></li>
-                  <li><a class="dropdown-item" href="#">농구</a></li>
-                  <li><a class="dropdown-item" href="#">야구</a></li>
-                  <li><a class="dropdown-item" href="#">볼링</a></li>
-                  <li><a class="dropdown-item" href="#">당구</a></li>
-                  <li><a class="dropdown-item" href="#">배드민턴</a></li>
-                  <li><a class="dropdown-item" href="#">골프</a></li>
-                  <li><a class="dropdown-item" href="#">스쿼시</a></li>
-                  <li><a class="dropdown-item" href="#">테니스</a></li>
-                  <li><hr class="dropdown-divider"></li>
-               </ul></li> &nbsp;
-            <label for="datepicker"></label>
-            <input type="date" id="datepicker">
-         </ul>
          <div class="d-flex text-body-secondary pt-3 col-md-12 row">
            <c:forEach var="matchView" items="${matchView}">         
               <div class="d-flex matchlist">                                 
@@ -167,53 +149,30 @@
       </div>
    
       <!-- 경기장 -->
-      <div class="my-3 p-3 bg-body rounded shadow" style = "width : 48%">
+      <div class="my-3 p-3 bg-body rounded shadow" style = "width : 48%; border-radius : 15px;">
          <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow2">
             <i class="fa-solid fa-calendar-days"></i>&nbsp;</i></i> Field
          </h6>
-         <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link active"
-               aria-current="page" href="#">전체</a></li>&nbsp;
-            <li class="nav-item dropdown"><a
-               class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-               role="button" aria-expanded="false">종목</a>
-               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">탁구</a></li>
-                  <li><a class="dropdown-item" href="#">풋살</a></li>
-                  <li><a class="dropdown-item" href="#">축구</a></li>
-                  <li><a class="dropdown-item" href="#">농구</a></li>
-                  <li><a class="dropdown-item" href="#">야구</a></li>
-                  <li><a class="dropdown-item" href="#">볼링</a></li>
-                  <li><a class="dropdown-item" href="#">당구</a></li>
-                  <li><a class="dropdown-item" href="#">배드민턴</a></li>
-                  <li><a class="dropdown-item" href="#">골프</a></li>
-                  <li><a class="dropdown-item" href="#">스쿼시</a></li>
-                  <li><a class="dropdown-item" href="#">테니스</a></li>
-                  <li><hr class="dropdown-divider"></li>
-               </ul></li> &nbsp;
-            <label for="datepicker"></label>
-            <input type="date" id="datepicker">
-         </ul>
          <div class="d-flex text-body-secondary pt-3 col-md-12 row">
                <c:forEach var="myRooms" items="${myRooms}">  
-				    <c:if test="${myRooms.matched == 0}">
-		                  <div class="d-flex matchlist">                                 
-		                      <div class="d-flex small lh-sm w-100 matchinfo" style="margin-left : 20px;">
-		                          <div>   
-		                           <b><h4 class="d-block">${myRooms.roomTime}</h4></b>
-		                        </div>
-		                        <div style="margin-left : 15px">                  
-		                           <strong class="text-gray-dark"><h5 class="mb-2"><b>${myRooms.roomName}</b></h5></strong> 
-		                           <b><span class="d-block">${myRooms.roomDate}</span></b>
-		                        </div>
-		                     </div>
-		                     <div class="col-1" style="width : auto;">
-		                        <a href="./match/roomsDetail?roomNum=${myRooms.roomNum}"
-		                           class="btn btn-primary">방만들기</a>
-		                     </div>
-		                 </div> 
-		               <hr>
-				 	</c:if>               
+                <c:if test="${myRooms.matched == 0}">
+                        <div class="d-flex matchlist">                                 
+                            <div class="d-flex small lh-sm w-100 matchinfo" style="margin-left : 20px;">
+                                <div>   
+                                 <b><h4 class="d-block">${myRooms.roomTime}</h4></b>
+                              </div>
+                              <div style="margin-left : 15px">                  
+                                 <strong class="text-gray-dark"><h5 class="mb-2"><b>${myRooms.roomName}</b></h5></strong> 
+                                 <b><span class="d-block">${myRooms.roomDate}</span></b>
+                              </div>
+                           </div>
+                           <div class="col-1" style="width : auto;">
+                              <a href="./match/roomsDetail?roomNum=${myRooms.roomNum}"
+                                 class="btn btn-primary">방만들기</a>
+                           </div>
+                       </div> 
+                     <hr>
+                </c:if>               
                </c:forEach>
          </div>
          <small class="d-block text-end mt-3"> <a href="room/roomView"
@@ -222,15 +181,7 @@
       </div>
    </div>
    </div>
-   <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"></script>
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-   <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-   <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
    <script>
       // datepicker 요소 가져오기
       var datepicker = document.getElementById('datepicker');

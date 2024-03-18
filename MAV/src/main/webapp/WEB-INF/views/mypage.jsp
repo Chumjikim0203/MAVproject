@@ -5,16 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
- body {
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * 
+        {
             font-family: 'Noto Sans KR', sans-serif;
+        }
+ 		body 
+ 		{
             background-color: #f8f9fa;
             color: #212529;
         }
         .main-container
         {
-        	width : 70%;
+        	width : 80%;
         	margin : 0 auto;
+        	display: flex;
+        	margin-top : 30px;
         }
 
         .main {
@@ -148,8 +155,10 @@
         display: none;
         
     }
-
-    
+	.list
+	{
+		padding : 0 30px;
+	}
     </style>
  <script> function openTab(evt, tabName) {
           console.log("opentab실행");
@@ -169,141 +178,71 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
-	  	<c:choose>
-	    	<c:when test="${empty sessionScope.member}">
-		        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-		            <div class="container-fluid">
-		              <a class="navbar-brand" href="#">MAV</a>
-		              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		              </button>
-		              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link" href="/MAV/add/club">동호회</a>
-		                  </li>
-		                  <li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		                      매칭
-		                    </a>
-		                    <ul class="dropdown-menu">
-		                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-		                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-		                      <li><hr class="dropdown-divider"></li>
-		                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-		                    </ul>
-		                  </li>
-		                  <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/login">로그인</a>
-		                  </li>
-		                   <li class="nav-item">
-		                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/add/member">회원가입</a>
-		                  </li>
-		                </ul>
-		                <form class="d-flex" role="search">
-		                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-		                  <button class="btn btn-outline-success" type="submit">search</button>
-		                </form>
-		              </div>
-		            </div>
-		        </nav>
-	        </c:when>
-	           <c:otherwise>
-	       	    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-	            <div class="container-fluid">
-	              <a class="navbar-brand" href="#">MAV</a>
-	              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	                <span class="navbar-toggler-icon"></span>
-	              </button>
-	              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-	                  <li class="nav-item">
-	                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-	                  </li>
-	                  <li class="nav-item dropdown">
-	                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	                      동호회
-	                    </a>
-	                    <ul class="dropdown-menu">
-	                      <li><a class="dropdown-item" href="/MAV/club/add">동호회 생성</a></li>	            
-	                      <li><hr class="dropdown-divider"></li>
-	                      <li><a class="dropdown-item" href="/MAV/club/list">동호회 리스트</a></li>
-	                    </ul>
-	                  </li>
-	                  <li class="nav-item dropdown">
-	                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	                      매칭
-	                    </a>
-	                    <ul class="dropdown-menu">
-	                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
-	                      <li><hr class="dropdown-divider"></li>
-	                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-	                      <li><hr class="dropdown-divider"></li>
-	                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
-	                    </ul>
-	                  </li>
-	                  <li class="nav-item">
-	                    <a class="nav-link active" aria-disabled="true" href="/MAV/logout">로그아웃</a>
-	                  </li>
-	                   <li class="nav-item">
-	                    <a class="nav-link active" aria-disabled="true" href="/MAV/member/mypage">마이페이지</a>
-	                  </li>
-	                </ul>
-	                <form class="d-flex" role="search">
-	                  <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-	                  <button class="btn btn-outline-success" type="submit">search</button>
-	                </form>
-	              </div>
-	            </div>
-	        </nav>
-	       </c:otherwise> 
-	      </c:choose>
-		<h3>멤버 아이디 : ${member.memberId}</h3>
-		<h3>멤버 이름 : ${member.memberName}</h3>
-		<h3>멤버 생년월일 : ${member.memberBirth}</h3>
-		<h3>멤버 주소 : ${member.memberAddr}</h3>
-		<h3>멤버 성별 : ${member.memberGender}</h3>
-		<h3>멤버 이메일 : ${member.memberEmail}</h3>
-		<a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">수정하기</a>
-		<a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">삭제하기</a>
-		<a href="<c:url value='/store/add'/>?memberId=${member.memberId}">업체신청</a>
-		<a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>		
+		<div class="user-info col-4">
+			<div class="card" style="width: 100%;">
+                <img src="." class="card-img-top img1" alt="...">
+                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
+                <div class="card-body">
+                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">개인정보수정</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="<c:url value='/member/delete/member'/>?memberId=${member.memberId}">회원탈퇴하기</a>
+                    </li>
+                    <c:choose>
+                    	<c:when test="${store.storeId == null }">
+		                    <li class="list-group-item">
+		                       <a href="<c:url value='/store/add'/>?memberId=${member.memberId}">업체신청</a>
+		                    </li>
+	                    </c:when>
+                    </c:choose>
+                    <c:choose>
+	                    <c:when test="${teacher.teacherId == null}">
+	                    <li class="list-group-item">
+	                       <a href="<c:url value='/teacher/add'/>?memberId=${member.memberId}">강사신청</a>
+	                    </li>
+	                    </c:when>
+	                </c:choose>
+                </ul>
+            </div>
+		</div>
 	    <div class = "col-7 ">
-              <div class="room-title">내 클럽 리스트</div>
-               <c:forEach items="${club}" var="club">
+	    	<div class="card mb-3" style="width: 100%;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">생년월일 : ${member.memberBirth}</p>
+                    </li>
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">주소 : ${member.memberAddr}</p>
+                    </li>
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">이메일 : ${member.memberEmail}</p>
+                    </li>
+                    <li class="list-group-item">
+                       <p class="card-text" style="font-size: 1rem;">전화번호  : ${member.memberPhone01}-${member.memberPhone02}-${member.memberPhone03}</p>
+                    </li>
+                </ul>
+            </div>
+	    	<div class="card list" style="width: 100%;">
+              <div class="room-title mt-3">내 동호회 리스트</div>
+               <c:forEach items="${clubs}" var="clubs">
                    <div class="card-1 mb-3">
                        <div class="room-info">
-                           <span class="room-title">&nbsp;&nbsp;${club.clubName}</span>
-                           <span class="room-date">클럽 종류 : ${club.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                           <span class="room-title">&nbsp;&nbsp;${clubs.clubName}</span>
+                           <span class="room-date">동호회 종류 : ${clubs.clubCategory}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                            <span class="room-application">                          
-                         	<a href="<c:url value='/club/clubinfo'/>?clubName=${club.clubName}" class="room-application-link room-application-btn">클럽 상세정보</a>
+                         	<a href="<c:url value='/club/clubinfo'/>?clubName=${clubs.clubName}" class="room-application-link room-application-btn">동호회 상세정보</a>
                            </span>
                        </div>
                    </div>
                </c:forEach>
+             </div>
           </div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      // datepicker 요소 가져오기
-      var datepicker = document.getElementById('datepicker');
-
-      // datepicker 값 변경 시 이벤트 처리
-      datepicker.addEventListener('change', function() {
-        var selectedDate = datepicker.value;
-        console.log('선택된 날짜:', selectedDate);
-
-        // 선택된 날짜를 기반으로 추가 작업 수행
-        // 예: 서버에 전송, 다른 동작 수행 등
-});
-    </script>
 </body>
 </html>

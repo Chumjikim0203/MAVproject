@@ -99,11 +99,16 @@ public class MemberController
     public String memberMyPage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Member member = (Member) session.getAttribute("member");
-
+        Club club = (Club) session.getAttribute("club");
+        
         List<Club> clubs = clubService.getMyClub(member.getMemberId());
    
-        model.addAttribute("club", clubs);
+        model.addAttribute("club", club);
+        model.addAttribute("clubs", clubs);
         model.addAttribute("member", member);
+        session.setAttribute("member", member);
+        session.setAttribute("club", club);
+        session.setAttribute("clubs", clubs);
      
         return "mypage";
     }
@@ -114,7 +119,6 @@ public class MemberController
        System.out.println("업데이트 페이지 도착");
        Member member = memberService.getById(memberId);
        
-       System.out.println("memberById에 getById 결과 대입함");
        model.addAttribute("member", member);
        
        return "updateMember";
@@ -123,8 +127,9 @@ public class MemberController
     public String updateDone(@ModelAttribute("member") Member member, HttpServletRequest request)
     {
        memberService.updateMember(member);
-       HttpSession session = request.getSession();
+       HttpSession session = request.getSession();       
        session.setAttribute("member", member);
+       System.out.println("member 변경후 저장된 주소 : "+member.getMemberAddr());
        
        return "redirect:/member/mypage";
     }
