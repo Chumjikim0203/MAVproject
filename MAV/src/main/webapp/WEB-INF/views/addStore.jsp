@@ -128,13 +128,12 @@
 </body>
 <script type="text/javascript">
    function combineAddr() {
-      var post = document.getElementById('sample6_postcode').value; // 우편번호
       var addr = document.getElementById('sample6_address').value; // 주소
       var detailAddr = document.getElementById('sample6_detailAddress').value; // 상세주소
       var extraAddr = document.getElementById('sample6_extraAddress').value; // 참고항목
 
       // 문자열로 합침
-      var fullAddr = post + ' ' + addr + ' ' + detailAddr + ' ' + extraAddr;
+      var fullAddr = addr + ' ' + detailAddr + ' ' + extraAddr;
 
       // 히든 input 태그에 값 저장
       document.getElementById('storeAddr').value = fullAddr;
