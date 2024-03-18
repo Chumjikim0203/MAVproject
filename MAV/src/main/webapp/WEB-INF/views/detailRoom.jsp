@@ -10,9 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세 페이지</title>
     
-    <!-- 네이버지도  -->
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wj36qxbfxf"></script>
     
+
     <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -139,38 +138,42 @@
 
                 </div>
                 <div class="detail-box additional-info-box" style="height: 30rem;">
-                    <div id="googleMapContainer">
 						<div id="map" style="width:100%; height:450px; border:0;"></div>
-                    </div>                
+                 </div>                
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+<!-- 카카오  -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=617d72b728b3e792de22e82c5fd893fb"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</body>
-<script>
-const grade = ${detailroom.roomTime}
-const matchingBt = document.getElementById("matching_bt");
+    <script>
 
-if (memberClubMemberApprove == true) {
-  matchingBt.style.display = "block";
-} else {
-  matchingBt.style.display = "none";
-}
-
-//업체 위도(latitude)와 경도(longitude)
-var storeLatitude = ${coordinate.latitude};
-var storeLongitude = ${coordinate.longitude};
-
-var mapOptions = {
-    center: new naver.maps.LatLng(storeLatitude, storeLongitude), 
-    zoom: 10
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = { 
+    center: new kakao.maps.LatLng(${coordinate.latitude}, ${coordinate.longitude}), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
 };
 
-var map = new naver.maps.Map('map', mapOptions);
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+var marker = new kakao.maps.Marker();
 
+//타일 로드가 완료되면 지도 중심에 마커를 표시합니다
+kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
+
+function displayMarker() {
+
+// 마커의 위치를 지도중심으로 설정합니다 
+marker.setPosition(map.getCenter()); 
+marker.setMap(map); 
+
+// 아래 코드는 최초 한번만 타일로드 이벤트가 발생했을 때 어떤 처리를 하고 
+// 지도에 등록된 타일로드 이벤트를 제거하는 코드입니다 
+// kakao.maps.event.removeListener(map, 'tilesloaded', displayMarker);
+}
 </script>
+</body>
 </html>

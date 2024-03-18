@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.springmvc.domain.Club;
 import com.springmvc.domain.Match;
 import com.springmvc.domain.MatchRoom;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Room;
+import com.springmvc.domain.RoomWithCoordinate;
 import com.springmvc.service.ClubService;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
@@ -38,7 +40,7 @@ public class MatchController {
 
 	// 상세보기
 	@GetMapping("/roomsDetail")
-	public String detailmyRooms(@RequestParam int roomNum, Model model, HttpServletRequest request) {
+	public String detailmyRooms(@RequestParam int roomNum, Model model,RoomWithCoordinate roomWithCoordinate,HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
@@ -52,11 +54,8 @@ public class MatchController {
 		model.addAttribute("matchForm", new Match());
 
 		// 경기장 넘버에 맞는 업체의 좌표값 가지고 가기
-		Room coordinate = storeService.getBycoordinate(roomNum);	
-		System.out.println(coordinate.getLatitude() + "이 값을 확인 해야함");
+		RoomWithCoordinate coordinate = storeService.getBycoordinate(roomNum);
 		model.addAttribute("coordinate", coordinate);
-		
-		
 		
 
 		Room detailroom = storeService.getByroomNumAllRooms(roomNum);
@@ -78,6 +77,7 @@ public class MatchController {
 		// 매칭룸 생성 및 해당 매칭룸으로 반환
 		int roomNum = matchService.matchCreate(match);
 
+
 		// 만든 매칭룸으로 이동
 		return "redirect:/match/matchingDetail?roomNum=" + roomNum;
 	}
@@ -85,7 +85,7 @@ public class MatchController {
 	// create 매칭신청
 	// 매칭룸에서 신청
 	@GetMapping("/matchingDetail")
-	public String detailmatchingForm(@RequestParam("roomNum") int roomNum, Model model, HttpServletRequest request) {
+	public String detailmatchingForm(@RequestParam("roomNum") int roomNum, Model model,RoomWithCoordinate roomWithCoordinate, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
@@ -101,9 +101,13 @@ public class MatchController {
 
 		// 만든이의 클럽정보를 가지고감
 		Club clubInfos = clubService.getByClubName(matching.getCreatorId());
-		System.out.println("지금 확인 해야하는곳 :" + clubInfos.getClubPoint());
 		model.addAttribute("clubInfos", clubInfos);
-
+		
+		// 경기장 넘버에 맞는 업체의 좌표값 가지고 가기
+		RoomWithCoordinate coordinate = storeService.getBycoordinate(roomNum);
+		System.out.println(coordinate.getLongitude()+"요것만 확인하자");	
+		model.addAttribute("coordinate", coordinate);
+		
 		// 룸정보를 가지고감
 		Room room = storeService.getByroomNumAllRooms(roomNum);
 		model.addAttribute("room", room);
@@ -175,5 +179,5 @@ public class MatchController {
 		model.addAttribute("matchView", matchView);
 		return "/matchingView";
 	}
-
+	
 }

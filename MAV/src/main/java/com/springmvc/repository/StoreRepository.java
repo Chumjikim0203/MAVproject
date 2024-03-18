@@ -3,6 +3,7 @@ package com.springmvc.repository;
 import java.util.List;
 
 import com.springmvc.domain.Room;
+import com.springmvc.domain.RoomWithCoordinate;
 import com.springmvc.domain.Store;
 
 public interface StoreRepository {
@@ -19,9 +20,8 @@ public interface StoreRepository {
    void updateMatchedValue(int roomNum, int matchedValue);
    void UpdateStore(Store store);
    Store DeleteStore(String storeId);
-   Room getBycoordinate(int roomNum);
+   RoomWithCoordinate getBycoordinate(int roomNum);
 }
-
 
 /*
  * List<Room> getAllRoomsByStoreId(String storeId);

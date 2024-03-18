@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.springmvc.domain.Room;
+import com.springmvc.domain.RoomWithCoordinate;
 import com.springmvc.domain.Store;
 
 @Repository
@@ -194,14 +195,13 @@ public class StoreRepositoryImpl implements StoreRepository {
 	}
 	
 	
-	//좌표값 가지고 오는 함수
+	// 좌표값 가지고 오는 함수
 	@Override
-	public Room getBycoordinate(int roomNum) {
-	    
-	    String SQL = "SELECT R.roomNum, S.latitude, S.longitude, R.storeId, R.roomName, R.roomCapacity, R.roomCount, R.roomCategory, R.roomDetail, R.roomDate, R.roomTime, R.matched FROM Room R JOIN Store S ON S.storeId = R.storeId WHERE R.roomNum = ?";				
-	    
-	    return jdbcTemplate.queryForObject(SQL,new RoomRowMapper(), roomNum );
-	    
+	public RoomWithCoordinate getBycoordinate(int roomNum) {
+
+		String SQL = "SELECT R.roomNum, S.latitude, S.longitude FROM Store S JOIN Room R ON S.storeId = R.storeId WHERE R.roomNum = ?";
+		RoomWithCoordinate coordinate = jdbcTemplate.queryForObject(SQL, new RoomWithCoordinateRowMapper(), roomNum);
+		return coordinate;
 	}
 
 }

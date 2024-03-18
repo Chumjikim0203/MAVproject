@@ -142,6 +142,7 @@ public class StoreController {
 		HttpSession sessionId = request.getSession();
 		Member member = (Member) sessionId.getAttribute("member");
 		Store store = (Store) sessionId.getAttribute("store");
+		
 		if (store == null) {
 			store = new Store();
 		}
@@ -151,8 +152,6 @@ public class StoreController {
 		sessionId.setAttribute("store", store);
 		sessionId.setAttribute("member", member);
 
-		System.out.println("현재 업체 등록시도중인 memberId : " + member.getMemberId());
-		System.out.println("현재 업체 등록시도중인 storeId : " + store.getStoreId());
 
 		return "addStore";
 	}
@@ -160,6 +159,7 @@ public class StoreController {
 	@PostMapping("/add")
 	public String returnStore(@ModelAttribute("store") Store store, @ModelAttribute("member") Member member,
 			Model model, HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
 		member = (Member) session.getAttribute("member");
 		storeService.CreateStore(store);
