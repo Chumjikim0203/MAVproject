@@ -25,11 +25,11 @@
 	                      </div>
 	                      <span class="room-application .ehgus">
 	                          <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}"
-	                              class="room-application-link room-application-btn">조회</a>
+	                              class="room-application-link room-application-btn5">조회</a>
 	                          <a href="<c:url value='/room/roomsUpdate'/>?roomNum=${room.roomNum}"
-	                              class="room-application-link room-application-btn">수정</a>
+	                              class="room-application-link room-application-btn5">수정</a>
 	                          <a href="<c:url value='/room/deleteMyRoom'/>?roomNum=${room.roomNum}"
-	                               class="room-application-link room-application-btn">삭제</a>
+	                               class="room-application-link room-application-btn5">삭제</a>
 	                       </span>
 	                   </div>
 	               </div>

@@ -12,18 +12,18 @@
    crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-	  * 
+     * 
        {
            font-family: 'Noto Sans KR', sans-serif;
-	       }
-	.main-container {
-	   width: 80%;
-	   margin: 0 auto;
-	}
-	
-	.container {
-	   margin-top: 20px;
-	}
+          }
+   .main-container {
+      width: 80%;
+      margin: 0 auto;
+   }
+   
+   .container {
+      margin-top: 20px;
+   }
 </style>
 </head>
 <body>
@@ -33,8 +33,7 @@
          <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
                <h4 class="mb-3">업체등록</h4>
-               <form:form modelAttribute="store" class="form-horizontal"
-                  action="add" method="post">
+               <form:form modelAttribute="store" class="form-horizontal" action="add" method="post" enctype="multipart/form-data">
                   <fieldset>
                      <div class="row">
                         <div class="col-md-6 mb-3">
@@ -63,21 +62,36 @@
                            <form:input class="form-control" path="storePhone03" />
                         </div>
                         <div class="invalid-feedback">업체번호를 입력해주세요.</div>
-                        <%-- <div class="col-md-6 mb-3">
-                               <label for="memberGender">업체이미지</label>
-                               <form:select class="form-select" aria-label="Default select example" path="memberGender">
-                                   <form:options items="${genderOptions}"/>
-                               </form:select>
-                           </div>
-                            <div class="invalid-feedback">
-                                업체 이미지를 등록해주세요
-                            </div> --%>
                         <div class="col-md-6 mb-3">
                            <label for="storeCode">사업자번호</label>
                            <form:input class="form-control" path="storeCode"/>
                         </div>
                         <div class="invalid-feedback">사업자번호를 입력해주세요</div>
-                           <div class="col-md-6 mb-3">
+                        
+                     <div class="col-md-6 mb-3">
+                           <label for="storeImage1" class="form-label">대표사진</label>
+                           <form:input class="form-control" type="file" path="storeImage1"/>
+                       </div>
+                       <div class="col-md-6 mb-3">
+                           <label for="storeImage2" class="form-label">업체사진</label>
+                          <form:input class="form-control" type="file" path="storeImage2"/>
+                       </div>
+                       <div  class="col-md-6 mb-3">
+                           <label for="storeImage3" class="form-label">업체사진</label>
+                          <form:input class="form-control" type="file" path="storeImage3"/>
+                       </div>
+                       <div  class="col-md-6 mb-3">
+                           <label for="storeImage4" class="form-label">업체사진</label>
+                           <form:input class="form-control" type="file" path="storeImage4"/>
+                       </div>
+                        <div  class="col-md-6 mb-3">
+                           <label for="storeImage5" class="form-label">업체사진</label>
+                           <form:input class="form-control" type="file" path="storeImage5"/>
+                       </div>
+                            <div class="mb-3">
+                           <label for="storeInfomation">업체소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+                             <form:textarea cols="50" rows="3" class="form-control" path="storeInfomation" />
+                        </div>
                            <div class="row">
                               <div class="col-12">
                                  <label for="storeAddr">업체주소</label>
@@ -103,11 +117,16 @@
                                           class="form-control mb-2" style="margin-left: 5px;">
                                     </div>
                                  </div>
-                              </div>
+                              </div>                        
                            </div>
+
+                            <div class="mb-3">
+                           <br><label for="storeNotice"><h3>업체공지사항</h3><span class="text-muted">&nbsp;(필수 아님)</span></label>
+                             <form:textarea cols="50" rows="10" class="form-control" path="storeNotice" />
+                        </div>
                            <form:input type="hidden" id="storeAddr" class="form-control"
                               path="storeAddr" />
-                        </div>
+
                      </div>
                      <hr class="mb-4">
                      <div class="mb-4"></div>
@@ -128,12 +147,13 @@
 </body>
 <script type="text/javascript">
    function combineAddr() {
+
       var addr = document.getElementById('sample6_address').value; // 주소
       var detailAddr = document.getElementById('sample6_detailAddress').value; // 상세주소
       var extraAddr = document.getElementById('sample6_extraAddress').value; // 참고항목
 
       // 문자열로 합침
-      var fullAddr = addr + ' ' + detailAddr + ' ' + extraAddr;
+      var fullAddr =  addr + ' ' + detailAddr + ' ' + extraAddr;
 
       // 히든 input 태그에 값 저장
       document.getElementById('storeAddr').value = fullAddr;

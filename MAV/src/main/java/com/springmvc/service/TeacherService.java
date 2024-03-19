@@ -18,4 +18,5 @@ public interface TeacherService {
 	public List<Teacher> AllTeacher();
 	public Teacher teacherId(String teacherId);
     Teacher deleteTeacher(String teacherId);
+    void setApproveTeacher(String teacherId);
 }

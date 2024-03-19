@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -155,36 +156,94 @@ public class StoreRepositoryImpl implements StoreRepository {
 		jdbcTemplate.update(sql, matchedValue, roomNum);
 	}
 
-	// 업체등록
-	public void CreateStore(Store store) {
+	  // 업체등록
+	   public void CreateStore(Store store) {
 
-		String[] xy = getxy(store);
-		System.out.println(xy[0] + " xy[0]");
-		store.setStoreApprove(true);
-		String SQL = "INSERT INTO Store (storeId,storeName,storeAddr,storeCategory,storePhone01,storePhone02,storePhone03,storeInfomation,storeNotice,storeCode,storeApprove,latitude,longitude)"
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	      String[] xy = getxy(store);
+	      System.out.println(xy[0] + " xy[0]");
+	      store.setStoreApprove(true);
+	      String SQL = "INSERT INTO Store "
+	            + "(storeId,"
+	            + "storeName,"
+	            + "storeAddr,"
+	            + "storeCategory,"
+	            + "storePhone01,"
+	            + "storePhone02,"
+	            + "storePhone03,"
+	            + "storeImageName1,"
+	            + "storeImageName2,"
+	            + "storeImageName3,"
+	            + "storeImageName4,"
+	            + "storeImageName5,"
+	            + "storeInfomation,"
+	            + "storeNotice,"
+	            + "storeCode,"
+	            + "storeApprove,"
+	            + "latitude,"
+	            + "longitude)"
+	            + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		jdbcTemplate.update(SQL,
+	      jdbcTemplate.update(SQL,
+	            store.getStoreId(),
+	            store.getStoreName(),
+	            store.getStoreAddr(), 
+	            store.getStoreCategory(),
+	            store.getStorePhone01(), 
+	            store.getStorePhone02(), 
+	            store.getStorePhone03(),
+	            store.getStoreImageName1(),
+	            store.getStoreImageName2(),
+	            store.getStoreImageName3(),
+	            store.getStoreImageName4(),
+	            store.getStoreImageName5(),
+	            store.getStoreInfomation(),
+	            store.getStoreNotice(), 
+	            store.getStoreCode(), 
+	            store.isStoreApprove(), 
+	            xy[1], // 위도
+	            xy[0]// 경도
+	      );
 
-				store.getStoreId(), store.getStoreName(), store.getStoreAddr(), store.getStoreCategory(),
-				store.getStorePhone01(), store.getStorePhone02(), store.getStorePhone03(), store.getStoreInfomation(),
-				store.getStoreNotice(), store.getStoreCode(), store.isStoreApprove(), xy[1], // 위도
-				xy[0]// 경도
-		);
+	   }
 
-	}
+	   @Override
+	   public void UpdateStore(Store store) {
+	      // TODO Auto-generated method stub
+	      String SQL = "UPDATE " + "Store SET storeName=?,"
+	            + "storeAddr=?,"
+	            + "storeCategory=?,"
+	            + "storePhone01=?,"
+	            + "storePhone02=?," 
+	            + "storePhone03=?,"
+	            + "storeImageName1=?,"
+	            + "storeImageName2=?,"
+	            + "storeImageName3=?,"
+	            + "storeImageName4=?,"
+	            + "storeImageName5=?,"
+	            + "storeInfomation=?,"
+	            + "storeNotice=?," 
+	            + "storeCode=?"
+	            + "where storeId=?";
+	      System.out.println("함수실행");
+	      jdbcTemplate.update(SQL, 
+	            store.getStoreName(),
+	            store.getStoreAddr(),
+	            store.getStoreCategory(),
+	            store.getStorePhone01(),
+	            store.getStorePhone02(),
+	            store.getStorePhone03(),
+	            store.getStoreImageName1(),
+	            store.getStoreImageName2(),
+	            store.getStoreImageName3(),
+	            store.getStoreImageName4(),
+	            store.getStoreImageName5(),
+	            store.getStoreInfomation(),
+	            store.getStoreNotice(),
+	            store.getStoreCode(),
+	            store.getStoreId());
 
-	@Override
-	public void UpdateStore(Store store) {
-		// TODO Auto-generated method stub
-		String SQL = "UPDATE " + "Store SET storeName=?," + "storeAddr=?," + "storeCategory=?," + "storePhone01=?,"
-				+ "storePhone02=?," + "storePhone03=?," + "storeInfomation=?," + "storeNotice=?," + "storeCode=?"
-				+ "where storeId=?";
-		jdbcTemplate.update(SQL, store.getStoreName(), store.getStoreAddr(), store.getStoreCategory(),
-				store.getStorePhone01(), store.getStorePhone02(), store.getStorePhone03(), store.getStoreInfomation(),
-				store.getStoreNotice(), store.getStoreCode(), store.getStoreId());
+	   }
 
-	}
 
 	@Override
 	public Store DeleteStore(String storeId) {
@@ -204,4 +263,27 @@ public class StoreRepositoryImpl implements StoreRepository {
 		return coordinate;
 	}
 
+	@Override
+	public void setApproveStore(String storeId) 
+	{
+		String SQL = "update store set storeApporve =true where storeId = ?";
+		jdbcTemplate.update(SQL, storeId);
+		
+	}
+
+	@Override
+	public List<Store> getAllStore() 
+	{
+		List<Store> storelist = new ArrayList<Store>();
+		
+		String SQL = "select * from store";
+		storelist = jdbcTemplate.query(SQL, new StoreRowMapper());
+		
+		return storelist;
+	}
+
+	
+
+	
+	
 }

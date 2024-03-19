@@ -103,7 +103,7 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 	}
 
 	@Override
-	public List<Classes> getAllClassesList(Classes classes) {
+	public List<Classes> getAllClassesList() {
 		System.out.println("getAllClassesList 도착");
 		String SQL="SELECT * FROM CLASSES";
 		List<Classes> listOfClasses=template.query(SQL,new ClassesRowMapper());
@@ -125,6 +125,16 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 			template.execute("COMMIT");
 			System.out.println("setUpdateClasses2:"+classes.getClassNum());	
 					
+	}
+
+
+
+	@Override
+	public void setApproveClasses(int classNum) 
+	{
+		String SQL = "update classes set classApprove = true where classNum=?";
+		template.update(SQL,classNum);
+		
 	}
 	
 

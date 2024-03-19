@@ -84,4 +84,17 @@ public class StoreServiceImpl implements StoreService {
 		return storeRepository.getBycoordinate(roomNum);
 	}
 
+	@Override
+	public void setApproveStore(String storeId) 
+	{
+		storeRepository.setApproveStore(storeId);
+		
+	}
+
+	@Override
+	public List<Store> getAllStore() {
+		
+		return storeRepository.getAllStore();
+	}
+	
 }

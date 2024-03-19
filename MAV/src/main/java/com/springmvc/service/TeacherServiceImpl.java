@@ -50,4 +50,12 @@ public class TeacherServiceImpl implements TeacherService{
 		
 	}
 
+
+	@Override
+	public void setApproveTeacher(String teacherId) 
+	{
+		teacherRepository.setApproveTeacher(teacherId);
+		
+	}
+	
 }

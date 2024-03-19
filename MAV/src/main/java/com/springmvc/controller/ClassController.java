@@ -207,7 +207,7 @@ public class ClassController {
 		  HttpSession sessionId=request.getSession();	
 		  member= (Member)sessionId.getAttribute("member");
 		  teacher= teacherService.teacherId(member.getMemberId());
-		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList(classes);
+		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList();
 		  model.addAttribute("classes",classesall);
 		  model.addAttribute("member", member);
 		  model.addAttribute("teacher", teacher);

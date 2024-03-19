@@ -88,5 +88,12 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		return null;
 		
 	}
-	   
+	@Override
+	public void setApproveTeacher(String teacherId) 
+	{
+		String SQL = "update teacher set teacherApprove = true where teacherId=?";
+		template.update(SQL, teacherId);		
+	}
+	
+	
 }

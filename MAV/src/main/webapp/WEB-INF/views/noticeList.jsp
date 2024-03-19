@@ -147,7 +147,6 @@
 
             <nav aria-label="Page navigation" class="mt-3">
                 <ul class="pagination justify-content-center">
-
                     <c:set var="startPage"
                         value="${currentPage - 2 > 0 ? currentPage - 2 : 1}" />
                     <c:set var="endPage"
@@ -162,7 +161,6 @@
                             </a>
                         </li>
                     </c:if>
-
                     <c:forEach var="page" begin="${startPage}" end="${endPage}">
                         <li class="page-item ${page == currentPage ? 'active' : ''}">
                             <a class="page-link"

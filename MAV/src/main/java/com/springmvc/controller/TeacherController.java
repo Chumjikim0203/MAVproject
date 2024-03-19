@@ -39,7 +39,7 @@ public class TeacherController {
 		HttpSession sessionId=request.getSession();	
 		member= (Member)sessionId.getAttribute("member");
         teacher= teacherService.teacherId(member.getMemberId());
-		model.addAttribute("allclass",ClassesService.getAllClassesList(classes));
+		model.addAttribute("allclass",ClassesService.getAllClassesList());
 //		System.out.println("teachermember:"+member.getMemberId());
 //		System.out.println("addmember:"+member.getMemberEmail());
 		System.out.println("teachermypagecontroller:"+teacher.getTeacherCategory());

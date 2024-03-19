@@ -19,16 +19,18 @@
 	crossorigin="anonymous">
 
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+	rel="stylesheet">
 <style>
-	  * 
-       {
-           font-family: 'Noto Sans KR', sans-serif;
-	       }
-	.main-container {
-	   width: 80%;
-	   margin: 0 auto;
-	}
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-container {
+	width: 80%;
+	margin: 0 auto;
+}
 
 .carousel-inner img {
 	width: 100%;
@@ -39,6 +41,7 @@
 .detail-box {
 	padding: 1rem;
 	margin-bottom: 2rem;
+	border: 1px solid rgb(221, 223, 237);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	background-color: white;
@@ -82,7 +85,7 @@
 
 .room-application-btn4 {
 	padding: 0.5rem 1rem;
-	background-color: #FEA51d;
+	background-color: #3A4CA8;
 	color: white;
 	border-radius: 0.25rem;
 	text-decoration: none;
@@ -124,166 +127,178 @@
 .modal-mid-bt {
 	margin: 0 10px; /* 좌우 마진을 10px로 설정합니다. */
 }
+
+.room-application-btn4 {
+   padding: 0.5rem 1rem;
+   background-color: #3A4CA8;
+   color: white;
+   border-radius: 0.25rem;
+   text-decoration: none;
+   border: none;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="./section/nav.jsp" />
 	<div>
-	<div id="carouselExampleIndicators" class="carousel slide container"
-		data-bs-ride="carousel">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img
-					src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/17b0c9a1-66b7-47f7-af08-84dbcce9acda/image.png"
-					class="d-block w-100" alt="첫 번째 슬라이드">
+		<div id="carouselExampleIndicators" class="carousel slide container"
+			data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img
+						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/17b0c9a1-66b7-47f7-af08-84dbcce9acda/image.png"
+						class="d-block w-100" alt="첫 번째 슬라이드">
+				</div>
+				<div class="carousel-item active">
+					<img
+						src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/cdef252c-ee93-4047-b52b-c8f0cb13e841/%EC%8A%A4%EC%9A%B0%EC%8B%9C-%EC%97%AC%EC%84%B1-%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EC%BF%BC%ED%84%B0%EC%A7%91-%EB%AF%B8%EB%93%9C-%EB%A0%88%EC%9D%B4%EC%96%B4-4O4ifntv.png"
+						class="d-block w-100" alt="첫 번째 슬라이드">
+				</div>
+				<div class="carousel-item active">
+					<img
+						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png"
+						class="d-block w-100" alt="첫 번째 슬라이드">
+				</div>
 			</div>
-			<div class="carousel-item active">
-				<img
-					src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/cdef252c-ee93-4047-b52b-c8f0cb13e841/%EC%8A%A4%EC%9A%B0%EC%8B%9C-%EC%97%AC%EC%84%B1-%EB%93%9C%EB%9D%BC%EC%9D%B4-%ED%95%8F-%EC%BF%BC%ED%84%B0%EC%A7%91-%EB%AF%B8%EB%93%9C-%EB%A0%88%EC%9D%B4%EC%96%B4-4O4ifntv.png"
-					class="d-block w-100" alt="첫 번째 슬라이드">
-			</div>
-			<div class="carousel-item active">
-				<img
-					src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png"
-					class="d-block w-100" alt="첫 번째 슬라이드">
-			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
-		<button class="carousel-control-prev" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Next</span>
-		</button>
-	</div>
-	<br>
-	<div class="container">
-		<!-- applicantId가 null이 아닌 경우에 실행되는 부분 -->
-		<c:if test="${matching.applicantId != null}">
-			<div class="detail-box boxes">
-				<p>${matching.creatorId}🆚 ${matching.applicantId}</p>
+		<br>
+		<div class="container">
+			<!-- applicantId가 null이 아닌 경우에 실행되는 부분 -->
+			<c:if test="${matching.applicantId != null}">
+				<div class="detail-box boxes">
+					<div class="text-center mr-3">
+						<h2>${matching.creatorId}&nbsp;&nbsp;<img
+								src="<c:url value="/resources/images/battle.png"/>"
+								style="width: 8%;"> &nbsp;${matching.applicantId}
+						</h2>
+					</div>
+					<!-- Button trigger modal -->
+					<c:if test="${member.memberId == room.storeId}">
 
-				<!-- Button trigger modal -->
-				<c:if test="${member.memberId == room.storeId}">
-
-					<button type="button"
-						class="room-application-link room-application-btn4"
-						data-bs-toggle="modal" data-bs-target="#exampleModal">
-						점수부여</button>
-				</c:if>
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1"
-					aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<div class="modal-mid-title-bt">
-									<div style="text-align: start;">
-										<b><h5 class="modal-title " id="exampleModalLabel">&nbsp
-												Home : ${matching.creatorId}&nbsp&nbsp&nbsp&nbsp</h5></b>
+						<button type="button"
+							class="room-application-link room-application-btn4"
+							data-bs-toggle="modal" data-bs-target="#exampleModal">
+							점수부여</button>
+					</c:if>
+					<!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<div class="modal-mid-title-bt">
+										<div style="text-align: start;">
+											<b><h5 class="modal-title " id="exampleModalLabel">&nbsp
+													Home : ${matching.creatorId}&nbsp&nbsp&nbsp&nbsp</h5></b>
+											<b><h5 class="modal-title " id="exampleModalLabel">&nbsp
+													Away : ${matching.applicantId}</h5></b>
+										</div>
 									</div>
-									<div>
-										<b><h5 class="modal-title " id="exampleModalLabel">&nbsp
-												Away : ${matching.applicantId}</h5></b>
-									</div>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
 								</div>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
+								<div class="modal-body">
 
-								<!-- 모달 수정해야 하는부분 -->
-								<form:form modelAttribute="resultForm" method="post"
-									action="/MAV/match/matchpoint">
-									<input type="hidden" name="roomNum" value="${matching.roomNum}" />
-									<input type="hidden" name="creatorId"
-										value="${matching.creatorId}">
-									<input type="hidden" name="applicantId"
-										value="${matching.applicantId}">
+									<!-- 모달 수정해야 하는부분 -->
+									<form:form modelAttribute="resultForm" method="post"
+										action="/MAV/match/matchpoint">
+										<input type="hidden" name="roomNum"
+											value="${matching.roomNum}" />
+										<input type="hidden" name="creatorId"
+											value="${matching.creatorId}">
+										<input type="hidden" name="applicantId"
+											value="${matching.applicantId}">
 
-									<div class="modal-mid text-center ">
-										<button type="submit" name="result" value="승"
-											class="btn btn-primary modal-mid-bt primary mdbt">&nbsp;&nbsp;승리&nbsp;&nbsp;</button>
-										<button type="submit" name="result" value="무"
-											class="btn btn-warning modal-mid-bt warning mdbt">&nbsp;&nbsp;무승부&nbsp;&nbsp;</button>
-										<button type="submit" name="result" value="패"
-											class="btn btn-danger modal-mid-bt danger mdbt">&nbsp;&nbsp;패배&nbsp;&nbsp;</button>
-									</div>
-								</form:form>
-							</div>
-							<div class="modal-footer">
-								<div class="home">
-									<b><p class="text-muted">※ Home기준</p></b>
+										<div class="modal-mid text-center ">
+											<button type="submit" name="result" value="승"
+												class="btn btn-primary modal-mid-bt primary mdbt">&nbsp;&nbsp;승리&nbsp;&nbsp;</button>
+											<button type="submit" name="result" value="무"
+												class="btn btn-warning modal-mid-bt warning mdbt">&nbsp;&nbsp;무승부&nbsp;&nbsp;</button>
+											<button type="submit" name="result" value="패"
+												class="btn btn-danger modal-mid-bt danger mdbt">&nbsp;&nbsp;패배&nbsp;&nbsp;</button>
+										</div>
+									</form:form>
 								</div>
-								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">닫기</button>
+								<div class="modal-footer">
+									<div class="home">
+										<b><p class="text-muted">※ Home기준</p></b>
+									</div>
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">닫기</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</c:if>
+			</c:if>
 
-		<div class="detail-row d-flex">
-			<div class="detail-left">
-				<div class="detail-box">
-					<h1>${room.roomName}</h1>
-					<p>참가인원 :${room.roomCount}&nbsp;&nbsp;&nbsp;&nbsp;수용인원
-						:${room.roomCapacity}</p>
-				</div>
-				<div class="detail-box">
-					<h2>상세내용</h2>
-					<pre>${room.roomDetail}</pre>
-				</div>
-			</div>
-			<div class="detail-right">
-				<!-- applicantId가 null인 경우에 실행되는 부분 -->
-				<c:if test="${matching.applicantId == null}">
-					<div class="detail-box" style="height: 30rem;">
-						<b><p>
-								MatchDate :<b>
-									<h5>${room.roomDate}<br>${room.roomTime}</h5> <b><p>
-											방제 : ${matching.matchTitle}<b>
-												<p>동호회명 : ${matching.creatorId}
-												<p>동호회 점수 : ${clubInfos.clubPoint} point
-												<p>
-													동호회 정보 : ${clubInfos.clubInfo} <a href="#">상세정보</a>
-													<form:form modelAttribute="matching"
-														action="${pageContext.request.contextPath}/match/matchingApply"
-														method="post"
-														onsubmit="return checkIds('${member.memberId}')">
-														<div id="matching_bt">
-															<form:hidden path="roomNum" value="${room.roomNum}" />
-															<form:hidden path="creatorId"
-																value="${clubInfos.clubMaster}" id="creatorId" />
-															<div class="selector">
-																<button type="submit" class="btn btn-danger mt-2">매칭신청하기</button>
-																<br> <label for="clubSelect" class=" mt-3"></label><br>
-																<select name="selectedClub" id="clubSelect"
-																	class="form-control form-select  mt-2">
-																	<option value="none">== 동호회 선택하기 ==</option>
-																	<!-- 기본 옵션 -->
-																	<c:forEach var="club" items="${memberClubs}">
-																		<option value="${club.clubName}">${club.clubName}</option>
-																	</c:forEach>
-																</select>
-																<!-- 추가적인 데이터 필드들을 여기에 추가 -->
-															</div>
-														</div>
-													</form:form>
+			<div class="detail-row d-flex">
+				<div class="detail-left">
+					<div class="detail-box">
+						<h1>${room.roomName}</h1>
+						<p>참가인원 :${room.roomCount}&nbsp;&nbsp;&nbsp;&nbsp;수용인원
+							:${room.roomCapacity}</p>
 					</div>
-				</c:if>
-				<div class="detail-box additional-info-box" style="height: 30rem;">
-					<div id="googleMapContainer">
-						<div id="map" style="width: 100%; height: 450px; border: 0;"></div>
+					<div class="detail-box">
+						<h2>상세내용</h2>
+						<pre>${room.roomDetail}</pre>
+					</div>
+				</div>
+				<div class="detail-right">
+					<!-- applicantId가 null인 경우에 실행되는 부분 -->
+					<c:if test="${matching.applicantId == null}">
+						<div class="detail-box" style="height: 30rem;">
+							<b><p>
+									MatchDate :<b>
+										<p><i class="fa-solid fa-calendar-days"></i>  ${room.roomDate}<br><i class="fa-solid fa-clock"></i>  ${room.roomTime}</p> <b><p>
+												방제 : ${matching.matchTitle}<b>
+													<p>동호회명 : ${matching.creatorId}
+													<p>동호회 점수 : ${clubInfos.clubPoint} point
+													<p>
+														동호회 정보 : ${clubInfos.clubInfo} <a href="#">상세정보</a>
+														<form:form modelAttribute="matching"
+															action="${pageContext.request.contextPath}/match/matchingApply"
+															method="post"
+															onsubmit="return checkIds('${member.memberId}')">
+															<div id="matching_bt">
+																<form:hidden path="roomNum" value="${room.roomNum}" />
+																<form:hidden path="creatorId"
+																	value="${clubInfos.clubMaster}" id="creatorId" />
+																<div class="selector">
+																	<button type="submit" class="room-application-btn4 mt-2">매칭신청하기</button>
+																	<br> <label for="clubSelect" class=" mt-3"></label><br>
+																	<select name="selectedClub" id="clubSelect"
+																		class="form-control form-select  mt-2 text-center">
+																		<option value="none">==== 동호회 선택하기 ====</option>
+																		<!-- 기본 옵션 -->
+																		<c:forEach var="club" items="${memberClubs}">
+																			<option value="${club.clubName}">${club.clubName}</option>
+																		</c:forEach>
+																	</select>
+																	<!-- 추가적인 데이터 필드들을 여기에 추가 -->
+																</div>
+															</div>
+														</form:form>
+						</div>
+					</c:if>
+					<div class="detail-box additional-info-box" style="height: 30rem;">
+						<div id="googleMapContainer">
+							<div id="map" style="width: 100%; height: 450px; border: 0;"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=617d72b728b3e792de22e82c5fd893fb"></script>

@@ -31,6 +31,15 @@
 		    resize: none; /* 크기 조정 비활성화 */
 		    outline: none; /* 외곽선 제거 */
 		}
+		
+		.room-application-btn4 {
+		   padding: 0.5rem 1rem;
+		   background-color: #3A4CA8;
+		   color: white;
+		   border-radius: 0.25rem;
+		   text-decoration: none;
+		   border: none;
+		}
         
     </style>
     <script>
@@ -51,7 +60,7 @@
        <div class="container">
            <div class="input-form-backgroud row">
                <div class="input-form col-md-12 mx-auto">
-                   <h4 class="mb-3">동호회 생성</h4>
+                   <h4 class="mb-3">정보 수정</h4>
                    <form:form modelAttribute="club" class="form-horizontal" action="/MAV/club/update?clubNum=${club.clubNum}" method="post" enctype="multipart/form-data">
 					<fieldset>
 				 	<div class="row">
@@ -105,8 +114,8 @@
                 	<br>
                     <hr class="mb-4">
                     <div class="mb-4"></div>	
-                   	<input class="btn btn-primary btn-lg btn-block" type="submit" value="수정 완료"/>
-                   	<input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>				
+                   	<input class="room-application-btn4 btn-lg btn-block" type="submit" value="수정 완료"/>
+                   	<input class="room-application-btn4 btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>				
 				</fieldset>
 				</form:form>
                </div>

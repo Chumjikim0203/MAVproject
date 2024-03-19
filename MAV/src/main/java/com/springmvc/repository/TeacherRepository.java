@@ -11,4 +11,5 @@ public interface TeacherRepository {
 	public List<Teacher> AllTeacher();
 	public Teacher teacherId(String teacherId);	
 	Teacher deleteTeacher(String teacherId);
+	void setApproveTeacher(String teacherId);
 }

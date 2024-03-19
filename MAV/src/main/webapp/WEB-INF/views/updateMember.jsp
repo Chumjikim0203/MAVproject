@@ -25,6 +25,14 @@
         {
         	display:flex;
         }
+		.room-application-btn4 {
+		   padding: 0.5rem 1rem;
+		   background-color: #3A4CA8;
+		   color: white;
+		   border-radius: 0.25rem;
+		   text-decoration: none;
+		   border: none;
+		}
     </style>
     <script>
 		function goBack() 
@@ -129,8 +137,8 @@
 						<hr class="mb-4">
 						<div class="mb-4"></div>
 						<div class="btn-container">
-							<input class="btn btn-primary btn-lg btn-block" style="margin-right : 15px;" type="submit" value="수정 완료" onclick="combineAddr()"/>
-							<input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>
+							<input class="room-application-btn4 btn-lg btn-block" style="margin-right : 15px;" type="submit" value="수정 완료" onclick="combineAddr()"/>
+							<input class="room-application-btn4 btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>
 						</div>
 						</fieldset>			
 						</form:form>

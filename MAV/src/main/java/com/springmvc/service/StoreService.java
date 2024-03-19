@@ -19,6 +19,8 @@ public interface StoreService {
    void UpdateStore(Store store);
    Store DeleteStore(String storeId);
    RoomWithCoordinate getBycoordinate(int roomNum);
+   void setApproveStore(String storeId);
+   List<Store> getAllStore();
 
 
    
