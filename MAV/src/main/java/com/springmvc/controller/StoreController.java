@@ -20,10 +20,10 @@ import com.springmvc.domain.MatchRoom;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Room;
 import com.springmvc.domain.Store;
-import com.springmvc.domain.Tournament;
+
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
-import com.springmvc.service.TournamentService;
+
 
 @Controller
 @RequestMapping("/store")
@@ -36,8 +36,7 @@ public class StoreController {
    @Autowired
    private MatchService matchService;
    
-   @Autowired
-   private TournamentService tournamentService;
+  
    
    
    //해당 업체가 만든 모든 경기장룸/토너먼트/매칭룸을 가지고 스토어로감

@@ -19,7 +19,7 @@ import com.springmvc.domain.Room;
 import com.springmvc.domain.Store;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
-import com.springmvc.service.TournamentService;
+
 
 @Controller
 @RequestMapping("/room")
@@ -32,8 +32,7 @@ public class RoomController
 	@Autowired
 	private MatchService matchService;
 	
-	@Autowired
-	private TournamentService tournamentService;
+	
 	
     //방만들기 폼 보여주기
     @GetMapping("/addrooms")
