@@ -207,7 +207,7 @@
 <jsp:include page="./section/nav.jsp"/>
 	<div class="main-container">
 		    <div class="mt-3 clublistimage">
-	    		<img src="<c:url value="/resources/images/clublistpage.jpg"/>" style="width: 100%;">		    
+	    		<img src="<c:url value="/resources/images/${adminImages.classlistImageName}"/>" style="width: 100%;">		    
 		    </div>
 	    	<div class="club-choose col-3 mt-3">	    	
 	   			<a class="body-btn" href="/MAV/Class/classlist" role="button">전체 보기</a>

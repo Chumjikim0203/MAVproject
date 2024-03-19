@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.springmvc.domain.Club;
 import com.springmvc.domain.MatchRoom;
 import com.springmvc.domain.Room;
+import com.springmvc.domain.adminImages;
+import com.springmvc.service.AdminImagesService;
 import com.springmvc.service.ClubService;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
@@ -26,11 +29,20 @@ public class MainController {
    
    @Autowired
    private ClubService clubService;
+   
+   @Autowired
+   private AdminImagesService adminImagesService;
 
    // 메인 페이지 호출
    @GetMapping("/main")
-   public String goHome(Model model,Room room,MatchRoom matchRoom) {   
-      
+   public String goHome(Model model,Room room,MatchRoom matchRoom,adminImages adminImages) {
+	   
+	  // 사진 들고오기
+	   adminImages = adminImagesService.getAllImages();
+	   model.addAttribute("adminImages", adminImages);
+	 // 클럽리스트 들고오기
+	  List<Club> club = clubService.getAllClubList();
+	  model.addAttribute("club", club);
       //매칭룸
        List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
        model.addAttribute("matchView",matchView);

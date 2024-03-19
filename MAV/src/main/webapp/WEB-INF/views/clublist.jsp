@@ -201,13 +201,31 @@
         margin-top : 10px;
         
     }
+    .clubCount
+    {
+    	background-color: #3A4CA8;
+    	padding : 1px;
+    	border-radius : 5px;
+    	color : white;
+    	width : 80px;
+    }
+    
+    .clubPoint
+    {
+    	background-color: #FD9F28;
+    	padding : 1px;
+    	border-radius : 5px;
+    	color : white;
+    	width : 80px;
+    	
+    }
     </style>
 </head>
 <body>
 <jsp:include page="./section/nav.jsp"/>
 	<div class="main-container">
 		    <div class="mt-3 clublistimage">
-	    		<img src="<c:url value="/resources/images/clublistpage.jpg"/>" style="width: 100%;">		    
+	    		<img src="<c:url value="/resources/images/${adminImages.clublistImageName}"/>" style="width: 100%;">		    
 		    </div>
 	    	<div class="club-choose col-3 mt-3">	    	
 	   			<a class="body-btn" href="/MAV/club/list" role="button">전체 보기</a>
@@ -266,9 +284,12 @@
 				                        <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
 				                        <div class="card-body">
 				                            <h5 class="card-title">${club.clubName}</h5>
+				                            <div class="d-flex" style="justify-content : space-around; ">
+				                            	<p class="card-text clubCount mt-3 mb-3">M.${club.clubMemberCount}</p>
+				                            	<p class="card-text clubPoint mt-3 mb-3">P.${club.clubPoint}</p>
+				                            </div>
 				                            <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
 				                            <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
-				                            <p class="card-text clubLocale">동호회 인원수 : ${club.clubMemberCount}</p>
 				                        </div>
 				                    </a>
 				                </div>

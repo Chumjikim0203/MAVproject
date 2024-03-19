@@ -24,6 +24,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.springmvc.domain.Club;
 import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
+import com.springmvc.domain.adminImages;
+import com.springmvc.service.AdminImagesService;
 import com.springmvc.service.ClubService;
 import com.springmvc.service.MemberService;
 
@@ -35,6 +37,8 @@ public class ClubController
 	private ClubService clubService;
 	@Autowired
 	private MemberService memberService;
+	 @Autowired
+	 private AdminImagesService adminImagesService;
 	
 	@ModelAttribute("categoryOptions")
     public Map<String, String> getCategoryOptions() 
@@ -178,12 +182,15 @@ public class ClubController
 	public String clubList(Model model) 
 	{
 	    System.out.println("클럽 리스트 페이지 도착");
+	    adminImages images = adminImagesService.getAllImages();
+	    
 	    List<Club> getAllClubList = clubService.getAllClubList();
 	    for (Club club : getAllClubList)
 	    {
 	        int countMember = clubService.clubMemberCount(club.getClubName());
 	        club.setClubMemberCount(countMember);
 	    }
+	    model.addAttribute("adminImages", images);
 	    model.addAttribute("club", getAllClubList);
 	    return "clublist";
 	}

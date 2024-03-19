@@ -32,7 +32,7 @@ public class AdminImagesRepositoryImpl implements AdminImageRepository
 	@Override
 	public void updateImages(adminImages images) 
 	{
-		String SQL = "update adminImages set clublistImage=? , classlistImage=? , mainslideImage1=?, mainslideImage2=?, mainslideImage3=?,";
+		String SQL = "update adminImages set clublistImage=? , classlistImage=? , mainslideImage1=?, mainslideImage2=?, mainslideImage3=?";
 		template.update(SQL, images.getClublistImageName(),images.getClasslistImageName(),
 						images.getMainslideImageName1(), images.getMainslideImageName2(), images.getMainslideImageName3());
 		

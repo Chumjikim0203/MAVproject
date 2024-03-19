@@ -21,6 +21,7 @@
 <style>
 * {
 	font-family: 'Noto Sans KR', sans-serif;
+	text-decoration : none !important;
 }
 
 .main-container {
@@ -86,6 +87,193 @@ hr {
    text-decoration: none;
    border: none;
 }
+  .main {
+        display: flex;
+    }
+
+    .col-4 {
+        margin-right: auto;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border: none;
+    }
+
+    .img1 {
+        border-radius: 50%;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .right,
+    .right-name {
+        display: flex;
+    }
+
+    .right img {
+        width: 30%;
+    }
+
+    .card-title,
+    .card-text {
+        margin: 0;
+    }
+
+    .list-group-item a {
+        text-decoration: none;
+        color: #212529;
+    }
+
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    .card-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .card-link:hover {
+        text-decoration: underline;
+    }
+
+    .card h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        margin-right: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #007bff;
+    }
+
+    a {
+        color: black;
+        text-decoration: none !important;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .room-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        color: #343a40;
+    }
+
+    .room-application-btn {
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: white;
+        border-radius: 0.25rem;
+        text-decoration: none;
+    }
+
+    .room-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tab {
+        overflow: hidden;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+    }
+
+    .tab button:hover {}
+
+    .tab button.active {}
+
+    .tabcontent {
+        display: none;
+    }
+
+    .club-choose {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .body-btn {
+        text-decoration: none;
+        border: 1px solid silver;
+        border-radius: 10px;
+        color: black;
+        padding: 10px;
+    }
+
+    .clublistimage {
+        height: 450px;
+    }
+
+    .clublistimage img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .default-image {
+        background-image: url("/resources/images/MAVlogo.png");
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .card-1 img {
+        height: 180px;
+        width: 230px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .clubCount {
+        background-color: #3a4ca8;
+        padding: 1px;
+        border-radius: 5px;
+        color: white;
+        width: 80px;
+    }
+
+    .clubPoint {
+        background-color: #fd9f28;
+        padding: 1px;
+        border-radius: 5px;
+        color: white;
+        width: 80px;
+    }
 </style>
 </head>
 <body>
@@ -95,18 +283,18 @@ hr {
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img
-						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png"
-						class="d-block w-100" alt="첫 번째 슬라이드">
+						src="<c:url value="/resources/images/${adminImages.mainslideImageName1}"/>"
+						class="d-block w-100" alt="첫 번째 슬라이드" style="width : 100%; height : 900px;">
 				</div>
 				<div class="carousel-item">
 					<img
-						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/7cc7ad0c-9886-4bc2-b5f3-ea1c1e6bf5b0/image.png"
-						class="d-block w-100" alt="두 번째 슬라이드">
+						src="<c:url value="/resources/images/${adminImages.mainslideImageName2}"/>"
+						class="d-block w-100" alt="두 번째 슬라이드" style="width : 100%; height : 900px;">
 				</div>
 				<div class="carousel-item">
 					<img
-						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/0f48ad69-e539-4c6d-8e60-40b9ad120b03/image.png"
-						class="d-block w-100" alt="세 번째 슬라이드">
+						src="<c:url value="/resources/images/${adminImages.mainslideImageName2}"/>"
+						class="d-block w-100" alt="세 번째 슬라이드" style="width : 100%; height : 900px;">
 				</div>
 			</div>
 			<!-- 이전/다음 화살표 -->
@@ -118,15 +306,33 @@ hr {
 				aria-hidden="true"></span> <span class="sr-only"></span>
 			</a>
 		</div>
-		<div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
-			<div class="col-md-6 px-0">
-				<h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
-				<p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
-				<p class="lead mb-0">
-					<a href="#" class="text-white fw-bold">참여하기</a>
-				</p>
-			</div>
-		</div>
+		 <div class="main col-12">
+				    <div class="col-12">
+				        <div class="room-title"><h2>신규 동호회</h2></div>
+				        <div class="card-container">
+				        	<c:set var="count" value="0" />
+				            <c:forEach items="${club}" var="club">
+				            <c:if test="${count < 5}">
+				                <div class="card-1" style="width: 18rem;">
+				                    <a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
+				                        <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
+				                        <div class="card-body">
+				                            <h5 class="card-title">${club.clubName}</h5>
+				                            <div class="d-flex" style="justify-content : space-around; ">
+				                            	<p class="card-text clubCount mt-3 mb-3">M.${club.clubMemberCount}</p>
+				                            	<p class="card-text clubPoint mt-3 mb-3">P.${club.clubPoint}</p>
+				                            </div>
+				                            <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
+				                            <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
+				                        </div>
+				                    </a>
+				                </div>
+				            <c:set var="count" value="${count + 1}" />
+    						</c:if>
+				            </c:forEach>
+				        </div>
+				    </div>
+				</div>
 		<!-- 매칭룸 -->
 		<div class="list-container col-12">
 			<div class="my-3 p-3 bg-body rounded shadow"

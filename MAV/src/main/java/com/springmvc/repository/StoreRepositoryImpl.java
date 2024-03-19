@@ -160,8 +160,7 @@ public class StoreRepositoryImpl implements StoreRepository {
 	   public void CreateStore(Store store) {
 
 	      String[] xy = getxy(store);
-	      System.out.println(xy[0] + " xy[0]");
-	      store.setStoreApprove(true);
+	      System.out.println(xy[0] + " xy[0]");	     
 	      String SQL = "INSERT INTO Store "
 	            + "(storeId,"
 	            + "storeName,"

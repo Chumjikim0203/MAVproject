@@ -23,7 +23,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.springmvc.domain.Classes;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Teacher;
+import com.springmvc.domain.adminImages;
 import com.springmvc.repository.ClassesRepository;
+import com.springmvc.service.AdminImagesService;
 import com.springmvc.service.ClasseService;
 import com.springmvc.service.TeacherService;
 
@@ -34,6 +36,8 @@ public class ClassController {
 	private ClasseService ClassesService;
 	@Autowired
 	private TeacherService teacherService;
+	 @Autowired
+	 private AdminImagesService adminImagesService;
 //	@GetMapping
 //	public String teacher(Model model ,Classes classes) {
 //		model.addAttribute("allclass",ClassesService.getAllClassesList(classes));
@@ -207,10 +211,12 @@ public class ClassController {
 		  HttpSession sessionId=request.getSession();	
 		  member= (Member)sessionId.getAttribute("member");
 		  teacher= teacherService.teacherId(member.getMemberId());
+		  adminImages images = adminImagesService.getAllImages();
 		  List<Classes> classesall=(List<Classes>)ClassesService.getAllClassesList();
 		  model.addAttribute("classes",classesall);
 		  model.addAttribute("member", member);
 		  model.addAttribute("teacher", teacher);
+		  model.addAttribute("adminImages", images);
 		  System.out.println("classlist도착 member는:"+member.getMemberId());
 		  System.out.println("classes:"+classesall);
 		  return "classlist";

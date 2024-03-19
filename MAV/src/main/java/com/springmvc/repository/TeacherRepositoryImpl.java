@@ -27,8 +27,8 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	@Override
 	public void CreateTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
-	//강사 등록	
-		teacher.setTeacherApprove(true);
+	//강사 등록
+		
 		String SQL="INSERT INTO Teacher (teacherId,teacherimageFileName,teacherCategory,teacherRecode,LicenseimageFileName1,LicenseimageFileName2,LicenseimageFileName3,LicenseimageFileName4,LicenseimageFileName5,teacherInfomation,teacherApprove)"
 		+"values(?,?,?,?,?,?,?,?,?,?,?)";
 		template.update(SQL,
