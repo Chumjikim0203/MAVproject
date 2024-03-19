@@ -410,7 +410,7 @@ hr {
 			</div>
 		</div>
 	</div>
-
+<jsp:include page="./section/footer.jsp" />
 	<script>
 		// datepicker 요소 가져오기
 		var datepicker = document.getElementById('datepicker');
