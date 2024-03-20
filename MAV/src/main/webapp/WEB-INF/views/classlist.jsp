@@ -18,8 +18,8 @@
         }
         .main-container
         {
-        	width:80%;
-        	margin: 0 auto;
+           width:80%;
+           margin: 0 auto;
         }
         .main {
             display: flex;
@@ -158,36 +158,36 @@
     }
     .club-choose
     {
-    	list-style : none;
-    	display : flex;
-    	flex-direction : row;
-    	align-items: center;
-    	justify-content : space-around;
+       list-style : none;
+       display : flex;
+       flex-direction : row;
+       align-items: center;
+       justify-content : space-around;
     }
     .body-btn
     {
-    	text-decoration : none;
-    	border : 1px solid silver;
-    	border-radius : 10px;
-    	color : black;
-    	padding : 10px;
+       text-decoration : none;
+       border : 1px solid silver;
+       border-radius : 10px;
+       color : black;
+       padding : 10px;
     }
-	.clublistimage
-	{
-		height : 450px;
-	}    
-	.clublistimage img 
-	{
-	    max-width: 100%;
-	    max-height: 100%;
-	}
-	.card-container
-	{
-		display: flex;
-		flex-wrap : wrap;
-	}
-	 .default-image 
-	 {
+   .clublistimage
+   {
+      height : 450px;
+   }    
+   .clublistimage img 
+   {
+       max-width: 100%;
+       max-height: 100%;
+   }
+   .card-container
+   {
+      display: flex;
+      flex-wrap : wrap;
+   }
+    .default-image 
+    {
         background-image: url("/resources/images/MAVlogo.png");
         /* 기본 이미지의 크기와 스타일을 조절할 수 있습니다. */
         max-width: 100%;
@@ -195,8 +195,8 @@
     }
     .card-1 img
     {
-    	height: 180px;
-    	width: 230px;
+       height: 180px;
+       width: 230px;
         margin-bottom : 15px;
         margin-top : 10px;
         
@@ -205,6 +205,7 @@
 </head>
 <body>
 <jsp:include page="./section/nav.jsp"/>
+<<<<<<< HEAD
 	<div class="main-container">
 		    <div class="mt-3 clublistimage">
 	    		<img src="<c:url value="/resources/images/${adminImages.classlistImageName}"/>" style="width: 100%;">		    
@@ -212,6 +213,15 @@
 	    	<div class="club-choose col-3 mt-3">	    	
 	   			<a class="body-btn" href="/MAV/Class/classlist" role="button">전체 보기</a>
 	    		<li class="dropdown">
+=======
+   <div class="main-container">
+          <div class="mt-3 clublistimage">
+             <img src="<c:url value="/resources/images/${adminImages.classlistImageName}"/>" style="width: 100%;">          
+          </div>
+          <div class="club-choose col-3 mt-3">          
+               <a class="body-btn" href="/MAV/Class/classlist" role="button">전체 보기</a>
+             <li class="dropdown">
+>>>>>>> origin/PMS
                     <a class="dropdown-toggle body-btn locale" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       지역별
                     </a>
@@ -232,6 +242,7 @@
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#" onclick="filterLocale('제주')">제주</a></li>
                     </ul>
+<<<<<<< HEAD
 	            </li>
 	    	</div>
 		    <div class="main col-12">
@@ -270,5 +281,45 @@
 		        });
 		    }
 		</script>
+=======
+               </li>
+          </div>
+          <div class="main col-12">
+               <div class = "col-12">
+                  <div class="room-title">강의 리스트</div>
+                     <div class="card-container">
+                      <c:forEach items="${classes}" var="classes">
+                          <div class="card-1" style="width: 18rem;">
+                          <a href="<c:url value='/Class/detailclass'/>?classNum=${classes.classNum}">
+                          <img class="card-img-top" src="<c:url value="/resources/images/${classes.classImagesFileName1}"/>" onerror="this.classList.add('default-image');" />
+                          <div class="card-body">
+                               <h5 class="card-title">${classes.className}</h5>
+                               <p class="card-text classLectureTime">강의 시간 : ${classes.classLecturetime}</p>
+                               <p class="card-text classLectureDate">강의 날짜 : ${classes.classLecturedate}</p>
+                               <p class="card-text classNumberOfStudents">수강 인원 : ${classes.classNumberOfStudents}</p>
+                               <p class="card-text classLocale">지역 : ${classes.classLocale}</p>
+                         </div>
+                     </a>
+                     </div>
+                      </c:forEach>
+               </div>
+                </div>
+              </div>
+            </div>
+      <script>
+          function filterLocale(locale) {
+              const clubCards = document.querySelectorAll('.card-1');
+              clubCards.forEach(card => {
+                  const clubLocale = card.querySelector('.classLocale').textContent.trim().split(':')[1].trim();
+                  console.log("선택된 지역명 : " + locale)
+                  if (locale === '전체' || clubLocale === locale) {
+                      card.style.display = 'block';
+                  } else {
+                      card.style.display = 'none';
+                  }
+              });
+          }
+      </script>
+>>>>>>> origin/PMS
 </body>
 </html>

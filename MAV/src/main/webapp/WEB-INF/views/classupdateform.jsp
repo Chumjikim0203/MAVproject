@@ -18,6 +18,13 @@
         .container {
             margin-top: 20px;
         }
+        .room-application-btn4 {
+			   padding: 0.5rem 1rem;
+			   background-color: #3A4CA8;
+			   color: white;
+			   border-radius: 0.25rem;
+			   text-decoration: none;
+			   border: none;
     </style>
     <script>
         function goBack() {
@@ -134,7 +141,7 @@
                             <form:input type="hidden" id="classLocale" class="form-control" path="classLocale" />
                             <hr class="mb-4">
                             <div class="mb-4"></div>   
-                            <input class="btn btn-primary btn-lg btn-block" type="submit" onclick="combineAddr()" value="수정 완료"/>
+                            <input class="btn btn-primary btn-lg btn-block room-application-btn4" type="submit" onclick="combineAddr()" value="수정 완료"/>
                             <input class="btn btn-danger btn-lg btn-block" type="button" value="취소 하기" onclick="goBack()"/>         
                         </fieldset>
                     </form:form>

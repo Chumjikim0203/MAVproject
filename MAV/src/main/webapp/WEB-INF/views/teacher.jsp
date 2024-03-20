@@ -182,6 +182,7 @@
             <div class="card" style="width: 100%;">
                 <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
                 <div class="card-body">
+                    <img src=<c:url value="/resources/images/${teacher.licenseImageFileName1}"/> class="d-block" style="width:150px; border-radius: 50%; border:1px solid red; margin: 0 auto; max-width:100%; max-height:100%; height:150px;" >
                     <p class="card-text" style="text-align: center; font-size: 1.2rem;">${teacher.teacherCategory}</p>
                     <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
                 </div>
@@ -202,7 +203,7 @@
             <div class="card">
                 <h5>개인정보</h5>
                 <div class="right">
-                    <img src=".." class="" width="30%">
+
                     <div class="right-name">
                         <p>${member.memberName}</p> <br>
                         <p>${member.memberEmail}</p>
@@ -232,6 +233,12 @@
          </div>                    
     </div>
 </div>
+                    <img src=<c:url value="/resources/images/${teacher.licenseImageFileName2}"/> class="d-block" style="width:15%;">
+                    <img src=<c:url value="/resources/images/${teacher.licenseImageFileName3}"/> class="d-block" style="width:15%;">
+                    <img src=<c:url value="/resources/images/${teacher.licenseImageFileName4}"/> class="d-block" style="width:15%;">
+                    <img src=<c:url value="/resources/images/${teacher.licenseImageFileName5}"/> class="d-block" style="width:15%;">
+                    <img src=<c:url value="/resources/images/${teacher.teacherimageFileName}"/> class="d-block" style="width:15%;">
+                    
 </body>
 
 </html>

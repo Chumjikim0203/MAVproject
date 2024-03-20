@@ -60,6 +60,7 @@
        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
            <div class="carousel-inner">
                <div class="carousel-item active">
+<<<<<<< HEAD
                    <img src=<c:url value="/resources/images/${classes.classImagesFileName1}"/> class="d-block w-100" alt="첫 번째 슬라이드">
                </div>
              <div class="carousel-item active">
@@ -67,6 +68,15 @@
              </div>
              <div class="carousel-item active">
                <img src=<c:url value="/resources/images/${classes.classImagesFileName3}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
+=======
+                   <img src=<c:url value="/resources/images/${detailclass.classImagesFileName1}"/> class="d-block w-100" alt="첫 번째 슬라이드">
+               </div>
+             <div class="carousel-item active">
+              <img src=<c:url value="/resources/images/${detailclass.classImagesFileName2}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
+             </div>
+             <div class="carousel-item active">
+               <img src=<c:url value="/resources/images/${detailclass.classImagesFileName4}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
+>>>>>>> origin/PMS
              </div>
            </div>
            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

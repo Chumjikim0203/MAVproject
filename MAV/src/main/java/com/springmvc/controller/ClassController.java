@@ -125,16 +125,19 @@ public class ClassController {
 			
 			if(file !=null && !file.isEmpty())
 			{
-				try 
-				{
-					file.transferTo(saveFile);
-					classes.setClassImagesFileName1(saveName);
-					
-				} 
-				catch (Exception e) 
-				{
-					throw new RuntimeException("강의 이미지 업로드가 실패했습니다.", e);
-				}
+				try {
+		            file.transferTo(saveFile);
+		            // 여기에 각 이미지 이름을 store 객체에 설정하는 로직을 추가합니다.
+		            switch(i) {
+		                case 0: classes.setClassImagesFileName1(saveName); break;
+		                case 1: classes.setClassImagesFileName2(saveName); break;
+		                case 2: classes.setClassImagesFileName3(saveName); break;
+		                case 3: classes.setClassImagesFileName4(saveName); break;
+		                case 4: classes.setClassImagesFileName5(saveName); break;
+		            }
+		        } catch (Exception e) {
+		            throw new RuntimeException("이미지 업로드가 실패했습니다.", e);
+		        }
 			}
 			
 		}
@@ -175,11 +178,52 @@ public class ClassController {
 		  return "classupdateform";
 	  }
 	  @PostMapping("/updateclass")
-	  public String updateclass2(@ModelAttribute("classes")  Classes classes,Model model){
+	  public String updateclass2(@ModelAttribute("classes")  Classes classes,Model model,HttpServletRequest request){
 		  System.out.println("update2도착");
 		  System.out.println("classname"+classes.getClassName());
 		  System.out.println("classnum"+classes.getClassNum());
+		  List<MultipartFile> classImages = new ArrayList<MultipartFile>();
+	      List<String> classImagesFileName = new ArrayList<String>();
+			String save = request.getSession().getServletContext().getRealPath("/resources/images");
+			//이미지 경로 =SAVE
+			System.out.println("이미지경로:"+save);		
+			classImages.add(classes.getClassImages1());
+			classImages.add(classes.getClassImages2());
+			classImages.add(classes.getClassImages3());
+			classImages.add(classes.getClassImages4());
+			classImages.add(classes.getClassImages5());
 			
+			for(int i=0; i<classImages.size(); i++)
+			{
+				MultipartFile file = classImages.get(i);
+				String saveName = file.getOriginalFilename();			
+				classImagesFileName.add(saveName);			
+				System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+				
+				File saveFile= new File(save, saveName);
+				
+				 if(file !=null && !file.isEmpty()) {
+				        try {
+				            file.transferTo(saveFile);
+				            // 여기에 각 이미지 이름을 store 객체에 설정하는 로직을 추가합니다.
+				            switch(i) {
+				                case 0: classes.setClassImagesFileName1(saveName); break;
+				                case 1: classes.setClassImagesFileName2(saveName); break;
+				                case 2: classes.setClassImagesFileName3(saveName); break;
+				                case 3: classes.setClassImagesFileName4(saveName); break;
+				                case 4: classes.setClassImagesFileName5(saveName); break;
+				            }
+				        } catch (Exception e) {
+				            throw new RuntimeException("이미지 업로드가 실패했습니다.", e);
+				        }
+				    }
+				
+			}
+			classes.setClassImagesFileName1(classImagesFileName.get(0));
+			classes.setClassImagesFileName2(classImagesFileName.get(1));
+			classes.setClassImagesFileName3(classImagesFileName.get(2));
+			classes.setClassImagesFileName4(classImagesFileName.get(3));
+			classes.setClassImagesFileName5(classImagesFileName.get(4));	
 
 		  ClassesService.setUpdateClasses(classes);
 		 
@@ -216,7 +260,10 @@ public class ClassController {
 		  model.addAttribute("classes",classesall);
 		  model.addAttribute("member", member);
 		  model.addAttribute("teacher", teacher);
+<<<<<<< HEAD
 		  model.addAttribute("adminImages", images);
+=======
+>>>>>>> origin/PMS
 		  System.out.println("classlist도착 member는:"+member.getMemberId());
 		  System.out.println("classes:"+classesall);
 		  return "classlist";

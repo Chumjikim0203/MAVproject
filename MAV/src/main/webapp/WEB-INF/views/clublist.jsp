@@ -18,8 +18,8 @@
         }
         .main-container
         {
-        	width:80%;
-        	margin: 0 auto;
+           width:80%;
+           margin: 0 auto;
         }
         .main {
             display: flex;
@@ -158,36 +158,36 @@
     }
     .club-choose
     {
-    	list-style : none;
-    	display : flex;
-    	flex-direction : row;
-    	align-items: center;
-    	justify-content : space-around;
+       list-style : none;
+       display : flex;
+       flex-direction : row;
+       align-items: center;
+       justify-content : space-around;
     }
     .body-btn
     {
-    	text-decoration : none;
-    	border : 1px solid silver;
-    	border-radius : 10px;
-    	color : black;
-    	padding : 10px;
+       text-decoration : none;
+       border : 1px solid silver;
+       border-radius : 10px;
+       color : black;
+       padding : 10px;
     }
-	.clublistimage
-	{
-		height : 450px;
-	}    
-	.clublistimage img 
-	{
-	    max-width: 100%;
-	    max-height: 100%;
-	}
-	.card-container
-	{
-		display: flex;
-		flex-wrap : wrap;
-	}
-	 .default-image 
-	 {
+   .clublistimage
+   {
+      height : 450px;
+   }    
+   .clublistimage img 
+   {
+       max-width: 100%;
+       max-height: 100%;
+   }
+   .card-container
+   {
+      display: flex;
+      flex-wrap : wrap;
+   }
+    .default-image 
+    {
         background-image: url("/resources/images/MAVlogo.png");
         /* 기본 이미지의 크기와 스타일을 조절할 수 있습니다. */
         max-width: 100%;
@@ -195,34 +195,52 @@
     }
     .card-1 img
     {
-    	height: 180px;
-    	width: 230px;
+       height: 180px;
+       width: 230px;
         margin-bottom : 15px;
         margin-top : 10px;
         
     }
     .clubCount
     {
+<<<<<<< HEAD
     	background-color: #3A4CA8;
     	padding : 1px;
     	border-radius : 5px;
     	color : white;
     	width : 80px;
+=======
+       background-color: #3A4CA8;
+       padding : 1px;
+       border-radius : 5px;
+       color : white;
+       width : 80px;
+>>>>>>> origin/PMS
     }
     
     .clubPoint
     {
+<<<<<<< HEAD
     	background-color: #FD9F28;
     	padding : 1px;
     	border-radius : 5px;
     	color : white;
     	width : 80px;
     	
+=======
+       background-color: #FD9F28;
+       padding : 1px;
+       border-radius : 5px;
+       color : white;
+       width : 80px;
+       
+>>>>>>> origin/PMS
     }
     </style>
 </head>
 <body>
 <jsp:include page="./section/nav.jsp"/>
+<<<<<<< HEAD
 	<div class="main-container">
 		    <div class="mt-3 clublistimage">
 	    		<img src="<c:url value="/resources/images/${adminImages.clublistImageName}"/>" style="width: 100%;">		    
@@ -230,6 +248,15 @@
 	    	<div class="club-choose col-3 mt-3">	    	
 	   			<a class="body-btn" href="/MAV/club/list" role="button">전체 보기</a>
 	    		<li class="dropdown">
+=======
+   <div class="main-container">
+          <div class="mt-3 clublistimage">
+             <img src="<c:url value="/resources/images/${adminImages.clublistImageName}"/>" style="width: 100%;">          
+          </div>
+          <div class="club-choose col-3 mt-3">          
+               <a class="body-btn" href="/MAV/club/list" role="button">전체 보기</a>
+             <li class="dropdown">
+>>>>>>> origin/PMS
                     <a class="dropdown-toggle body-btn locale" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <span id="selectedLocale">지역별</span>
                     </a>
@@ -250,10 +277,10 @@
                       <li><hr class="dropdown-divider"></li>
                       <li><button class="dropdown-item" href="#" onclick="filterLocale('제주')">제주</button></li>
                     </ul>
-	            </li>
-	            <li class="dropdown">
+               </li>
+               <li class="dropdown">
                     <a class="dropdown-toggle body-btn category" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     	<span id="selectedCategory">종목별</span>
+                        <span id="selectedCategory">종목별</span>
                     </a>
                     <ul class="dropdown-menu">
                       <li><button class="dropdown-item" href="#" onclick="filterCategory('전체')">전체</button></li>
@@ -272,6 +299,7 @@
                       <li><hr class="dropdown-divider"></li>
                       <li><button class="dropdown-item" href="#" onclick="filterCategory('기타')">기타</button></li>
                     </ul>
+<<<<<<< HEAD
 	            </li>
 	    	</div>
 		 <div class="main col-12">
@@ -331,5 +359,66 @@
 	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+=======
+               </li>
+          </div>
+       <div class="main col-12">
+                <div class="col-12">
+                    <div class="room-title">동호회 리스트</div>
+                    <div class="card-container">
+                        <c:forEach items="${club}" var="club">
+                            <div class="card-1" style="width: 18rem;">
+                                <a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
+                                    <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">${club.clubName}</h5>
+                                        <div class="d-flex" style="justify-content : space-around; ">
+                                           <p class="card-text clubCount mt-3 mb-3">M.${club.clubMemberCount}</p>
+                                           <p class="card-text clubPoint mt-3 mb-3">P.${club.clubPoint}</p>
+                                        </div>
+                                        <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
+                                        <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            </div>
+      <script>
+          var currentLocale = '전체';
+          var currentCategory = '전체';
+          function filterLocale(locale) {
+              currentLocale = locale; // 선택한 지역을 현재 지역으로 설정
+              document.getElementById('selectedLocale').textContent = locale; // 선택한 지역을 표시
+              filterCards(); // 카드 필터링 함수 호출
+          }
+          function filterCategory(category) {
+              currentCategory = category; // 선택한 종목을 현재 종목으로 설정
+              document.getElementById('selectedCategory').textContent = category; // 선택한 종목을 표시
+              filterCards(); // 카드 필터링 함수 호출
+          }
+      
+          function filterCards() {
+              const clubCards = document.querySelectorAll('.card-1');
+              clubCards.forEach(card => {
+                  const clubLocale = card.querySelector('.clubLocale').textContent.trim().split(':')[1].trim();
+                  const clubCategory = card.querySelector('.clubCategory').textContent.trim().split(':')[1].trim();
+                  
+                  // 지역 및 종목이 '전체'인 경우 모든 카드를 표시
+                  if ((currentLocale === '전체' || clubLocale === currentLocale) && 
+                      (currentCategory === '전체' || clubCategory === currentCategory)) {
+                      card.style.display = 'block';
+                  } else {
+                      card.style.display = 'none';
+                  }
+              });
+          }
+      </script>
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+>>>>>>> origin/PMS
 </body>
 </html>

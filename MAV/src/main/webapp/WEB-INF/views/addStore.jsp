@@ -38,6 +38,7 @@
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 	<jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
 		<div class="container">
@@ -168,6 +169,135 @@
 		var extraAddr = document.getElementById('sample6_extraAddress').value; // 참고항목
 		// 문자열로 합침
 		var fullAddr = addr + ' ' + detailAddr + ' ' + extraAddr;
+=======
+  <jsp:include page="./section/nav.jsp" />
+   <div class="main-container">
+      <div class="container">
+         <div class="input-form-backgroud row">
+            <div class="input-form col-md-12 mx-auto">
+               <h4 class="mb-3">업체등록</h4>
+               <form:form modelAttribute="store" class="form-horizontal" action="add" method="post" enctype="multipart/form-data">
+                  <fieldset>
+                     <div class="row">
+                        <div class="col-md-6 mb-3">
+                           <label for="storeName">업체명</label>
+                           <form:input path="storeName" class="form-control" />
+                           <form:hidden class="form-control" path="storeId"
+                              value="${member.memberId}" />
+                        </div>
+                        <div class="invalid-feedback">업체명을 입력해주세요.</div>
+                        <div class="col-md-6 mb-3">
+                           <label for="storeCategory">업체종목</label>
+                           <form:input class="form-control" path="storeCategory" />
+                        </div>
+                        <div class="invalid-feedback">업체종목을 입력해주세요.</div>
+                        <div class="col-md-2 mb-3">
+                           <label for="storePhone01">업체번호</label>
+                           <form:input class="form-select"
+                              aria-label="Default select example" path="storePhone01" />
+                        </div>
+                        <div class="col-md-2 mb-3">
+                           <label for="storePhone02"></label>
+                           <form:input class="form-control" path="storePhone02" />
+                        </div>
+                        <div class="col-md-2 mb-3">
+                           <label for="storePhone03"></label>
+                           <form:input class="form-control" path="storePhone03" />
+                        </div>
+                        <div class="invalid-feedback">업체번호를 입력해주세요.</div>
+                        <div class="col-md-6 mb-3">
+                           <label for="storeCode">사업자번호</label>
+                           <form:input class="form-control" path="storeCode"/>
+                        </div>
+                        <div class="invalid-feedback">사업자번호를 입력해주세요</div>
+                        
+							<div class="col-md-6 mb-3">
+					            <label for="storeImage1" class="form-label">대표사진</label>
+					            <form:input class="form-control" type="file" path="storeImage1"/>
+					        </div>
+					        <div class="col-md-6 mb-3">
+					            <label for="storeImage2" class="form-label">업체사진</label>
+					           <form:input class="form-control" type="file" path="storeImage2"/>
+					        </div>
+					        <div  class="col-md-6 mb-3">
+					            <label for="storeImage3" class="form-label">업체사진</label>
+					           <form:input class="form-control" type="file" path="storeImage3"/>
+					        </div>
+					        <div  class="col-md-6 mb-3">
+					            <label for="storeImage4" class="form-label">업체사진</label>
+					            <form:input class="form-control" type="file" path="storeImage4"/>
+					        </div>
+					         <div  class="col-md-6 mb-3">
+					            <label for="storeImage5" class="form-label">업체사진</label>
+					            <form:input class="form-control" type="file" path="storeImage5"/>
+					        </div>
+                            <div class="mb-3">
+				            	<label for="storeInfomation">업체소개<span class="text-muted">&nbsp;(필수 아님)</span></label>
+				           		<form:textarea cols="50" rows="3" class="form-control" path="storeInfomation" />
+				            </div>
+                           <div class="row">
+                              <div class="col-12">
+                                 <label for="storeAddr">업체주소</label>
+                                 <div class="row mb-2">
+                                    <div class="col-md-4">
+                                       <input type="text" id="sample6_postcode" placeholder="우편번호"
+                                          class="form-control">
+                                    </div>
+                                    <div class="col-md-4"
+                                       style="margin-left: -1rem; padding: 0 -1rem;">
+                                       <input type="button" onclick="sample6_execDaumPostcode()"
+                                          value="우편번호 찾기"
+                                          class="form-control btn btn-outline-primary">
+                                    </div>
+                                 </div>
+                                 <div>
+                                    <input type="text" id="sample6_address" placeholder="주소"
+                                       class="form-control mb-2">
+                                    <div class="d-flex">
+                                       <input type="text" id="sample6_detailAddress"
+                                          placeholder="상세주소" class="form-control mb-2"> <input
+                                          type="text" id="sample6_extraAddress" placeholder="참고항목"
+                                          class="form-control mb-2" style="margin-left: 5px;">
+                                    </div>
+                                 </div>
+                              </div>                        
+                           </div>
+
+                            <div class="mb-3">
+				            	<br><label for="storeNotice"><h3>업체공지사항</h3><span class="text-muted">&nbsp;(필수 아님)</span></label>
+				           		<form:textarea cols="50" rows="10" class="form-control" path="storeNotice" />
+				            </div>
+                           <form:input type="hidden" id="storeAddr" class="form-control"
+                              path="storeAddr" />
+
+                     </div>
+                     <hr class="mb-4">
+                     <div class="mb-4"></div>
+                     <input class="btn btn-primary btn-lg btn-block"  type="submit" onclick="combineAddr()"
+                        value="신청 완료" />
+                  </fieldset>
+               </form:form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script
+      src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"></script>
+</body>
+<script type="text/javascript">
+   function combineAddr() {
+
+      var addr = document.getElementById('sample6_address').value; // 주소
+      var detailAddr = document.getElementById('sample6_detailAddress').value; // 상세주소
+      var extraAddr = document.getElementById('sample6_extraAddress').value; // 참고항목
+
+      // 문자열로 합침
+      var fullAddr =  addr + ' ' + detailAddr + ' ' + extraAddr;
+>>>>>>> origin/PMS
 
 		// 히든 input 태그에 값 저장
 		document.getElementById('storeAddr').value = fullAddr;

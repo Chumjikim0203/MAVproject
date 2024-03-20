@@ -23,6 +23,7 @@ public class TeacherRowMapper implements RowMapper<Teacher> {
 		teacher.setLicenseImageFileName3(rs.getString("LicenseimageFileName3"));
 		teacher.setLicenseImageFileName4(rs.getString("LicenseimageFileName4"));
 		teacher.setLicenseImageFileName5(rs.getString("LicenseimageFileName5"));		
+		teacher.setTeacherimageFileName(rs.getString("teacherimageFileName"));
 		teacher.setTeacherRecode(rs.getString("teacherRecode"));
 		return teacher;
 	}

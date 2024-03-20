@@ -11,6 +11,7 @@
 <script src="https://kit.fontawesome.com/1a6288a620.js"
 	crossorigin="anonymous"></script>
 <link
+<<<<<<< HEAD
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
@@ -36,24 +37,63 @@
 
 .innershadow2:hover {
 	color: rgb(14, 14, 192);
+=======
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+   crossorigin="anonymous">
+<link
+   href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+   rel="stylesheet">
+<style>
+* {
+   font-family: 'Noto Sans KR', sans-serif;
+   text-decoration : none !important;
+}
+
+.main-container {
+   width: 80%;
+   margin: 0 auto;
+}
+
+.innershadow:hover {
+   color: red;
+}
+
+.innershadow2:hover {
+   color: rgb(14, 14, 192);
+>>>>>>> origin/PMS
 }
 
 /* ë ì§ ì íê¸° ì¤íì¼ë§ */
 input[type="date"] {
+<<<<<<< HEAD
 	padding: 8px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	font-size: 14px;
+=======
+   padding: 8px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 14px;
+>>>>>>> origin/PMS
 }
 
 /* ì íë ë ì§ ì¤íì¼ë§ */
 input[type="date"]::-webkit-datetime-edit {
+<<<<<<< HEAD
 	color: #333;
 	font-weight: bold;
+=======
+   color: #333;
+   font-weight: bold;
+>>>>>>> origin/PMS
 }
 
 /* ë¬ë ¥ ìì´ì½ ì¤íì¼ë§ */
 input[type="date"]::-webkit-calendar-picker-indicator {
+<<<<<<< HEAD
 	background-color: #ccc;
 	padding: 4px;
 	border-radius: 50%;
@@ -78,6 +118,32 @@ hr {
 	max-width: 100%;
 	display: flex;
 	justify-content: space-between;
+=======
+   background-color: #ccc;
+   padding: 4px;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+.matchlist {
+   align-items: center;
+   margin-top: 15px;
+   margin-bottom: 15px;
+}
+
+.matchinfo {
+   align-items: center;
+}
+
+hr {
+   margin-bottom: 0 !important;
+}
+
+.list-container {
+   max-width: 100%;
+   display: flex;
+   justify-content: space-between;
+>>>>>>> origin/PMS
 }
 
 .room-application-btn4 {
@@ -278,6 +344,7 @@ hr {
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 	<jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -345,6 +412,141 @@ hr {
 				<div class="d-flex text-body-secondary pt-3 col-md-12 row">
 					<c:forEach var="matchView" items="${matchView}">
 						<c:if test="${matchView.matched == 1}">
+=======
+   <jsp:include page="./section/nav.jsp" />
+   <div class="main-container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img
+                  src="<c:url value="/resources/images/${adminImages.mainslideImageName1}"/>"
+                  class="d-block w-100" alt="첫 번째 슬라이드" style="width : 100%; height : 900px;">
+            </div>
+            <div class="carousel-item">
+               <img
+                  src="<c:url value="/resources/images/${adminImages.mainslideImageName2}"/>"
+                  class="d-block w-100" alt="두 번째 슬라이드" style="width : 100%; height : 900px;">
+            </div>
+            <div class="carousel-item">
+               <img
+                  src="<c:url value="/resources/images/${adminImages.mainslideImageName2}"/>"
+                  class="d-block w-100" alt="세 번째 슬라이드" style="width : 100%; height : 900px;">
+            </div>
+         </div>
+         <!-- 이전/다음 화살표 -->
+         <a class="carousel-control-prev" href="#myCarousel" role="button"
+            data-slide="prev"> <span class="carousel-control-prev-icon"
+            aria-hidden="true"></span> <span class="sr-only"></span>
+         </a> <a class="carousel-control-next" href="#myCarousel" role="button"
+            data-slide="next"> <span class="carousel-control-next-icon"
+            aria-hidden="true"></span> <span class="sr-only"></span>
+         </a>
+      </div>
+       <div class="main col-12">
+                <div class="col-12">
+                    <div class="room-title"><h2>신규 동호회</h2></div>
+                    <div class="card-container">
+                       <c:set var="count" value="0" />
+                        <c:forEach items="${club}" var="club">
+                        <c:if test="${count < 5}">
+                            <div class="card-1" style="width: 18rem;">
+                                <a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
+                                    <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">${club.clubName}</h5>
+                                        <div class="d-flex" style="justify-content : space-around; ">
+                                           <p class="card-text clubCount mt-3 mb-3">M.${club.clubMemberCount}</p>
+                                           <p class="card-text clubPoint mt-3 mb-3">P.${club.clubPoint}</p>
+                                        </div>
+                                        <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
+                                        <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        <c:set var="count" value="${count + 1}" />
+                      </c:if>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+      <!-- 매칭룸 -->
+      <div class="list-container col-12">
+         <div class="my-3 p-3 bg-body rounded shadow"
+            style="width: 48%; border-radius: 15px; border:1px solid rgb(221, 223, 237);
+            ">
+            <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">
+               <i class="fa-solid fa-fire">&nbsp;</i></i> Matching Room
+            </h6>
+            <div class="d-flex text-body-secondary pt-3 col-md-12 row">
+               <c:forEach var="matchView" items="${matchView}">
+                  <c:if test="${matchView.matched == 1}">
+
+                     <div class="d-flex matchlist">
+                        <div class="d-flex small lh-sm w-100 matchinfo"
+                           style="margin-left: 20px;">
+                           <div>
+                              <b><h4 class="d-block">${matchView.roomTime}</h4></b>
+                           </div>
+                           <div style="margin-left: 15px">
+                              <strong class="text-gray-dark"><h5 class="mb-2">
+                                    <b>${matchView.roomName}</b>
+                                 </h5></strong> <b><span class="d-block">${matchView.roomDate}</span></b>
+                           </div>
+                        </div>
+                        <div class="col-1" style="width: auto;">
+                           <a href="./match/matchingDetail?roomNum=${matchView.roomNum}"
+                              class="room-application-btn4">매치신청</a>
+                        </div>
+                     </div>
+                     <hr>
+                  </c:if>
+               </c:forEach>
+            </div>
+            <small class="d-block text-end mt-3"> <a
+               href="match/matchingView" class="btn btn-secondary"
+               style="margin-right: 24px">모두보기</a>
+            </small>
+         </div>
+
+         <!-- 경기장 -->
+         <div class="my-3 p-3 bg-body rounded shadow"
+            style="width: 48%; border-radius: 15px; border:1px solid rgb(221, 223, 237);
+            ">
+            <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow2">
+               <i class="fa-solid fa-calendar-days"></i>&nbsp;</i></i> Field
+            </h6>
+            <div class="d-flex text-body-secondary pt-3 col-md-12 row">
+               <c:forEach var="myRooms" items="${myRooms}">
+                  <c:if test="${myRooms.matched == 0}">
+                     <div class="d-flex matchlist">
+                        <div class="d-flex small lh-sm w-100 matchinfo"
+                           style="margin-left: 20px;">
+                           <div>
+                              <b><h4 class="d-block">${myRooms.roomTime}</h4></b>
+                           </div>
+                           <div style="margin-left: 15px">
+                              <strong class="text-gray-dark"><h5 class="mb-2">
+                                    <b>${myRooms.roomName}</b>
+                                 </h5></strong> <b><span class="d-block">${myRooms.roomDate}</span></b>
+                           </div>
+                        </div>
+                        <div class="col-1" style="width: auto;">
+                           <a href="./match/roomsDetail?roomNum=${myRooms.roomNum}"
+                              class="room-application-btn4">경기장 보기</a>
+                        </div>
+                     </div>
+                     <hr>
+                  </c:if>
+               </c:forEach>
+            </div>
+            <small class="d-block text-end mt-3"> <a
+               href="room/roomView" class="btn btn-secondary"
+               style="margin-right: 24px">모두보기</a>
+            </small>
+         </div>
+      </div>
+   </div>
+>>>>>>> origin/PMS
 
 							<div class="d-flex matchlist">
 								<div class="d-flex small lh-sm w-100 matchinfo"

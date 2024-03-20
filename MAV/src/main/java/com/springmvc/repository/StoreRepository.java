@@ -21,10 +21,16 @@ public interface StoreRepository {
    void UpdateStore(Store store);
    Store DeleteStore(String storeId);
    RoomWithCoordinate getBycoordinate(int roomNum);
+<<<<<<< HEAD
    void setApproveStore(String storeId);
    List<Store> getAllStore();
 }
 
+=======
+
+}
+
+>>>>>>> origin/PMS
 /*
  * List<Room> getAllRoomsByStoreId(String storeId);
  */   

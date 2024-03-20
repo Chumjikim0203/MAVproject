@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>경기장 등록</title>
 
+<<<<<<< HEAD
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,6 +25,18 @@
 	width: 80vw;
 	margin: 0 auto;
 }
+=======
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+
+    <style>
+        .container {
+            width: 80vw;
+            margin: 0 auto;
+        }
+>>>>>>> origin/PMS
 
 .input-form-backgroud {
 	background-color: #f8f9fa;
@@ -77,6 +90,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	<br>
 	<br>
 	<br>
@@ -84,6 +98,30 @@
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">경기장 등록</h4>
+=======
+    <br><br><br>
+    <div class="container">
+        <div class="input-form-backgroud row">
+            <div class="input-form col-md-12 mx-auto">
+                <h4 class="mb-3">경기장 등록</h4>
+                
+                <form:form modelAttribute="newrooms" class="validation-form" method="post"
+                    action="${pageContext.request.contextPath}/room/addrooms" onsubmit="return validateForm()">
+              <label for="">구장이름</label>
+              <form:input  path="roomName" name="roomName" class="form-control" />
+              <div class="invalid-feedback" id="roomCountFeedback">
+                최대 참가인원을 입력해주세요
+              </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+              <label for="">경기날짜</label>
+                <form:input type="date" path="roomDate" name="roomDate" class="form-control" min="<%= LocalDate.now() %>" />
+              <div class="invalid-feedback" id="roomDateFeedback">
+                경기날짜를 입력해주세요.
+              </div>
+            </div>
+>>>>>>> origin/PMS
 
 				<form:form modelAttribute="newrooms" class="validation-form"
 					method="post"
@@ -212,6 +250,7 @@
 				roomCountFeedback.style.display = 'none';
 			}
 
+<<<<<<< HEAD
 			// 모든 필드가 입력되었을 때 폼 제출
 			return true;
 		}
@@ -229,6 +268,18 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+=======
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXBcSRQHD92K3e5bIM1QQOOy1L1lOBg/nSk"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+>>>>>>> origin/PMS
 </body>
 
 </html>

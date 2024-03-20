@@ -302,6 +302,7 @@ a:hover {
 <div class="main-container">
     <div class="main">
         <div class="col-4">
+<<<<<<< HEAD
             <div class="card mt-2 pt-3" style="margin: 0 auto; background-color: rgb(153, 162, 209);">
                 <div style="margin: 0 auto;">
                     <div class="card-m" style="margin: 0 auto; width:100%;text-align: center;">
@@ -326,6 +327,67 @@ a:hover {
                     <li class="list-group-item"><a href="store/update?storeId=${store.storeId}" class="card-link">정보수정</a></li>
                 </ul>
             </div>
+=======
+            <div class="card" style="width: 100%;">
+                <h5 class="card-title" style="text-align: center; font-size: 1.5rem;">업주</h5>
+                <img src=<c:url value="/resources/images/${store.storeImageName1}"/> class="d-block" style="width:100%;">
+                <div class="card-body">
+                    <p class="card-text" style="text-align: center; font-size: 1.2rem;">${store.storeName}</p>
+                    <p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+               <li class="list-group-item">
+                 <a href="#" id="roomManagementButton">경기장관리</a>
+                 <div id="createRoomDropdown" style="display: none;">
+                   <a href="./room/addrooms" class=""><span> - 경기장만들기</span></a>
+                 </div>
+               </li>
+                    
+                    <li class="list-group-item">
+                  <a href="#" id="MatchRoomManagementButton">매칭룸관리</a>
+                    </li>
+                     <li class="list-group-item">
+                  <a href="#" id="ResultManagementButton">결과관리</a>
+                    </li>
+               <li class="list-group-item">
+                 <a href="#" id="TournamentButton">토너먼트관리</a>
+                 <div id="createTournamentDropdown" style="display: none;">
+                   <a href="./tournament/addtournament" class=""><span> - 토너먼트 만들기</span></a>
+                 </div>
+               </li>
+                    <li class="list-group-item">
+                        <a href="store/delete?storeId=${store.storeId}">업주탈퇴</a>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <a href="store/update?storeId=${store.storeId}" class="card-link">정보수정</a>
+                </div>
+            </div>
+        </div>      
+        <div class="col-7">
+            <div class="card">
+                <h5>개인정보</h5>
+                <div class="right">
+                    <img src=<c:url value="/resources/images/${store.storeImageName2}"/> class="d-block" style="width:30%;">
+                    <div class="right-name">
+                        <p>${store.storeName}</p>
+                        <p>${member.memberEmail}</p>  
+                    </div>
+                </div>
+                <hr>
+            </div> 
+            <img src=<c:url value="/resources/images/${store.storeImageName3}"/> class="d-block" style="width:100%;">
+               <img src=<c:url value="/resources/images/${store.storeImageName4}"/> class="d-block" style="width:100%;">
+               <img src=<c:url value="/resources/images/${store.storeImageName5}"/> class="d-block" style="width:100%;">
+               
+             <br>           
+             <div>
+                <div id="content1"></div> 
+                <div id="content2"></div> 
+                <div id="content3"></div>
+                <div id="content4"></div> 
+             </div>
+>>>>>>> origin/PMS
         </div>
         <div class="col-7">
             <div class="card">

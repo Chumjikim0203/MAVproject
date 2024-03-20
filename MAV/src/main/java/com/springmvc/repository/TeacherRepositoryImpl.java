@@ -51,8 +51,28 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	public void UpdateTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
 
-		String SQL="update Teacher SET teacherCategory=?,teacherRecode=?,teacherInfomation=? where teacherId=?";
-		template.update(SQL,teacher.getTeacherCategory(),teacher.getTeacherRecode(),teacher.getTeacherInfomation(),teacher.getTeacherId());
+		String SQL="update Teacher SET "
+				+ "teacherCategory=?,"
+				+ "teacherRecode=?,"
+				+ "teacherInfomation=?,"
+				+ "teacherimageFileName=?,"
+				+ "LicenseimageFileName1=?,"
+				+ "LicenseimageFileName2=?,"
+				+ "LicenseimageFileName3=?,"
+				+ "LicenseimageFileName4=?,"
+				+ "LicenseimageFileName5=?"
+				+ "where teacherId=?";
+		template.update(SQL,
+				teacher.getTeacherCategory(),
+				teacher.getTeacherRecode(),
+				teacher.getTeacherInfomation(),
+				teacher.getTeacherimageFileName(),
+				teacher.getLicenseImageFileName1(),
+				teacher.getLicenseImageFileName2(),
+				teacher.getLicenseImageFileName3(),
+				teacher.getLicenseImageFileName4(),
+				teacher.getLicenseImageFileName5(),
+				teacher.getTeacherId());
 
 	}
 //전체 출력
