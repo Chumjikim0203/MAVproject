@@ -14,4 +14,5 @@ public interface MemberRepository
 	Member getById(String memberId);
 	Member getLogin(String memberId, String memberPassword);
 	void setStoreMember(Store store);
+	int countMemberById(String memberId);
 }

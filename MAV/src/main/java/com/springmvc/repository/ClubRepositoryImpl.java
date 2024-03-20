@@ -34,17 +34,21 @@ public class ClubRepositoryImpl implements ClubRepository
 	{		
 		club.setClubPoint(0);
 		club.setClubMaster(member.getMemberId());
-		String SQL = "insert into Club values(null,?,?,?,?,?,?,?)";
+		String SQL = "insert into Club values(null,?,?,?,?,?,?,?,?,?,?,?)";
 		template.update(SQL,
 				club.getClubName(),
 				club.getClubMaster(),
 				club.getClubCategory(),
 				club.getClubLocale(),
 				club.getClubPoint(),
-				club.getImageFileName(),
+				club.getImageFileName1(),
+				club.getImageFileName2(),
+				club.getImageFileName3(),
+				club.getImageFileName4(),
+				club.getImageFileName5(),
 				club.getClubInfo());
 		
-		System.out.println("리파짓토리에서 클럽 생성시 가져온 이미지파일 이름 : "+club.getImageFileName());
+		System.out.println("리파짓토리에서 클럽 생성시 가져온 이미지파일 이름 : "+club.getImageFileName1());
 	}
 
 	
@@ -84,9 +88,12 @@ public class ClubRepositoryImpl implements ClubRepository
 	public void updateClub(Club club,Member member) 
 	{
 		System.out.println("수정 처리할 클럽ID : "+club.getClubName());
-		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=?, imageFileName=?  where clubNum=? and clubMaster=?";
+		String SQL = "update Club set clubName=?, clubLocale=?, clubCategory=?, clubInfo=?, imageFileName1=?, imageFileName2=?"
+				+ ", imageFileName3=?, imageFileName4=?, imageFileName5=?  where clubNum=? and clubMaster=?";
 		template.update(SQL, club.getClubName(),club.getClubLocale(), club.getClubCategory(), 
-						club.getClubInfo(),club.getImageFileName(), club.getClubNum(), member.getMemberId());
+						club.getClubInfo(),club.getImageFileName1(), club.getImageFileName2(), 
+						club.getImageFileName3(), club.getImageFileName4(), club.getImageFileName5(), 
+						club.getClubNum(), member.getMemberId());
 	}
 
 	@Override
@@ -240,4 +247,13 @@ public class ClubRepositoryImpl implements ClubRepository
 		
 	}
 
+	@Override
+	public int clubMemberCount(String clubName) 
+	{
+		 String SQL = "SELECT COUNT(c_memberId) FROM clubMember WHERE clubName=?";
+		 int count = template.queryForObject(SQL, Integer.class, clubName);
+		 return count;
+	}
+
+	
 }

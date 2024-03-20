@@ -8,9 +8,15 @@
     <title>매칭 뷰</title>
     <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body{
-            width: 80vw;
+        * 
+        {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .main-container
+        {
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -23,56 +29,30 @@
           
           color: rgb(14, 14, 192);
         }
+        
+        .room-application-btn4 {
+		   padding: 0.5rem 1rem;
+		   background-color: #3A4CA8;
+		   color: white;
+		   border-radius: 0.25rem;
+		   text-decoration: none;
+		   border: none;
+		}
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand fw-bold" href="#">변수와 함수들</a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active fw-bold" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">로그인</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">토너먼트</a>
-            </li>
-            <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      동호회
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">스포츠</a></li>
-                      <li><a class="dropdown-item" href="#">문화생활</a></li>
-                      <li><a class="dropdown-item" href="#">어쩌구 저쩌구</a></li>
-                    </ul>
-                  </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
-      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
-    </div>
-  </div>
-  
-  
+<jsp:include page="./section/nav.jsp" />
+	<div class="main-container">
+	  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+	    <div class="col-md-6 px-0">
+	      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
+	      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
+	      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
+	    </div>
+	  </div>  
        <!-- 경기장 -->
       <div class="my-3 p-3 bg-body rounded shadow">
-        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">날짜 / 종목</h6>
+        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">Field</h6>
 		<c:forEach items="${myRooms}" var="room"> 
 		    <c:if test="${room.matched == 0}">
 		        <div class="d-flex text-body-secondary pt-3">
@@ -81,7 +61,7 @@
 		            <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 		                <div class="d-flex justify-content-between">
 		                    <strong class="text-gray-dark" ><h5><b>${room.roomName}</b></h5></strong>
-		                    <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}" class="btn btn-primary">방만들기</a>   
+		                    <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}" class="room-application-btn4">방만들기</a>   
 		                </div>
 		                <b>
 		                <span class="d-block">${room.roomDate}</span>
@@ -150,10 +130,7 @@
             </div>
         </div>
     </footer>
-
     </div>
-  </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

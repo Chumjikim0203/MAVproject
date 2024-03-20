@@ -1,8 +1,6 @@
 package com.springmvc.controller;
 
-import java.net.MulticastSocket;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -23,11 +21,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springmvc.domain.Club;
-import com.springmvc.domain.ClubMember;
 import com.springmvc.domain.Member;
-import com.springmvc.domain.Store;
 import com.springmvc.repository.MemberRepository;
 import com.springmvc.service.ClubService;
 import com.springmvc.service.MemberService;
@@ -60,7 +57,10 @@ public class MemberController
    
    @PostMapping("/add/member")
    public String addDone(@ModelAttribute Member member, BindingResult bindingResult, Model model)
-   {      
+   {   
+	   
+
+
       if(bindingResult.hasErrors())
       {
          return "addMember";
@@ -99,11 +99,16 @@ public class MemberController
     public String memberMyPage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Member member = (Member) session.getAttribute("member");
-
+        Club club = (Club) session.getAttribute("club");
+        
         List<Club> clubs = clubService.getMyClub(member.getMemberId());
    
-        model.addAttribute("club", clubs);
+        model.addAttribute("club", club);
+        model.addAttribute("clubs", clubs);
         model.addAttribute("member", member);
+        session.setAttribute("member", member);
+        session.setAttribute("club", club);
+        session.setAttribute("clubs", clubs);
      
         return "mypage";
     }
@@ -114,7 +119,6 @@ public class MemberController
        System.out.println("업데이트 페이지 도착");
        Member member = memberService.getById(memberId);
        
-       System.out.println("memberById에 getById 결과 대입함");
        model.addAttribute("member", member);
        
        return "updateMember";
@@ -123,8 +127,9 @@ public class MemberController
     public String updateDone(@ModelAttribute("member") Member member, HttpServletRequest request)
     {
        memberService.updateMember(member);
-       HttpSession session = request.getSession();
+       HttpSession session = request.getSession();       
        session.setAttribute("member", member);
+       System.out.println("member 변경후 저장된 주소 : "+member.getMemberAddr());
        
        return "redirect:/member/mypage";
     }
@@ -136,4 +141,26 @@ public class MemberController
        memberService.deleteMember(memberId);
        return "redirect:/member/mypage";
     }
+    
+    
+    //태영 :)
+    
+    //아이디 검증
+    @PostMapping("/checkMemberId")
+    @ResponseBody
+    public String checkMemberId(@RequestParam String memberId) {
+    	
+    	System.out.println("회원가입 왔니??");
+    	
+    	
+        int count = memberService.countMemberById(memberId); // 데이터베이스에서 memberId를 이용하여 중복 검사
+        if(count > 0) {
+            return "duplicate"; // 중복되는 경우 "duplicate" 반환
+        } else {
+            return "valid"; // 중복되지 않는 경우 "valid" 반환
+        }
+        
+    
+    }
+    
 }

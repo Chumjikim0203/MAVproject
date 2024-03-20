@@ -91,6 +91,7 @@ public class MemberRepositoryImpl implements MemberRepository
 		template.update(SQL, member.getMemberPassword() , member.getMemberBirth(), member.getMemberPhone01(), member.getMemberPhone02(), 
 						member.getMemberPhone03(),member.getMemberGender(), member.getMemberName(), member.getMemberEmail(), member.getMemberAddr(),
 						member.getMemberId());
+		System.out.println("업데이트 처리중인 멤버의 주소 : "+member.getMemberAddr());
 	}
 
 
@@ -121,6 +122,14 @@ public class MemberRepositoryImpl implements MemberRepository
 		String SQL = "insert into Store values(storeName=?, storeAddr=?, storeCategory=?,"
 				 							+ "storePhone01=? storePhone02=?, storePhone03=?,storeCode=?);";		
 		template.update(SQL, store.getStoreName());		
+	}
+
+
+
+	@Override
+	public int countMemberById(String memberId) {
+	    String sql = "SELECT COUNT(*) FROM Member WHERE memberId = ?";
+	    return template.queryForObject(sql, Integer.class, memberId);
 	}	
 	
 	

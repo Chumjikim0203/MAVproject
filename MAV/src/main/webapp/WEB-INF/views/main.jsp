@@ -1,201 +1,437 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>메인 페이지</title>
-    <script src="https://kit.fontawesome.com/1a6288a620.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <style>
-        body{
-            width: 80vw;
-            margin: 0 auto;
-        }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>메인 페이지</title>
+<script src="https://kit.fontawesome.com/1a6288a620.js"
+	crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+	crossorigin="anonymous">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+	rel="stylesheet">
+<style>
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+	text-decoration : none !important;
 
-        .innershadow:hover{
-          
-          color: red;
-        }
+}
 
-        .innershadow2:hover{
-          
-          color: rgb(14, 14, 192);
-        }
+.main-container {
+	width: 80%;
+	margin: 0 auto;
+}
 
-                /* ë ì§ ì íê¸° ì¤íì¼ë§ */
-        input[type="date"] {
-          padding: 8px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          font-size: 14px;
-        }
+.innershadow:hover {
+	color: red;
+}
 
-        /* ì íë ë ì§ ì¤íì¼ë§ */
-        input[type="date"]::-webkit-datetime-edit {
-          color: #333;
-          font-weight: bold;
-        }
+.innershadow2:hover {
+	color: rgb(14, 14, 192);
 
-        /* ë¬ë ¥ ìì´ì½ ì¤íì¼ë§ */
-        input[type="date"]::-webkit-calendar-picker-indicator {
-          background-color: #ccc;
-          padding: 4px;
-          border-radius: 50%;
-          cursor: pointer;
-        }
-    </style>
-  </head>
-  <body>
-<jsp:include page="./section/nav.jsp" />
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png" class="d-block w-100" alt="첫 번째 슬라이드">
-          </div>
-          <div class="carousel-item">
-            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/7cc7ad0c-9886-4bc2-b5f3-ea1c1e6bf5b0/image.png" class="d-block w-100" alt="두 번째 슬라이드">
-          </div>
-          <div class="carousel-item">
-            <img src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/0f48ad69-e539-4c6d-8e60-40b9ad120b03/image.png" class="d-block w-100" alt="세 번째 슬라이드">
-          </div>
-        </div>
-        <!-- 이전/다음 화살표 -->
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only"></span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only"></span>
-        </a>
-      </div>
-  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
-      <p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">참여하기</a></p>
-    </div>
-  </div>
-       <!-- 매칭룸 -->
-      <div class="my-3 p-3 bg-body rounded shadow">
-        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow"><i class="fa-solid fa-fire">&nbsp;</i></i> Mattching Room</h6>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">전체</a>
-          </li>&nbsp;
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">종목</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">탁구</a></li>
-              <li><a class="dropdown-item" href="#">풋살</a></li>
-              <li><a class="dropdown-item" href="#">축구</a></li>
-              <li><a class="dropdown-item" href="#">농구</a></li>
-              <li><a class="dropdown-item" href="#">야구</a></li>
-              <li><a class="dropdown-item" href="#">볼링</a></li>
-              <li><a class="dropdown-item" href="#">당구</a></li>
-              <li><a class="dropdown-item" href="#">배드민턴</a></li>
-              <li><a class="dropdown-item" href="#">골프</a></li>
-              <li><a class="dropdown-item" href="#">스쿼시</a></li>
-              <li><a class="dropdown-item" href="#">테니스</a></li>
-              <li><hr class="dropdown-divider"></li>
-            </ul>
-          </li>
-          &nbsp;
-          <label for="datepicker"></label>
-          <input type="date" id="datepicker">
-        </ul>
-        <div class="d-flex text-body-secondary pt-3">
-          <img  style="border-radius: 4px; border: 0.5px solid bisque;" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_PkKzsY07RqP-frp2roB5BKgqJpedPttcdFfhHwg.JPEG.renoma4339%2F20231023%25A3%25DF220440.jpg" alt="" width="100" height="100">
-          &nbsp;&nbsp;&nbsp;
-          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-            <div class="d-flex justify-content-between">
-              <strong class="text-gray-dark" ><h5><b>날아라 숫돌이 경기장</b></h5></strong>
-              <button class="btn btn-danger" type="submit">매칭하기</button>
-            </div>
-            <b>
-              <span class="d-block">2024-03-21</span>
-              <br>
-              <span class="d-block">17:00</span>
-            </b>  
-          </div>
-        </div>
-        <small class="d-block text-end mt-3">
-          <button type="button" class="btn btn-secondary">모두보기</button>
-        </small>
-      </div>
+}
 
-      <!-- 경기장 -->
-      <div class="my-3 p-3 bg-body rounded shadow">
-        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow2"><i class="fa-solid fa-calendar-days"></i>&nbsp;</i></i> Field</h6>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">전체</a>
-          </li>&nbsp;
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">종목</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">탁구</a></li>
-              <li><a class="dropdown-item" href="#">풋살</a></li>
-              <li><a class="dropdown-item" href="#">축구</a></li>
-              <li><a class="dropdown-item" href="#">농구</a></li>
-              <li><a class="dropdown-item" href="#">야구</a></li>
-              <li><a class="dropdown-item" href="#">볼링</a></li>
-              <li><a class="dropdown-item" href="#">당구</a></li>
-              <li><a class="dropdown-item" href="#">배드민턴</a></li>
-              <li><a class="dropdown-item" href="#">골프</a></li>
-              <li><a class="dropdown-item" href="#">스쿼시</a></li>
-              <li><a class="dropdown-item" href="#">테니스</a></li>
-              <li><hr class="dropdown-divider"></li>
-            </ul>
-          </li>
-          &nbsp;
-          <label for="datepicker"></label>
-          <input type="date" id="datepicker" >
-        </ul>
-        <div class="d-flex text-body-secondary pt-3">
-          <img  style="border-radius: 4px; border: 0.5px solid bisque;" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_PkKzsY07RqP-frp2roB5BKgqJpedPttcdFfhHwg.JPEG.renoma4339%2F20231023%25A3%25DF220440.jpg" alt="" width="100" height="100">
-          &nbsp;&nbsp;&nbsp;
-          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-            <div class="d-flex justify-content-between">
-              <strong class="text-gray-dark" ><h5><b>날아라 숫돌이 경기장</b></h5></strong>
-              <button class="btn btn-primary" type="submit">방만들기</button>
-            </div>
-            <b>
-              <span class="d-block">2024-03-21</span>
-              <br>
-              <span class="d-block">17:00</span>
-            </b>  
-          </div>
-        </div>
-        <small class="d-block text-end mt-3">
-          <button type="button" class="btn btn-secondary">모두보기</button>
-        </small>
-      </div>    
-    </div>
-  </div>
+/* ë ì§ ì íê¸° ì¤íì¼ë§ */
+input[type="date"] {
+
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 14px;
+
+}
+
+/* ì íë ë ì§ ì¤íì¼ë§ */
+input[type="date"]::-webkit-datetime-edit {
+
+	color: #333;
+	font-weight: bold;
+
+}
+
+/* ë¬ë ¥ ìì´ì½ ì¤íì¼ë§ */
+input[type="date"]::-webkit-calendar-picker-indicator {
+
+	background-color: #ccc;
+	padding: 4px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.matchlist {
+	align-items: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.matchinfo {
+	align-items: center;
+}
+
+hr {
+	margin-bottom: 0 !important;
+}
+
+.list-container {
+	max-width: 100%;
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.room-application-btn4 {
+   padding: 0.5rem 1rem;
+   background-color: #3A4CA8;
+   color: white;
+   border-radius: 0.25rem;
+   text-decoration: none;
+   border: none;
+}
+  .main {
+        display: flex;
+    }
+
+    .col-4 {
+        margin-right: auto;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border: none;
+    }
+
+    .img1 {
+        border-radius: 50%;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .right,
+    .right-name {
+        display: flex;
+    }
+
+    .right img {
+        width: 30%;
+    }
+
+    .card-title,
+    .card-text {
+        margin: 0;
+    }
+
+    .list-group-item a {
+        text-decoration: none;
+        color: #212529;
+    }
+
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    .card-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .card-link:hover {
+        text-decoration: underline;
+    }
+
+    .card h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        margin-right: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #007bff;
+    }
+
+    a {
+        color: black;
+        text-decoration: none !important;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .room-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        color: #343a40;
+    }
+
+    .room-application-btn {
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: white;
+        border-radius: 0.25rem;
+        text-decoration: none;
+    }
+
+    .room-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tab {
+        overflow: hidden;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+    }
+
+    .tab button:hover {}
+
+    .tab button.active {}
+
+    .tabcontent {
+        display: none;
+    }
+
+    .club-choose {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .body-btn {
+        text-decoration: none;
+        border: 1px solid silver;
+        border-radius: 10px;
+        color: black;
+        padding: 10px;
+    }
+
+    .clublistimage {
+        height: 450px;
+    }
+
+    .clublistimage img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .default-image {
+        background-image: url("/resources/images/MAVlogo.png");
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .card-1 img {
+        height: 180px;
+        width: 230px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .clubCount {
+        background-color: #3a4ca8;
+        padding: 1px;
+        border-radius: 5px;
+        color: white;
+        width: 80px;
+    }
+
+    .clubPoint {
+        background-color: #fd9f28;
+        padding: 1px;
+        border-radius: 5px;
+        color: white;
+        width: 80px;
+    }
+</style>
+</head>
+<body>
+	<jsp:include page="./section/nav.jsp" />
+	<div class="main-container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img
+						src="<c:url value="/resources/images/${adminImages.mainslideImageName1}"/>"
+						class="d-block w-100" alt="첫 번째 슬라이드" style="width : 100%; height : 900px;">
+				</div>
+				<div class="carousel-item">
+					<img
+						src="<c:url value="/resources/images/${adminImages.mainslideImageName2}"/>"
+						class="d-block w-100" alt="두 번째 슬라이드" style="width : 100%; height : 900px;">
+				</div>
+				<div class="carousel-item">
+					<img
+						src="<c:url value="/resources/images/${adminImages.mainslideImageName2}"/>"
+						class="d-block w-100" alt="세 번째 슬라이드" style="width : 100%; height : 900px;">
+				</div>
+			</div>
+			<!-- 이전/다음 화살표 -->
+			<a class="carousel-control-prev" href="#myCarousel" role="button"
+				data-slide="prev"> <span class="carousel-control-prev-icon"
+				aria-hidden="true"></span> <span class="sr-only"></span>
+			</a> <a class="carousel-control-next" href="#myCarousel" role="button"
+				data-slide="next"> <span class="carousel-control-next-icon"
+				aria-hidden="true"></span> <span class="sr-only"></span>
+			</a>
+		</div>
+		 <div class="main col-12">
+				    <div class="col-12">
+				        <div class="room-title"><h2>신규 동호회</h2></div>
+				        <div class="card-container">
+				        	<c:set var="count" value="0" />
+				            <c:forEach items="${club}" var="club">
+				            <c:if test="${count < 5}">
+				                <div class="card-1" style="width: 18rem;">
+				                    <a href="<c:url value="/club/clubinfo"/>?clubName=${club.clubName}">
+				                        <img class="card-img-top" src="<c:url value="/resources/images/${club.imageFileName1}"/>" onerror="this.classList.add('default-image');" />
+				                        <div class="card-body">
+				                            <h5 class="card-title">${club.clubName}</h5>
+				                            <div class="d-flex" style="justify-content : space-around; ">
+				                            	<p class="card-text clubCount mt-3 mb-3">M.${club.clubMemberCount}</p>
+				                            	<p class="card-text clubPoint mt-3 mb-3">P.${club.clubPoint}</p>
+				                            </div>
+				                            <p class="card-text clubCategory">동호회 종류 : ${club.clubCategory}</p>
+				                            <p class="card-text clubLocale">동호회 지역 : ${club.clubLocale}</p>
+				                        </div>
+				                    </a>
+				                </div>
+				            <c:set var="count" value="${count + 1}" />
+    						</c:if>
+				            </c:forEach>
+				        </div>
+				    </div>
+				</div>
+		<!-- 매칭룸 -->
+		<div class="list-container col-12">
+			<div class="my-3 p-3 bg-body rounded shadow"
+				style="width: 48%; border-radius: 15px; border:1px solid rgb(221, 223, 237);
+				">
+				<h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">
+					<i class="fa-solid fa-fire">&nbsp;</i></i> Matching Room
+				</h6>
+				<div class="d-flex text-body-secondary pt-3 col-md-12 row">
+					<c:forEach var="matchView" items="${matchView}">
+						<c:if test="${matchView.matched == 1}">
+
+							<div class="d-flex matchlist">
+								<div class="d-flex small lh-sm w-100 matchinfo"
+									style="margin-left: 20px;">
+									<div>
+										<b><h4 class="d-block">${matchView.roomTime}</h4></b>
+									</div>
+									<div style="margin-left: 15px">
+										<strong class="text-gray-dark"><h5 class="mb-2">
+												<b>${matchView.roomName}</b>
+											</h5></strong> <b><span class="d-block">${matchView.roomDate}</span></b>
+									</div>
+								</div>
+								<div class="col-1" style="width: auto;">
+									<a href="./match/matchingDetail?roomNum=${matchView.roomNum}"
+										class="room-application-btn4">매치신청</a>
+								</div>
+							</div>
+							<hr>
+						</c:if>
+					</c:forEach>
+				</div>
+				<small class="d-block text-end mt-3"> <a
+					href="match/matchingView" class="btn btn-secondary"
+					style="margin-right: 24px">모두보기</a>
+				</small>
+			</div>
+
+			<!-- 경기장 -->
+			<div class="my-3 p-3 bg-body rounded shadow"
+				style="width: 48%; border-radius: 15px; border:1px solid rgb(221, 223, 237);
+				">
+				<h6 class="border-bottom pb-2 mb-0 fw-bold innershadow2">
+					<i class="fa-solid fa-calendar-days"></i>&nbsp;</i></i> Field
+				</h6>
+				<div class="d-flex text-body-secondary pt-3 col-md-12 row">
+					<c:forEach var="myRooms" items="${myRooms}">
+						<c:if test="${myRooms.matched == 0}">
+							<div class="d-flex matchlist">
+								<div class="d-flex small lh-sm w-100 matchinfo"
+									style="margin-left: 20px;">
+									<div>
+										<b><h4 class="d-block">${myRooms.roomTime}</h4></b>
+									</div>
+									<div style="margin-left: 15px">
+										<strong class="text-gray-dark"><h5 class="mb-2">
+												<b>${myRooms.roomName}</b>
+											</h5></strong> <b><span class="d-block">${myRooms.roomDate}</span></b>
+									</div>
+								</div>
+								<div class="col-1" style="width: auto;">
+									<a href="./match/roomsDetail?roomNum=${myRooms.roomNum}"
+										class="room-application-btn4">경기장 보기</a>
+								</div>
+							</div>
+							<hr>
+						</c:if>
+					</c:forEach>
+				</div>
+				<small class="d-block text-end mt-3"> <a
+					href="room/roomView" class="btn btn-secondary"
+					style="margin-right: 24px">모두보기</a>
+				</small>
+			</div>
+		</div>
+	</div>
 <jsp:include page="./section/footer.jsp" />
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      // datepicker 요소 가져오기
-      var datepicker = document.getElementById('datepicker');
+	<script>
+		// datepicker 요소 가져오기
+		var datepicker = document.getElementById('datepicker');
 
-      // datepicker 값 변경 시 이벤트 처리
-      datepicker.addEventListener('change', function() {
-        var selectedDate = datepicker.value;
-        console.log('선택된 날짜:', selectedDate);
+		// datepicker 값 변경 시 이벤트 처리
+		datepicker.addEventListener('change', function() {
+			var selectedDate = datepicker.value;
+			console.log('선택된 날짜:', selectedDate);
 
-        // 선택된 날짜를 기반으로 추가 작업 수행
-        // 예: 서버에 전송, 다른 동작 수행 등
-});
-    </script>
-    
-  </body>
+			// 선택된 날짜를 기반으로 추가 작업 수행
+			// 예: 서버에 전송, 다른 동작 수행 등
+		});
+	</script>
+
+</body>
 </html>

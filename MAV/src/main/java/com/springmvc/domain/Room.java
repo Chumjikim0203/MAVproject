@@ -12,13 +12,18 @@ public class Room
 {
 	private int roomNum; // 경기장 번호    
     private String storeId; // 상점 ID
-    private String roomName; // 경기장 이름
+	private String roomName; // 경기장 이름
     private int roomCapacity; // 경기장 수용인원   
     private int roomCount; // 경기장 참가인원
     private String roomCategory; // 경기 종류(종목)
     private String roomDetail; // 경기장 소개글
+    private Double latitude;
+    private Double longitude;
+    private Store store;
 
-    @NotNull(message = "경기 날짜를 입력해주세요")
+
+
+	@NotNull(message = "경기 날짜를 입력해주세요")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate roomDate; // 경기 날짜
 
@@ -26,7 +31,7 @@ public class Room
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime roomTime; // 경기 시간
     
-   
+   //상태에 따라 값을 다르게 해서 뷰페이지 보이는것 조절
     private int matched;
     
 
@@ -45,6 +50,8 @@ public class Room
       this.roomCapacity = 1;
       this.matched = 0;
 	}
+	
+	
 
    
    public String getStoreId() {
@@ -119,5 +126,31 @@ public class Room
       this.roomTime = roomTime;
    }
    
-} 
+   public Double getLatitude() {
+		return latitude;
+	}
 
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	
+    public Store getStore() {
+		return store;
+	}
+
+
+	public void setStore(Store store) {
+		this.store = store;
+	}
+} 

@@ -6,9 +6,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * 
+        {
+            font-family: 'Noto Sans KR', sans-serif;
+        }        
+    </style>
 <title></title>
 </head>
 <body>
+<div>
             <!-- 매칭룸관리 -->
         <div class="room-title">매칭룸관리</div>
         <c:forEach items="${myRooms}" var="room">
@@ -27,10 +35,8 @@
                                     </div>
                                     <span class="room-application ">
                                         <a href="<c:url value='/match/matchingDetail'/>?roomNum=${MatchRoom.roomNum}"
-                                            class="room-application-link room-application-btn2">조회</a>
-                                        <!-- 수정코드 필요여부에 따라 -->
-                                        <%-- <a href="<c:url value='/room/roomsUpdate'/>?roomNum=${room.roomNum}" class="room-application-link room-application-btn2">수정</a> --%>
-                                        <a href="#" class="room-application-link room-application-btn2"
+                                            class="room-application-link room-application-btn5">조회</a>
+                                        <a href="#" class="room-application-link room-application-btn5"
                                             onclick="confirmDelete(${room.roomNum});">삭제</a>
                                     </span>
                                     

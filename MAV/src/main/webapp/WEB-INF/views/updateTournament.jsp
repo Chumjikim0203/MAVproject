@@ -15,9 +15,14 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        * 
+        {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
         .container {
-            width: 70%;
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -67,7 +72,7 @@
 </head>
 
 <body>
-    <br><br><br>
+    <jsp:include page="./section/nav.jsp" />
     <div class="container">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">

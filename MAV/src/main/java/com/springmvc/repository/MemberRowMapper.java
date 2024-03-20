@@ -24,6 +24,7 @@ public class MemberRowMapper implements RowMapper<Member>
 		member.setMemberName(rs.getString("memberName"));
 		member.setMemberAddr(rs.getString("memberAddr"));
 		member.setMemberEmail(rs.getString("memberEmail"));
+		member.setAdminApprove(rs.getBoolean("adminApprove"));
 		return member;
 	}	
 }

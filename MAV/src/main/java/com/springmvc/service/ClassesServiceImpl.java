@@ -13,9 +13,9 @@ public class ClassesServiceImpl implements ClasseService{
 	@Autowired
 	private ClassesRepository classesRepository;
 	@Override
-	public List<Classes> getAllClassesList(Classes classes) {
+	public List<Classes> getAllClassesList() {
 		// TODO Auto-generated method stub
-		return classesRepository.getAllClassesList(classes);
+		return classesRepository.getAllClassesList();
 	}
 
 	@Override
@@ -42,7 +42,14 @@ public class ClassesServiceImpl implements ClasseService{
 		classesRepository.setUpdateClasses(classes);
 	}
 
+	@Override
+	public void setApproveClasses(int classNum) 
+	{
+		classesRepository.setApproveClasses(classNum);
+		
+	}
 
+	
 
 
 

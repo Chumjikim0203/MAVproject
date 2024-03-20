@@ -27,16 +27,20 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	@Override
 	public void CreateTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
-	//강사 등록	
-		teacher.setTeacherApprove(true);
-		String SQL="INSERT INTO Teacher (teacherId,teacherImages,teacherCategory,teacherRecode,teacherLicense,teacherInfomation,teacherApprove)"
-		+"values(?,?,?,?,?,?,?)";
+	//강사 등록
+		
+		String SQL="INSERT INTO Teacher (teacherId,teacherimageFileName,teacherCategory,teacherRecode,LicenseimageFileName1,LicenseimageFileName2,LicenseimageFileName3,LicenseimageFileName4,LicenseimageFileName5,teacherInfomation,teacherApprove)"
+		+"values(?,?,?,?,?,?,?,?,?,?,?)";
 		template.update(SQL,
 				teacher.getTeacherId(),
-				teacher.getTeacherImages(),
+				teacher.getTeacherimageFileName(),
 				teacher.getTeacherCategory(),
 				teacher.getTeacherRecode(),
-				teacher.getTeacherLicense(),
+			    teacher.getLicenseImageFileName1(),
+			    teacher.getLicenseImageFileName2(),
+			    teacher.getLicenseImageFileName3(),
+			    teacher.getLicenseImageFileName4(),
+			    teacher.getLicenseImageFileName5(),
 				teacher.getTeacherInfomation(),
 				teacher.isTeacherApprove()
 				);
@@ -47,8 +51,28 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	public void UpdateTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
 
-		String SQL="update Teacher SET teacherCategory=?,teacherRecode=?,teacherInfomation=? where teacherId=?";
-		template.update(SQL,teacher.getTeacherCategory(),teacher.getTeacherRecode(),teacher.getTeacherInfomation(),teacher.getTeacherId());
+		String SQL="update Teacher SET "
+				+ "teacherCategory=?,"
+				+ "teacherRecode=?,"
+				+ "teacherInfomation=?,"
+				+ "teacherimageFileName=?,"
+				+ "LicenseimageFileName1=?,"
+				+ "LicenseimageFileName2=?,"
+				+ "LicenseimageFileName3=?,"
+				+ "LicenseimageFileName4=?,"
+				+ "LicenseimageFileName5=?"
+				+ "where teacherId=?";
+		template.update(SQL,
+				teacher.getTeacherCategory(),
+				teacher.getTeacherRecode(),
+				teacher.getTeacherInfomation(),
+				teacher.getTeacherimageFileName(),
+				teacher.getLicenseImageFileName1(),
+				teacher.getLicenseImageFileName2(),
+				teacher.getLicenseImageFileName3(),
+				teacher.getLicenseImageFileName4(),
+				teacher.getLicenseImageFileName5(),
+				teacher.getTeacherId());
 
 	}
 //전체 출력
@@ -78,10 +102,18 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	       }
 	   }
 	@Override
-	public void deleteTeacher(String teacherId) {
+	public Teacher deleteTeacher(String teacherId) {
 		String SQL="DELETE FROM Teacher where teacherId=?";
-		this.template.update(SQL,teacherId);
+		template.update(SQL,teacherId);
+		return null;
 		
 	}
-	   
+	@Override
+	public void setApproveTeacher(String teacherId) 
+	{
+		String SQL = "update teacher set teacherApprove = true where teacherId=?";
+		template.update(SQL, teacherId);		
+	}
+	
+	
 }
