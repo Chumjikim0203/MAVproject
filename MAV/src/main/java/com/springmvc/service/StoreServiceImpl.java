@@ -83,7 +83,6 @@ public class StoreServiceImpl implements StoreService {
 	public RoomWithCoordinate getBycoordinate(int roomNum) {
 		return storeRepository.getBycoordinate(roomNum);
 	}
-<<<<<<< HEAD
 
 	@Override
 	public void setApproveStore(String storeId) 
@@ -97,7 +96,5 @@ public class StoreServiceImpl implements StoreService {
 		
 		return storeRepository.getAllStore();
 	}
-=======
->>>>>>> origin/PMS
 	
 }

@@ -59,26 +59,17 @@
     <div class="container">
        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
            <div class="carousel-inner">
-               <div class="carousel-item active">
-<<<<<<< HEAD
-                   <img src=<c:url value="/resources/images/${classes.classImagesFileName1}"/> class="d-block w-100" alt="첫 번째 슬라이드">
-               </div>
-             <div class="carousel-item active">
-              <img src=<c:url value="/resources/images/${classes.classImagesFileName2}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
-             </div>
-             <div class="carousel-item active">
-               <img src=<c:url value="/resources/images/${classes.classImagesFileName3}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
-=======
-                   <img src=<c:url value="/resources/images/${detailclass.classImagesFileName1}"/> class="d-block w-100" alt="첫 번째 슬라이드">
-               </div>
-             <div class="carousel-item active">
-              <img src=<c:url value="/resources/images/${detailclass.classImagesFileName2}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
-             </div>
-             <div class="carousel-item active">
-               <img src=<c:url value="/resources/images/${detailclass.classImagesFileName4}"/> class="d-block w-100" alt="첫 번째 슬라이드" class="d-block w-100" alt="첫 번째 슬라이드">
->>>>>>> origin/PMS
-             </div>
-           </div>
+			    <div class="carousel-item active">
+			        <img src="/MAV/resources/images/${detailclass.classImagesFileName1}" class="d-block w-100" alt="첫 번째 슬라이드">
+			    </div>
+			    <div class="carousel-item active">
+			        <img src="/MAV/resources/images/${detailclass.classImagesFileName2}" class="d-block w-100" alt="첫 번째 슬라이드" >
+			    </div>
+			    <div class="carousel-item active">
+			        <img src="/MAV/resources/images/${detailclass.classImagesFileName4}" class="d-block w-100" alt="첫 번째 슬라이드">
+			    </div>
+			</div>
+
            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
              <span class="visually-hidden">Previous</span>
@@ -102,12 +93,11 @@
             <div class="detail-box detail-right" style="height: 810px;">
                 <h2>강의 정보</h2>
                 <c:choose>
-                	<c:when test="${member.memberId eq detailclass.teacherId}">
-	                	<a href="/MAV/Class/updateclass?classNum=${detailclass.classNum}" class="btn btn-primary mt-2">수정</a>
-                	</c:when>
+                   <c:when test="${member.memberId eq detailclass.classId}">
+                      <a href="/MAV/Class/updateclass?classNum=${detailclass.classNum}" class="btn btn-primary mt-2">수정</a>
+                   </c:when>
                 </c:choose>
-               <!-- 강의 신청하기 버튼 -->
-            
+               <!-- 강의 신청하기 버튼 -->            
             <a href="/MAV/Class/addmember?classNum=${detailclass.classNum}" class="btn btn-primary mt-2">강의신청하기</a>
                  <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   ${detailclass.className} 수강생 목록
@@ -162,7 +152,5 @@
         
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.springmvc.controller;
 
-<<<<<<< HEAD
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,23 +28,12 @@ import com.springmvc.service.AdminImagesService;
 import com.springmvc.service.ClasseService;
 import com.springmvc.service.StoreService;
 import com.springmvc.service.TeacherService;
-=======
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.springmvc.domain.Member;
->>>>>>> origin/PMS
 
 @Controller
 @RequestMapping("/admin")
 public class adminController 
 {
-<<<<<<< HEAD
+
 	@Autowired
 	private TeacherService teacherService;
 	@Autowired
@@ -55,14 +43,11 @@ public class adminController
 	@Autowired
 	private AdminImagesService adminImagesService;
 	
-=======
->>>>>>> origin/PMS
 	@GetMapping("/adminpage")
 	public String adminPage(Model model, HttpServletRequest request)
 	{
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
-<<<<<<< HEAD
 		Teacher teacher = (Teacher) session.getAttribute("teacher");
 		Store store = (Store) session.getAttribute("store");
 		List<Teacher> allTeacher = teacherService.AllTeacher();
@@ -232,8 +217,5 @@ public class adminController
 		session.setAttribute("adminImages", adminImages);
 		return "redirect:/admin/adminpage";
 	}
-=======
-		return "adminpage";
-	}
->>>>>>> origin/PMS
+
 }

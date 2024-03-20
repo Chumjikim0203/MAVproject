@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="classLecturedate">강의날짜</label>
-                    <form:hidden class="form-control" path="teacherId" value="${teacher.teacherId}"/>
+                    <form:hidden class="form-control" path="classId" value="${member.memberId}"/>
         
                     <form:input type="date" class="form-control" path="classLecturedate" min="<%= LocalDate.now() %>"  />
 					<div class="invalid-feedback">

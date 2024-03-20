@@ -46,7 +46,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="className" class="form-label">강의명</label>
                                     <form:input path="className" class="form-control" value="${classes.className}"/>
-                                    <form:hidden  class="form-control"  path="teacherId" value="${member.memberId}" />
+                                    <form:hidden  class="form-control"  path="classId" value="${member.memberId}" />
                                 </div>
                             </div>
                             <div class="invalid-feedback">

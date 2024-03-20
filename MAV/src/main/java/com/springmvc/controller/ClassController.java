@@ -93,67 +93,66 @@ public class ClassController {
 		return "addclass";
 	}
 
-	//강의등록 하기버튼
-	  @PostMapping("/addclass") 
-	  public String createaddclass(@ModelAttribute Classes classes,
-			  BindingResult bindingResult, 
-			  Model model,HttpServletRequest request,Teacher teacher)
-	  { 
-	  HttpSession sessionId=request.getSession();	
-	  teacher= (Teacher)sessionId.getAttribute("teacher");
-	  classes = (Classes) model.getAttribute("classes");
-	  System.out.println("addteacherId:"+teacher.getTeacherId());
-	  List<MultipartFile> classImages = new ArrayList<MultipartFile>();
-      List<String> classImagesFileName = new ArrayList<String>();
-		String save = request.getSession().getServletContext().getRealPath("/resources/images");
-		//이미지 경로 =SAVE
-		System.out.println("이미지경로:"+save);		
-		classImages.add(classes.getClassImages1());
-		classImages.add(classes.getClassImages2());
-		classImages.add(classes.getClassImages3());
-		classImages.add(classes.getClassImages4());
-		classImages.add(classes.getClassImages5());
-		
-		for(int i=0; i<classImages.size(); i++)
-		{
-			MultipartFile file = classImages.get(i);
-			String saveName = file.getOriginalFilename();			
-			classImagesFileName.add(saveName);			
-			System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
-			
-			File saveFile= new File(save, saveName);
-			
-			if(file !=null && !file.isEmpty())
-			{
-				try {
-		            file.transferTo(saveFile);
-		            // 여기에 각 이미지 이름을 store 객체에 설정하는 로직을 추가합니다.
-		            switch(i) {
-		                case 0: classes.setClassImagesFileName1(saveName); break;
-		                case 1: classes.setClassImagesFileName2(saveName); break;
-		                case 2: classes.setClassImagesFileName3(saveName); break;
-		                case 3: classes.setClassImagesFileName4(saveName); break;
-		                case 4: classes.setClassImagesFileName5(saveName); break;
-		            }
-		        } catch (Exception e) {
-		            throw new RuntimeException("이미지 업로드가 실패했습니다.", e);
-		        }
-			}
-			
-		}
-		classes.setClassImagesFileName1(classImagesFileName.get(0));
-		classes.setClassImagesFileName2(classImagesFileName.get(1));
-		classes.setClassImagesFileName3(classImagesFileName.get(2));
-		classes.setClassImagesFileName4(classImagesFileName.get(3));
-		classes.setClassImagesFileName5(classImagesFileName.get(4));
-	  
-	  model.addAttribute("teacher",teacher); 
-	  model.addAttribute("classes",classes); 
-	  ClassesService.setNewClasses(classes);
-	 // return "redirect:/teacher";
-	  return "redirect:/teacher";
+    @PostMapping("/addclass") 
+    public String createaddclass(@ModelAttribute Classes classes,
+          BindingResult bindingResult, 
+          Model model,HttpServletRequest request,Teacher teacher)
+    { 
+    HttpSession sessionId=request.getSession();   
+    teacher= (Teacher)sessionId.getAttribute("teacher");
+    classes = (Classes) model.getAttribute("classes");
+    System.out.println("addteacherId:"+teacher.getTeacherId());
+    List<MultipartFile> classImages = new ArrayList<MultipartFile>();
+     List<String> classImagesFileName = new ArrayList<String>();
+     String save = request.getSession().getServletContext().getRealPath("/resources/images");
+     //이미지 경로 =SAVE
+     System.out.println("이미지경로:"+save);      
+     classImages.add(classes.getClassImages1());
+     classImages.add(classes.getClassImages2());
+     classImages.add(classes.getClassImages3());
+     classImages.add(classes.getClassImages4());
+     classImages.add(classes.getClassImages5());
+     
+     for(int i=0; i<classImages.size(); i++)
+     {
+        MultipartFile file = classImages.get(i);
+        String saveName = file.getOriginalFilename();         
+        classImagesFileName.add(saveName);         
+        System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+        
+        File saveFile= new File(save, saveName);
+        
+        if(file !=null && !file.isEmpty())
+        {
+           try {
+                 file.transferTo(saveFile);
+                 // 여기에 각 이미지 이름을 store 객체에 설정하는 로직을 추가합니다.
+                 switch(i) {
+                     case 0: classes.setClassImagesFileName1(saveName); break;
+                     case 1: classes.setClassImagesFileName2(saveName); break;
+                     case 2: classes.setClassImagesFileName3(saveName); break;
+                     case 3: classes.setClassImagesFileName4(saveName); break;
+                     case 4: classes.setClassImagesFileName5(saveName); break;
+                 }
+             } catch (Exception e) {
+                 throw new RuntimeException("이미지 업로드가 실패했습니다.", e);
+             }
+        }
+        
+     }
+     classes.setClassImagesFileName1(classImagesFileName.get(0));
+     classes.setClassImagesFileName2(classImagesFileName.get(1));
+     classes.setClassImagesFileName3(classImagesFileName.get(2));
+     classes.setClassImagesFileName4(classImagesFileName.get(3));
+     classes.setClassImagesFileName5(classImagesFileName.get(4));
+    
+    model.addAttribute("teacher",teacher); 
+    model.addAttribute("classes",classes); 
+    ClassesService.setNewClasses(classes);
+   // return "redirect:/teacher";
+    return "redirect:/teacher";
 
-	  }
+    }
 //	  @GetMapping("/allclass")
 //	  public String readclasses(Model model ,Classes classes) {
 //		  System.out.println("allclass 도착");
@@ -164,71 +163,71 @@ public class ClassController {
 //		  model.addAttribute("allclass",allclasses);
 //		  return "teacher";
 //	  }
-	  @GetMapping("/updateclass")
-	  public String updateclass(@RequestParam ("classNum")int classNum, Model model,HttpServletRequest request,Member member,Teacher teacher) {
-		  HttpSession sessionId=request.getSession();	
-		  member= (Member)sessionId.getAttribute("member");
-          teacher= teacherService.teacherId(member.getMemberId());
-		  System.out.println("updateclass도착:"+classNum);
-		  Classes getById=ClassesService.getById(classNum);
-		  model.addAttribute("classes",getById);
-		  model.addAttribute("teacher",teacher);
-		  model.addAttribute("member",member);
-//		  뷰페이지에  <form:form modelAttribute="classes" 와 매핑
-		  return "classupdateform";
-	  }
-	  @PostMapping("/updateclass")
-	  public String updateclass2(@ModelAttribute("classes")  Classes classes,Model model,HttpServletRequest request){
-		  System.out.println("update2도착");
-		  System.out.println("classname"+classes.getClassName());
-		  System.out.println("classnum"+classes.getClassNum());
-		  List<MultipartFile> classImages = new ArrayList<MultipartFile>();
-	      List<String> classImagesFileName = new ArrayList<String>();
-			String save = request.getSession().getServletContext().getRealPath("/resources/images");
-			//이미지 경로 =SAVE
-			System.out.println("이미지경로:"+save);		
-			classImages.add(classes.getClassImages1());
-			classImages.add(classes.getClassImages2());
-			classImages.add(classes.getClassImages3());
-			classImages.add(classes.getClassImages4());
-			classImages.add(classes.getClassImages5());
-			
-			for(int i=0; i<classImages.size(); i++)
-			{
-				MultipartFile file = classImages.get(i);
-				String saveName = file.getOriginalFilename();			
-				classImagesFileName.add(saveName);			
-				System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
-				
-				File saveFile= new File(save, saveName);
-				
-				 if(file !=null && !file.isEmpty()) {
-				        try {
-				            file.transferTo(saveFile);
-				            // 여기에 각 이미지 이름을 store 객체에 설정하는 로직을 추가합니다.
-				            switch(i) {
-				                case 0: classes.setClassImagesFileName1(saveName); break;
-				                case 1: classes.setClassImagesFileName2(saveName); break;
-				                case 2: classes.setClassImagesFileName3(saveName); break;
-				                case 3: classes.setClassImagesFileName4(saveName); break;
-				                case 4: classes.setClassImagesFileName5(saveName); break;
-				            }
-				        } catch (Exception e) {
-				            throw new RuntimeException("이미지 업로드가 실패했습니다.", e);
-				        }
-				    }
-				
-			}
-			classes.setClassImagesFileName1(classImagesFileName.get(0));
-			classes.setClassImagesFileName2(classImagesFileName.get(1));
-			classes.setClassImagesFileName3(classImagesFileName.get(2));
-			classes.setClassImagesFileName4(classImagesFileName.get(3));
-			classes.setClassImagesFileName5(classImagesFileName.get(4));	
+    @GetMapping("/updateclass")
+    public String updateclass(@RequestParam ("classNum")int classNum, Model model,HttpServletRequest request,Member member,Teacher teacher) {
+       HttpSession sessionId=request.getSession();   
+       member= (Member)sessionId.getAttribute("member");
+         teacher= teacherService.teacherId(member.getMemberId());
+       System.out.println("updateclass도착:"+classNum);
+       Classes getById=ClassesService.getById(classNum);
+       model.addAttribute("classes",getById);
+       model.addAttribute("teacher",teacher);
+       model.addAttribute("member",member);
+//       뷰페이지에  <form:form modelAttribute="classes" 와 매핑
+       return "classupdateform";
+    }
+    @PostMapping("/updateclass")
+    public String updateclass2(@ModelAttribute("classes")  Classes classes,Model model,HttpServletRequest request){
+       System.out.println("update2도착");
+       System.out.println("classname"+classes.getClassName());
+       System.out.println("classnum"+classes.getClassNum());
+       List<MultipartFile> classImages = new ArrayList<MultipartFile>();
+        List<String> classImagesFileName = new ArrayList<String>();
+        String save = request.getSession().getServletContext().getRealPath("/resources/images");
+        //이미지 경로 =SAVE
+        System.out.println("이미지경로:"+save);      
+        classImages.add(classes.getClassImages1());
+        classImages.add(classes.getClassImages2());
+        classImages.add(classes.getClassImages3());
+        classImages.add(classes.getClassImages4());
+        classImages.add(classes.getClassImages5());
+        
+        for(int i=0; i<classImages.size(); i++)
+        {
+           MultipartFile file = classImages.get(i);
+           String saveName = file.getOriginalFilename();         
+           classImagesFileName.add(saveName);         
+           System.out.println("post에서 받아온 saveName 파일이름 : "+saveName);
+           
+           File saveFile= new File(save, saveName);
+           
+            if(file !=null && !file.isEmpty()) {
+                   try {
+                       file.transferTo(saveFile);
+                       // 여기에 각 이미지 이름을 store 객체에 설정하는 로직을 추가합니다.
+                       switch(i) {
+                           case 0: classes.setClassImagesFileName1(saveName); break;
+                           case 1: classes.setClassImagesFileName2(saveName); break;
+                           case 2: classes.setClassImagesFileName3(saveName); break;
+                           case 3: classes.setClassImagesFileName4(saveName); break;
+                           case 4: classes.setClassImagesFileName5(saveName); break;
+                       }
+                   } catch (Exception e) {
+                       throw new RuntimeException("이미지 업로드가 실패했습니다.", e);
+                   }
+               }
+           
+        }
+        classes.setClassImagesFileName1(classImagesFileName.get(0));
+        classes.setClassImagesFileName2(classImagesFileName.get(1));
+        classes.setClassImagesFileName3(classImagesFileName.get(2));
+        classes.setClassImagesFileName4(classImagesFileName.get(3));
+        classes.setClassImagesFileName5(classImagesFileName.get(4));   
 
-		  ClassesService.setUpdateClasses(classes);
-		 
-		  return "redirect:/teacher";
-	  }
+       ClassesService.setUpdateClasses(classes);
+      
+       return "redirect:/teacher";
+    }
 
 	//삭제하기
 	  @GetMapping("/deleteclass")
@@ -260,10 +259,8 @@ public class ClassController {
 		  model.addAttribute("classes",classesall);
 		  model.addAttribute("member", member);
 		  model.addAttribute("teacher", teacher);
-<<<<<<< HEAD
 		  model.addAttribute("adminImages", images);
-=======
->>>>>>> origin/PMS
+
 		  System.out.println("classlist도착 member는:"+member.getMemberId());
 		  System.out.println("classes:"+classesall);
 		  return "classlist";

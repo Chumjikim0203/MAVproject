@@ -21,10 +21,9 @@ import com.springmvc.domain.MatchRoom;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Room;
 import com.springmvc.domain.RoomWithCoordinate;
-<<<<<<< HEAD
-=======
+
 import com.springmvc.domain.Store;
->>>>>>> origin/PMS
+
 import com.springmvc.service.ClubService;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
@@ -44,11 +43,9 @@ public class MatchController {
 
 	// 상세보기
 	@GetMapping("/roomsDetail")
-<<<<<<< HEAD
+
 	public String detailmyRooms(@RequestParam int roomNum, Model model,RoomWithCoordinate roomWithCoordinate,HttpServletRequest request) {
-=======
-	public String detailmyRooms(@RequestParam int roomNum, Model model,RoomWithCoordinate roomWithCoordinate,HttpServletRequest request,String storeId) {
->>>>>>> origin/PMS
+
 
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
@@ -67,12 +64,7 @@ public class MatchController {
 		
 
 		Room detailroom = storeService.getByroomNumAllRooms(roomNum);
-<<<<<<< HEAD
-=======
 
-		Store store=storeService.getStoreById(storeId);
-		model.addAttribute("store",store);
->>>>>>> origin/PMS
 		model.addAttribute("detailroom", detailroom);
 		return "detailRoom";
 	}
@@ -99,11 +91,8 @@ public class MatchController {
 	// create 매칭신청
 	// 매칭룸에서 신청
 	@GetMapping("/matchingDetail")
-<<<<<<< HEAD
 	public String detailmatchingForm(@RequestParam("roomNum") int roomNum, Model model,RoomWithCoordinate roomWithCoordinate, HttpServletRequest request) {
-=======
-	public String detailmatchingForm(@RequestParam("roomNum") int roomNum, Model model,RoomWithCoordinate roomWithCoordinate, HttpServletRequest request,String storeId) {
->>>>>>> origin/PMS
+
 
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
@@ -129,13 +118,7 @@ public class MatchController {
 		// 룸정보를 가지고감
 		Room room = storeService.getByroomNumAllRooms(roomNum);
 		model.addAttribute("room", room);
-<<<<<<< HEAD
 
-=======
-		// 스토어 객체한개
-		Store store=storeService.getStoreById(storeId);
-		model.addAttribute("store",store);
->>>>>>> origin/PMS
 		return "matchingRoom";
 	}
 
@@ -198,21 +181,11 @@ public class MatchController {
 	// 매칭뷰
 	@GetMapping("/matchingView")
 	public String matchingView(Model model, MatchRoom matchRoom) {
-<<<<<<< HEAD
-	
-		
-		List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
-		
-		model.addAttribute("matchView", matchView);
-		return "/matchingView";
-	}
-	
-=======
 
 		List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
+		
 		model.addAttribute("matchView", matchView);
 		return "/matchingView";
 	}
-	
->>>>>>> origin/PMS
+
 }
