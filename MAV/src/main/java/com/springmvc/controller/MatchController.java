@@ -173,10 +173,8 @@ public class MatchController {
 	// read
 	// 매칭뷰
 	@GetMapping("/matchingView")
-	public String matchingView(Model model, MatchRoom matchRoom,String storeId) {
-		
-		
-		String storeId = matchRoom.getStoreId(storeId);
+	public String matchingView(Model model, MatchRoom matchRoom) {
+	
 		
 		List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
 		

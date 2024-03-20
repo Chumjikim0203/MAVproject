@@ -21,41 +21,14 @@ import com.springmvc.domain.MatchRoom;
 import com.springmvc.domain.Member;
 import com.springmvc.domain.Room;
 import com.springmvc.domain.Store;
-<<<<<<< HEAD
 
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
 
-=======
-import com.springmvc.service.MatchService;
-import com.springmvc.service.StoreService;
->>>>>>> origin/KTY
 
 @Controller
 @RequestMapping("/store")
 public class StoreController {
-<<<<<<< HEAD
-   
-	   
-    @Autowired
-    private StoreService storeService;
-    
-   @Autowired
-   private MatchService matchService;
-   
-  
-   
-   
-   //해당 업체가 만든 모든 경기장룸/토너먼트/매칭룸을 가지고 스토어로감
-    @GetMapping
-    public String readStoreMypage(HttpServletRequest request,Model model) {
-       
-             
-      HttpSession session = request.getSession(); 
-      Member member = (Member)session.getAttribute("member"); 
-      Store store = (Store) session.getAttribute("store");
-=======
->>>>>>> origin/KTY
 
 	@Autowired
 	private StoreService storeService;

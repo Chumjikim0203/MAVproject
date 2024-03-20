@@ -19,44 +19,6 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
 	rel="stylesheet">
 <style>
-<<<<<<< HEAD
-* {
-	font-family: 'Noto Sans KR', sans-serif;
-}
-
-.main-container {
-	width: 80%;
-	margin: 0 auto;
-}
-
-.innershadow:hover {
-	color: red;
-}
-
-.innershadow2:hover {
-	color: rgb(14, 14, 192);
-}
-</style>
-</head>
-<body>
-	<jsp:include page="./section/nav.jsp" />
-	<div class="main-container">
-		<div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
-			<div class="col-md-6 px-0">
-				<h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
-				<p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
-				<p class="lead mb-0">
-					<a href="#" class="text-white fw-bold">참여하기</a>
-				</p>
-			</div>
-		</div>
-		<!-- 매칭룸 -->
-		<div class="my-3 p-3 bg-body rounded shadow">
-			<h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">날짜마다</h6>
-			<c:forEach items="${matchView}" var="matchView">
-				<c:if test="${matchView.matched == 1}">
-
-=======
 
 	* {
 		font-family: 'Noto Sans KR', sans-serif;
@@ -102,8 +64,6 @@
 			<h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">MatchRoom</h6>
 			<c:forEach items="${matchView}" var="matchView">
 				<c:if test="${matchView.matched == 1}">
-
->>>>>>> origin/KTY
 					<div class="d-flex text-body-secondary pt-3">
 						<img style="border-radius: 4px; border: 0.5px solid lightgray;"
 							src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_PkKzsY07RqP-frp2roB5BKgqJpedPttcdFfhHwg.JPEG.renoma4339%2F20231023%25A3%25DF220440.jpg"
@@ -114,11 +74,7 @@
 										<b>${matchView.matchTitle}</b>
 									</h5></strong> <a
 									href="<c:url value='/match/matchingDetail'/>?roomNum=${matchView.roomNum}"
-<<<<<<< HEAD
-									class="btn btn-danger">매칭 신청하기</a>
-=======
 									class="room-application-btn4">매칭 신청하기</a>
->>>>>>> origin/KTY
 							</div>
 							<b> <span class="d-block">${matchView.roomDate}</span> <span
 								class="d-block">${matchView.roomTime}</span>

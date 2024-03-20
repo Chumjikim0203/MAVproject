@@ -17,14 +17,11 @@
         }
         /* MAV 글자 색상 변경 */
         .navbar-brand {
-<<<<<<< HEAD
-            color: #28BEA2;
+
             font-weight: bold;
             padding : 0 !important;       
-=======
             color: #3A4CA8;
             font-weight: bold;         
->>>>>>> origin/KTY
         }
         .nav-item:hover
         {
@@ -86,19 +83,11 @@
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			                      매칭
 			                    </a>
-<<<<<<< HEAD
 			                   <ul class="dropdown-menu">
 	                               <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 	                               <li><hr class="dropdown-divider"></li>
 	                               <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>                               
 	                             </ul>
-=======
-			                    <ul class="dropdown-menu">
-			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
-			                    </ul>
->>>>>>> origin/KTY
 			                  </li>
 			                  <li class="nav-item dropdown">
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -153,19 +142,11 @@
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			                      매칭
 			                    </a>
-<<<<<<< HEAD
 			                    <ul class="dropdown-menu">
 	                               <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 	                               <li><hr class="dropdown-divider"></li>
 	                               <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>                               
 	                             </ul>
-=======
-				               <ul class="dropdown-menu">
-			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
-			                    </ul>
->>>>>>> origin/KTY
 			                  </li>
 			                  <li class="nav-item dropdown">
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -217,19 +198,12 @@
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			                      매칭
 			                    </a>
-<<<<<<< HEAD
 			                   <ul class="dropdown-menu">
 	                               <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 	                               <li><hr class="dropdown-divider"></li>
 	                               <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>                               
 	                             </ul>
-=======
-			                    <ul class="dropdown-menu">
-			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
-			                    </ul>
->>>>>>> origin/KTY
+
 			                  </li>
 			                  <li class="nav-item dropdown">
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -278,20 +252,13 @@
 					                      매칭
 					                    </a>
 					                    <ul class="dropdown-menu">
-<<<<<<< HEAD
-			                               <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
+			                           <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 			                               <li><hr class="dropdown-divider"></li>
 			                               <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>                               
 			                             </ul>			                    
 					                  </li>	
 					                  <li class="nav-item">
 					                     <a class="nav-link active" aria-disabled="true" href="/MAV/notice/list">공지사항 목록</a>
-=======
-					                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
-					                      <li><hr class="dropdown-divider"></li>
-					                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
-					                    </ul>
->>>>>>> origin/KTY
 					                  </li>
 					                  <li class="nav-item">
 					                   	<a class="nav-link active" aria-disabled="true" href="/MAV/admin/adminpage">관리자 페이지</a>
@@ -333,17 +300,10 @@
 					                      매칭
 					                    </a>
 					                    <ul class="dropdown-menu">
-<<<<<<< HEAD
 			                               <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 			                               <li><hr class="dropdown-divider"></li>
 			                               <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>                               
 			                             </ul>
-=======
-					                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
-					                      <li><hr class="dropdown-divider"></li>
-					                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
-					                    </ul>
->>>>>>> origin/KTY
 					                  </li>
 					                  <li class="nav-item dropdown">
 					                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -387,17 +347,10 @@
 			                      매칭
 			                    </a>
 			                    <ul class="dropdown-menu">
-<<<<<<< HEAD
 	                               <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 	                               <li><hr class="dropdown-divider"></li>
 	                               <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>                               
 	                             </ul>
-=======
-			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
-			                    </ul>
->>>>>>> origin/KTY
 			                  </li>
 			                  <li class="nav-item">
 			                    <a class="nav-link active" aria-disabled="true" href="/MAV/login">로그인</a>
