@@ -19,26 +19,20 @@ import com.springmvc.domain.Room;
 import com.springmvc.domain.Store;
 import com.springmvc.service.MatchService;
 import com.springmvc.service.StoreService;
-import com.springmvc.service.TournamentService;
 
 @Controller
 @RequestMapping("/room")
 public class RoomController 
-{	
-	
+{		
     @Autowired
     private StoreService storeService;
     
 	@Autowired
 	private MatchService matchService;
-	
-	@Autowired
-	private TournamentService tournamentService;
-	
+		
     //방만들기 폼 보여주기
     @GetMapping("/addrooms")
     public String createStoreRoomForm(@ModelAttribute("newrooms") Room room, Model model) {
-
 
         Room newRoom = new Room();
        
@@ -111,14 +105,12 @@ public class RoomController
     
     //수정 값 db랑 연결하는 로직
     @PostMapping("/roomsChange")
-    public String changeRooms(@ModelAttribute("updateRooms")Room updateRoom) {
-    	
-    	storeService.updateRoom(updateRoom);
-    	
-    	return "redirect:/store";
+    public String changeRooms(@ModelAttribute("updateRooms")Room updateRoom,@RequestParam("storeId") String storeId) {
+       
+       storeService.updateRoom(updateRoom);       
+       return "redirect:/store?storeId="+storeId;
     }
-    
-    
+
 	/** 뿌리는 로직 **/ 
 
 	    
@@ -127,20 +119,16 @@ public class RoomController
     public String roomMainView(Model model, Room room, HttpServletRequest request) {
         
     	// 세션에서 memberId 가져오기
-		
-		 HttpSession session = request.getSession(); 
-		 Member member = (Member)session.getAttribute("member"); 
-		
-		 System.out.println("member 정보: " + member.getMemberId());
+
 		
 		
 		// 입력한 방 모두의 정보를 가지고오는 로직
-		String memberId = member.getMemberId();
+
 
         // 입력한 방 모두의 정보를 가지고오는 로직
         List<Room> myRooms = storeService.getAllRooms(room);
 
-        model.addAttribute("memberId", memberId);
+
         model.addAttribute("myRooms", myRooms);
         return "roomView";
     }

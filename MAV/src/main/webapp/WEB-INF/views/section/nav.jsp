@@ -17,13 +17,13 @@
         }
         /* MAV 글자 색상 변경 */
         .navbar-brand {
-            color: #28BEA2;
+            color: #3A4CA8;
             font-weight: bold;         
         }
         .nav-item:hover
         {
         	text-decoration: underline;
-        	color: #28BEA2;
+        	color: #3A4CA8;
         }
         /* 검색 버튼 텍스트 색상 변경 */
         .btn-outline-success {
@@ -81,11 +81,9 @@
 			                      매칭
 			                    </a>
 			                    <ul class="dropdown-menu">
-			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
 			                    </ul>
 			                  </li>
 			                  <li class="nav-item dropdown">
@@ -138,12 +136,10 @@
 			                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			                      매칭
 			                    </a>
-			                    <ul class="dropdown-menu">
-			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+				               <ul class="dropdown-menu">
+			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
 			                    </ul>
 			                  </li>
 			                  <li class="nav-item dropdown">
@@ -194,11 +190,9 @@
 			                      매칭
 			                    </a>
 			                    <ul class="dropdown-menu">
-			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
 			                    </ul>
 			                  </li>
 			                  <li class="nav-item dropdown">
@@ -248,11 +242,9 @@
 					                      매칭
 					                    </a>
 					                    <ul class="dropdown-menu">
-					                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+					                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 					                      <li><hr class="dropdown-divider"></li>
-					                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-					                      <li><hr class="dropdown-divider"></li>
-					                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+					                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
 					                    </ul>
 					                  </li>
 					                  <li class="nav-item dropdown">
@@ -303,11 +295,9 @@
 					                      매칭
 					                    </a>
 					                    <ul class="dropdown-menu">
-					                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+					                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 					                      <li><hr class="dropdown-divider"></li>
-					                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-					                      <li><hr class="dropdown-divider"></li>
-					                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+					                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
 					                    </ul>
 					                  </li>
 					                  <li class="nav-item dropdown">
@@ -349,11 +339,9 @@
 			                      매칭
 			                    </a>
 			                    <ul class="dropdown-menu">
-			                      <li><a class="dropdown-item" href="#">일반매칭</a></li>
+			                      <li><a class="dropdown-item" href="/MAV/room/roomView">경기장</a></li>
 			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">토너먼트</a></li>
-			                      <li><hr class="dropdown-divider"></li>
-			                      <li><a class="dropdown-item" href="#">기타매칭</a></li>
+			                      <li><a class="dropdown-item" href="/MAV/match/matchingView">매칭신청하기</a></li>			                      
 			                    </ul>
 			                  </li>
 			                  <li class="nav-item">

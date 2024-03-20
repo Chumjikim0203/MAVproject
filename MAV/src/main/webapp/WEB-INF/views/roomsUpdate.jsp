@@ -129,11 +129,12 @@
 	                </div>
 	
 	                <!-- 세부사항 입력 -->
-	                <div class="mb-3">
-	                    <label for="roomDetail">세부사항을 입력해주세요.<span class="text-muted">&nbsp;(필수 아님)</span></label>
-						<textarea class="form-control" id="roomDetail" name="roomDetail" rows="10" style="height: 50vh">${updateRooms.roomDetail}</textarea>
-	                </div>
-	
+<!-- 세부사항 입력 -->
+                   <div class="mb-3">
+                       <label for="roomDetail">세부사항을 입력해주세요.<span class="text-muted">&nbsp;(필수 아님)</span></label>
+                  <textarea class="form-control" id="roomDetail" name="roomDetail" rows="10" style="height: 50vh">${updateRooms.roomDetail}</textarea>
+                   </div>
+               		<input type="hidden" name="storeId" value="${store.storeId}"/>	
 	                <!-- 수정하기 버튼 -->
 	                <div class="mb-4">
 	                    <input type="submit" value="수정하기" class="btn btn-primary">

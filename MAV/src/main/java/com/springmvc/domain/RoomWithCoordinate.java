@@ -29,8 +29,4 @@ public class RoomWithCoordinate {
 	
 	
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9bc076e281d1bb3dc124f6f1a057270ed06c7423
