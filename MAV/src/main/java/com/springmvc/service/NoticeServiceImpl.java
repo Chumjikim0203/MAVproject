@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springmvc.domain.Notice;
-import com.springmvc.domain.Page;
 import com.springmvc.repository.NoticeRepository;
 
 @Service

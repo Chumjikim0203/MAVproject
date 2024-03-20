@@ -73,9 +73,9 @@ public class StoreRepositoryImpl implements StoreRepository {
 		s[0] = x;
 		s[1] = y;
 		return s;
-
 	}
-
+	
+	
 	// 스토어 아이디에 맞는 룸 가지고 오기
 	@Override
 	public List<Room> getRoomsByStoreId(String storeId) {
@@ -160,7 +160,12 @@ public class StoreRepositoryImpl implements StoreRepository {
 	   public void CreateStore(Store store) {
 
 	      String[] xy = getxy(store);
+<<<<<<< HEAD
 	      System.out.println(xy[0] + " xy[0]");	     
+=======
+	      System.out.println(xy[0] + " xy[0]");
+	      store.setStoreApprove(true);
+>>>>>>> origin/KTY
 	      String SQL = "INSERT INTO Store "
 	            + "(storeId,"
 	            + "storeName,"

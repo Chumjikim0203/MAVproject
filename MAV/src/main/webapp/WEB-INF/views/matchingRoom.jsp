@@ -265,7 +265,11 @@
 													<p>동호회명 : ${matching.creatorId}
 													<p>동호회 점수 : ${clubInfos.clubPoint} point
 													<p>
+<<<<<<< HEAD
 														동호회 정보 : ${clubInfos.clubInfo} <a href="#">상세정보</a>
+=======
+														동호회 정보 : ${clubInfos.clubInfo} 
+>>>>>>> origin/KTY
 														<form:form modelAttribute="matching"
 															action="${pageContext.request.contextPath}/match/matchingApply"
 															method="post"

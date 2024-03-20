@@ -39,6 +39,19 @@
    line-height: 1em;
    display: none
 }
+<<<<<<< HEAD
+=======
+
+.room-application-btn4 {
+   padding: 0.5rem 1rem;
+   background-color: #3A4CA8;
+   color: white;
+   border-radius: 0.25rem;
+   text-decoration: none;
+   border: none;
+}
+
+>>>>>>> origin/KTY
 </style>
 </head>
 <body>
@@ -142,7 +155,11 @@
                      <div class="invalid-feedback">주소를 입력해주세요.</div>
                      <hr class="mb-4">
                      <div class="mb-4"></div>
+<<<<<<< HEAD
                      <input class="btn btn-primary btn-lg btn-block" type="submit"
+=======
+                     <input class="room-application-btn4 btn-lg btn-block" type="submit"
+>>>>>>> origin/KTY
                         onclick="combineAddr(event)" value="가입 완료" />
                   </fieldset>
                </form:form>

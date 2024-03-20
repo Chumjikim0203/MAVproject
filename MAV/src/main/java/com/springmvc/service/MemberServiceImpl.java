@@ -48,5 +48,11 @@ public class MemberServiceImpl implements MemberService
 	public void updateMember(Member member) 
 	{
 		memberRepository.updateMember(member);
+	}
+
+
+	@Override
+	public int countMemberById(String memberId) {
+		return memberRepository.countMemberById(memberId);
 	}	
 }

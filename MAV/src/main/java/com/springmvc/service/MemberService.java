@@ -11,4 +11,7 @@ public interface MemberService
 	Member getById(String memberId);
 	Member getLogin(String memberId, String memberPassword);
 	void updateMember(Member member);
+	int countMemberById(String memberId);
 }
+
+

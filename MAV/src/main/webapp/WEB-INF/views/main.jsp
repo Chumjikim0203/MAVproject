@@ -21,7 +21,10 @@
 <style>
 * {
 	font-family: 'Noto Sans KR', sans-serif;
+<<<<<<< HEAD
 	text-decoration : none !important;
+=======
+>>>>>>> origin/KTY
 }
 
 .main-container {
@@ -87,6 +90,7 @@ hr {
    text-decoration: none;
    border: none;
 }
+<<<<<<< HEAD
   .main {
         display: flex;
     }
@@ -274,6 +278,8 @@ hr {
         color: white;
         width: 80px;
     }
+=======
+>>>>>>> origin/KTY
 </style>
 </head>
 <body>
@@ -283,6 +289,7 @@ hr {
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img
+<<<<<<< HEAD
 						src="<c:url value="/resources/images/${adminImages.mainslideImageName1}"/>"
 						class="d-block w-100" alt="첫 번째 슬라이드" style="width : 100%; height : 900px;">
 				</div>
@@ -295,6 +302,20 @@ hr {
 					<img
 						src="<c:url value="/resources/images/${adminImages.mainslideImageName2}"/>"
 						class="d-block w-100" alt="세 번째 슬라이드" style="width : 100%; height : 900px;">
+=======
+						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/918325cf-fc65-4f3a-8d61-89495fc985d2/image.png"
+						class="d-block w-100" alt="첫 번째 슬라이드">
+				</div>
+				<div class="carousel-item">
+					<img
+						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/7cc7ad0c-9886-4bc2-b5f3-ea1c1e6bf5b0/image.png"
+						class="d-block w-100" alt="두 번째 슬라이드">
+				</div>
+				<div class="carousel-item">
+					<img
+						src="https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/0f48ad69-e539-4c6d-8e60-40b9ad120b03/image.png"
+						class="d-block w-100" alt="세 번째 슬라이드">
+>>>>>>> origin/KTY
 				</div>
 			</div>
 			<!-- 이전/다음 화살표 -->
@@ -306,6 +327,7 @@ hr {
 				aria-hidden="true"></span> <span class="sr-only"></span>
 			</a>
 		</div>
+<<<<<<< HEAD
 		 <div class="main col-12">
 				    <div class="col-12">
 				        <div class="room-title"><h2>신규 동호회</h2></div>
@@ -333,6 +355,17 @@ hr {
 				        </div>
 				    </div>
 				</div>
+=======
+		<div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+			<div class="col-md-6 px-0">
+				<h1 class="display-4 fst-italic">3월 oo컵 시작</h1>
+				<p class="lead my-3">어쩌구 저쩌구 샬러샬러</p>
+				<p class="lead mb-0">
+					<a href="#" class="text-white fw-bold">참여하기</a>
+				</p>
+			</div>
+		</div>
+>>>>>>> origin/KTY
 		<!-- 매칭룸 -->
 		<div class="list-container col-12">
 			<div class="my-3 p-3 bg-body rounded shadow"
@@ -410,11 +443,19 @@ hr {
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 <jsp:include page="./section/footer.jsp" />
 	<script>
 		// datepicker 요소 가져오기
 		var datepicker = document.getElementById('datepicker');
 
+=======
+
+	<script>
+		// datepicker 요소 가져오기
+		var datepicker = document.getElementById('datepicker');
+
+>>>>>>> origin/KTY
 		// datepicker 값 변경 시 이벤트 처리
 		datepicker.addEventListener('change', function() {
 			var selectedDate = datepicker.value;
