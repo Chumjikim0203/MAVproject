@@ -16,6 +16,10 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
+        body
+        {
+        	background-color: rgb(243,243,243);
+        }
         .main-container
         {
            width:80%;

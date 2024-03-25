@@ -62,8 +62,9 @@
                   <fieldset>
                      <div class="row">
                         <!-- 유효성검사-->
+                        <div class="col-md-6 mb-3">
                         <label for="memberId">아이디</label>
-                        <div class="col-md-6 mb-3 d-flex">
+                        <div class="d-flex">
                            <div class="col-md-8">
                               <form:input id="memberId" path="memberId" class="form-control" />
                            </div>
@@ -71,6 +72,7 @@
                               <input type="button" id="checkDuplicate" value="중복확인"
                                  class="form-control btn btn-outline-primary">
                            </div>
+                        </div>
                         </div>
                         <div class="invalid-feedback">아이디를 입력해주세요.</div>
 

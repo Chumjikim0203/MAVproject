@@ -178,7 +178,7 @@
                         <div class="room-info">
                             <c:choose>
                                 <c:when test="${classes.classApprove eq false}">
-                                    <span class="room-title">강사 아이디 : ${classes.teacherId}</span>
+                                    <span class="room-title">강사 아이디 : ${classes.classId}</span>
                                     <span class="room-date">강의명 : ${classes.className}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                     <span class="room-application">
                                         <a href="<c:url value='/Class/detailclass'/>?classNum=${classes.classNum}" class="room-application-link room-application-btn">강의 상세정보</a>
