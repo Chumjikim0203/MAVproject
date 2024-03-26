@@ -33,6 +33,7 @@ import com.springmvc.service.TeacherService;
 @RequestMapping("/admin")
 public class adminController 
 {
+
 	@Autowired
 	private TeacherService teacherService;
 	@Autowired
@@ -216,4 +217,5 @@ public class adminController
 		session.setAttribute("adminImages", adminImages);
 		return "redirect:/admin/adminpage";
 	}
+
 }

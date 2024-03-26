@@ -25,6 +25,14 @@
      width: 80%;
      margin: 0 auto;
     }
+    .room-application-btn4 {
+   padding: 0.5rem 1rem;
+   background-color: #3A4CA8;
+   color: white;
+   border-radius: 0.25rem;
+   text-decoration: none;
+   border: none;
+}
   </style>
 </head>
 
@@ -46,7 +54,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="classLecturedate">강의날짜</label>
-                    <form:hidden class="form-control" path="teacherId" value="${teacher.teacherId}"/>
+                    <form:hidden class="form-control" path="classId" value="${member.memberId}"/>
         
                     <form:input type="date" class="form-control" path="classLecturedate" min="<%= LocalDate.now() %>"  />
 					<div class="invalid-feedback">
@@ -142,7 +150,7 @@
                         </div>
                        <hr class="mb-4">
                        <div class="mb-4"></div>   
-                       <input class="btn btn-primary btn-lg btn-block" type="submit" onclick="combineAddr()"  value="가입 완료"/>            
+                       <input class="btn btn-primary btn-lg btn-block room-application-btn4" type="submit" onclick="combineAddr()"  value="가입 완료"/>            
 
                </form:form>
                

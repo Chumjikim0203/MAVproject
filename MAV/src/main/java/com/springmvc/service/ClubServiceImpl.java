@@ -135,4 +135,11 @@ public class ClubServiceImpl implements ClubService
 		return count;
 	}
 
+	@Override
+	public void memberUpdate2(ClubMember clubmember) 
+	{
+		clubRepository.memberUpdate2(clubmember);
+	}
+
+	
 }

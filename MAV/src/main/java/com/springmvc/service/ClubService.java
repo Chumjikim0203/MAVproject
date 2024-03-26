@@ -33,4 +33,5 @@ public interface ClubService
 
 	// 클럽 인원수 확인용
 	int clubMemberCount(String clubName);
+	void memberUpdate2(ClubMember clubmember);
 }

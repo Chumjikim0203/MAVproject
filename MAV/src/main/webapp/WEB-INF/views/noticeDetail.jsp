@@ -169,11 +169,13 @@
 		</table>
 		<div class="row">
 			<div class="col-md-9 row "></div>
-			<a href="./deleteNotice?noticeNum=${detailNotice.noticeNum}"
-				class="col-md-1 text-center btn btn-outline-primary">삭제</a> <a
-				href="./updateForm?noticeNum=${detailNotice.noticeNum}"
-				class="col-md-1 text-center btn btn-outline-primary">수정</a> <a
-				href="./list" class="col-md-1 text-center btn btn-outline-primary">전체보기</a>
+			<c:choose>
+				<c:when test="${member.adminApprove eq true}">
+					<a href="./deleteNotice?noticeNum=${detailNotice.noticeNum}" class="col-md-1 text-center btn btn-outline-primary">삭제</a> 
+					<a href="./updateForm?noticeNum=${detailNotice.noticeNum}" class="col-md-1 text-center btn btn-outline-primary">수정</a>
+				</c:when>
+			</c:choose> 
+				<a href="./list" class="col-md-1 text-center btn btn-outline-primary">전체보기</a>
 		</div>
 	</div>
 	</body>

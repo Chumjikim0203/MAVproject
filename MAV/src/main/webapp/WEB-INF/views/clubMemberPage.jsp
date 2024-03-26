@@ -19,7 +19,7 @@
         }
         .main-container
         {
-        	width : 80%;
+        	width : 100%;
         	margin : 0 auto;
         }
 
@@ -175,14 +175,23 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="./section/nav.jsp"/>
 	<div class="main-container">
-		<h3>멤버 아이디 : ${member.memberId}</h3>
-		<h3>멤버 이름 : ${member.memberName}</h3>
-		<h3>멤버 생년월일 : ${member.memberBirth}</h3>
-		<h3>멤버 주소 : ${member.memberAddr}</h3>
-		<h3>멤버 성별 : ${member.memberGender}</h3>
-		<h3>멤버 이메일 : ${member.memberEmail}</h3>
+		<div class="card list" style="width: 100%; background-color : rgb(153, 162, 209);">
+			<div class="room-title mt-3">동호회원 정보</div>
+			<div class="card-1 mb-3">
+				<div class="room-info d-flex" style="flex-wrap : wrap; flex-direction : column;">
+					<span class="room-title">동호회원 이름 : ${member.memberName}</span>
+					<hr> 
+					<span class="room-date">동호회원 주소 : ${member.memberAddr}</span>
+					<hr>
+					<span class="room-date">동호회원 전화번호 : ${member.memberPhone01}-${member.memberPhone02}-${member.memberPhone03}</span>
+					<hr>
+					<span class="room-date">동호회원 이메일 : ${member.memberEmail}</span>
+					<hr>
+					<span class="room-date">동호회원 생년월일 : ${member.memberBirth}</span>
+				</div>
+			</div>				
+		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" />
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

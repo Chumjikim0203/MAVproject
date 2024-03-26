@@ -29,6 +29,15 @@
           
           color: rgb(14, 14, 192);
         }
+        
+        .room-application-btn4 {
+		   padding: 0.5rem 1rem;
+		   background-color: #3A4CA8;
+		   color: white;
+		   border-radius: 0.25rem;
+		   text-decoration: none;
+		   border: none;
+		}
     </style>
   </head>
   <body>
@@ -43,7 +52,7 @@
 	  </div>  
        <!-- 경기장 -->
       <div class="my-3 p-3 bg-body rounded shadow">
-        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">날짜 / 종목</h6>
+        <h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">Field</h6>
 		<c:forEach items="${myRooms}" var="room"> 
 		    <c:if test="${room.matched == 0}">
 		        <div class="d-flex text-body-secondary pt-3">
@@ -52,7 +61,7 @@
 		            <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 		                <div class="d-flex justify-content-between">
 		                    <strong class="text-gray-dark" ><h5><b>${room.roomName}</b></h5></strong>
-		                    <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}" class="btn btn-primary">방만들기</a>   
+		                    <a href="<c:url value='/match/roomsDetail'/>?roomNum=${room.roomNum}" class="room-application-btn4">방만들기</a>   
 		                </div>
 		                <b>
 		                <span class="d-block">${room.roomDate}</span>

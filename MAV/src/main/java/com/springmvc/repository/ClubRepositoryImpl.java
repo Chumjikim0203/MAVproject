@@ -255,5 +255,22 @@ public class ClubRepositoryImpl implements ClubRepository
 		 return count;
 	}
 
+	@Override
+	public void memberUpdate2(ClubMember clubmember) 
+	{
+		clubmember.setClubApprove(true);
+		clubmember.setClubGrade("동호회장");
+		String SQL = "update clubmember set clubGrade=?, clubApprove=? where c_memberId=? and clubName=?";
+		
+		System.out.println("1. "+clubmember.getC_memberId());
+		System.out.println("2. "+clubmember.getClubName());
+		
+		
+		template.update(SQL, clubmember.getClubGrade(), clubmember.isClubApprove(),
+						clubmember.getC_memberId(), clubmember.getClubName());
+		
+	}
+
+	
 	
 }

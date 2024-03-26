@@ -53,7 +53,7 @@
 					 	<div class="row">
 	                      	<div class="col-md-6 mb-3">
 	                       		<label for="memberId">아이디</label>
-	                         	<form:input path="memberId" class="form-control" value="${member.memberId}" />                          
+	                         	<form:input path="memberId" class="form-control" value="${member.memberId}" readonly="true" />                          
 	                       	</div>
                             <div class="invalid-feedback">
                                 아이디를 입력해주세요.
@@ -146,8 +146,10 @@
 					</div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>    
+    <script
+      src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
 		  function combineAddr() {
 		       var addr = document.getElementById('sample6_address').value; // 주소

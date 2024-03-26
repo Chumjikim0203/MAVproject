@@ -1,6 +1,8 @@
 package com.springmvc.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -22,12 +24,24 @@ public class AdminImagesRepositoryImpl implements AdminImageRepository
 	}
 
 	@Override
-	public adminImages getAllImages() 
-	{
-		String SQL = "select * from adminImages";
-		adminImages images = (adminImages) template.queryForObject(SQL, new AdminImagesRowMapper());
-		return images;
+	public adminImages getAllImages() {
+	    try 
+	    {
+	        String SQL = "select * from adminImages";
+	        adminImages images = (adminImages) template.queryForObject(SQL, new AdminImagesRowMapper());
+	        return images;
+	    }
+	    catch (EmptyResultDataAccessException e) 	    
+	    {
+	        return null;	        
+	    } 
+	    catch (DataAccessException e) 
+	    {	   
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
+
 
 	@Override
 	public void updateImages(adminImages images) 

@@ -79,7 +79,7 @@
 	    <div class="input-form-backgroud row">
 	        <div class="input-form col-md-12 mx-auto">
 	            <h4 class="mb-3">업체 수정</h4>
-	            <form:form modelAttribute="store" class="validation-form" method="post"  onsubmit="return validateForm()">
+	            <form:form modelAttribute="store" class="validation-form" method="post"  onsubmit="return validateForm()" enctype="multipart/form-data">
 	                
 	                <!-- CSRF 토큰 추가 -->
 	                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -137,6 +137,29 @@
 	                    <label for="storeInfomation">세부사항을 입력해주세요.<span class="text-muted">&nbsp;(필수 아님)</span></label>
 						<textarea class="form-control" id="storeInfomation" name="storeInfomation" rows="10" style="height: 50vh">${store.storeInfomation}</textarea>
 	                </div>
+	               <!-- 이미지 관련  --> 
+	                <div class="row">
+		                <div class="col-md-6 mb-3">
+				            <label for="storeImage1" class="form-label">대표사진</label>
+				            <form:input class="form-control" type="file" path="storeImage1"/>
+				        </div>
+				        <div class="col-md-6 mb-3">
+				            <label for="storeImage2" class="form-label">업체사진</label>
+				           <form:input class="form-control" type="file" path="storeImage2"/>
+				        </div>
+				        <div  class="col-md-6 mb-3">
+				            <label for="storeImage3" class="form-label">업체사진</label>
+				           <form:input class="form-control" type="file" path="storeImage3"/>
+				        </div>
+				        <div  class="col-md-6 mb-3">
+				            <label for="storeImage4" class="form-label">업체사진</label>
+				            <form:input class="form-control" type="file" path="storeImage4"/>
+				        </div>
+				         <div  class="col-md-6 mb-3">
+				            <label for="storeImage5" class="form-label">업체사진</label>
+				            <form:input class="form-control" type="file" path="storeImage5"/>
+				        </div>
+			        </div>
 	                <!-- 업체공지사항 -->
 	                <div class="mb-3">
 	                    <label for="storeNotice">공지사항을 입력해주세요.<span class="text-muted">&nbsp;(필수 아님)</span></label>

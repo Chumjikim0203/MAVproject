@@ -164,7 +164,6 @@ public class Store
    }
    public void setLongitude(Double longitude) {
       this.longitude = longitude;
-   }
-    
+   }   
     
 }

@@ -182,8 +182,7 @@ a:hover {
 			<div class="col-3">
 				<div class="card" style="width: 100%;">
 					<h5 class="card-title mt-2"
-						style="text-align: center; font-size: 1.5rem;">${club.clubName}</h5>
-					<img src="." class="card-img-top img1" alt="...">
+						style="text-align: center; font-size: 1.5rem;">${club.clubName}</h5>					
 					<div class="card-body card-content">
 							<div  style="margin:0 auto; width: 50%;">
 								<p class="card-text" style="text-align: left; font-size: 1rem;">동호회
@@ -205,13 +204,13 @@ a:hover {
 									가입신청</a>
 							</c:when>
 							<c:when test="${member.memberId eq club.clubMaster}">
-								<a href="/MAV/club/leaveclub"
-									class="room-application-btn4 mb-1 col-9">클럽 탈퇴하기</a>
 								<a href="/MAV/club/clubsetting?clubName=${club.clubName}"
 									class="room-application-btn4 mb-1 col-9">클럽 관리</a>
+								<a href="/MAV/club/leaveclub"
+									class="room-application-btn4 mb-1 col-9">클럽 탈퇴하기</a>
 							</c:when>
 							<c:otherwise>
-								<a href="/MAV/club/leaveclub" class="room-application-btn4">클럽
+								<a href="/MAV/club/leaveclub" class="room-application-btn4 col-9">클럽
 									탈퇴하기</a>
 							</c:otherwise>
 						</c:choose>

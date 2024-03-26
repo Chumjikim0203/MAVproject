@@ -318,7 +318,6 @@ a:hover {
                         </div></li>
                     <li class="list-group-item"><a href="#" id="MatchRoomManagementButton">매칭룸관리</a></li>
                     <li class="list-group-item"><a href="#" id="ResultManagementButton">결과관리</a></li>
-                    <li class="list-group-item"><a href="#" id="TournamentButton">토너먼트관리</a>
                         <div id="createTournamentDropdown" style="display: none;">
                             <a href="./tournament/addtournament" class=""><span>
                                     - 토너먼트 만들기</span></a>

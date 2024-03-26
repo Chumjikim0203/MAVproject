@@ -22,7 +22,5 @@ public interface StoreService {
    void setApproveStore(String storeId);
    List<Store> getAllStore();
 
-
-   
 }
 //List<Room> getAllRoomsByStoreId(String storeId);

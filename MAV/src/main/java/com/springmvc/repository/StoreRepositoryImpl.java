@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -73,9 +75,9 @@ public class StoreRepositoryImpl implements StoreRepository {
 		s[0] = x;
 		s[1] = y;
 		return s;
-
 	}
-
+	
+	
 	// 스토어 아이디에 맞는 룸 가지고 오기
 	@Override
 	public List<Room> getRoomsByStoreId(String storeId) {
@@ -161,6 +163,7 @@ public class StoreRepositoryImpl implements StoreRepository {
 
 	      String[] xy = getxy(store);
 	      System.out.println(xy[0] + " xy[0]");	     
+
 	      String SQL = "INSERT INTO Store "
 	            + "(storeId,"
 	            + "storeName,"
@@ -243,7 +246,6 @@ public class StoreRepositoryImpl implements StoreRepository {
 
 	   }
 
-
 	@Override
 	public Store DeleteStore(String storeId) {
 		String SQL = "DELETE FROM STORE WHERE storeId=?";
@@ -265,13 +267,13 @@ public class StoreRepositoryImpl implements StoreRepository {
 	@Override
 	public void setApproveStore(String storeId) 
 	{
-		String SQL = "update store set storeApporve =true where storeId = ?";
+		String SQL = "update store set storeApprove =true where storeId = ?";
 		jdbcTemplate.update(SQL, storeId);
 		
 	}
 
 	@Override
-	public List<Store> getAllStore() 
+	public List<Store> getAllStore()
 	{
 		List<Store> storelist = new ArrayList<Store>();
 		
@@ -281,8 +283,4 @@ public class StoreRepositoryImpl implements StoreRepository {
 		return storelist;
 	}
 
-	
-
-	
-	
 }

@@ -19,22 +19,32 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
 	rel="stylesheet">
 <style>
-* {
-	font-family: 'Noto Sans KR', sans-serif;
-}
 
-.main-container {
-	width: 80%;
-	margin: 0 auto;
-}
+	* {
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	.main-container {
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	.innershadow:hover {
+		color: red;
+	}
+	
+	.innershadow2:hover {
+		color: rgb(14, 14, 192);
+	}
+	.room-application-btn4 {
+	   padding: 0.5rem 1rem;
+	   background-color: #3A4CA8;
+	   color: white;
+	   border-radius: 0.25rem;
+	   text-decoration: none;
+	   border: none;
+	}
 
-.innershadow:hover {
-	color: red;
-}
-
-.innershadow2:hover {
-	color: rgb(14, 14, 192);
-}
 </style>
 </head>
 <body>
@@ -51,10 +61,9 @@
 		</div>
 		<!-- 매칭룸 -->
 		<div class="my-3 p-3 bg-body rounded shadow">
-			<h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">날짜마다</h6>
+			<h6 class="border-bottom pb-2 mb-0 fw-bold innershadow">MatchRoom</h6>
 			<c:forEach items="${matchView}" var="matchView">
 				<c:if test="${matchView.matched == 1}">
-
 					<div class="d-flex text-body-secondary pt-3">
 						<img style="border-radius: 4px; border: 0.5px solid lightgray;"
 							src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMzFfMjk5%2FMDAxNjk4NzI2ODMzODM1.IwC69pz2-KkLOuYdY_bfKkY_kwPodTHsYabwstlFRJgg.HVut_PkKzsY07RqP-frp2roB5BKgqJpedPttcdFfhHwg.JPEG.renoma4339%2F20231023%25A3%25DF220440.jpg"
@@ -65,7 +74,7 @@
 										<b>${matchView.matchTitle}</b>
 									</h5></strong> <a
 									href="<c:url value='/match/matchingDetail'/>?roomNum=${matchView.roomNum}"
-									class="btn btn-danger">매칭 신청하기</a>
+									class="room-application-btn4">매칭 신청하기</a>
 							</div>
 							<b> <span class="d-block">${matchView.roomDate}</span> <span
 								class="d-block">${matchView.roomTime}</span>

@@ -321,8 +321,17 @@ public class ClubController
 		System.out.println("등업 처리하려는 동호회원 아이디 : "+clubMember.getC_memberId());
 		System.out.println("등업 처리하려는 동호회 이름 : "+clubMember.getClubName());
 		clubService.memberUpdate(clubMember);
-		return "redirect:/member/mypage";
-		
+		return "redirect:/member/mypage";		
+	}
+	@GetMapping("/memberupdate2")
+	public String memberUpdate2(@RequestParam("c_memberId") String c_memberId, @RequestParam("clubName") String clubName,Model model)
+	{
+		System.out.println("동호회원 수정페이지 도착");
+		ClubMember clubMember = clubService.serchingC_member(c_memberId,clubName);
+		System.out.println("등업 처리하려는 동호회원 아이디 : "+clubMember.getC_memberId());
+		System.out.println("등업 처리하려는 동호회 이름 : "+clubMember.getClubName());
+		clubService.memberUpdate2(clubMember);
+		return "redirect:/member/mypage";		
 	}
 	
 	@GetMapping("/clubsetting")

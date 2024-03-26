@@ -39,10 +39,22 @@ public class MainController {
 	   
 	  // 사진 들고오기
 	   adminImages = adminImagesService.getAllImages();
-	   model.addAttribute("adminImages", adminImages);
+	   
+	    if (adminImages != null) {
+	        model.addAttribute("adminImages", adminImages);
+	    } else {
+	        model.addAttribute("errorMessage", "현재 등록된 이미지가 없습니다.");
+	    }
 	 // 클럽리스트 들고오기
-	  List<Club> club = clubService.getAllClubList();
-	  model.addAttribute("club", club);
+	   List<Club> club = clubService.getAllClubList();
+	  
+	   if (club.isEmpty()) {
+           // 데이터베이스에서 동호회 정보를 가져오지 못한 경우
+           model.addAttribute("errorMessage", "현재 등록된 동호회가 없습니다.");
+       } else {
+           model.addAttribute("club", club);
+       }
+	  
       //매칭룸
        List<MatchRoom> matchView = matchService.findAllMatchRooms(matchRoom);
        model.addAttribute("matchView",matchView);

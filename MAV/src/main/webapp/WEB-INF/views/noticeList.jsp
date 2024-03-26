@@ -141,7 +141,11 @@
             </table>
             <br>
             <div class="text-center">
-                <a href="./writeForm" class="btn btn-primary">글쓰기</a>
+            	<c:choose>
+	            	<c:when test = "${member.adminApprove eq true}">
+	                	<a href="./writeForm" class="btn btn-primary">글쓰기</a>
+	                </c:when>
+                </c:choose>
             </div>
             <br>
 

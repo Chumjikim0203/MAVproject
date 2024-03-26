@@ -16,10 +16,14 @@
         {
             font-family: 'Noto Sans KR', sans-serif;
         }
+        body
+        {
+        	background-color: rgb(243,243,243);
+        }
         .main-container
         {
-        	width:80%;
-        	margin: 0 auto;
+           width:80%;
+           margin: 0 auto;
         }
         .main {
             display: flex;
@@ -158,36 +162,36 @@
     }
     .club-choose
     {
-    	list-style : none;
-    	display : flex;
-    	flex-direction : row;
-    	align-items: center;
-    	justify-content : space-around;
+       list-style : none;
+       display : flex;
+       flex-direction : row;
+       align-items: center;
+       justify-content : space-around;
     }
     .body-btn
     {
-    	text-decoration : none;
-    	border : 1px solid silver;
-    	border-radius : 10px;
-    	color : black;
-    	padding : 10px;
+       text-decoration : none;
+       border : 1px solid silver;
+       border-radius : 10px;
+       color : black;
+       padding : 10px;
     }
-	.clublistimage
-	{
-		height : 450px;
-	}    
-	.clublistimage img 
-	{
-	    max-width: 100%;
-	    max-height: 100%;
-	}
-	.card-container
-	{
-		display: flex;
-		flex-wrap : wrap;
-	}
-	 .default-image 
-	 {
+   .clublistimage
+   {
+      height : 450px;
+   }    
+   .clublistimage img 
+   {
+       max-width: 100%;
+       max-height: 100%;
+   }
+   .card-container
+   {
+      display: flex;
+      flex-wrap : wrap;
+   }
+    .default-image 
+    {
         background-image: url("/resources/images/MAVlogo.png");
         /* 기본 이미지의 크기와 스타일을 조절할 수 있습니다. */
         max-width: 100%;
@@ -195,8 +199,8 @@
     }
     .card-1 img
     {
-    	height: 180px;
-    	width: 230px;
+       height: 180px;
+       width: 230px;
         margin-bottom : 15px;
         margin-top : 10px;
         
@@ -217,7 +221,7 @@
     	border-radius : 5px;
     	color : white;
     	width : 80px;
-    	
+
     }
     </style>
 </head>
@@ -250,10 +254,10 @@
                       <li><hr class="dropdown-divider"></li>
                       <li><button class="dropdown-item" href="#" onclick="filterLocale('제주')">제주</button></li>
                     </ul>
-	            </li>
-	            <li class="dropdown">
+               </li>
+               <li class="dropdown">
                     <a class="dropdown-toggle body-btn category" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     	<span id="selectedCategory">종목별</span>
+                        <span id="selectedCategory">종목별</span>
                     </a>
                     <ul class="dropdown-menu">
                       <li><button class="dropdown-item" href="#" onclick="filterCategory('전체')">전체</button></li>

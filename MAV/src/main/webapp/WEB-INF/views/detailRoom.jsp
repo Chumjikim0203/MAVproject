@@ -7,11 +7,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>상세 페이지</title>
-
-
 
 <script src="https://kit.fontawesome.com/1a6288a620.js"
 	crossorigin="anonymous"></script>

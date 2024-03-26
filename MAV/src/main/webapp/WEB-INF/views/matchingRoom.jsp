@@ -18,7 +18,6 @@
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 	crossorigin="anonymous">
 
-
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
 	rel="stylesheet">
@@ -46,6 +45,7 @@
 	border-radius: 10px;
 	background-color: white;
 }
+
 
 .detail-row {
 	display: flex;
@@ -136,6 +136,7 @@
    text-decoration: none;
    border: none;
 }
+
 </style>
 </head>
 <body>
@@ -264,8 +265,8 @@
 												방제 : ${matching.matchTitle}<b>
 													<p>동호회명 : ${matching.creatorId}
 													<p>동호회 점수 : ${clubInfos.clubPoint} point
-													<p>
-														동호회 정보 : ${clubInfos.clubInfo} <a href="#">상세정보</a>
+													<p>동호회 정보 : ${clubInfos.clubInfo} <a href="#">상세정보</a>
+
 														<form:form modelAttribute="matching"
 															action="${pageContext.request.contextPath}/match/matchingApply"
 															method="post"
@@ -300,6 +301,7 @@
 			</div>
 		</div>
 	</div>
+
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=617d72b728b3e792de22e82c5fd893fb"></script>
 </body>

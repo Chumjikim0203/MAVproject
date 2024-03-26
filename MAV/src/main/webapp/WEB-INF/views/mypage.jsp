@@ -195,13 +195,12 @@ a:hover {
 	<jsp:include page="./section/nav.jsp" />
 	<div class="main-container">
 		<div class="user-info col-4">
-			<div class="card" style="width: 100%;">
-				<img src="." class="card-img-top img1" alt="...">
+			<div class="card" style="width: 100%;  background-color: rgb(153, 162, 209);">							
 				<h5 class="card-title"
-					style="text-align: center; font-size: 1.5rem;">${member.memberName}</h5>
+					style="text-align: center; font-size: 1.5rem; margin-top : 5px;">${member.memberName}</h5>
 				<div class="card-body">
 					<p class="card-text" style="text-align: center; font-size: 1rem;">${member.memberEmail}</p>
-				</div>
+				</div>				
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item"><a
 						href="<c:url value='/member/update/member'/>?memberId=${member.memberId}">개인정보수정</a>

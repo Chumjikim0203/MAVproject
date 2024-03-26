@@ -84,7 +84,6 @@
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">경기장 등록</h4>
-
 				<form:form modelAttribute="newrooms" class="validation-form"
 					method="post"
 					action="${pageContext.request.contextPath}/room/addrooms"
@@ -229,6 +228,7 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+
 </body>
 
 </html>

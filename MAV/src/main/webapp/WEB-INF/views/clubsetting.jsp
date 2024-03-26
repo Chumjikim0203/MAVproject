@@ -11,6 +11,7 @@
 <style>
 * {
 	font-family: 'Noto Sans KR', sans-serif;
+	list-style : none;
 }
 
 .main-container {
@@ -57,10 +58,6 @@
 	color: #212529;
 }
 
-.list-group-item:hover {
-	background-color: #f8f9fa;
-}
-
 .card-link {
 	color: #007bff;
 	text-decoration: none;
@@ -79,7 +76,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 0.5rem;
+	padding: 1rem;
 	margin-bottom: 1.5rem;
 	border: 1px solid #dee2e6;
 	border-radius: 0.25rem;
@@ -103,14 +100,13 @@ a:hover {
 }
 
 .room-title {
-	font-size: 1.2rem;
-	margin-bottom: 1rem;
+	font-size: 1.2rem;	
 	color: #343a40;
 }
 
-.room-application-btn {
+.room-application-btn4 {
 	padding: 0.5rem 1rem;
-	background-color: #007bff;
+	background-color: #3A4CA8;
 	color: white;
 	border-radius: 0.25rem;
 	text-decoration: none;
@@ -136,31 +132,31 @@ a:hover {
 	transition: 0.3s;
 }
 
-.tab button:hover {
-	
-}
-
-.tab button.active {
-	
-}
-
 .tabcontent {
 	display: none;
+}
+.room-application
+{
+	display : flex !important;
+	justify-content : space-between;
 }
 
 .main-body {
 	display: flex;
 	justify-content: space-around;
 }
-
-.room-application-btn4 {
+.room-application-btn43 {
 	padding: 0.5rem 1rem;
 	margin: 0 auto;
 	background-color: #3A4CA8;
 	color: white;
 	border-radius: 0.25rem;
 	text-decoration: none;
-	border: none;
+}
+
+li:hover
+{
+	display: block !important;
 }
 </style>
 <script>
@@ -192,9 +188,7 @@ a:hover {
 			<div class="col-3" style="text-align: center">
 				<div class="card" style="width: 100%;">
 						<h5 class="card-title mt-2"
-							style="text-align: center; font-size: 1.5rem;">${club.clubName}</h5>
-					
-					<img src="." class="card-img-top img1" alt="...">
+							style="text-align: center; font-size: 1.5rem;">${club.clubName}</h5>					
 					<div class="card-body">
 						<div style="margin: 0 auto; width: 50%;">
 							<p class="card-text" style="text-align: left; font-size: 1rem;">동호회
@@ -213,9 +207,9 @@ a:hover {
 						<c:choose>
 							<c:when test="${member.memberId eq club.clubMaster}">
 								<a href="/MAV/club/update"
-									class="room-application-btn4 mb-2 col-9">클럽 수정하기</a>
+									class="room-application-btn43 mb-2 col-9">클럽 수정하기</a>
 								<a href="/MAV/club/delete"
-									class="room-application-btn4 mb-2 col-9" id="deleteClub">클럽
+									class="room-application-btn43 mb-2 col-9" id="deleteClub">클럽
 									삭제하기</a>
 							</c:when>
 						</c:choose>
@@ -223,7 +217,7 @@ a:hover {
 							<c:choose>
 								<c:when test="${member.memberId eq memberList.c_memberId}">
 									<a href="/MAV/club/leaveclub"
-										class="room-application-btn4 mb-2 col-9">클럽 탈퇴하기</a>
+										class="room-application-btn43 mb-2 col-9">클럽 탈퇴하기</a>
 								</c:when>
 							</c:choose>
 						</c:forEach>
@@ -231,7 +225,7 @@ a:hover {
 				</div>
 			</div>
 			<div class="col-8">
-				<div class="room-title">동호회원 리스트</div>
+				<div class="room-title mb-3">동호회원 리스트</div>
 				<c:forEach items="${memberList}" var="memberList">
 					<c:choose>
 						<c:when
@@ -239,15 +233,25 @@ a:hover {
 							<div class="card-1 mb-3">
 								<div class="room-info">
 									<span class="room-title">동호회원 아이디 :
-										${memberList.c_memberId}</span> <span class="room-application">
-										<a
-										href="<c:url value='/club/memberDetails'/>?memberId=${memberList.c_memberId}"
-										class="room-application-btn4">동호회원 정보보기</a> <a
-										href="<c:url value='/club/memberupdate'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}"
-										class="room-application-btn4">동호회원 등급조정</a> <a
-										href="<c:url value='/club/ejection'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}"
-										class="room-application-btn4">동호회원 강퇴하기</a>
-									</span>
+										${memberList.c_memberId}</span>										
+										<span class="room-application"><a href="<c:url value='/club/memberDetails'/>?memberId=${memberList.c_memberId}"
+										class="room-application-btn4">동호회원 정보보기</a> 
+										<li class="dropdown room-application-btn43 room-application" style="margin-left : 5px;">
+						                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						                      동호회원 등급조정
+						                    </a>
+						                    <ul class="dropdown-menu">
+						                      <li><a class="dropdown-item" 
+						                      		href="<c:url value='/club/memberupdate2'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}">동호회장</a></li>
+						                      <li><hr class="dropdown-divider"></li>
+						                      <li><a class="dropdown-item" 
+						                      		href="<c:url value='/club/memberupdate'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}">정회원</a></li>
+						                    </ul> 
+					                    </li>
+					                    <a href="<c:url value='/club/ejection'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}" 
+					                    	class="room-application-btn43" 
+					                    	style="margin-left : 5px;">동호회원 강퇴하기</a>
+									</span>									
 								</div>
 							</div>
 						</c:when>
@@ -255,7 +259,7 @@ a:hover {
 				</c:forEach>
 				<hr>
 				<div class="col-12">
-					<div class="room-title">가입대기자 리스트</div>
+					<div class="room-title mb-3">가입대기자 리스트</div>
 					<c:forEach items="${memberList}" var="memberList">
 						<c:choose>
 							<c:when
@@ -266,11 +270,11 @@ a:hover {
 											${memberList.c_memberId}</span> <span class="room-application">
 											<a
 											href="<c:url value='/club/memberDetails'/>?memberId=${memberList.c_memberId}"
-											class="btn btn-primary">동호회원 정보보기</a> <a
+											class="room-application-btn4" style="margin-left : 5px;">동호회원 정보보기</a> <a
 											href="<c:url value='/club/memberupdate'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}"
-											class="btn btn-success">동호회원 가입승인</a> <a
+											class="room-application-btn43" style="margin-left : 5px;">동호회원 가입승인</a> <a
 											href="<c:url value='/club/ejection'/>?c_memberId=${memberList.c_memberId}&clubName=${memberList.clubName}"
-											class="btn btn-danger">동호회원 가입거부</a>
+											class="room-application-btn43" style="margin-left : 5px;">동호회원 가입거부</a>
 										</span>
 									</div>
 								</div>
@@ -281,5 +285,15 @@ a:hover {
 			</div>
 		</div>
 	</div>
+	<script>
+	    document.querySelectorAll('.room-application-btn4').forEach(item => {
+	        item.addEventListener('click', event => {
+	            const url = item.getAttribute('href');
+	            window.open(url, '_blank', 'width=800,height=375');
+	            event.preventDefault();
+	        });
+	    });
+	</script>
+	
 </body>
 </html>

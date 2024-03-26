@@ -122,6 +122,14 @@ public class MemberRepositoryImpl implements MemberRepository
 		String SQL = "insert into Store values(storeName=?, storeAddr=?, storeCategory=?,"
 				 							+ "storePhone01=? storePhone02=?, storePhone03=?,storeCode=?);";		
 		template.update(SQL, store.getStoreName());		
+	}
+
+
+
+	@Override
+	public int countMemberById(String memberId) {
+	    String sql = "SELECT COUNT(*) FROM Member WHERE memberId = ?";
+	    return template.queryForObject(sql, Integer.class, memberId);
 	}	
 	
 	

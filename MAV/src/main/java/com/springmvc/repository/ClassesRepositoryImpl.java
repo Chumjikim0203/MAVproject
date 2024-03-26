@@ -31,46 +31,45 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 	
 
 	
-// 값넣기 컬럼명순서
-	@Override
-	public void setNewClasses(Classes classes) {
-	    String SQL= "insert into classes"
-	    		+ "(classId,"
-	    		+ "className,"
-	    		+ "classLectureDate,"
-	    		+ "classLecturetime,"
-	    		+ "classNumberOfStudents,"
-	    		+ "classCourseContents,"
-	    		+ "classGrade,"
-	    		+ "classIntroduction,"
-	    		+ "classImagesFileName1,"
-	    		+ "classImagesFileName2,"
-	    		+ "classImagesFileName3,"
-	    		+ "classImagesFileName4,"
-	    		+ "classImagesFileName5,"
-	    		+ "classLocale,"
-	    		+ "classApprove,"
-	    		+ "teacherId"
-	    		+ ") Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-	    System.out.println("setnewCLASS실행");
-	    template.update(SQL, 
-	    		classes.getteacherId(), 
-	    		classes.getClassName(), 
-	    		classes.getClassLecturedate(), 
-	    		classes.getClassLecturetime(), 
-	    		classes.getClassNumberOfStudents(), 
-	    		classes.getClassCourseContents(), 
-	    		classes.getClassGrade(), 
-	    		classes.getClassIntroduction(), 
-	    		classes.getClassImagesFileName1(),
-	    		classes.getClassImagesFileName2(),
-	    		classes.getClassImagesFileName3(),
-	    		classes.getClassImagesFileName4(),
-	    		classes.getClassImagesFileName5(),
-	    		classes.getClassLocale(), 
-	    		classes.isClassApprove(), 
-	    		classes.getTeacherId());
-	}
+	// 값넣기 컬럼명순서
+	   @Override
+	   public void setNewClasses(Classes classes) {
+	       String SQL= "insert into classes"
+	             + "(classId,"
+	             + "className,"
+	             + "classLectureDate,"
+	             + "classLecturetime,"
+	             + "classNumberOfStudents,"
+	             + "classCourseContents,"
+	             + "classGrade,"
+	             + "classIntroduction,"
+	             + "classImagesFileName1,"
+	             + "classImagesFileName2,"
+	             + "classImagesFileName3,"
+	             + "classImagesFileName4,"
+	             + "classImagesFileName5,"
+	             + "classLocale,"
+	             + "classApprove"
+	             + ") Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	       System.out.println("setnewCLASS실행");
+	       template.update(SQL, 
+	             classes.getClassId(), 
+	             classes.getClassName(), 
+	             classes.getClassLecturedate(), 
+	             classes.getClassLecturetime(), 
+	             classes.getClassNumberOfStudents(), 
+	             classes.getClassCourseContents(), 
+	             classes.getClassGrade(), 
+	             classes.getClassIntroduction(), 
+	             classes.getClassImagesFileName1(),
+	             classes.getClassImagesFileName2(),
+	             classes.getClassImagesFileName3(),
+	             classes.getClassImagesFileName4(),
+	             classes.getClassImagesFileName5(),
+	             classes.getClassLocale(), 
+	             classes.isClassApprove());
+
+	   }
 
 
 //class번호로조회
@@ -119,8 +118,38 @@ public class ClassesRepositoryImpl implements ClassesRepository{
 	@Override
 	public void setUpdateClasses(Classes classes) {
 			System.out.println("setUpdateclasses1:"+classes.getClassNum());
-			String SQL="UPDATE CLASSES SET teacherId=?,classLectureDate=?,classLecturetime=?,classNumberOfStudents=?,classCourseContents=?,classGrade=?,classIntroduction=?,classLocale=?,className=? where classNum=?";
-			template.update(SQL,classes.getteacherId(),classes.getClassLecturedate(),classes.getClassLecturetime(),classes.getClassNumberOfStudents(),classes.getClassCourseContents(),classes.getClassGrade(),classes.getClassIntroduction(),classes.getClassLocale(),classes.getClassName(),classes.getClassNum());
+			String SQL="UPDATE CLASSES SET "
+					+ "classId=?,"
+					+ "classLectureDate=?,"
+					+ "classLecturetime=?,"
+					+ "classNumberOfStudents=?,"
+					+ "classCourseContents=?,"
+					+ "classGrade=?,"
+					+ "classIntroduction=?,"
+		    		+ "classImagesFileName1=?,"
+		    		+ "classImagesFileName2=?,"
+		    		+ "classImagesFileName3=?,"
+		    		+ "classImagesFileName4=?,"
+		    		+ "classImagesFileName5=?,"
+					+ "classLocale=?,"
+					+ "className=?"
+					+ " where classNum=?";
+			template.update(SQL,
+					classes.getClassId(),
+					classes.getClassLecturedate(),
+					classes.getClassLecturetime(),
+					classes.getClassNumberOfStudents(),
+					classes.getClassCourseContents(),
+					classes.getClassGrade(),
+					classes.getClassIntroduction(),
+		    		classes.getClassImagesFileName1(),
+		    		classes.getClassImagesFileName2(),
+		    		classes.getClassImagesFileName3(),
+		    		classes.getClassImagesFileName4(),
+		    		classes.getClassImagesFileName5(),
+					classes.getClassLocale(),
+					classes.getClassName(),
+					classes.getClassNum());
 			System.out.println("변경시키려는 주소 : " + classes.getClassLocale());
 			template.execute("COMMIT");
 			System.out.println("setUpdateClasses2:"+classes.getClassNum());	
