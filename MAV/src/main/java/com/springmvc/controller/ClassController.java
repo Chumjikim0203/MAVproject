@@ -150,7 +150,7 @@ public class ClassController {
     model.addAttribute("classes",classes); 
     ClassesService.setNewClasses(classes);
    // return "redirect:/teacher";
-    return "redirect:/teacher";
+    return "redirect:/teacher?teacherId="+teacher.getTeacherId();
 
     }
 //	  @GetMapping("/allclass")

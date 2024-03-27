@@ -81,7 +81,7 @@ public class RoomController
         storeService.createRoom(room);
         System.out.println("room : "+ room.getRoomCapacity());    
         model.addAttribute("room",room);
-        return "redirect:/store";
+        return "redirect:/store?storeId="+store.getStoreId();
     }	
     
     // 업체 마이룸에서 방 삭제(아이디별로 하는것 만들어야함)
@@ -89,7 +89,7 @@ public class RoomController
     public String deleteMyRoom(@RequestParam("roomNum") int roomNum) {
     	
         storeService.deleteRoom(roomNum);
-        return "redirect:/store";
+        return "redirect:/";
     }
 
     

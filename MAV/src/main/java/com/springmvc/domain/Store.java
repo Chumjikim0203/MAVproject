@@ -25,8 +25,8 @@ public class Store
    private MultipartFile storeImage3; // 업체 이미지
    private MultipartFile storeImage4; // 업체 이미지
    private MultipartFile storeImage5; // 업체 이미지
-    private Double latitude;
-    private Double longitude;
+   private Double latitude;
+   private Double longitude;
    public String getStoreId() {
       return storeId;
    }
