@@ -34,11 +34,11 @@ public class TeacherController {
 	private TeacherService teacherService;
 	//강사 마이페이지
 	@GetMapping
-	public String teacher(Model model ,Classes classes,Member member,HttpServletRequest request,Teacher teacher) {
+	public String teacher(@RequestParam String teacherId,Model model ,Classes classes,Member member,HttpServletRequest request,Teacher teacher) {
 	
 		HttpSession sessionId=request.getSession();	
 		member= (Member)sessionId.getAttribute("member");
-        teacher= teacherService.teacherId(member.getMemberId());
+        teacher= teacherService.teacherId(teacherId);
 		model.addAttribute("allclass",ClassesService.getAllClassesList());
 //		System.out.println("teachermember:"+member.getMemberId());
 //		System.out.println("addmember:"+member.getMemberEmail());
@@ -139,7 +139,7 @@ public class TeacherController {
 		teacherService.CreateTeacher(teacher);
 		model.addAttribute("teacher",teacher);
 		
-		return "redirect:/teacher";
+		return "redirect:/";
 	}
 	// 강사수정 u
 	@GetMapping("/update/teacher")
